@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0A1422}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:#475569;background:#F4F6F9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px solid #2563EB;outline-offset:2px;border-radius:4px}
+@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.blink{animation:blink 1.6s steps(2,end) infinite}
+@media (prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){.reveal{animation:reveal both;animation-timeline:view();animation-range:entry 0% cover 25%}}}
+.nl{position:relative;padding:8px 10px;border-radius:6px;transition:background .2s,color .2s}
+.nl::after{content:"";position:absolute;left:10px;right:10px;bottom:3px;height:2px;background:#F5A623;transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.6,.05,.25,1)}
+.nl:hover,.nl:focus-visible{background:#FCEFD4;color:#13294B}
+.nl:hover::after,.nl:focus-visible::after{transform:scaleX(1)}
+.nl.active{color:#0D1B2A;font-weight:600}
+.nl.active::after{transform:scaleX(1)}
+@keyframes sprog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.scroll-bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F5A623,#D98A07);transform-origin:0 50%;transform:scaleX(0);z-index:200;pointer-events:none}
+@keyframes h-shrink{to{padding-top:6px;padding-bottom:6px;padding-left:28px;padding-right:28px}}
+@keyframes h-fx{to{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 14px 40px rgba(13,27,42,.10),0 2px 8px rgba(13,27,42,.04);border:1px solid rgba(220,227,236,.55);border-radius:100px;max-width:1140px;margin:0 auto}}
+@keyframes logo-shrink{to{height:28px}}
+@keyframes pill-pulse{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,.4)}50%{box-shadow:0 0 0 6px rgba(245,166,35,0)}}
+.cohort-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;font-weight:600}
+.cohort-tag .dot{display:inline-block;width:6px;height:6px;background:#F5A623;border-radius:50%;animation:pill-pulse 2s ease-out infinite}
+@supports (animation-timeline:scroll()){
+.scroll-bar{animation:sprog linear forwards;animation-timeline:scroll()}
+header[data-screen-label]{animation:h-fx linear forwards;animation-timeline:scroll();animation-range:0 140px}
+header[data-screen-label] > div:first-of-type{animation:h-shrink linear forwards;animation-timeline:scroll();animation-range:0 140px}
+header[data-screen-label] a img{animation:logo-shrink linear forwards;animation-timeline:scroll();animation-range:0 140px}
+}
+.btn{transition:transform .18s,box-shadow .18s,background .18s,color .18s,border-color .18s}
+.bp:hover{background:#1C3A6B!important;transform:translateY(-2px);box-shadow:0 6px 18px rgba(13,27,42,.18)}
+.bs:hover{background:#D98A07!important;transform:translateY(-2px)}
+.bg:hover{border-color:#13294B!important;color:#13294B!important;background:#FFFFFF!important}
+.diag-link .diag-arr{transition:transform .3s cubic-bezier(.6,.05,.25,1)}
+.diag-link:hover .diag-arr{transform:translate(3px,-3px)}
+.c-link{position:relative;transition:color .25s ease;padding-bottom:6px}
+.c-link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .35s cubic-bezier(.6,.05,.25,1)}
+.c-link:hover::after,.c-link:focus-visible::after{width:100%}
+.c-link .arr{display:inline-block;transition:transform .3s cubic-bezier(.6,.05,.25,1)}
+.c-link:hover .arr{transform:translateX(6px)}
+.eye{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;display:inline-flex;align-items:center;gap:8px}
+.eye::before{content:"";display:inline-block;width:6px;height:6px;background:#F5A623}
+h2.tit{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(2rem,1.6rem + 2vw,3rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:14px 0 16px}
+.deck{font-size:clamp(1rem,.95rem + .25vw,1.1rem);line-height:1.6;color:#475569;margin:0;max-width:680px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.pcard{transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(13,27,42,.10);border-color:#F5A623}
+.pcard .tick{opacity:0;transition:opacity .22s;position:absolute;top:0;left:0;width:0;height:0;border-top:14px solid #F5A623;border-right:14px solid transparent}
+.pcard:hover .tick{opacity:1}
+.tl-dot{position:relative}
+.tl-dot::before{content:"";position:absolute;left:-39px;top:6px;width:12px;height:12px;background:#F4F6F9;border:2px solid #F5A623;border-radius:50%}
+.tl-dot.cur::before{background:#F5A623;box-shadow:0 0 0 5px rgba(245,166,35,.22)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk-track{display:flex;gap:0;animation:ticker 38s linear infinite;width:max-content}
+.tk:hover .tk-track{animation-play-state:paused}
+.team-card{transition:transform .22s,box-shadow .22s}
+.team-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(13,27,42,.10)}
+.team-card:hover .avatar-rings{transform:rotate(60deg)}
+.avatar-rings{transition:transform .6s ease}
+.val-card{transition:transform .22s,background .22s,border-color .22s}
+.val-card:hover{transform:translateY(-3px);background:#FFFFFF;border-color:#F5A623}
+.val-card:hover .val-num{color:#F5A623}
+.val-num{transition:color .22s}
+@media(max-width:980px){.desk{display:none!important}.mob{display:flex!important}.g2{grid-template-columns:1fr!important}.g3{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.hero{grid-template-columns:1fr!important}}
+@media(min-width:981px){.mob{display:none!important}}
+
+/* ============ MOBILE NAV (CSS-only hamburger via inline onclick) ============ */
+.hamb{display:none;width:42px;height:42px;border:1px solid #DCE3EC;background:#FFFFFF;border-radius:10px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background .2s,border-color .2s;flex:none}
+.hamb:hover{background:#FCEFD4;border-color:#F5A623}
+.hamb:focus-visible{outline:3px solid #2563EB;outline-offset:2px}
+.hamb span{display:block;width:18px;height:2px;background:#0D1B2A;border-radius:2px;transition:transform .25s,opacity .2s}
+header[data-open] .hamb span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header[data-open] .hamb span:nth-child(2){opacity:0}
+header[data-open] .hamb span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@keyframes slidedown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mob-nav{display:none}
+/* ============ TABLET / SMALL DESKTOP (≤ 980px) ============ */
+@media(max-width:980px){
+  .desk{display:none!important}
+  .hamb{display:flex!important}
+  .mob-nav{display:flex;flex-direction:column;gap:4px;padding:0 20px;background:#FFFFFF;border-top:1px solid transparent;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .42s cubic-bezier(.65,0,.35,1),opacity .28s ease,padding .42s cubic-bezier(.65,0,.35,1),visibility 0s linear .42s,border-color .2s ease}
+  header[data-open] .mob-nav{max-height:520px;opacity:1;visibility:visible;padding:14px 20px 22px;border-top-color:#DCE3EC;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease .05s,padding .42s cubic-bezier(.22,1,.36,1),visibility 0s linear,border-color .2s ease}
+  .mob-nav .mn{transform:translateY(-12px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s ease,background .2s,color .2s}
+  header[data-open] .mob-nav .mn{transform:none;opacity:1}
+  header[data-open] .mob-nav .mn:nth-child(1){transition-delay:.08s}
+  header[data-open] .mob-nav .mn:nth-child(2){transition-delay:.13s}
+  header[data-open] .mob-nav .mn:nth-child(3){transition-delay:.18s}
+  header[data-open] .mob-nav .mn:nth-child(4){transition-delay:.23s}
+  header[data-open] .mob-nav .mn:nth-child(5){transition-delay:.28s}
+  header[data-open] .mob-nav .mn:nth-child(6){transition-delay:.33s}
+  .mob-nav .mn{font-family:'IBM Plex Sans',sans-serif;font-size:16px;color:#0D1B2A;font-weight:500;padding:14px 18px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,color .2s}
+  .mob-nav .mn:hover,.mob-nav .mn.active{background:#FCEFD4;color:#D98A07;font-weight:600}
+  .mob-nav .mn::after{content:"\2192";opacity:.35;font-family:'IBM Plex Mono',monospace}
+  .mob-nav .mn-cta{margin-top:10px;background:#F5A623;color:#0D1B2A!important;font-weight:700;padding:16px;border-radius:999px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;justify-content:center}
+  .mob-nav .mn-cta::after{content:none}
+  /* Section padding tightening */
+  section[data-screen-label]{padding-left:20px!important;padding-right:20px!important}
+  footer{padding-left:20px!important;padding-right:20px!important}
+  /* Multi-column grids -> 1 col */
+  .hero,.split,.apply-grid,.form-grid{grid-template-columns:1fr!important}
+  .g5{grid-template-columns:repeat(2,1fr)!important}
+  /* Phase / step rows: stack vertically */
+  .phase-row,.step-row{grid-template-columns:1fr!important;gap:18px!important;padding:24px!important}
+  .phase-row .phase-num,.step-row .step-num{font-size:2.6rem!important}
+  /* Logo tiles tighter */
+  .logo-tile{width:160px!important;height:80px!important;padding:14px!important}
+  /* Typography */
+  h1{font-size:clamp(2.2rem,1.6rem + 4vw,3.6rem)!important;line-height:1!important}
+  h2.tit{font-size:clamp(1.6rem,1.3rem + 2.2vw,2.4rem)!important}
+  /* Footer */
+  footer .g4{grid-template-columns:repeat(2,1fr)!important;gap:28px!important}
+  /* Snap carousel padding */
+  .snap-x{padding-left:20px!important;padding-right:20px!important}
+  /* Sticky positions on small screens */
+  [style*="sticky"][style*="120px"],[style*="sticky"][style*="140px"],[style*="sticky"][style*="80px"]{position:static!important}
+  /* Hide WhatsApp float in favour of the menu CTA when there's already one */
+}
+/* ============ PHONES (≤ 640px) ============ */
+@media(max-width:640px){
+  .g3,.g4,.g5{grid-template-columns:1fr!important}
+  footer .g4{grid-template-columns:1fr!important;gap:24px!important}
+  /* Even tighter paddings */
+  section[data-screen-label]{padding-top:48px!important;padding-bottom:48px!important;padding-left:16px!important;padding-right:16px!important}
+  footer{padding:40px 16px 20px!important}
+  h1{font-size:clamp(2rem,1.4rem + 4vw,3rem)!important}
+  h2.tit{font-size:clamp(1.4rem,1.2rem + 2vw,2rem)!important;line-height:1.15!important}
+  .deck{font-size:.98rem!important;line-height:1.55!important}
+  /* Buttons full-width on smallest screens */
+  .btn{width:100%;justify-content:center}
+  /* Inline CTA rows stack */
+  /* Logo tiles even tighter */
+  .logo-tile{width:140px!important;height:72px!important}
+  /* Header padding */
+  header > div:first-of-type{padding:10px 16px!important}
+  header img{height:36px!important}
+  /* WhatsApp float */
+  [aria-label="Chat with BBT on WhatsApp"]{width:48px!important;height:48px!important;bottom:16px!important;right:16px!important}
+  [aria-label="Chat with BBT on WhatsApp"] svg{width:24px!important;height:24px!important}
+  /* Form labels and inputs */
+  .fld,input,select,textarea{font-size:16px!important} /* prevents iOS zoom */
+  /* Phase number scaling */
+  .phase-row .phase-num,.step-row .step-num{font-size:2.2rem!important}
+  /* Hide some heavy ambient SVGs to keep things light */
+}
+
+/* ============ PHONE SAFETY OVERRIDES ============ */
+@media(max-width:980px){
+  /* clamp inline h1/h2 that override our .tit rule */
+  section h1{font-size:clamp(2rem,1.4rem + 4vw,3.2rem)!important;line-height:1.05!important;letter-spacing:-.02em!important;overflow-wrap:break-word;word-break:break-word}
+  section h2{font-size:clamp(1.55rem,1.2rem + 2.6vw,2.4rem)!important;line-height:1.1!important;letter-spacing:-.015em!important;overflow-wrap:break-word;word-break:break-word}
+  section h3{font-size:clamp(1.05rem,.95rem + 1vw,1.4rem)!important;line-height:1.2!important;overflow-wrap:break-word}
+  /* sticky left columns become normal flow */
+  [style*="sticky"][style*="120px"],[style*="sticky"][style*="140px"],[style*="sticky"][style*="80px"]{position:static!important}
+  /* form labels & inputs - kill 2-col grids inside forms */
+  form [style*="grid-template-columns:1fr 1fr"],form [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+  /* prevent horizontal scroll */
+  html,body{overflow-x:hidden}
+  /* containers with display:grid 2-col defined inline */
+  [style*="grid-template-columns:1.1fr"],[style*="grid-template-columns:.9fr"],[style*="grid-template-columns:1.2fr"],[style*="grid-template-columns:1.5fr"],[style*="grid-template-columns:1.6fr"]{grid-template-columns:1fr!important;gap:32px!important}
+}
+@media(max-width:640px){
+  section h1{font-size:clamp(1.8rem,1.3rem + 3.5vw,2.6rem)!important}
+  section h2{font-size:clamp(1.4rem,1.1rem + 2.5vw,2rem)!important}
+  /* form sections - ensure single col */
+  .form-grid,.apply-grid,form > div > div[style*="grid"]{grid-template-columns:1fr!important}
+  /* labels stack neatly */
+  label{min-width:0}
+  input,select,textarea{min-width:0;width:100%}
+}
+
+/* ============ HERO AMBIENT - subtle + dimmed under text (site-wide) ============ */
+section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
+  opacity:.32;
+  -webkit-mask-image:radial-gradient(ellipse 760px 520px at 26% 48%,transparent 0%,transparent 30%,rgba(0,0,0,.35) 58%,black 92%);
+  mask-image:radial-gradient(ellipse 760px 520px at 26% 48%,transparent 0%,transparent 30%,rgba(0,0,0,.35) 58%,black 92%);
+}
+@media(max-width:980px){
+  section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
+    opacity:.22;
+    -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 42%,transparent 0%,transparent 25%,rgba(0,0,0,.4) 55%,black 92%);
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 42%,transparent 0%,transparent 25%,rgba(0,0,0,.4) 55%,black 92%);
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<div style="background:#F4F6F9;min-height:100vh;">
+
+<div class="scroll-bar"></div>
+
+<header data-screen-label="About / Header" style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="home.html" style="display:flex;align-items:center;gap:14px;">
+      <img src="assets/bbt-logo.png" alt="Big Binary Tech" style="height:44px;width:auto;display:block;">
+    </a>
+    <nav class="desk" style="display:flex;gap:26px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
+      <a class="nl" href="home.html">Home</a><a class="nl" href="courses.html">Courses</a><a class="nl" href="curriculum.html">Curriculum</a><a class="nl active" href="#">About</a><a class="nl" href="franchise.html">Franchise</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="enroll.html" class="btn bs desk" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:12px 24px;border-radius:999px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">Enroll Now</a>
+      <button class="hamb" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="var h=this.closest('header');var o=h.toggleAttribute('data-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mob-nav" id="mobNav">
+      <a class="mn" href="home.html">Home</a>
+      <a class="mn" href="courses.html">Courses</a>
+      <a class="mn" href="curriculum.html">Curriculum</a>
+      <a class="mn active" href="about.html">About</a>
+      <a class="mn" href="franchise.html">Franchise</a>
+      <a class="mn mn-cta" href="enroll.html">Enroll Now</a>
+    </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section data-screen-label="About / Hero" style="position:relative;background:linear-gradient(135deg,#F4F6F9 0%,#EEF2F7 55%,#FCEFD4 130%);color:#0D1B2A;overflow:hidden;border-bottom:1px solid #DCE3EC;">
+  <div aria-hidden="true" style="position:absolute;top:-180px;right:-180px;width:720px;height:720px;background:radial-gradient(circle,rgba(245,166,35,.18) 0%,rgba(245,166,35,.05) 45%,transparent 70%);pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:-220px;left:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(19,41,75,.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 800" fill="none">
+    <defs>
+      <pattern id="bgAH" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M32 0H0V32" stroke="#DCE3EC" stroke-width="1" opacity=".55"></path>
+        <circle cx="0" cy="0" r="1.2" fill="#DCE3EC" opacity=".55"></circle>
+      </pattern>
+      <path id="ahFlow1" d="M-20 220 L320 220 L320 380 L900 380 L900 580 L1420 580"></path>
+      <path id="ahFlow2" d="M-20 680 L260 680 L260 460 L720 460 L720 720 L1420 720"></path>
+    </defs>
+    <rect width="1400" height="800" fill="url(#bgAH)"></rect>
+    <use href="#ahFlow1" stroke="#F5A623" stroke-width="2.2" fill="none" opacity=".55"></use>
+    <use href="#ahFlow2" stroke="#F5A623" stroke-width="1.6" fill="none" opacity=".32"></use>
+    <rect x="316" y="216" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="316" y="376" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="896" y="376" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="896" y="576" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="256" y="676" width="8" height="8" fill="#F5A623"></rect>
+    <rect width="14" height="14" fill="#F5A623" rx="2"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#ahFlow1"></mpath></animateMotion></rect>
+    <rect width="10" height="10" fill="#F5A623" rx="2"><animateMotion dur="9s" begin="-3s" repeatCount="indefinite"><mpath href="#ahFlow1"></mpath></animateMotion></rect>
+    <rect width="6" height="6" fill="#F5A623" rx="1"><animateMotion dur="9s" begin="-6s" repeatCount="indefinite"><mpath href="#ahFlow1"></mpath></animateMotion></rect>
+    <rect width="10" height="10" fill="#F5A623" rx="2"><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#ahFlow2"></mpath></animateMotion></rect>
+    <rect width="6" height="6" fill="#F5A623" rx="1"><animateMotion dur="11s" begin="-5s" repeatCount="indefinite"><mpath href="#ahFlow2"></mpath></animateMotion></rect>
+  </svg>
+
+  <div class="hero" style="max-width:1200px;margin:0 auto;padding:clamp(72px,11vh,140px) clamp(20px,5vw,40px) clamp(56px,8vh,80px);display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:center;position:relative;">
+    <div>
+      <div class="mono" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;margin-bottom:28px;padding:7px 14px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);border-radius:6px;">
+        <span class="blink" style="display:inline-block;width:7px;height:7px;background:#F5A623;"></span>// about &middot; our approach
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,2rem + 5vw,6.5rem);line-height:.92;letter-spacing:-.035em;color:#0D1B2A;margin:0 0 24px;">
+        Building<br><span style="color:#D98A07;">industry-ready</span><br>professionals<span style="color:#D98A07;">.</span>
+      </h1>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(1.4rem,1.2rem + 1vw,2rem);line-height:1.2;letter-spacing:-.015em;color:#13294B;margin:0 0 22px;max-width:640px;">
+        From Student to Expert. Through Internee and Shadow.
+      </h2>
+      <p style="font-size:1.1rem;line-height:1.6;color:#475569;margin:0 0 36px;max-width:580px;">A four-stage pipeline connecting education to opportunity - built from one company that ships product, trains engineers, and consults teams adopting AI.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:0;">
+        <a href="#pipeline" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:17px 26px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(13,27,42,.18);">Explore the pipeline<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></a>
+        <a href="#campus" class="btn bg" style="background:#FFFFFF;color:#13294B;font-weight:600;padding:17px 26px;border-radius:8px;font-size:16px;border:1px solid #DCE3EC;box-shadow:0 1px 2px rgba(13,27,42,.04);">Visit the campus</a>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 60px rgba(13,27,42,.10),0 2px 6px rgba(13,27,42,.04);">
+      <div style="background:#F4F6F9;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #DCE3EC;">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F5A623;"></span>
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
+        <span class="mono" style="margin-left:10px;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">bbt.approach</span>
+      </div>
+      <div class="mono" style="padding:22px 18px;font-size:13px;line-height:1.9;color:#0D1B2A;">
+        <div style="color:#8A99A8;">$ bbt --pipeline</div>
+        <div><span style="color:#D98A07;font-weight:600;">[01]</span> trainee.<span style="color:#13294B;">foundation()</span></div>
+        <div><span style="color:#D98A07;font-weight:600;">[02]</span> internee.<span style="color:#13294B;">ship()</span></div>
+        <div><span style="color:#D98A07;font-weight:600;">[03]</span> shadow.<span style="color:#13294B;">embed()</span></div>
+        <div><span style="color:#D98A07;font-weight:600;">[04]</span> expert.<span style="color:#13294B;">practise()</span></div>
+        <div style="margin-top:10px;color:#16794D;font-weight:500;">&#10003; pipeline.complete = true</div>
+        <div style="color:#8A99A8;">$ <span class="blink" style="color:#D98A07;">_</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKET DATA strip -->
+  <div style="border-top:1px solid #DCE3EC;background:rgba(255,255,255,.55);position:relative;">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(36px,5vh,56px) clamp(20px,5vw,40px);position:relative;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:16px;">
+        <span class="eye">// market data &middot; why we exist</span>
+        <span class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;">Sources: industry reports &middot; 2024&ndash;2026</span>
+      </div>
+      <div class="g5" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;background:#FFFFFF;box-shadow:0 1px 2px rgba(13,27,42,.04);">
+        
+          <div style="padding:24px 22px;border-right:1px solid #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:12px;">REF_01</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,1rem + 1.4vw,2.4rem);color:#D98A07;letter-spacing:-.03em;line-height:1;margin-bottom:12px;">10:1</div>
+            <div style="color:#475569;font-size:.85rem;line-height:1.45;">Demand-to-supply gap for AI engineers globally, 2026</div>
+          </div>
+          <div style="padding:24px 22px;border-right:1px solid #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:12px;">REF_02</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,1rem + 1.4vw,2.4rem);color:#D98A07;letter-spacing:-.03em;line-height:1;margin-bottom:12px;">7</div>
+            <div style="color:#475569;font-size:.85rem;line-height:1.45;">Course tracks built around documented market supply gaps</div>
+          </div>
+          <div style="padding:24px 22px;border-right:1px solid #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:12px;">REF_03</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,1rem + 1.4vw,2.4rem);color:#D98A07;letter-spacing:-.03em;line-height:1;margin-bottom:12px;">4</div>
+            <div style="color:#475569;font-size:.85rem;line-height:1.45;">Pipeline stages from enrolment to working professional</div>
+          </div>
+          <div style="padding:24px 22px;border-right:1px solid #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:12px;">REF_04</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,1rem + 1.4vw,2.4rem);color:#D98A07;letter-spacing:-.03em;line-height:1;margin-bottom:12px;">367%</div>
+            <div style="color:#475569;font-size:.85rem;line-height:1.45;">Projected growth in cybersecurity roles internationally by 2030</div>
+          </div>
+          <div style="padding:24px 22px;">
+            <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:12px;">REF_05</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,1rem + 1.4vw,2.4rem);color:#D98A07;letter-spacing:-.03em;line-height:1;margin-bottom:12px;">2</div>
+            <div style="color:#475569;font-size:.85rem;line-height:1.45;">Connected entities - BBT Education and Big Binary Tech Software</div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<section data-screen-label="About / Ticker" style="background:#0D1B2A;color:#fff;padding:18px 0;border-bottom:1px solid #DCE3EC;overflow:hidden;">
+  <div class="tk" style="position:relative;max-width:100%;overflow:hidden;">
+    <div class="tk-track mono" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#DCE3EC;">
+      <span style="display:inline-flex;align-items:center;gap:48px;padding-right:48px;">
+        <span><span style="color:#F5A623;">//</span> Lahore, Pakistan</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> Software house &middot; Institute &middot; Consultancy</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> 3,000+ students trained</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> AI &middot; RAG &middot; Full-stack &middot; Cyber</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> Cohort_07 live</span>
+        <span style="color:#1C3A6B;">/</span>
+      </span>
+      <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:48px;padding-right:48px;">
+        <span><span style="color:#F5A623;">//</span> Lahore, Pakistan</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> Software house &middot; Institute &middot; Consultancy</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> 3,000+ students trained</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> AI &middot; RAG &middot; Full-stack &middot; Cyber</span>
+        <span style="color:#1C3A6B;">/</span>
+        <span><span style="color:#F5A623;">//</span> Cohort_07 live</span>
+        <span style="color:#1C3A6B;">/</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section id="pipeline" data-screen-label="About / Pipeline" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="eye">// the pipeline</span>
+        <h2 class="tit">Four stages of professional growth.</h2>
+      </div>
+      <p class="deck">Real earning. Real advancement. Each stage compounds the last - the work a trainee does in week 4 becomes the project an expert ships in week 24.</p>
+    </div>
+
+    <!-- pipeline visualization: horizontal flow line behind cards -->
+    <div style="position:relative;padding-top:18px;">
+      <svg aria-hidden="true" viewBox="0 0 1200 14" preserveAspectRatio="none" style="position:absolute;top:0;left:0;width:100%;height:14px;pointer-events:none;z-index:1;">
+        <defs><path id="plRail" d="M20 7 L1180 7"></path></defs>
+        <line x1="20" y1="7" x2="1180" y2="7" stroke="#DCE3EC" stroke-width="1.5" stroke-dasharray="4 6"></line>
+        <line x1="20" y1="7" x2="1180" y2="7" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="4 6" opacity=".7"><animate attributeName="stroke-dashoffset" from="0" to="-100" dur="3.5s" repeatCount="indefinite"></animate></line>
+        <rect width="8" height="8" y="-4" fill="#F5A623" rx="1"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#plRail"></mpath></animateMotion></rect>
+        <rect width="6" height="6" y="-3" fill="#F5A623" rx="1"><animateMotion dur="8s" begin="-2.5s" repeatCount="indefinite"><mpath href="#plRail"></mpath></animateMotion></rect>
+        <rect width="4" height="4" y="-2" fill="#F5A623" rx="1"><animateMotion dur="8s" begin="-5.2s" repeatCount="indefinite"><mpath href="#plRail"></mpath></animateMotion></rect>
+      </svg>
+
+      <div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:2;padding-top:24px;">
+        
+        <div class="pl-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:18px;color:#0D1B2A;position:relative;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <span class="pl-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.6rem;color:#F5A623;letter-spacing:-.04em;line-height:.9;transition:transform .35s;display:inline-block;">01</span>
+            <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:700;text-align:right;">WEEKS 1&ndash;6</span>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:10px;font-weight:600;">TRAINEE PHASE</div>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">Build the muscle.</h3>
+            <p style="margin:0;color:#475569;line-height:1.6;font-size:.92rem;">Daily fundamentals, version control, problem-solving cadence, mentor check-ins. The hours that compound later.</p>
+          </div>
+          <div style="padding-top:14px;border-top:1px dashed #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:600;margin-bottom:6px;">Key output</div>
+            <div style="color:#0D1B2A;font-weight:600;font-size:.95rem;">Working dev environment + first portfolio piece</div>
+          </div>
+        </div>
+        
+        <div class="pl-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:18px;color:#0D1B2A;position:relative;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <span class="pl-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.6rem;color:#F5A623;letter-spacing:-.04em;line-height:.9;transition:transform .35s;display:inline-block;">02</span>
+            <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:700;text-align:right;">WEEKS 7&ndash;14</span>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:10px;font-weight:600;">INTERNEE PHASE</div>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">Ship real things.</h3>
+            <p style="margin:0;color:#475569;line-height:1.6;font-size:.92rem;">Live projects, sprints, code review with seniors, deadlines that matter. The first time it feels like a job.</p>
+          </div>
+          <div style="padding-top:14px;border-top:1px dashed #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:600;margin-bottom:6px;">Key output</div>
+            <div style="color:#0D1B2A;font-weight:600;font-size:.95rem;">Shipped feature + sprint experience</div>
+          </div>
+        </div>
+        
+        <div class="pl-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:18px;color:#0D1B2A;position:relative;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <span class="pl-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.6rem;color:#F5A623;letter-spacing:-.04em;line-height:.9;transition:transform .35s;display:inline-block;">03</span>
+            <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:700;text-align:right;">WEEKS 15&ndash;22</span>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:10px;font-weight:600;">SHADOW PHASE</div>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">Learn at the desk.</h3>
+            <p style="margin:0;color:#475569;line-height:1.6;font-size:.92rem;">Sit beside working engineers. Pair on production code. Watch the inside game - estimates, trade-offs, calls.</p>
+          </div>
+          <div style="padding-top:14px;border-top:1px dashed #DCE3EC;">
+            <div class="mono" style="font-size:10px;letter-spacing:.16em;color:#D98A07;text-transform:uppercase;font-weight:600;margin-bottom:6px;">Key output</div>
+            <div style="color:#0D1B2A;font-weight:600;font-size:.95rem;">Production PRs merged + real-codebase fluency</div>
+          </div>
+        </div>
+        
+        <div class="pl-card" style="background:#F5A623;border:1px solid #F5A623;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:18px;color:#0D1B2A;position:relative;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <span class="pl-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.6rem;color:#0D1B2A;letter-spacing:-.04em;line-height:.9;transition:transform .35s;display:inline-block;">04</span>
+            <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#0D1B2A;text-transform:uppercase;font-weight:700;text-align:right;">WEEK 23+</span>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#13294B;text-transform:uppercase;margin-bottom:10px;font-weight:600;">EXPERT PHASE</div>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">Be the engineer.</h3>
+            <p style="margin:0;color:#13294B;line-height:1.6;font-size:.92rem;">Specialised track, owned features, client-facing work. Placement track active - you are now hireable as a junior+.</p>
+          </div>
+          <div style="padding-top:14px;border-top:1px dashed rgba(13,27,42,.25);">
+            <div class="mono" style="font-size:10px;letter-spacing:.16em;color:#0D1B2A;text-transform:uppercase;font-weight:600;margin-bottom:6px;">Key output</div>
+            <div style="color:#0D1B2A;font-weight:600;font-size:.95rem;">Specialised role + placement-ready CV</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section id="story" data-screen-label="About / Story" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g2" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start;">
+      <div style="position:sticky;top:140px;">
+        <span class="eye">// our story</span>
+        <h2 class="tit">A software house that grew a school-<br>because hiring became impossible.</h2>
+        <p class="deck">Big Binary Tech delivers AI, RAG and engineering work for clients around the world. The bottleneck was always the same one: finding fresh graduates ready to ship.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:36px;border-left:2px dashed #DCE3EC;padding-left:40px;position:relative;">
+        <div class="tl-dot">
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:8px;">CH_01 &middot; The problem</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">"Computer science graduate" &ne; "ready to ship."</h3>
+          <p style="margin:0;color:#475569;line-height:1.65;font-size:1rem;">We interviewed hundreds. The gap was never IQ - it was reps. Nobody had built anything end-to-end. Nobody had been near a real codebase, a real client, a real deadline.</p>
+        </div>
+
+        <div class="tl-dot">
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:8px;">CH_02 &middot; The shift</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">If we couldn't hire them, we'd train them.</h3>
+          <p style="margin:0;color:#475569;line-height:1.65;font-size:1rem;">In 2024 we opened a four-floor campus in Lahore, hired the engineers we wished we could hire from elsewhere, and started teaching the way we wished we'd been taught - by building.</p>
+        </div>
+
+        <div class="tl-dot cur">
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:8px;">CH_03 &middot; The system</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">Four phases. One trajectory.</h3>
+          <p style="margin:0;color:#475569;line-height:1.65;font-size:1rem;">Foundations as a <strong style="color:#0D1B2A;">trainee</strong>. Real projects as an <strong style="color:#0D1B2A;">internee</strong>. Real engineers as a <strong style="color:#0D1B2A;">shadow</strong>. Real work as an <strong style="color:#0D1B2A;">expert</strong>. Every phase compounds the last.</p>
+        </div>
+
+        <div class="tl-dot">
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:8px;">CH_04 &middot; Where we are</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">3,000+ students. 10+ projects. Cohort 07 live.</h3>
+          <p style="margin:0;color:#475569;line-height:1.65;font-size:1rem;">Tracks for fresh graduates, freestyle courses for upskillers, and partner software houses hiring straight from our cohorts. The institute and the studio share one roof - the work students ship in class is the work clients pay for upstairs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION / VISION ============ -->
+<section data-screen-label="About / Mission &amp; Vision" style="background:#0D1B2A;color:#fff;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-bottom:1px solid #DCE3EC;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.18;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none">
+    <defs><pattern id="bgAboutMV" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#F5A623" stroke-width=".4"></path></pattern></defs>
+    <rect width="1400" height="900" fill="url(#bgAboutMV)"></rect>
+  </svg>
+
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:56px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:8px;"><span style="display:inline-block;width:6px;height:6px;background:#F5A623;"></span>// mission &amp; vision</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(2rem,1.6rem + 2vw,3rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:14px 0 0;">What we're building, and what we won't compromise on.</h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#8A99A8;margin:0;">We treat training the same way we treat client delivery: scope it tight, ship it real, measure the outcome.</p>
+    </div>
+
+    <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;">
+      <div class="pcard" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:16px;padding:32px;position:relative;">
+        <div class="tick"></div>
+        <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;">// MISSION</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.7rem;color:#fff;margin:0 0 14px;letter-spacing:-.02em;line-height:1.15;">Turn raw potential into industry-ready engineers - in months, not years.</h3>
+        <p style="margin:0;color:#DCE3EC;line-height:1.65;font-size:1rem;">Build a learning environment where every student touches real code, real mentors, and real projects from week one. Train people the way a working software house actually works.</p>
+      </div>
+      <div class="pcard" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:16px;padding:32px;position:relative;">
+        <div class="tick"></div>
+        <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;">// VISION</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.7rem;color:#fff;margin:0 0 14px;letter-spacing:-.02em;line-height:1.15;">Make Pakistan a destination for the world's AI &amp; engineering work.</h3>
+        <p style="margin:0;color:#DCE3EC;line-height:1.65;font-size:1rem;">A generation of engineers shipping AI, RAG and product work from Lahore to the world. Not "offshore" - just where the best people happen to live.</p>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #DCE3EC;padding-top:40px;">
+      <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;">// PRINCIPLES &middot; how we teach</div>
+      <div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;">
+        <div class="val-card" style="padding:28px;background:rgba(10,20,34,.5);border-right:1px solid #1C3A6B;">
+          <div class="val-num mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.2rem;color:#8A99A8;letter-spacing:-.03em;margin-bottom:14px;">01</div>
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0 0 8px;letter-spacing:-.01em;">Build, don't memorize.</h4>
+          <p style="margin:0;font-size:.92rem;color:#8A99A8;line-height:1.55;">Theory is the smallest unit of learning here. Reps are the unit.</p>
+        </div>
+        <div class="val-card" style="padding:28px;background:rgba(10,20,34,.5);border-right:1px solid #1C3A6B;">
+          <div class="val-num mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.2rem;color:#8A99A8;letter-spacing:-.03em;margin-bottom:14px;">02</div>
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0 0 8px;letter-spacing:-.01em;">Mentors who still ship.</h4>
+          <p style="margin:0;font-size:.92rem;color:#8A99A8;line-height:1.55;">Every instructor is an active practitioner. No career educators.</p>
+        </div>
+        <div class="val-card" style="padding:28px;background:rgba(10,20,34,.5);border-right:1px solid #1C3A6B;">
+          <div class="val-num mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.2rem;color:#8A99A8;letter-spacing:-.03em;margin-bottom:14px;">03</div>
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0 0 8px;letter-spacing:-.01em;">AI-native by default.</h4>
+          <p style="margin:0;font-size:.92rem;color:#8A99A8;line-height:1.55;">Modern AI workflows are baked into every track - not bolted on.</p>
+        </div>
+        <div class="val-card" style="padding:28px;background:rgba(10,20,34,.5);">
+          <div class="val-num mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.2rem;color:#8A99A8;letter-spacing:-.03em;margin-bottom:14px;">04</div>
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0 0 8px;letter-spacing:-.01em;">A career, not a certificate.</h4>
+          <p style="margin:0;font-size:.92rem;color:#8A99A8;line-height:1.55;">Graduation isn't the finish line - placement and shipping are.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section data-screen-label="About / What We Do" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
+      <div>
+        <span class="eye">// what we do</span>
+        <h2 class="tit">One company. Three arms.<br>All under one roof.</h2>
+      </div>
+      <p class="deck">Big Binary Tech is a software house, an institute, and a consultancy. The arms compound each other - clients fund mentors, students staff projects, the studio sharpens the curriculum.</p>
+    </div>
+
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="pcard" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+        <div class="tick"></div>
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:14px;">// ARM_01 &middot; Software house</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">We ship product.</h3>
+        <p style="margin:0 0 18px;font-size:.95rem;color:#475569;line-height:1.55;">AI agents, RAG pipelines, full-stack web &amp; mobile. 10+ projects delivered to clients across the US, UK and GCC.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">AI</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">RAG</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">MERN</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">Mobile</span>
+        </div>
+      </div>
+
+      <div class="pcard" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);position:relative;">
+        <div class="tick"></div>
+        <div style="position:absolute;top:14px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#D98A07;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);border-radius:4px;padding:3px 6px;text-transform:uppercase;">You are here</div>
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:14px;">// ARM_02 &middot; Institute</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">We train engineers.</h3>
+        <p style="margin:0 0 18px;font-size:.95rem;color:#475569;line-height:1.55;">Big Binary Trainings - tracks, freestyle courses and a four-phase ecosystem. 3,000+ students trained across 07 cohorts.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">Tracks</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">Freestyle</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">Onsite + Online</span>
+        </div>
+      </div>
+
+      <div class="pcard" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+        <div class="tick"></div>
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:14px;">// ARM_03 &middot; Consultancy</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">We advise teams.</h3>
+        <p style="margin:0 0 18px;font-size:.95rem;color:#475569;line-height:1.55;">AI adoption, technical architecture and engineering-team setup for software houses, startups and enterprises moving to AI workflows.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">AI adoption</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#13294B;background:#EEF2F7;border:1px solid #DCE3EC;padding:4px 8px;border-radius:4px;">Team-as-a-service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAMPUS ============ -->
+<section id="campus" data-screen-label="About / Campus" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div>
+        <span class="eye">// the campus</span>
+        <h2 class="tit">Four floors. Real labs.<br>Drop by.</h2>
+        <p class="deck" style="margin-bottom:28px;">Onsite classes run from our Lahore HQ. Real labs, real mentors at their desks next to yours, a working software house upstairs. The space is open - come tour it.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin-bottom:32px;">
+          <div><div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;margin-bottom:6px;">FLOOR_01</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:4px;">Reception &amp; classrooms</div><p style="margin:0;font-size:.92rem;color:#475569;line-height:1.5;">Cohort intake, foundations classes.</p></div>
+          <div><div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;margin-bottom:6px;">FLOOR_02</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:4px;">Studio labs</div><p style="margin:0;font-size:.92rem;color:#475569;line-height:1.5;">Project rooms for internees &amp; shadows.</p></div>
+          <div><div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;margin-bottom:6px;">FLOOR_03</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:4px;">Software house</div><p style="margin:0;font-size:.92rem;color:#475569;line-height:1.5;">Where experts ship client work.</p></div>
+          <div><div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;margin-bottom:6px;">FLOOR_04</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:4px;">Events &amp; rooftop</div><p style="margin:0;font-size:.92rem;color:#475569;line-height:1.5;">Demo days, hackathons, alumni meetups.</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="https://maps.google.com/?q=Big+Binary+Tech+Lahore" class="btn bp" style="background:#13294B;color:#fff;font-weight:600;padding:14px 22px;border-radius:8px;font-size:15px;display:inline-flex;gap:10px;align-items:center;">Get directions<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></a>
+          <a href="#" class="btn bg" style="background:#FFFFFF;color:#13294B;font-weight:600;padding:14px 22px;border-radius:8px;font-size:15px;border:1px solid #DCE3EC;">Book a free tour</a>
+        </div>
+      </div>
+
+      <div style="background:#0D1B2A;border-radius:14px;padding:0;color:#fff;box-shadow:0 18px 48px rgba(13,27,42,.16);position:relative;overflow:hidden;display:flex;flex-direction:column;">
+        <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.12;pointer-events:none;" viewBox="0 0 300 400" preserveAspectRatio="none" fill="none"><defs><pattern id="hg2About" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="#F5A623" stroke-width=".6"></path></pattern></defs><rect width="300" height="400" fill="url(#hg2About)"></rect></svg>
+        <div style="position:relative;padding:20px 24px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;">// bbt_campus.lahore</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#8A99A8;">EST. 2024</span>
+        </div>
+        <div style="position:relative;margin:0 20px;border:1px solid rgba(245,166,35,.3);border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#0F2547 0%,#13294B 100%);aspect-ratio:4/3;">
+          <img src="assets/bbt-building.png" alt="Big Binary HQ in Lahore" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <span style="position:absolute;top:0;left:0;width:0;height:0;border-top:12px solid #F5A623;border-right:12px solid transparent;"></span>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(to top,rgba(13,27,42,.92) 0%,rgba(13,27,42,.55) 55%,transparent 100%);pointer-events:none;"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;">
+            <div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;line-height:1.1;letter-spacing:-.015em;color:#fff;">Big Binary HQ</div>
+              <div class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;margin-top:4px;">Lahore &middot; 4-floor facility</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative;padding:18px 24px 24px;">
+          <p style="color:#DCE3EC;font-size:.92rem;line-height:1.55;margin:0;">An institute on the bottom floors, a working software house on top. The same engineers shipping product on Friday are teaching you on Monday.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section data-screen-label="About / Team" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
+      <div>
+        <span class="eye">// the team</span>
+        <h2 class="tit">Engineers and operators who've shipped in the real world.</h2>
+      </div>
+      <p class="deck">Working practitioners, not career educators. The instructor in front of your class on Monday is the engineer reviewing client PRs on Friday.</p>
+    </div>
+
+    <div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <!-- Founder card -->
+      <div class="team-card" style="grid-column:span 2;background:#0D1B2A;color:#fff;border-radius:14px;padding:28px;display:flex;gap:22px;align-items:center;position:relative;overflow:hidden;">
+        <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.15;pointer-events:none;" viewBox="0 0 400 200" preserveAspectRatio="none" fill="none"><defs><pattern id="ftm" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="#F5A623" stroke-width=".5"></path></pattern></defs><rect width="400" height="200" fill="url(#ftm)"></rect></svg>
+        <div style="position:relative;flex:none;width:120px;height:120px;">
+          <svg class="avatar-rings" width="120" height="120" viewBox="0 0 120 120" fill="none" style="position:absolute;inset:0;"><circle cx="60" cy="60" r="56" stroke="#F5A623" stroke-width="1" stroke-dasharray="4 6" opacity=".4"></circle><circle cx="60" cy="60" r="48" stroke="#F5A623" stroke-width="1" stroke-dasharray="2 4" opacity=".3"></circle></svg>
+          <div style="position:absolute;inset:14px;border-radius:50%;background:repeating-linear-gradient(135deg,#13294B 0 6px,#0F2547 6px 12px);border:1px solid rgba(245,166,35,.4);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#F5A623;letter-spacing:-.04em;">UA</div>
+        </div>
+        <div style="position:relative;flex:1;min-width:0;">
+          <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:8px;">// founder &amp; ceo</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.4rem;letter-spacing:-.015em;margin-bottom:6px;">Umer Ali</div>
+          <p style="margin:0 0 12px;color:#DCE3EC;font-size:.95rem;line-height:1.55;">Engineer-turned-operator. Built Big Binary Tech because the talent pipeline wasn't producing the people he wanted to hire.</p>
+          <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">AI &middot; RAG &middot; Operations</div>
+        </div>
+      </div>
+
+      <!-- generic team tiles -->
+      <div class="team-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="position:relative;width:80px;height:80px;margin-bottom:14px;">
+          <svg class="avatar-rings" width="80" height="80" viewBox="0 0 80 80" fill="none" style="position:absolute;inset:0;"><circle cx="40" cy="40" r="37" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".45"></circle></svg>
+          <div style="position:absolute;inset:8px;border-radius:50%;background:repeating-linear-gradient(135deg,#EEF2F7 0 6px,#F4F6F9 6px 12px);border:1px solid #DCE3EC;"></div>
+        </div>
+        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;margin-bottom:6px;">Head of Curriculum</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">TBA &middot; bio_TK</div>
+      </div>
+
+      <div class="team-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="position:relative;width:80px;height:80px;margin-bottom:14px;">
+          <svg class="avatar-rings" width="80" height="80" viewBox="0 0 80 80" fill="none" style="position:absolute;inset:0;"><circle cx="40" cy="40" r="37" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".45"></circle></svg>
+          <div style="position:absolute;inset:8px;border-radius:50%;background:repeating-linear-gradient(135deg,#EEF2F7 0 6px,#F4F6F9 6px 12px);border:1px solid #DCE3EC;"></div>
+        </div>
+        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;margin-bottom:6px;">Lead Engineer</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">TBA &middot; bio_TK</div>
+      </div>
+
+      <div class="team-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="position:relative;width:80px;height:80px;margin-bottom:14px;">
+          <svg class="avatar-rings" width="80" height="80" viewBox="0 0 80 80" fill="none" style="position:absolute;inset:0;"><circle cx="40" cy="40" r="37" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".45"></circle></svg>
+          <div style="position:absolute;inset:8px;border-radius:50%;background:repeating-linear-gradient(135deg,#EEF2F7 0 6px,#F4F6F9 6px 12px);border:1px solid #DCE3EC;"></div>
+        </div>
+        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;margin-bottom:6px;">Head of Cohorts</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">TBA &middot; bio_TK</div>
+      </div>
+
+      <div class="team-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="position:relative;width:80px;height:80px;margin-bottom:14px;">
+          <svg class="avatar-rings" width="80" height="80" viewBox="0 0 80 80" fill="none" style="position:absolute;inset:0;"><circle cx="40" cy="40" r="37" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".45"></circle></svg>
+          <div style="position:absolute;inset:8px;border-radius:50%;background:repeating-linear-gradient(135deg,#EEF2F7 0 6px,#F4F6F9 6px 12px);border:1px solid #DCE3EC;"></div>
+        </div>
+        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;margin-bottom:6px;">AI Mentor</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">TBA &middot; bio_TK</div>
+      </div>
+
+      <div class="team-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="position:relative;width:80px;height:80px;margin-bottom:14px;">
+          <svg class="avatar-rings" width="80" height="80" viewBox="0 0 80 80" fill="none" style="position:absolute;inset:0;"><circle cx="40" cy="40" r="37" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".45"></circle></svg>
+          <div style="position:absolute;inset:8px;border-radius:50%;background:repeating-linear-gradient(135deg,#EEF2F7 0 6px,#F4F6F9 6px 12px);border:1px solid #DCE3EC;"></div>
+        </div>
+        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;margin-bottom:6px;">Full-stack Mentor</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">TBA &middot; bio_TK</div>
+      </div>
+
+      <a href="#" class="team-card" style="background:#0D1B2A;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;text-decoration:none;">
+        <div>
+          <div class="mono" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:12px;">// we're hiring</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:-.01em;margin-bottom:8px;">Become a mentor.</div>
+          <p style="margin:0;color:#DCE3EC;font-size:.9rem;line-height:1.5;">Engineers who like to teach - come spend a few hours a week with our cohorts.</p>
+        </div>
+        <div class="mono diag-link" style="display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#F5A623;font-weight:600;margin-top:14px;">See open roles<svg class="diag-arr" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M5 4h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section data-screen-label="About / Final CTA" style="background:#F5A623;color:#0D1B2A;padding:clamp(72px,11vh,140px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-top:1px solid #DCE3EC;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 600" fill="none">
+    <defs>
+      <pattern id="bgAboutCTA" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#0D1B2A" stroke-width=".5" opacity=".18"></path></pattern>
+    </defs>
+    <rect width="1200" height="600" fill="url(#bgAboutCTA)"></rect>
+  </svg>
+  <div class="g2" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center;position:relative;z-index:2;">
+    <div>
+      <div class="mono" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#13294B;margin-bottom:22px;padding:7px 12px;background:rgba(13,27,42,.08);border-radius:6px;"><span class="blink" style="display:inline-block;width:7px;height:7px;background:#0D1B2A;"></span>// come say hi</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.02;letter-spacing:-.025em;color:#0D1B2A;margin:0 0 18px;">Tour the campus.<br>Sit in on a class.</h2>
+      <p style="color:#13294B;font-size:1.1rem;line-height:1.6;margin:0 0 30px;max-width:540px;font-weight:500;">Best way to know if BBT is for you is to walk through the door. Pick a slot, drop by, see the labs. No pressure to enroll.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27d%20like%20a%20campus%20tour." class="btn bp" style="background:#13294B;color:#fff;font-weight:600;padding:15px 22px;border-radius:8px;font-size:15px;display:inline-flex;gap:10px;align-items:center;"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3zm0 23.6c-1.96 0-3.88-.527-5.56-1.523l-.4-.237-3.97 1.04 1.06-3.866-.26-.41a10.6 10.6 0 0 1-1.63-5.602c0-5.846 4.756-10.602 10.6-10.602 5.846 0 10.6 4.756 10.6 10.602 0 5.844-4.754 10.598-10.6 10.598zm5.81-7.94c-.318-.16-1.886-.93-2.18-1.036-.292-.107-.504-.16-.717.16-.213.32-.823 1.036-1.01 1.249-.187.213-.372.24-.69.08-.318-.16-1.346-.495-2.563-1.58-.948-.846-1.586-1.89-1.772-2.208-.187-.318-.02-.49.14-.65.144-.143.32-.372.48-.558.16-.187.213-.32.32-.532.107-.213.053-.4-.027-.56-.08-.16-.717-1.73-.984-2.37-.258-.62-.52-.535-.717-.545l-.61-.012c-.213 0-.558.08-.85.4-.292.32-1.116 1.09-1.116 2.66 0 1.57 1.143 3.09 1.302 3.303.16.213 2.249 3.434 5.45 4.815.762.33 1.357.526 1.82.673.766.244 1.463.21 2.013.127.614-.092 1.886-.77 2.152-1.514.266-.745.266-1.383.187-1.515-.08-.133-.292-.213-.61-.372z"></path></svg>Chat on WhatsApp</a>
+        <a href="courses.html" class="btn diag-link" style="background:transparent;color:#0D1B2A;font-weight:700;padding:15px 22px;border-radius:8px;font-size:15px;border:2px solid #0D1B2A;display:inline-flex;gap:10px;align-items:center;">Explore tracks <svg class="diag-arr" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path></svg></a>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 48px rgba(13,27,42,.10);">
+      <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:4px;">// find us</div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;border-bottom:1px dashed #DCE3EC;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);display:flex;align-items:center;justify-content:center;flex:none;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14s5-4.5 5-8.5A5 5 0 1 0 3 5.5C3 9.5 8 14 8 14z" stroke="#D98A07" stroke-width="1.6"></path><circle cx="8" cy="5.5" r="1.6" fill="#D98A07"></circle></svg>
+        </div>
+        <div>
+          <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;margin-bottom:4px;">Address</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1rem;letter-spacing:-.005em;line-height:1.3;">Big Binary HQ<br><span style="font-weight:500;color:#475569;font-size:.92rem;">Lahore, Pakistan</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;border-bottom:1px dashed #DCE3EC;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);display:flex;align-items:center;justify-content:center;flex:none;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10v8H3z" stroke="#D98A07" stroke-width="1.6"></path><path d="M3 4l5 4 5-4" stroke="#D98A07" stroke-width="1.6"></path></svg>
+        </div>
+        <div>
+          <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;margin-bottom:4px;">Email</div>
+          <a href="mailto:hello@bbt.edu.pk" class="c-link" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1rem;letter-spacing:-.005em;">hello@bbt.edu.pk</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);display:flex;align-items:center;justify-content:center;flex:none;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="#D98A07"><path d="M8 2C5 2 2.5 4.4 2.5 7.4c0 1.2.4 2.4 1 3.4L2.5 14l2.9-.8c1 .5 2 .8 2.6.8 3 0 5.5-2.4 5.5-5.4S11 2 8 2zm3 7.1c-.1.4-.7.7-1 .8-.3.1-.7.1-1.1 0-.3-.1-.7-.2-1.1-.4-2-.9-3.3-2.9-3.4-3-.1-.1-.8-1-.8-2 0-1 .5-1.5.7-1.7.2-.2.5-.2.6-.2h.4c.1 0 .3 0 .4.3.2.4.5 1.3.6 1.4.1.1.1.2 0 .3-.1.1-.1.2-.2.3l-.3.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.3.1.4 0 .1-.1.5-.6.6-.8.1-.2.3-.1.4-.1.2.1 1.2.6 1.4.7.2.1.4.1.4.2.1.2.1.7 0 1z"></path></svg>
+        </div>
+        <div>
+          <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;margin-bottom:4px;">WhatsApp</div>
+          <a href="https://wa.me/923260188811" class="c-link" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1rem;letter-spacing:-.005em;">0326-0188811</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-screen-label="About / Footer" style="background:#0A1422;color:#DCE3EC;padding:56px clamp(20px,5vw,40px) 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g4" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid #DCE3EC;">
+      <div>
+        <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
+        <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
+      </div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="courses.html">Courses</a><a class="c-link" href="curriculum.html">Freestyle Courses</a><a class="c-link" href="#">Career Assessment</a><a class="c-link" href="#">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="#">Blog</a><a class="c-link" href="#">Events</a><a class="c-link" href="#">Podcast</a><a class="c-link" href="#">Webseries</a><a class="c-link" href="#">FAQs</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a class="c-link" href="https://wa.me/923260188811">WhatsApp &middot; 0326-0188811</a><a class="c-link" href="mailto:hello@bbt.edu.pk">hello@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
+    </div>
+    <div class="mono" style="padding-top:24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A99A8;text-align:center;">
+      © 2026 Big Binary Tech. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/923260188811?text=Hi%20BBT" aria-label="Chat with BBT on WhatsApp" style="position:fixed;bottom:max(24px,env(safe-area-inset-bottom));right:max(24px,env(safe-area-inset-right));z-index:80;width:56px;height:56px;border-radius:50%;background:#13294B;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(13,27,42,.28);border:2px solid transparent;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='transparent';this.style.transform='none';">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3zm0 23.6c-1.96 0-3.88-.527-5.56-1.523l-.4-.237-3.97 1.04 1.06-3.866-.26-.41a10.6 10.6 0 0 1-1.63-5.602c0-5.846 4.756-10.602 10.6-10.602 5.846 0 10.6 4.756 10.6 10.602 0 5.844-4.754 10.598-10.6 10.598zm5.81-7.94c-.318-.16-1.886-.93-2.18-1.036-.292-.107-.504-.16-.717.16-.213.32-.823 1.036-1.01 1.249-.187.213-.372.24-.69.08-.318-.16-1.346-.495-2.563-1.58-.948-.846-1.586-1.89-1.772-2.208-.187-.318-.02-.49.14-.65.144-.143.32-.372.48-.558.16-.187.213-.32.32-.532.107-.213.053-.4-.027-.56-.08-.16-.717-1.73-.984-2.37-.258-.62-.52-.535-.717-.545l-.61-.012c-.213 0-.558.08-.85.4-.292.32-1.116 1.09-1.116 2.66 0 1.57 1.143 3.09 1.302 3.303.16.213 2.249 3.434 5.45 4.815.762.33 1.357.526 1.82.673.766.244 1.463.21 2.013.127.614-.092 1.886-.77 2.152-1.514.266-.745.266-1.383.187-1.515-.08-.133-.292-.213-.61-.372z"></path></svg>
+</a>
+
+</body>
+</html>
