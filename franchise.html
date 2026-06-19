@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0A1422}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:#475569;background:#F4F6F9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px solid #2563EB;outline-offset:2px;border-radius:4px}
+@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.blink{animation:blink 1.6s steps(2,end) infinite}
+@media (prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){.reveal{animation:reveal both;animation-timeline:view();animation-range:entry 0% cover 25%}}}
+.nl{position:relative;padding:8px 10px;border-radius:6px;transition:background .2s,color .2s}
+.nl::after{content:"";position:absolute;left:10px;right:10px;bottom:3px;height:2px;background:#F5A623;transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.6,.05,.25,1)}
+.nl:hover,.nl:focus-visible{background:#FCEFD4;color:#13294B}
+.nl:hover::after,.nl:focus-visible::after{transform:scaleX(1)}
+.nl.active{color:#0D1B2A;font-weight:600}
+.nl.active::after{transform:scaleX(1)}
+@keyframes sprog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.scroll-bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F5A623,#D98A07);transform-origin:0 50%;transform:scaleX(0);z-index:200;pointer-events:none}
+@keyframes h-shrink{to{padding-top:6px;padding-bottom:6px;padding-left:28px;padding-right:28px}}
+@keyframes h-fx{to{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 14px 40px rgba(13,27,42,.10),0 2px 8px rgba(13,27,42,.04);border:1px solid rgba(220,227,236,.55);border-radius:100px;max-width:1140px;margin:0 auto}}
+@keyframes logo-shrink{to{height:28px}}
+@keyframes pill-pulse{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,.4)}50%{box-shadow:0 0 0 6px rgba(245,166,35,0)}}
+.cohort-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;font-weight:600}
+.cohort-tag .dot{display:inline-block;width:6px;height:6px;background:#F5A623;border-radius:50%;animation:pill-pulse 2s ease-out infinite}
+@supports (animation-timeline:scroll()){
+.scroll-bar{animation:sprog linear forwards;animation-timeline:scroll()}
+header[data-screen-label]{animation:h-fx linear forwards;animation-timeline:scroll();animation-range:0 140px}
+header[data-screen-label] > div:first-of-type{animation:h-shrink linear forwards;animation-timeline:scroll();animation-range:0 140px}
+header[data-screen-label] a img{animation:logo-shrink linear forwards;animation-timeline:scroll();animation-range:0 140px}
+}
+.btn{transition:transform .18s,box-shadow .18s,background .18s,color .18s,border-color .18s}
+.bp:hover{background:#1C3A6B!important;transform:translateY(-2px);box-shadow:0 6px 18px rgba(13,27,42,.18)}
+.bs:hover{background:#D98A07!important;transform:translateY(-2px)}
+.bg:hover{border-color:#13294B!important;color:#13294B!important;background:#FFFFFF!important}
+.diag-link .diag-arr{transition:transform .3s cubic-bezier(.6,.05,.25,1)}
+.diag-link:hover .diag-arr{transform:translate(3px,-3px)}
+.c-link{position:relative;transition:color .25s ease;padding-bottom:6px}
+.c-link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .35s cubic-bezier(.6,.05,.25,1)}
+.c-link:hover::after,.c-link:focus-visible::after{width:100%}
+.eye{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;display:inline-flex;align-items:center;gap:8px}
+.eye::before{content:"";display:inline-block;width:6px;height:6px;background:#F5A623}
+h2.tit{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(2rem,1.6rem + 2vw,3rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:14px 0 16px}
+.deck{font-size:clamp(1rem,.95rem + .25vw,1.1rem);line-height:1.6;color:#475569;margin:0;max-width:680px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.pcard{transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(13,27,42,.10);border-color:#F5A623}
+.pcard .tick{opacity:0;transition:opacity .22s;position:absolute;top:0;left:0;width:0;height:0;border-top:14px solid #F5A623;border-right:14px solid transparent}
+.pcard:hover .tick{opacity:1}
+.step-row:hover .step-num{transform:translateX(8px);letter-spacing:-.05em}
+.step-num{transition:transform .3s ease,letter-spacing .3s ease;display:inline-block}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk-track{display:flex;animation:ticker 38s linear infinite;width:max-content}
+.tk:hover .tk-track{animation-play-state:paused}
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open] .chev{transform:rotate(45deg)}
+.chev{transition:transform .25s ease}
+.pkg{transition:transform .22s,box-shadow .22s,border-color .22s}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(13,27,42,.12)}
+.pkg.featured{position:relative}
+.pkg.featured::before{content:"";position:absolute;inset:-1px;border:1.5px solid #F5A623;border-radius:14px;pointer-events:none}
+@keyframes pin-pulse{0%,100%{r:5;opacity:1}50%{r:9;opacity:.5}}
+.map-pin-live{animation:pin-pulse 2.2s ease-in-out infinite}
+@media(max-width:980px){.desk{display:none!important}.mob{display:flex!important}.g2{grid-template-columns:1fr!important}.g3{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.hero{grid-template-columns:1fr!important}.split{grid-template-columns:1fr!important}}
+@media(min-width:981px){.mob{display:none!important}}
+
+/* ============ MOBILE NAV (CSS-only hamburger via inline onclick) ============ */
+.hamb{display:none;width:42px;height:42px;border:1px solid #DCE3EC;background:#FFFFFF;border-radius:12px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background .2s,border-color .2s;flex:none}
+.hamb:hover{background:#FCEFD4;border-color:#F5A623}
+.hamb:focus-visible{outline:3px solid #2563EB;outline-offset:2px}
+.hamb span{display:block;width:18px;height:2px;background:#0D1B2A;border-radius:2px;transition:transform .25s,opacity .2s}
+header[data-open] .hamb span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header[data-open] .hamb span:nth-child(2){opacity:0}
+header[data-open] .hamb span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@keyframes slidedown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mob-nav{display:none}
+/* ============ TABLET / SMALL DESKTOP (≤ 980px) ============ */
+@media(max-width:980px){
+  .desk{display:none!important}
+  .hamb{display:flex!important}
+  .mob-nav{display:flex;flex-direction:column;gap:4px;padding:0 20px;background:#FFFFFF;border-top:1px solid transparent;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .42s cubic-bezier(.65,0,.35,1),opacity .28s ease,padding .42s cubic-bezier(.65,0,.35,1),visibility 0s linear .42s,border-color .2s ease}
+  header[data-open] .mob-nav{max-height:520px;opacity:1;visibility:visible;padding:14px 20px 22px;border-top-color:#DCE3EC;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease .05s,padding .42s cubic-bezier(.22,1,.36,1),visibility 0s linear,border-color .2s ease}
+  .mob-nav .mn{transform:translateY(-12px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s ease,background .2s,color .2s}
+  header[data-open] .mob-nav .mn{transform:none;opacity:1}
+  header[data-open] .mob-nav .mn:nth-child(1){transition-delay:.08s}
+  header[data-open] .mob-nav .mn:nth-child(2){transition-delay:.13s}
+  header[data-open] .mob-nav .mn:nth-child(3){transition-delay:.18s}
+  header[data-open] .mob-nav .mn:nth-child(4){transition-delay:.23s}
+  header[data-open] .mob-nav .mn:nth-child(5){transition-delay:.28s}
+  header[data-open] .mob-nav .mn:nth-child(6){transition-delay:.33s}
+  .mob-nav .mn{font-family:'IBM Plex Sans',sans-serif;font-size:16px;color:#0D1B2A;font-weight:500;padding:14px 18px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,color .2s}
+  .mob-nav .mn:hover,.mob-nav .mn.active{background:#FCEFD4;color:#D98A07;font-weight:600}
+  .mob-nav .mn::after{content:"\2192";opacity:.35;font-family:'IBM Plex Mono',monospace}
+  .mob-nav .mn-cta{margin-top:10px;background:#F5A623;color:#0D1B2A!important;font-weight:700;padding:16px;border-radius:999px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;justify-content:center}
+  .mob-nav .mn-cta::after{content:none}
+  /* Section padding tightening */
+  section[data-screen-label]{padding-left:20px!important;padding-right:20px!important}
+  footer{padding-left:20px!important;padding-right:20px!important}
+  /* Multi-column grids -> 1 col */
+  .hero,.split,.apply-grid,.form-grid{grid-template-columns:1fr!important}
+  .g5{grid-template-columns:repeat(2,1fr)!important}
+  /* Phase / step rows: stack vertically */
+  .phase-row,.step-row{grid-template-columns:1fr!important;gap:18px!important;padding:24px!important}
+  .phase-row .phase-num,.step-row .step-num{font-size:2.6rem!important}
+  /* Logo tiles tighter */
+  .logo-tile{width:160px!important;height:80px!important;padding:14px!important}
+  /* Typography */
+  h1{font-size:clamp(2.2rem,1.6rem + 4vw,3.6rem)!important;line-height:1!important}
+  h2.tit{font-size:clamp(1.6rem,1.3rem + 2.2vw,2.4rem)!important}
+  /* Footer */
+  footer .g4{grid-template-columns:repeat(2,1fr)!important;gap:28px!important}
+  /* Snap carousel padding */
+  .snap-x{padding-left:20px!important;padding-right:20px!important}
+  /* Sticky positions on small screens */
+  [style*="sticky"][style*="120px"],[style*="sticky"][style*="140px"],[style*="sticky"][style*="80px"]{position:static!important}
+  /* Hide WhatsApp float in favour of the menu CTA when there's already one */
+}
+/* ============ PHONES (≤ 640px) ============ */
+@media(max-width:640px){
+  .g3,.g4,.g5{grid-template-columns:1fr!important}
+  footer .g4{grid-template-columns:1fr!important;gap:24px!important}
+  /* Even tighter paddings */
+  section[data-screen-label]{padding-top:48px!important;padding-bottom:48px!important;padding-left:16px!important;padding-right:16px!important}
+  footer{padding:40px 16px 20px!important}
+  h1{font-size:clamp(2rem,1.4rem + 4vw,3rem)!important}
+  h2.tit{font-size:clamp(1.4rem,1.2rem + 2vw,2rem)!important;line-height:1.15!important}
+  .deck{font-size:.98rem!important;line-height:1.55!important}
+  /* Buttons full-width on smallest screens */
+  .btn{width:100%;justify-content:center}
+  /* Inline CTA rows stack */
+  /* Logo tiles even tighter */
+  .logo-tile{width:140px!important;height:72px!important}
+  /* Header padding */
+  header > div:first-of-type{padding:10px 16px!important}
+  header img{height:36px!important}
+  /* WhatsApp float */
+  [aria-label="Chat with BBT on WhatsApp"]{width:48px!important;height:48px!important;bottom:16px!important;right:16px!important}
+  [aria-label="Chat with BBT on WhatsApp"] svg{width:24px!important;height:24px!important}
+  /* Form labels and inputs */
+  .fld,input,select,textarea{font-size:16px!important} /* prevents iOS zoom */
+  /* Phase number scaling */
+  .phase-row .phase-num,.step-row .step-num{font-size:2.2rem!important}
+  /* Hide some heavy ambient SVGs to keep things light */
+}
+
+/* ============ PHONE SAFETY OVERRIDES ============ */
+@media(max-width:980px){
+  /* clamp inline h1/h2 that override our .tit rule */
+  section h1{font-size:clamp(2rem,1.4rem + 4vw,3.2rem)!important;line-height:1.05!important;letter-spacing:-.02em!important;overflow-wrap:break-word;word-break:break-word}
+  section h2{font-size:clamp(1.55rem,1.2rem + 2.6vw,2.4rem)!important;line-height:1.1!important;letter-spacing:-.015em!important;overflow-wrap:break-word;word-break:break-word}
+  section h3{font-size:clamp(1.05rem,.95rem + 1vw,1.4rem)!important;line-height:1.2!important;overflow-wrap:break-word}
+  /* sticky left columns become normal flow */
+  [style*="sticky"][style*="120px"],[style*="sticky"][style*="140px"],[style*="sticky"][style*="80px"]{position:static!important}
+  /* form labels & inputs - kill 2-col grids inside forms */
+  form [style*="grid-template-columns:1fr 1fr"],form [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+  /* prevent horizontal scroll */
+  html,body{overflow-x:hidden}
+  /* containers with display:grid 2-col defined inline */
+  [style*="grid-template-columns:1.1fr"],[style*="grid-template-columns:.9fr"],[style*="grid-template-columns:1.2fr"],[style*="grid-template-columns:1.5fr"],[style*="grid-template-columns:1.6fr"]{grid-template-columns:1fr!important;gap:32px!important}
+}
+@media(max-width:640px){
+  section h1{font-size:clamp(1.8rem,1.3rem + 3.5vw,2.6rem)!important}
+  section h2{font-size:clamp(1.4rem,1.1rem + 2.5vw,2rem)!important}
+  /* form sections - ensure single col */
+  .form-grid,.apply-grid,form > div > div[style*="grid"]{grid-template-columns:1fr!important}
+  /* labels stack neatly */
+  label{min-width:0}
+  input,select,textarea{min-width:0;width:100%}
+}
+
+/* ============ HERO AMBIENT - subtle + dimmed under text (site-wide) ============ */
+section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
+  opacity:.32;
+  -webkit-mask-image:radial-gradient(ellipse 760px 520px at 26% 48%,transparent 0%,transparent 30%,rgba(0,0,0,.35) 58%,black 92%);
+  mask-image:radial-gradient(ellipse 760px 520px at 26% 48%,transparent 0%,transparent 30%,rgba(0,0,0,.35) 58%,black 92%);
+}
+@media(max-width:980px){
+  section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
+    opacity:.22;
+    -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 42%,transparent 0%,transparent 25%,rgba(0,0,0,.4) 55%,black 92%);
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 42%,transparent 0%,transparent 25%,rgba(0,0,0,.4) 55%,black 92%);
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<div style="background:#F4F6F9;min-height:100vh;">
+
+<div class="scroll-bar"></div>
+
+<header data-screen-label="Franchise / Header" style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="home.html" style="display:flex;align-items:center;gap:14px;">
+      <img src="assets/bbt-logo.png" alt="Big Binary Tech" style="height:44px;width:auto;display:block;">
+    </a>
+    <nav class="desk" style="display:flex;gap:26px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
+      <a class="nl" href="home.html">Home</a><a class="nl" href="courses.html">Courses</a><a class="nl" href="curriculum.html">Curriculum</a><a class="nl" href="about.html">About</a><a class="nl active" href="#">Franchise</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="#apply" class="btn bs desk" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:12px 24px;border-radius:999px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">Enroll Now</a>
+      <button class="hamb" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="var h=this.closest('header');var o=h.toggleAttribute('data-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mob-nav" id="mobNav">
+      <a class="mn" href="home.html">Home</a>
+      <a class="mn" href="courses.html">Courses</a>
+      <a class="mn" href="curriculum.html">Curriculum</a>
+      <a class="mn" href="about.html">About</a>
+      <a class="mn active" href="franchise.html">Franchise</a>
+      <a class="mn mn-cta" href="enroll.html">Enroll Now</a>
+    </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section data-screen-label="Franchise / Hero" style="position:relative;background:linear-gradient(135deg,#F4F6F9 0%,#EEF2F7 55%,#FCEFD4 130%);color:#0D1B2A;overflow:hidden;border-bottom:1px solid #DCE3EC;">
+  <div aria-hidden="true" style="position:absolute;top:-180px;right:-180px;width:720px;height:720px;background:radial-gradient(circle,rgba(245,166,35,.18) 0%,rgba(245,166,35,.05) 45%,transparent 70%);pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:-220px;left:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(19,41,75,.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 800" fill="none">
+    <defs>
+      <pattern id="bgFrHero" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M32 0H0V32" stroke="#DCE3EC" stroke-width="1" opacity=".55"></path>
+        <circle cx="0" cy="0" r="1.2" fill="#DCE3EC" opacity=".55"></circle>
+      </pattern>
+      <path id="frFlow1" d="M-20 220 L320 220 L320 380 L900 380 L900 580 L1420 580"></path>
+      <path id="frFlow2" d="M-20 680 L260 680 L260 460 L720 460 L720 720 L1420 720"></path>
+      <path id="frFlow3" d="M-20 80 L460 80 L460 240 L1080 240 L1080 120 L1420 120"></path>
+    </defs>
+    <rect width="1400" height="800" fill="url(#bgFrHero)"></rect>
+    <use href="#frFlow1" stroke="#F5A623" stroke-width="2.2" fill="none" opacity=".55"></use>
+    <use href="#frFlow2" stroke="#F5A623" stroke-width="1.6" fill="none" opacity=".32"></use>
+    <use href="#frFlow3" stroke="#F5A623" stroke-width="1.4" fill="none" opacity=".26"></use>
+    <rect x="316" y="216" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="316" y="376" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="896" y="376" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="896" y="576" width="10" height="10" fill="#F5A623"></rect>
+    <rect x="256" y="676" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="256" y="456" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="716" y="456" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="716" y="696" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="456" y="76" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="456" y="236" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="1076" y="236" width="8" height="8" fill="#F5A623"></rect>
+    <rect x="1076" y="116" width="8" height="8" fill="#F5A623"></rect>
+    <rect width="14" height="14" fill="#F5A623" rx="2"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#frFlow1"></mpath></animateMotion></rect>
+    <rect width="10" height="10" fill="#F5A623" rx="2"><animateMotion dur="9s" begin="-3s" repeatCount="indefinite"><mpath href="#frFlow1"></mpath></animateMotion></rect>
+    <rect width="6" height="6" fill="#F5A623" rx="1"><animateMotion dur="9s" begin="-6s" repeatCount="indefinite"><mpath href="#frFlow1"></mpath></animateMotion></rect>
+    <rect width="10" height="10" fill="#F5A623" rx="2"><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#frFlow2"></mpath></animateMotion></rect>
+    <rect width="6" height="6" fill="#F5A623" rx="1"><animateMotion dur="11s" begin="-5s" repeatCount="indefinite"><mpath href="#frFlow2"></mpath></animateMotion></rect>
+    <rect width="8" height="8" fill="#F5A623" rx="1"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#frFlow3"></mpath></animateMotion></rect>
+    <rect width="5" height="5" fill="#F5A623" rx="1"><animateMotion dur="10s" begin="-4s" repeatCount="indefinite"><mpath href="#frFlow3"></mpath></animateMotion></rect>
+  </svg>
+
+  <div class="hero" style="max-width:1200px;margin:0 auto;padding:clamp(72px,11vh,140px) clamp(20px,5vw,40px) clamp(48px,7vh,72px);display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:center;position:relative;">
+    <div>
+      <div class="mono" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;margin-bottom:28px;padding:7px 14px;background:#FCEFD4;border:1px solid rgba(245,166,35,.35);border-radius:6px;">
+        <span class="blink" style="display:inline-block;width:7px;height:7px;background:#F5A623;"></span>// franchise · partner programme
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,2rem + 5vw,6.5rem);line-height:.92;letter-spacing:-.035em;color:#0D1B2A;margin:0 0 24px;max-width:980px;">
+        Bring <span style="color:#D98A07;">BBT</span> to your city<span style="color:#D98A07;">.</span>
+      </h1>
+      <p style="font-size:clamp(1.1rem,1rem + .35vw,1.3rem);line-height:1.55;color:#13294B;margin:0 0 22px;max-width:760px;">
+        Open a Big Binary Trainings campus in your city - with our curriculum, our brand, our mentors, and the same four-phase ecosystem already running in Lahore.
+      </p>
+      <p style="font-size:1.05rem;line-height:1.65;color:#475569;margin:0 0 36px;max-width:680px;">
+        We've trained 3,000+ students through 07 cohorts. The model works. We're now opening it to operators in second-tier cities across Pakistan - and beyond.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="#apply" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:15px 22px;border-radius:8px;font-size:15px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(13,27,42,.18);">Apply to franchise<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></a>
+        <a href="#model" class="btn bg" style="background:#FFFFFF;color:#13294B;font-weight:600;padding:15px 22px;border-radius:8px;font-size:15px;border:1px solid #DCE3EC;box-shadow:0 1px 2px rgba(13,27,42,.04);">Read the model</a>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 60px rgba(13,27,42,.10),0 2px 6px rgba(13,27,42,.04);">
+      <div style="background:#F4F6F9;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #DCE3EC;">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F5A623;"></span>
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
+        <span class="mono" style="margin-left:10px;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">bbt.franchise</span>
+      </div>
+      <div class="mono" style="padding:18px;font-size:12px;line-height:1.85;color:#0D1B2A;">
+        <div style="color:#8A99A8;">$ bbt --partner</div>
+        <div><span style="color:#D98A07;">model</span> = <span style="color:#13294B;">"licensed_campus"</span></div>
+        <div><span style="color:#D98A07;">term</span> = <span style="color:#13294B;">5 years</span></div>
+        <div><span style="color:#D98A07;">territory</span> = <span style="color:#13294B;">exclusive</span></div>
+        <div><span style="color:#D98A07;">support</span> = <span style="color:#13294B;">end_to_end</span></div>
+        <div><span style="color:#D98A07;">brand</span> = <span style="color:#13294B;">"BBT"</span></div>
+        <div style="margin-top:8px;color:#16794D;font-weight:500;">&#10003; territories.available = true</div>
+        <div style="color:#8A99A8;">$ <span class="blink" style="color:#D98A07;">_</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- metric strip -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(56px,8vh,88px);position:relative;">
+    <div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#FFFFFF;border-radius:14px;overflow:hidden;border:1px solid #DCE3EC;box-shadow:0 1px 2px rgba(13,27,42,.04);">
+      <div style="padding:24px;border-right:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:8px;">01 · proven_with</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#0D1B2A;letter-spacing:-.02em;">3,000<span style="color:#D98A07;">+</span> <span style="font-size:.85rem;color:#475569;font-weight:500;letter-spacing:0;">students</span></div>
+      </div>
+      <div style="padding:24px;border-right:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:8px;">02 · ecosystem</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#0D1B2A;letter-spacing:-.02em;">04 <span style="font-size:.85rem;color:#475569;font-weight:500;letter-spacing:0;">phases</span></div>
+      </div>
+      <div style="padding:24px;border-right:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:8px;">03 · term</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#0D1B2A;letter-spacing:-.02em;">5<span style="color:#D98A07;">y</span> <span style="font-size:.85rem;color:#475569;font-weight:500;letter-spacing:0;">renewable</span></div>
+      </div>
+      <div style="padding:24px;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#8A99A8;text-transform:uppercase;margin-bottom:8px;">04 · break_even</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#0D1B2A;letter-spacing:-.02em;">12&ndash;18 <span style="font-size:.85rem;color:#475569;font-weight:500;letter-spacing:0;">months*</span></div>
+      </div>
+    </div>
+    <div class="mono" style="font-size:10px;letter-spacing:.12em;color:#8A99A8;text-transform:uppercase;margin-top:10px;text-align:right;">* indicative &middot; depends on city, format &amp; cohort intake</div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<section data-screen-label="Franchise / Ticker" style="background:#EEF2F7;color:#0D1B2A;padding:18px 0;border-bottom:1px solid #DCE3EC;overflow:hidden;">
+  <div class="tk" style="position:relative;max-width:100%;overflow:hidden;">
+    <div class="tk-track mono" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#475569;">
+      <span style="display:inline-flex;align-items:center;gap:48px;padding-right:48px;">
+        <span><span style="color:#F5A623;">//</span> Now accepting partners</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Karachi &middot; Islamabad &middot; Faisalabad &middot; Multan</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Peshawar &middot; Sialkot &middot; Gujranwala</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Dubai &middot; Riyadh &middot; international territories open</span>
+        <span style="color:#475569;">/</span>
+      </span>
+      <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:48px;padding-right:48px;">
+        <span><span style="color:#F5A623;">//</span> Now accepting partners</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Karachi &middot; Islamabad &middot; Faisalabad &middot; Multan</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Peshawar &middot; Sialkot &middot; Gujranwala</span>
+        <span style="color:#475569;">/</span>
+        <span><span style="color:#F5A623;">//</span> Dubai &middot; Riyadh &middot; international territories open</span>
+        <span style="color:#475569;">/</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET ============ -->
+<section id="model" data-screen-label="Franchise / What You Get" style="background:#F4F6F9;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none"><defs><pattern id="bgFrSupport" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#DCE3EC" stroke-width="1"></path></pattern></defs><rect width="1400" height="900" fill="url(#bgFrSupport)"></rect></svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>WHAT YOU GET</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">FULL SUPPORT. FROM DAY <span style="color:#F5A623;">ONE.</span></h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">BBT doesn't hand you a brand and step back. You get a complete operational system - from setup through daily management - built from our own experience running the model.</p>
+    </div>
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;background:#FFFFFF;">
+      <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">01</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">FULL BUSINESS SUPPORT</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">End-to-end guidance from setup through daily operations. You don't need to figure out the system - we've already built it.</p>
+      </div>
+      <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">02</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">PROVEN FINANCIAL MODEL</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Transparent revenue structure with clear royalty terms and multiple income streams. Designed for scalability from the first unit.</p>
+      </div>
+      <div style="padding:32px;border-right:none;border-bottom:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">03</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">CENTRALISED MARKETING</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Social media ad campaigns, organic promotion, lead generation, and brand management run centrally. You benefit without managing it yourself.</p>
+      </div>
+      <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:none;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">04</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">COMPREHENSIVE TRAINING</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">One month of master training for you and your team, plus ongoing staff development as the curriculum evolves.</p>
+      </div>
+      <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:none;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">05</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">GOVERNMENT PROJECTS</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Access to NAVTTC, provincial government, and institutional project pipelines - additional revenue streams unavailable to independent institutes.</p>
+      </div>
+      <div style="padding:32px;border-right:none;border-bottom:none;">
+        <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">06</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">STUDENT JOB PLACEMENT</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Internship and job placement pipelines backed by Big Binary Tech's software house operations. Students leaving your campus have a path forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE WAYS TO PARTNER ============ -->
+<section data-screen-label="Franchise / Models" style="background:#EEF2F7;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>INSTITUTE MODELS</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">THREE WAYS TO <span style="color:#F5A623;">PARTNER.</span></h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Whether you're starting fresh, converting an existing institute, or building a hybrid operation - BBT's franchise structure accommodates the model that fits your situation.</p>
+    </div>
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:32px;transition:transform .22s,border-color .22s;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:16px;font-weight:600;">MODEL A</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">TRAINING INSTITUTE</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Establish a new BBT-branded training institute from scratch. Full setup guidance, curriculum, and student placement support included.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:32px;transition:transform .22s,border-color .22s;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:16px;font-weight:600;">MODEL B</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">SOFTWARE &amp; CONSULTANCY</h3>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">A franchise combining education with software house and student consultancy operations. Wider revenue base, higher ceiling.</p>
+      </div>
+      <div style="background:#F5A623;border:1px solid #F5A623;border-radius:14px;padding:32px;color:#0D1B2A;position:relative;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#0D1B2A;text-transform:uppercase;margin-bottom:16px;font-weight:700;">MODEL C</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">HYBRID MODEL</h3>
+        <p style="margin:0;color:#0D1B2A;line-height:1.6;font-size:.95rem;font-weight:500;">Institute plus consultancy in one operation. The most comprehensive model - and the most capable of accessing every BBT revenue stream simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section data-screen-label="Franchise / Packages" style="background:#F4F6F9;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none">
+    <defs><pattern id="bgFrPkg" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#DCE3EC" stroke-width="1"></path></pattern></defs>
+    <rect width="1400" height="900" fill="url(#bgFrPkg)"></rect>
+  </svg>
+
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:8px;"><span style="display:inline-block;width:6px;height:6px;background:#F5A623;"></span>// franchise categories</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(2rem,1.6rem + 2vw,3rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:14px 0 0;">Pricing scales with the unit you open.</h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Lifetime license &middot; non-refundable &middot; flat 10% monthly royalty. The more units you open, the cheaper each licence becomes.</p>
+    </div>
+
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;">
+
+      <!-- CATEGORY I -->
+      <div class="pkg" style="background:#FFFFFF;padding:32px;display:flex;flex-direction:column;gap:24px;position:relative;overflow:hidden;border-right:1px solid #DCE3EC;">
+        <span aria-hidden="true" style="position:absolute;top:18px;right:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5rem;color:#0D1B2A;opacity:.05;letter-spacing:-.04em;line-height:1;">01</span>
+        <div style="position:relative;">
+          <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">CATEGORY I</div>
+          <span class="mono" style="display:inline-flex;align-items:center;font-size:11px;letter-spacing:.18em;color:#F5A623;background:transparent;border:1px solid #F5A623;padding:6px 14px;border-radius:999px;text-transform:uppercase;font-weight:700;">FIRST UNIT</span>
+        </div>
+        <div style="position:relative;">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.15rem;letter-spacing:.01em;margin-bottom:14px;text-transform:uppercase;">FLAGSHIP PARTNER</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#0D1B2A;letter-spacing:-.03em;line-height:1;">15.0M</div>
+          <div class="mono" style="font-size:11px;letter-spacing:.12em;color:#475569;text-transform:uppercase;margin-top:8px;">PKR &middot; Lifetime License &middot; Non-refundable</div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+            <span style="color:#475569;font-size:.95rem;">At MOU Signing</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 8.0M</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="color:#475569;font-size:.95rem;">Before Operations</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 7.0M</span>
+          </div>
+        </div>
+        <div style="position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;">Monthly Royalty</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.1rem;letter-spacing:-.01em;">10%</span>
+        </div>
+      </div>
+
+      <!-- CATEGORY II - highlighted -->
+      <div class="pkg" style="background:#F5A623;padding:32px;display:flex;flex-direction:column;gap:24px;position:relative;overflow:hidden;border-right:1px solid #DCE3EC;color:#0D1B2A;">
+        <span aria-hidden="true" style="position:absolute;top:18px;right:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5rem;color:#0D1B2A;opacity:.45;letter-spacing:-.04em;line-height:1;">02</span>
+        <div style="position:relative;">
+          <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#0D1B2A;text-transform:uppercase;margin-bottom:14px;font-weight:700;">CATEGORY II</div>
+          <span class="mono" style="display:inline-flex;align-items:center;font-size:11px;letter-spacing:.18em;color:#0D1B2A;background:#FFFFFF;padding:6px 14px;border-radius:999px;text-transform:uppercase;font-weight:700;">SECOND UNIT</span>
+        </div>
+        <div style="position:relative;">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.15rem;letter-spacing:.01em;margin-bottom:14px;text-transform:uppercase;">GROWTH PARTNER</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#0D1B2A;letter-spacing:-.03em;line-height:1;">12.0M</div>
+          <div class="mono" style="font-size:11px;letter-spacing:.12em;color:#13294B;text-transform:uppercase;margin-top:8px;font-weight:500;">PKR &middot; Lifetime License &middot; Non-refundable</div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(13,27,42,.18);padding-top:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(13,27,42,.18);">
+            <span style="color:#13294B;font-size:.95rem;font-weight:500;">At MOU Signing</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 6.0M</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="color:#13294B;font-size:.95rem;font-weight:500;">Before Operations</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 6.0M</span>
+          </div>
+        </div>
+        <div style="position:relative;background:rgba(13,27,42,.12);border:1px solid rgba(13,27,42,.18);border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;color:#13294B;text-transform:uppercase;font-weight:600;">Monthly Royalty</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.1rem;letter-spacing:-.01em;">10%</span>
+        </div>
+      </div>
+
+      <!-- CATEGORY III -->
+      <div class="pkg" style="background:#FFFFFF;padding:32px;display:flex;flex-direction:column;gap:24px;position:relative;overflow:hidden;">
+        <span aria-hidden="true" style="position:absolute;top:18px;right:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5rem;color:#0D1B2A;opacity:.05;letter-spacing:-.04em;line-height:1;">03</span>
+        <div style="position:relative;">
+          <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">CATEGORY III</div>
+          <span class="mono" style="display:inline-flex;align-items:center;font-size:11px;letter-spacing:.18em;color:#F5A623;background:transparent;border:1px solid #F5A623;padding:6px 14px;border-radius:999px;text-transform:uppercase;font-weight:700;">3RD UNIT +</span>
+        </div>
+        <div style="position:relative;">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.15rem;letter-spacing:.01em;margin-bottom:14px;text-transform:uppercase;">SCALE PARTNER</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#0D1B2A;letter-spacing:-.03em;line-height:1;">10.0M</div>
+          <div class="mono" style="font-size:11px;letter-spacing:.12em;color:#475569;text-transform:uppercase;margin-top:8px;">PKR &middot; Lifetime License &middot; Non-refundable</div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+            <span style="color:#475569;font-size:.95rem;">At MOU Signing</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 5.0M</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="color:#475569;font-size:.95rem;">Before Operations</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:.95rem;letter-spacing:.01em;">PKR 5.0M</span>
+          </div>
+        </div>
+        <div style="position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+          <span class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;">Monthly Royalty</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.1rem;letter-spacing:-.01em;">10%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note on Royalty -->
+    <div style="margin-top:24px;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;">
+      <p style="margin:0;color:#475569;font-size:.95rem;line-height:1.6;max-width:760px;"><strong style="color:#0D1B2A;font-weight:700;">Note on Royalty:</strong> <span style="color:#475569;">Students' fees are deposited into the BBT designated account. Your franchisee share is transferred to your bank account based on the royalty rate. Government projects through NAVTTC provide additional revenue opportunities.</span></p>
+      <a href="#apply" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:14px 26px;border-radius:8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;display:inline-flex;align-items:center;gap:10px;flex:none;">Apply Now<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEVEN TRACKS ============ -->
+<section data-screen-label="Franchise / Tracks" style="background:#EEF2F7;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>THREE REVENUE SCHOOLS</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">SEVEN TRACKS. ALL <span style="color:#F5A623;">MARKET-GAP BUILT.</span></h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Your franchise delivers all 7 BBT courses - each chosen because qualified applicants are genuinely scarce in that role. Not what was popular three years ago. What the market is missing right now.</p>
+    </div>
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:14px;overflow:hidden;border:1px solid #DCE3EC;">
+      <div style="background:#FFFFFF;padding:32px;border-right:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">TRACK 01 &middot; FLAGSHIP &middot; 14 WEEKS</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 22px;letter-spacing:.01em;text-transform:uppercase;line-height:1.2;">GENERATIVE AI + AGENTIC AI</h3>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>LLM Engineering + Prompt Architecture</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>RAG Systems + Vector Databases</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Agentic AI - Tool Use + Multi-Agent</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Fine-Tuning + LoRA on Open-Source Models</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>LLMOps - Deployment + Monitoring</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Capstone: Deployed AI Product with Live URL</span></li>
+        </ul>
+      </div>
+      <div style="background:#FFFFFF;padding:32px;border-right:1px solid #DCE3EC;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">TRACK 02 + 03 &middot; 12 WEEKS EACH</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 22px;letter-spacing:.01em;text-transform:uppercase;line-height:1.2;">CLOUD + MLOPS &amp; ODOO ERP DEV</h3>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>AWS, Docker, Kubernetes, CI/CD, MLflow</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>ML Pipeline Automation + Model Monitoring</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Odoo Python ORM + Custom Module Dev</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>QWeb Templates + Owl JS Frontend</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>ERP Domain: Accounting, Inventory, HR</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Odoo API Integrations + Client Implementation</span></li>
+        </ul>
+      </div>
+      <div style="background:#F5A623;padding:32px;color:#0D1B2A;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#0D1B2A;text-transform:uppercase;margin-bottom:14px;font-weight:700;">TRACKS 04 &middot; 05 &middot; 06 &middot; 07</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 22px;letter-spacing:.01em;text-transform:uppercase;line-height:1.2;">FULL STACK, CYBER, UI/UX + MARKETING</h3>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Integrated Full Stack - React, Next.js, Node.js</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>Cybersecurity - Ethical Hacking, Cloud Security, CEH-Aligned</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>UI/UX + Brand Design - Figma, UX Research, Design Systems</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Powered Marketing + Sales - Meta Ads, HubSpot, Tele-Sales</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MULTIPLE WAYS TO EARN ============ -->
+<section data-screen-label="Franchise / Revenue" style="background:#F4F6F9;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #2A3470;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>REVENUE STREAMS</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">MULTIPLE WAYS TO <span style="color:#F5A623;">EARN.</span></h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#A8B4D0;margin:0;">BBT franchises generate revenue from more than one direction. The diversity of income sources is part of what makes the model resilient.</p>
+    </div>
+    <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #2A3470;border-radius:14px;overflow:hidden;">
+      <div style="background:#0F1A40;padding:32px;border-right:1px solid #2A3470;border-bottom:1px solid #2A3470;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">PRIMARY</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">COURSE FEES</h3>
+        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">Regular student enrolments across all three schools. Fee structures set per course, per cohort. Your share after BBT royalty is your core monthly income.</p>
+      </div>
+      <div style="background:#0F1A40;padding:32px;border-right:none;border-bottom:1px solid #2A3470;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">GOVERNMENT</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">NAVTTC + INSTITUTIONAL PROJECTS</h3>
+        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">Federal and provincial government-funded IT training programmes. BBT accesses these contracts centrally and routes them through franchise units.</p>
+      </div>
+      <div style="background:#0F1A40;padding:32px;border-right:1px solid #2A3470;border-bottom:none;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">CORPORATE</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">CUSTOMISED CORPORATE TRAINING</h3>
+        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">B2B training packages for companies, government agencies, and school education boards. Higher per-batch value than individual enrolments.</p>
+      </div>
+      <div style="background:#0F1A40;padding:32px;border-right:none;border-bottom:none;">
+        <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">SOFTWARE</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">SOFTWARE HOUSE JV / PARTNERSHIPS</h3>
+        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">Selected franchise locations can participate in BBT's software house joint venture model - extending revenue beyond education into service delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section data-screen-label="Franchise / Process" style="background:#F4F6F9;color:#0D1B2A;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;position:relative;overflow:hidden;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.45;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none"><defs><pattern id="bgFrProc" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#DCE3EC" stroke-width="1"></path></pattern></defs><rect width="1400" height="900" fill="url(#bgFrProc)"></rect></svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:48px;">
+      <div>
+        <span class="mono" style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:700;"><span style="display:inline-block;width:24px;height:2px;background:#F5A623;"></span>THE PROCESS</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">FROM INTEREST TO OPEN DOORS. <span style="color:#F5A623;">FIVE STEPS.</span></h2>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Typical timeline 90&ndash;120 days from signed agreement to first cohort. We're not in a rush - we're picking partners we plan to work with for the next decade.</p>
+    </div>
+
+    <div class="phase-stack" style="position:relative;border:1px solid #DCE3EC;border-radius:14px;background:#FFFFFF;overflow:hidden;box-shadow:0 2px 10px rgba(13,27,42,.04);">
+      <!-- animated vertical rail -->
+      <svg aria-hidden="true" style="position:absolute;left:122px;top:0;bottom:0;width:16px;pointer-events:none;z-index:1;" viewBox="0 0 16 1000" preserveAspectRatio="none" fill="none">
+        <defs><path id="railFrProc" d="M8 -20 L8 1020"></path></defs>
+        <line x1="8" y1="0" x2="8" y2="1000" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="4 6" opacity=".4"></line>
+        <line x1="8" y1="0" x2="8" y2="1000" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="4 6"><animate attributeName="stroke-dashoffset" from="0" to="-100" dur="3.5s" repeatCount="indefinite"></animate></line>
+        <rect width="10" height="10" fill="#F5A623" rx="1" x="3"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#railFrProc"></mpath></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.05;.95;1" dur="8s" repeatCount="indefinite"></animate></rect>
+        <rect width="6" height="6" fill="#F5A623" rx="1" x="5"><animateMotion dur="8s" begin="-2.8s" repeatCount="indefinite"><mpath href="#railFrProc"></mpath></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.05;.95;1" dur="8s" begin="-2.8s" repeatCount="indefinite"></animate></rect>
+        <rect width="4" height="4" fill="#F5A623" rx="1" x="6"><animateMotion dur="8s" begin="-5.4s" repeatCount="indefinite"><mpath href="#railFrProc"></mpath></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.05;.95;1" dur="8s" begin="-5.4s" repeatCount="indefinite"></animate></rect>
+      </svg>
+
+      
+      <div class="reveal phase-row" style="display:grid;grid-template-columns:160px 1fr auto;gap:36px;align-items:center;padding:36px;border-bottom:1px solid #DCE3EC;background:linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%);transition:background .3s;position:relative;z-index:2;" onmouseover="this.style.background='linear-gradient(90deg,rgba(245,166,35,.12),transparent 70%)';" onmouseout="this.style.background='linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%)';">
+        <div style="position:relative;">
+          <span class="phase-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,4vw,4.5rem);line-height:1;color:#F5A623;letter-spacing:-.04em;transition:transform .3s ease,letter-spacing .3s ease;display:inline-block;">01</span>
+          <span class="mono" style="position:absolute;top:8px;right:-8px;font-size:10px;letter-spacing:.18em;color:#475569;writing-mode:vertical-rl;text-orientation:mixed;">STEP</span>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;margin-bottom:8px;">APPLY &middot; 1 DAY</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Submit the partner application.</h3>
+          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">City, target territory, background, and rough budget. Five minutes.</p>
+        </div>
+        <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#F5A623;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,166,35,.35);padding:8px 12px;border-radius:8px;background:rgba(245,166,35,.04);flex:none;">DAY 0</span>
+      </div>
+      <div class="reveal phase-row" style="display:grid;grid-template-columns:160px 1fr auto;gap:36px;align-items:center;padding:36px;border-bottom:1px solid #DCE3EC;background:linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%);transition:background .3s;position:relative;z-index:2;" onmouseover="this.style.background='linear-gradient(90deg,rgba(245,166,35,.12),transparent 70%)';" onmouseout="this.style.background='linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%)';">
+        <div style="position:relative;">
+          <span class="phase-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,4vw,4.5rem);line-height:1;color:#F5A623;letter-spacing:-.04em;transition:transform .3s ease,letter-spacing .3s ease;display:inline-block;">02</span>
+          <span class="mono" style="position:absolute;top:8px;right:-8px;font-size:10px;letter-spacing:.18em;color:#475569;writing-mode:vertical-rl;text-orientation:mixed;">STEP</span>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;margin-bottom:8px;">DISCOVERY CALL &middot; 1 WEEK</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Two-way diligence.</h3>
+          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">A 60-min call. You see the model in detail. We learn your market, your background, your why.</p>
+        </div>
+        <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#F5A623;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,166,35,.35);padding:8px 12px;border-radius:8px;background:rgba(245,166,35,.04);flex:none;">WEEK 1</span>
+      </div>
+      <div class="reveal phase-row" style="display:grid;grid-template-columns:160px 1fr auto;gap:36px;align-items:center;padding:36px;border-bottom:1px solid #DCE3EC;background:linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%);transition:background .3s;position:relative;z-index:2;" onmouseover="this.style.background='linear-gradient(90deg,rgba(245,166,35,.12),transparent 70%)';" onmouseout="this.style.background='linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%)';">
+        <div style="position:relative;">
+          <span class="phase-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,4vw,4.5rem);line-height:1;color:#F5A623;letter-spacing:-.04em;transition:transform .3s ease,letter-spacing .3s ease;display:inline-block;">03</span>
+          <span class="mono" style="position:absolute;top:8px;right:-8px;font-size:10px;letter-spacing:.18em;color:#475569;writing-mode:vertical-rl;text-orientation:mixed;">STEP</span>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;margin-bottom:8px;">HQ VISIT &middot; 2&ndash;3 DAYS</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Come spend time at Lahore HQ.</h3>
+          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">Sit in on classes. Meet the team. See the studio. Walk out with eyes open.</p>
+        </div>
+        <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#F5A623;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,166,35,.35);padding:8px 12px;border-radius:8px;background:rgba(245,166,35,.04);flex:none;">WEEK 3</span>
+      </div>
+      <div class="reveal phase-row" style="display:grid;grid-template-columns:160px 1fr auto;gap:36px;align-items:center;padding:36px;border-bottom:1px solid #DCE3EC;background:linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%);transition:background .3s;position:relative;z-index:2;" onmouseover="this.style.background='linear-gradient(90deg,rgba(245,166,35,.12),transparent 70%)';" onmouseout="this.style.background='linear-gradient(90deg,rgba(245,166,35,.04),transparent 50%)';">
+        <div style="position:relative;">
+          <span class="phase-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,4vw,4.5rem);line-height:1;color:#F5A623;letter-spacing:-.04em;transition:transform .3s ease,letter-spacing .3s ease;display:inline-block;">04</span>
+          <span class="mono" style="position:absolute;top:8px;right:-8px;font-size:10px;letter-spacing:.18em;color:#475569;writing-mode:vertical-rl;text-orientation:mixed;">STEP</span>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;margin-bottom:8px;">AGREEMENT &middot; 2 WEEKS</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Territory, terms, signatures.</h3>
+          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">Lock in your exclusive city, package and royalty. Standard 5-year term, renewable.</p>
+        </div>
+        <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#F5A623;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,166,35,.35);padding:8px 12px;border-radius:8px;background:rgba(245,166,35,.04);flex:none;">WEEK 5</span>
+      </div>
+
+      <!-- Step 05 - highlighted -->
+      <div class="reveal phase-row phase-04" style="display:grid;grid-template-columns:160px 1fr auto;gap:36px;align-items:center;padding:40px 36px;background:#F5A623;color:#0D1B2A;position:relative;z-index:2;">
+        <div style="position:relative;">
+          <span class="phase-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,4vw,4.5rem);line-height:1;color:#0D1B2A;letter-spacing:-.04em;transition:transform .3s ease,letter-spacing .3s ease;display:inline-block;">05</span>
+          <span class="mono" style="position:absolute;top:8px;right:-8px;font-size:10px;letter-spacing:.18em;color:#13294B;writing-mode:vertical-rl;text-orientation:mixed;">STEP</span>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#13294B;text-transform:uppercase;margin-bottom:8px;font-weight:600;">LAUNCH &middot; 60&ndash;90 DAYS</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Build-out, mentor certification, cohort 01.</h3>
+          <p style="margin:0;color:#13294B;line-height:1.55;max-width:620px;font-size:.96rem;font-weight:500;">Fit-out the space, certify your mentors at HQ, marketing goes live, doors open.</p>
+        </div>
+        <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#0D1B2A;text-transform:uppercase;font-weight:700;border:1.5px solid #0D1B2A;padding:8px 12px;border-radius:8px;background:rgba(13,27,42,.06);flex:none;">DAY 90</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRITORIES MAP ============ -->
+<section data-screen-label="Franchise / Territories" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
+      <div>
+        <span class="eye">// territories</span>
+        <h2 class="tit">Where we're open. <br>First mover gets first pick.</h2>
+      </div>
+      <p class="deck">One partner per city. Exclusive operating rights for the term. Cities below are open, with priority on the tier-2 group where local presence beats national ads.</p>
+    </div>
+
+    <div class="g2" style="display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;">
+      <!-- Stylized map -->
+      <div style="background:#0D1B2A;border:1px solid #DCE3EC;border-radius:14px;padding:24px;position:relative;overflow:hidden;min-height:480px;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:12px;">// PK_territories &middot; v1</div>
+        <svg viewBox="0 0 600 480" style="width:100%;height:auto;display:block;" aria-hidden="true">
+          <!-- grid -->
+          <defs>
+            <pattern id="bgMap" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#1C3A6B" stroke-width=".5"></path></pattern>
+          </defs>
+          <rect width="600" height="480" fill="url(#bgMap)"></rect>
+          <!-- abstract pakistan shape, simplified diamonds-style polygon -->
+          <path d="M120 60 L210 50 L300 90 L380 80 L460 110 L500 200 L490 290 L430 360 L360 410 L290 440 L220 430 L160 380 L130 320 L100 240 L90 160 Z" fill="#0F2547" stroke="#1C3A6B" stroke-width="1.2"></path>
+
+          <!-- Lahore (HQ - amber filled) -->
+          <g>
+            <circle cx="370" cy="200" r="14" fill="#F5A623" opacity=".25"></circle>
+            <circle cx="370" cy="200" r="6" fill="#F5A623"></circle>
+            <text x="385" y="195" font-family="IBM Plex Mono, monospace" font-size="11" fill="#fff" font-weight="600">LAHORE</text>
+            <text x="385" y="208" font-family="IBM Plex Mono, monospace" font-size="9" fill="#F5A623" letter-spacing="1">HQ &middot; LIVE</text>
+          </g>
+          <!-- Karachi -->
+          <g>
+            <circle class="map-pin-live" cx="200" cy="380" r="5" fill="#F5A623"></circle>
+            <text x="215" y="385" font-family="IBM Plex Mono, monospace" font-size="10" fill="#DCE3EC">KARACHI</text>
+          </g>
+          <!-- Islamabad -->
+          <g>
+            <circle class="map-pin-live" cx="350" cy="120" r="5" fill="#F5A623"></circle>
+            <text x="365" y="125" font-family="IBM Plex Mono, monospace" font-size="10" fill="#DCE3EC">ISLAMABAD</text>
+          </g>
+          <!-- Faisalabad -->
+          <g>
+            <circle cx="320" cy="220" r="4" fill="#DCE3EC"></circle>
+            <text x="332" y="225" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A99A8">FAISALABAD</text>
+          </g>
+          <!-- Multan -->
+          <g>
+            <circle cx="280" cy="280" r="4" fill="#DCE3EC"></circle>
+            <text x="292" y="285" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A99A8">MULTAN</text>
+          </g>
+          <!-- Peshawar -->
+          <g>
+            <circle cx="290" cy="100" r="4" fill="#DCE3EC"></circle>
+            <text x="225" y="105" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A99A8">PESHAWAR</text>
+          </g>
+          <!-- Sialkot -->
+          <g>
+            <circle cx="380" cy="160" r="4" fill="#DCE3EC"></circle>
+            <text x="392" y="165" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A99A8">SIALKOT</text>
+          </g>
+          <!-- Quetta -->
+          <g>
+            <circle cx="150" cy="280" r="4" fill="#DCE3EC"></circle>
+            <text x="105" y="270" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A99A8">QUETTA</text>
+          </g>
+          <!-- connecting dotted lines to Lahore HQ -->
+          <line x1="370" y1="200" x2="200" y2="380" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".35"></line>
+          <line x1="370" y1="200" x2="350" y2="120" stroke="#F5A623" stroke-width="1" stroke-dasharray="3 5" opacity=".35"></line>
+        </svg>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;">
+          <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#DCE3EC;display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:8px;height:8px;background:#F5A623;border-radius:50%;"></span>HQ / Live</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#DCE3EC;display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:8px;height:8px;background:#F5A623;border-radius:50%;opacity:.6;"></span>Priority open</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#DCE3EC;display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span>Available</span>
+        </div>
+      </div>
+
+      <!-- Territory list -->
+      <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;display:flex;flex-direction:column;">
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:14px;">// open territories</div>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;flex:1;">
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#F5A623;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Karachi</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;">PRIORITY</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#F5A623;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Islamabad / Rawalpindi</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#D98A07;text-transform:uppercase;">PRIORITY</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Faisalabad</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">OPEN</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Multan</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">OPEN</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Peshawar</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">OPEN</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #DCE3EC;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">Sialkot &middot; Gujranwala</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">OPEN</span>
+          </li>
+          <li style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:8px;height:8px;background:#DCE3EC;border-radius:50%;"></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1rem;">UAE &middot; KSA</span></div>
+            <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">INTERNATIONAL</span>
+          </li>
+        </ul>
+        <a href="#apply" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:14px;border-radius:8px;font-size:14px;text-align:center;margin-top:18px;">Claim a territory</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section data-screen-label="Franchise / FAQ" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
+  <div style="max-width:880px;margin:0 auto;">
+    <div style="margin-bottom:40px;text-align:center;"><span class="eye">// franchise faq</span><h2 class="tit" style="margin:14px 0 12px;">The questions we get most.</h2></div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <details open style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_01</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">What's the total ballpark to open a Standard campus?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Franchise fee from PKR 5M, plus fit-out (PKR 4&ndash;8M depending on city &amp; size), plus 12 months of working capital. We share a full city-specific model during the discovery call.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_02</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">How exclusive is the territory?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Fully exclusive operating rights within a defined area (city or zone of a metro) for the contract term. No second BBT in your patch.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_03</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Do I need to come from an education background?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">No. We've shortlisted business operators, fmcg distributors, returning expats, doctors and software engineers. What matters is operator discipline and capital, not prior teaching experience.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_04</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Who hires and pays the mentors?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">You hire and employ them; HQ certifies them. We help with sourcing, screening and the certification programme. Standard markets are mostly self-staffed by month 3.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_05</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">What happens if a partner underperforms?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Quarterly business reviews catch issues early. If a campus persistently misses quality or growth thresholds, we intervene with on-site support before any harder action.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_06</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Are international partners welcome?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes - GCC and select South Asian markets are open. International terms differ slightly to account for currency &amp; compliance; we walk you through them at discovery.</div></details>
+
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_07</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Can I franchise just the freestyle side?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes - the Starter format is exactly this. Freestyle courses + 2 tracks, smaller footprint, faster ramp. Good entry point for satellite cities.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START CONVERSATION ============ -->
+<section id="apply" data-screen-label="Franchise / Apply" style="background:#0D1B2A;color:#fff;padding:clamp(72px,11vh,140px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-top:1px solid #DCE3EC;">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.08;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none"><defs><pattern id="bgFrApply2" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#F5A623" stroke-width=".4"></path></pattern></defs><rect width="1400" height="900" fill="url(#bgFrApply2)"></rect></svg>
+  <div class="g2" style="max-width:1200px;margin:0 auto;position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start;">
+    <!-- LEFT: title + description + contact -->
+    <div style="position:sticky;top:120px;">
+      <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>EXPRESS YOUR INTEREST</span>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:18px 0 24px;text-transform:uppercase;">START THE CONVERSATION. <span style="color:#F5A623;">TODAY.</span></h2>
+      <p style="font-size:1.05rem;line-height:1.65;color:#A8B4D0;margin:0 0 36px;max-width:520px;">Fill in your details below. Our franchise team reviews every application and contacts qualified candidates directly. No commitment required at this stage - just tell us about yourself and where you want to build.</p>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;font-weight:700;">PHONE</span><a href="tel:+923260188811" style="color:#DCE3EC;font-size:.98rem;">0326-0188811</a></div>
+        <div style="display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;font-weight:700;">EMAIL</span><a href="mailto:franchise@bbt.edu.pk" style="color:#DCE3EC;font-size:.98rem;">franchise@bbt.edu.pk</a></div>
+        <div style="display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:start;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;font-weight:700;">LOCATION</span><span style="color:#DCE3EC;font-size:.98rem;line-height:1.5;">444Q, 2nd Floor DHA Phase 2, Lahore</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <form style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:14px;padding:36px;">
+      <!-- PERSONAL INFORMATION -->
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">PERSONAL INFORMATION</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">FULL NAME <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="Your full name"  style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">CNIC NUMBER <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="XXXXX-XXXXXXX-X" pattern="[0-9]{5}-[0-9]{7}-[0-9]" autocomplete="off" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">MOBILE NUMBER <span style="color:#F5A623;">*</span></span><input type="tel" required placeholder="0300-0000000" inputmode="tel" autocomplete="tel" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">EMAIL ADDRESS <span style="color:#F5A623;">*</span></span><input type="email" required placeholder="you@email.com" autocomplete="email" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">CITY OF RESIDENCE <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="Your city" autocomplete="address-level2" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+          
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">PREFERRED CITY FOR FRANCHISE <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="e.g. Karachi"  style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
+        </div>
+      </div>
+
+      <!-- INVESTMENT & MODEL SELECTION -->
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">INVESTMENT &amp; MODEL SELECTION</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px;">
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">INVESTMENT CATEGORY <span style="color:#F5A623;">*</span></span><select required style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;cursor:pointer;outline:none;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"><option value="">Select tier</option><option>Category I - PKR 15.0M (First Unit)</option><option>Category II - PKR 12.0M (Second Unit)</option><option>Category III - PKR 10.0M (3rd Unit +)</option></select></label>
+          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">NUMBER OF UNITS <span style="color:#F5A623;">*</span></span><select required style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;cursor:pointer;outline:none;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"><option value="">Select</option><option>1 unit</option><option>2 units</option><option>3+ units</option></select></label>
+        </div>
+        <div>
+          <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;display:block;margin-bottom:14px;">PREFERRED MODEL <span style="color:#F5A623;">*</span></span>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" required style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Training Institute</span></label>
+            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Software &amp; Consultancy</span></label>
+            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Hybrid</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADDITIONAL INFORMATION -->
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">ADDITIONAL INFORMATION</span></div>
+        <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">WHY DO YOU WANT TO PARTNER WITH BBT?</span><textarea rows="5" placeholder="Tell us about your vision..." style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;resize:vertical;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></textarea></label>
+      </div>
+
+      <!-- Consent + Submit -->
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;"><input type="checkbox" required style="accent-color:#F5A623;width:18px;height:18px;margin-top:3px;flex:none;cursor:pointer;"><span style="color:#A8B4D0;font-size:.92rem;line-height:1.55;">I understand this is an expression of interest and not a formal commitment. I consent to Big Binary Tech contacting me regarding this application.</span></label>
+        <button type="submit" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:20px;border-radius:8px;border:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;display:inline-flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:transform .18s,box-shadow .18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 28px rgba(245,166,35,.32)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">SUBMIT EXPRESSION OF INTEREST<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-screen-label="Franchise / Footer" style="background:#0A1422;color:#DCE3EC;padding:56px clamp(20px,5vw,40px) 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="g4" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid #DCE3EC;">
+      <div>
+        <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
+        <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
+      </div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="courses.html">Courses</a><a class="c-link" href="curriculum.html">Freestyle Courses</a><a class="c-link" href="#">Career Assessment</a><a class="c-link" href="#">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="#">Blog</a><a class="c-link" href="#">Events</a><a class="c-link" href="#">Podcast</a><a class="c-link" href="#">Webseries</a><a class="c-link" href="#">FAQs</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a class="c-link" href="https://wa.me/923260188811">WhatsApp &middot; 0326-0188811</a><a class="c-link" href="mailto:partners@bbt.edu.pk">partners@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
+    </div>
+    <div class="mono" style="padding-top:24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A99A8;text-align:center;">© 2026 Big Binary Tech. All rights reserved.</div>
+  </div>
+</footer>
+
+</div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27d%20like%20to%20franchise." aria-label="Chat with BBT on WhatsApp" style="position:fixed;bottom:max(24px,env(safe-area-inset-bottom));right:max(24px,env(safe-area-inset-right));z-index:80;width:56px;height:56px;border-radius:50%;background:#13294B;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(13,27,42,.28);border:2px solid transparent;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='transparent';this.style.transform='none';">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3zm0 23.6c-1.96 0-3.88-.527-5.56-1.523l-.4-.237-3.97 1.04 1.06-3.866-.26-.41a10.6 10.6 0 0 1-1.63-5.602c0-5.846 4.756-10.602 10.6-10.602 5.846 0 10.6 4.756 10.6 10.602 0 5.844-4.754 10.598-10.6 10.598zm5.81-7.94c-.318-.16-1.886-.93-2.18-1.036-.292-.107-.504-.16-.717.16-.213.32-.823 1.036-1.01 1.249-.187.213-.372.24-.69.08-.318-.16-1.346-.495-2.563-1.58-.948-.846-1.586-1.89-1.772-2.208-.187-.318-.02-.49.14-.65.144-.143.32-.372.48-.558.16-.187.213-.32.32-.532.107-.213.053-.4-.027-.56-.08-.16-.717-1.73-.984-2.37-.258-.62-.52-.535-.717-.545l-.61-.012c-.213 0-.558.08-.85.4-.292.32-1.116 1.09-1.116 2.66 0 1.57 1.143 3.09 1.302 3.303.16.213 2.249 3.434 5.45 4.815.762.33 1.357.526 1.82.673.766.244 1.463.21 2.013.127.614-.092 1.886-.77 2.152-1.514.266-.745.266-1.383.187-1.515-.08-.133-.292-.213-.61-.372z"></path></svg>
+</a>
+</body>
+</html>
