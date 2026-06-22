@@ -197,6 +197,45 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
   }
 }
 
+
+/* ============ MEGA-MENU NAV (desktop dropdowns + mobile accordion) ============ */
+.nl.active{color:#0D1B2A;font-weight:600}
+.nl.active::after{transform:scaleX(1)}
+.nav-trig{display:inline-flex;align-items:center}
+.nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
+.nav-item{position:relative;display:inline-flex;align-items:center}
+.nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
+.nav-dd{position:absolute;top:100%;left:50%;padding-top:16px;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s;z-index:70}
+.nav-item:hover .nav-dd,.nav-item:focus-within .nav-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .2s ease}
+.nav-dd-wide{left:0;transform:translateX(0) translateY(8px)}
+.nav-item:hover .nav-dd-wide,.nav-item:focus-within .nav-dd-wide{transform:translateX(0) translateY(0)}
+.nav-dd-inner{background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;box-shadow:0 24px 60px rgba(13,27,42,.14),0 2px 8px rgba(13,27,42,.05);padding:14px}
+.nav-dd-1 .nav-dd-inner{min-width:300px}
+.nav-dd-wide .nav-dd-inner{display:grid;grid-template-columns:repeat(3,minmax(208px,1fr));gap:6px 22px}
+.nav-col-h{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;padding:6px 12px 8px;display:flex;align-items:center;gap:7px}
+.nav-col-h::before{content:"";width:6px;height:6px;background:#F5A623;display:inline-block}
+.dd-link{display:flex;flex-direction:column;gap:2px;padding:9px 12px;border-radius:9px;transition:background .16s ease,transform .16s ease}
+.dd-link:hover{background:#FCEFD4;transform:translateX(2px)}
+.dd-t{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.92rem;color:#0D1B2A;letter-spacing:-.01em}
+.dd-d{font-size:.74rem;color:#475569;line-height:1.4}
+.nav-dd-cta{margin-top:8px;padding:12px 14px;background:#0D1B2A;border-radius:9px;display:flex;align-items:center;justify-content:space-between;transition:background .18s ease}
+.nav-dd-cta:hover{background:#13294B}
+.nav-dd-cta span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.nav-dd-cta b{color:#F5A623;font-family:'IBM Plex Mono',monospace;font-size:13px}
+@media(max-width:980px){
+  .mob-nav .mob-acc{border:none;background:transparent;width:100%}
+  .mob-nav .mob-acc>summary{font-family:'IBM Plex Sans',sans-serif;font-size:16px;color:#0D1B2A;font-weight:500;padding:14px 18px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;transition:background .2s,color .2s}
+  .mob-nav .mob-acc>summary::-webkit-details-marker{display:none}
+  .mob-nav .mob-acc>summary .mob-cv{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s ease;opacity:.5}
+  .mob-nav .mob-acc[open]>summary{color:#D98A07;background:#FCEFD4}
+  .mob-nav .mob-acc[open]>summary .mob-cv{transform:rotate(-135deg)}
+  .mob-nav .mob-sub{display:flex;flex-direction:column;gap:2px;padding:2px 8px 10px 16px}
+  .mob-nav .mob-sub a{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:#13294B;font-weight:500;padding:11px 14px;border-radius:8px;display:flex;align-items:center;gap:9px;transition:background .18s,color .18s}
+  .mob-nav .mob-sub a::before{content:"\2192";font-family:'IBM Plex Mono',monospace;opacity:.35;font-size:12px}
+  .mob-nav .mob-sub a:hover{background:#FCEFD4;color:#D98A07}
+  header[data-open] .mob-nav{max-height:1600px!important}
+}
+
 </style>
 
 </head>
@@ -211,8 +250,67 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     <a href="index.html" style="display:flex;align-items:center;gap:14px;">
       <img src="assets/bbt-logo.png" alt="Big Binary Tech" style="height:44px;width:auto;display:block;">
     </a>
-    <nav class="desk" style="display:flex;gap:26px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
-      <a class="nl" href="index.html">Home</a><a class="nl" href="courses.html">Courses</a><a class="nl" href="curriculum.html">Curriculum</a><a class="nl" href="about.html">About</a><a class="nl active" href="#">Franchise</a>
+    <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
+      <a class="nl" href="index.html">Home</a>
+      <div class="nav-item">
+        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// career tracks</div>
+          <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
+          <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
+          <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
+          <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a class="nl nav-trig" href="courses.html">Freestyle Courses<i class="nav-cv"></i></a>
+        <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
+          <div>
+            <div class="nav-col-h">// hi-tech</div>
+            <a class="dd-link" href="course-artificial-intelligence.html"><span class="dd-t">Artificial Intelligence</span></a>
+            <a class="dd-link" href="course-generative-ai.html"><span class="dd-t">Generative AI</span></a>
+            <a class="dd-link" href="course-cybersecurity.html"><span class="dd-t">Cybersecurity</span></a>
+            <a class="dd-link" href="course-full-stack.html"><span class="dd-t">Full Stack Development</span></a>
+            <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
+            <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
+            <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+          </div>
+          <div>
+            <div class="nav-col-h">// design &amp; creative</div>
+            <a class="dd-link" href="course-graphic-design.html"><span class="dd-t">Graphic Design</span></a>
+            <a class="dd-link" href="course-uiux-design.html"><span class="dd-t">UI/UX Design</span></a>
+            <a class="dd-link" href="course-video-editing.html"><span class="dd-t">Video Editing</span></a>
+            <a class="dd-link" href="course-advanced-video-editing.html"><span class="dd-t">Advanced Video Editing</span></a>
+            <a class="dd-link" href="course-animation.html"><span class="dd-t">Animation</span></a>
+          </div>
+          <div>
+            <div class="nav-col-h">// marketing &amp; e-commerce</div>
+            <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
+            <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
+            <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+          </div>
+        </div></div>
+      </div>
+      <a class="nl" href="testimonials.html">Testimonials</a>
+      <a class="nl" href="about.html">About</a>
+      <div class="nav-item">
+        <a class="nl nav-trig" href="insights.html">Insights<i class="nav-cv"></i></a>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// insights</div>
+          <a class="dd-link" href="blog.html"><span class="dd-t">Blog</span><span class="dd-d">Guides, tutorials &amp; industry news</span></a>
+          <a class="dd-link" href="events.html"><span class="dd-t">Events</span><span class="dd-d">Workshops, bootcamps &amp; meetups</span></a>
+          <a class="dd-link" href="podcast.html"><span class="dd-t">Podcast</span><span class="dd-d">Conversations with practitioners</span></a>
+          <a class="dd-link" href="webseries.html"><span class="dd-t">Web Series</span><span class="dd-d">Build-along video series</span></a>
+          <a class="dd-link" href="faqs.html"><span class="dd-t">FAQs</span><span class="dd-d">Everything about BBT, answered</span></a>
+        </div></div>
+      </div>
+      <a class="nl active" href="franchise.html">Franchise</a>
+      <a class="nl" href="contact.html">Contact</a>
     </nav>
     <div style="display:flex;align-items:center;gap:12px;">
       <a href="#apply" class="btn bs desk" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:12px 24px;border-radius:999px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">Enroll Now</a>
@@ -221,10 +319,45 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
   </div>
   <div class="mob-nav" id="mobNav">
       <a class="mn" href="index.html">Home</a>
-      <a class="mn" href="courses.html">Courses</a>
-      <a class="mn" href="curriculum.html">Curriculum</a>
+      <details class="mob-acc"><summary>Tracks <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="tracks.html">All Tracks</a>
+        <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
+        <a href="track-cloud-mlops.html">Cloud + MLOps</a>
+        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
+        <a href="track-cybersecurity.html">Cybersecurity</a>
+        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-ai-marketing.html">AI-Powered Marketing</a>
+      </div></details>
+      <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="courses.html">All Courses</a>
+        <a href="course-artificial-intelligence.html">Artificial Intelligence</a>
+        <a href="course-generative-ai.html">Generative AI</a>
+        <a href="course-cybersecurity.html">Cybersecurity</a>
+        <a href="course-full-stack.html">Full Stack Development</a>
+        <a href="course-web-development.html">Web Development</a>
+        <a href="course-app-development.html">App Development</a>
+        <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-graphic-design.html">Graphic Design</a>
+        <a href="course-uiux-design.html">UI/UX Design</a>
+        <a href="course-video-editing.html">Video Editing</a>
+        <a href="course-advanced-video-editing.html">Advanced Video Editing</a>
+        <a href="course-animation.html">Animation</a>
+        <a href="course-shopify.html">Shopify</a>
+        <a href="course-amazon.html">Amazon</a>
+        <a href="course-digital-marketing.html">Digital Media Marketing</a>
+      </div></details>
+      <a class="mn" href="testimonials.html">Testimonials</a>
       <a class="mn" href="about.html">About</a>
+      <details class="mob-acc"><summary>Insights <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="blog.html">Blog</a>
+        <a href="events.html">Events</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="webseries.html">Web Series</a>
+        <a href="faqs.html">FAQs</a>
+      </div></details>
       <a class="mn active" href="franchise.html">Franchise</a>
+      <a class="mn" href="contact.html">Contact</a>
       <a class="mn mn-cta" href="enroll.html">Enroll Now</a>
     </div>
 </header>
@@ -936,8 +1069,8 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="courses.html">Courses</a><a class="c-link" href="curriculum.html">Freestyle Courses</a><a class="c-link" href="#">Career Assessment</a><a class="c-link" href="#">Franchise</a></div></div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="#">Blog</a><a class="c-link" href="#">Events</a><a class="c-link" href="#">Podcast</a><a class="c-link" href="#">Webseries</a><a class="c-link" href="#">FAQs</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="tracks.html">Tracks</a><a class="c-link" href="courses.html">Freestyle Courses</a><a class="c-link" href="contact.html">Career Assessment</a><a class="c-link" href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="blog.html">Blog</a><a class="c-link" href="events.html">Events</a><a class="c-link" href="podcast.html">Podcast</a><a class="c-link" href="webseries.html">Webseries</a><a class="c-link" href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a class="c-link" href="https://wa.me/923260188811">WhatsApp &middot; 0326-0188811</a><a class="c-link" href="mailto:partners@bbt.edu.pk">partners@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>
     <div class="mono" style="padding-top:24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A99A8;text-align:center;">© 2026 Big Binary Tech. All rights reserved.</div>

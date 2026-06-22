@@ -1,0 +1,960 @@
+/* ============================================================================
+   01. DESIGN TOKENS
+   ----------------------------------------------------------------------------
+   The entire palette, type ramp, spacing scale and motion timings live here.
+   Naming convention: --bbt-<group>-<role>. Groups: color (c), font, text,
+   space, radius, shadow, ease, dur, layout.
+   ============================================================================ */
+:root {
+
+  /* ---- BRAND COLORS --------------------------------------------------------
+     BBT's identity is a deep navy paired with a warm amber accent, on a cool
+     off-white canvas. Navy = trust/seniority, amber = energy/CTA. */
+
+  /* Navy family — backgrounds for dark sections, primary text, headings */
+  --bbt-c-navy-950:   #0A1422;  /* Deepest navy — the html/body backdrop behind everything */
+  --bbt-c-navy-900:   #0D1B2A;  /* Primary navy — body headings, dark section bg, theme-color */
+  --bbt-c-navy-800:   #13294B;  /* Secondary navy — sub-headings, link hover, ghost-button text */
+  --bbt-c-navy-700:   #1C3A6B;  /* Navy hover — primary button hover state */
+
+  /* Slate family — body copy and muted captions */
+  --bbt-c-slate-600:  #475569;  /* Default body text color */
+  --bbt-c-slate-400:  #8A99A8;  /* Muted text — mono captions, table headers, "// selected" notes */
+
+  /* Surface / neutral family — canvas, cards, borders */
+  --bbt-c-bg:         #F4F6F9;  /* Page background (light) */
+  --bbt-c-bg-alt:     #EEF2F7;  /* Alternate section background — gentle banding between sections */
+  --bbt-c-surface:    #FFFFFF;  /* Cards, header, raised surfaces */
+  --bbt-c-border:     #DCE3EC;  /* Hairline borders, dividers, input outlines */
+
+  /* Amber family — the accent / CTA color */
+  --bbt-c-amber:      #F5A623;  /* Primary accent — CTA fill, ticks, dots, rails, focus accents */
+  --bbt-c-amber-700:  #D98A07;  /* Darker amber — amber text on light, amber button hover */
+  --bbt-c-amber-50:   #FCEFD4;  /* Pale amber — highlight backgrounds, tag fills, hover wash */
+
+  /* Functional colors */
+  --bbt-c-focus:      #2563EB;  /* Focus ring blue — used ONLY for :focus-visible outlines */
+  --bbt-c-success:    #16794D;  /* Success green — "seats open", "career.ready = true" */
+
+  /* Translucent amber — for pulsing glows and soft borders (rgba so it layers) */
+  --bbt-c-amber-a35:  rgba(245, 166, 35, .35); /* Tag/border tint */
+  --bbt-c-amber-a18:  rgba(245, 166, 35, .18); /* Ambient hero glow */
+
+  /* On-color text helpers — what to put ON a given background for contrast */
+  --bbt-c-on-navy:    #FFFFFF;  /* Text on navy surfaces */
+  --bbt-c-on-amber:   #0D1B2A;  /* Text on amber surfaces (navy reads best on amber) */
+
+
+  /* ---- TYPOGRAPHY: FONT FAMILIES -------------------------------------------
+     Three Google fonts, each with a clear job:
+       • Bricolage Grotesque — expressive display face for all headings (h1–h3,
+         .tit). Variable optical-size + weight, used 400–800.
+       • IBM Plex Sans       — workhorse UI/body face. Weights 400/500/600/700.
+       • IBM Plex Mono       — technical voice: eyebrows, code/terminal mocks,
+         table labels, "cohort" tags. Weights 400/500/600.
+     Load these in the page <head> with:
+       https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800
+         &family=IBM+Plex+Mono:wght@400;500;600
+         &family=IBM+Plex+Sans:wght@400;500;600;700&display=swap                */
+  --bbt-font-display: 'Bricolage Grotesque', sans-serif;
+  --bbt-font-body:    'IBM Plex Sans', system-ui, sans-serif;
+  --bbt-font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+
+  /* ---- TYPOGRAPHY: FONT WEIGHTS --------------------------------------------- */
+  --bbt-fw-regular:   400;
+  --bbt-fw-medium:    500;
+  --bbt-fw-semibold:  600;
+  --bbt-fw-bold:      700;
+  --bbt-fw-black:     800;  /* Reserved for the biggest hero h1 only */
+
+
+  /* ---- TYPOGRAPHY: FLUID TYPE SCALE ----------------------------------------
+     All sizes are fluid via clamp(MIN, PREFERRED, MAX) so they scale smoothly
+     between phones and large desktops without breakpoints. These match the
+     inline values used across the site. */
+  --bbt-text-h1:      clamp(3rem, 2rem + 5vw, 6.5rem);     /* Hero headline */
+  --bbt-text-h2-hero: clamp(1.4rem, 1.2rem + 1vw, 2rem);   /* Hero sub-headline (lighter weight) */
+  --bbt-text-tit:     clamp(2rem, 1.6rem + 2vw, 3rem);     /* Section title (.tit) */
+  --bbt-text-h3:      1.75rem;                              /* Card / phase headings */
+  --bbt-text-deck:    clamp(1rem, .95rem + .25vw, 1.1rem); /* Lead paragraph (.deck) */
+  --bbt-text-body:    1rem;                                 /* Default paragraph */
+  --bbt-text-sm:      .95rem;                               /* Dense card copy */
+  --bbt-text-eyebrow: 12px;                                 /* Mono eyebrow label */
+  --bbt-text-tag:     10px;                                 /* Mono micro tag / caption */
+
+  /* Line-heights — tuned per role (display is tight, body is airy) */
+  --bbt-lh-display:   .92;   /* Hero h1 — very tight for impact */
+  --bbt-lh-heading:   1.05;  /* Section titles */
+  --bbt-lh-snug:      1.2;   /* Sub-headings */
+  --bbt-lh-body:      1.6;   /* Body copy — comfortable reading */
+  --bbt-lh-tight:     1.45;  /* Compact card copy */
+
+  /* Letter-spacing — display faces are negative (tight), mono labels positive (wide) */
+  --bbt-ls-display:   -.035em; /* Hero h1 */
+  --bbt-ls-heading:   -.02em;  /* Section titles, h3 */
+  --bbt-ls-snug:      -.015em; /* Sub-headings */
+  --bbt-ls-eyebrow:   .18em;   /* Mono eyebrows — wide tracking, uppercase */
+  --bbt-ls-tag:       .14em;   /* Mono micro tags */
+
+
+  /* ---- SPACING SCALE -------------------------------------------------------
+     A simple 4px-based scale for gaps, padding and margins. */
+  --bbt-space-1:   4px;
+  --bbt-space-2:   8px;
+  --bbt-space-3:   12px;
+  --bbt-space-4:   16px;
+  --bbt-space-5:   20px;
+  --bbt-space-6:   24px;
+  --bbt-space-8:   32px;
+  --bbt-space-10:  40px;
+  --bbt-space-12:  48px;
+  --bbt-space-14:  56px;
+
+  /* Fluid section rhythm — the standard vertical/horizontal padding for a
+     full-bleed <section>. Vertical grows with viewport height, horizontal with
+     width, so sections breathe on large screens and tighten on small ones. */
+  --bbt-section-py:  clamp(72px, 10vh, 120px);
+  --bbt-section-px:  clamp(20px, 5vw, 40px);
+
+
+  /* ---- RADII ---------------------------------------------------------------
+     From crisp technical chips up to fully-round pills. */
+  --bbt-radius-xs:   4px;    /* Focus ring rounding */
+  --bbt-radius-sm:   6px;    /* Tags, eyebrows, small chips */
+  --bbt-radius-md:   8px;    /* Buttons, inputs */
+  --bbt-radius-lg:   10px;   /* Hamburger, mobile nav items */
+  --bbt-radius-xl:   14px;   /* Cards, panels, terminal mock */
+  --bbt-radius-pill: 999px;  /* Pill buttons (Enroll Now) */
+
+
+  /* ---- SHADOWS / ELEVATION -------------------------------------------------
+     All shadows are tinted with the navy hue (rgba(13,27,42,…)) rather than
+     pure black, so they feel native to the palette. Four steps of elevation. */
+  --bbt-shadow-xs:  0 1px 2px rgba(13, 27, 42, .06);   /* Resting cards / subtle lift */
+  --bbt-shadow-sm:  0 6px 18px rgba(13, 27, 42, .10);  /* Card hover */
+  --bbt-shadow-md:  0 8px 24px rgba(13, 27, 42, .18);  /* Primary button / emphasis */
+  --bbt-shadow-lg:  0 24px 60px rgba(13, 27, 42, .10); /* Floating hero panel */
+
+
+  /* ---- MOTION --------------------------------------------------------------
+     Shared durations and easing curves so interactions feel consistent.
+     The custom cubic-bezier is the site's signature "smart" ease-out used on
+     underlines and arrows. */
+  --bbt-dur-fast:    .18s;
+  --bbt-dur-base:    .25s;
+  --bbt-dur-slow:    .35s;
+  --bbt-ease-out:    cubic-bezier(.6, .05, .25, 1); /* Signature ease — underlines, arrows */
+  --bbt-ease-spring: cubic-bezier(.22, 1, .36, 1);  /* Springy — mobile nav reveal */
+
+
+  /* ---- LAYOUT --------------------------------------------------------------- */
+  --bbt-container:   1200px;  /* Max content width */
+  --bbt-measure:     680px;   /* Max line length for readable paragraphs (.deck) */
+  --bbt-z-header:    50;      /* Sticky header stacking */
+  --bbt-z-scrollbar: 200;     /* Top scroll-progress bar — above everything */
+}
+
+
+/* ============================================================================
+   02. RESET & BASE
+   ----------------------------------------------------------------------------
+   Minimal, opinionated reset. Mirrors the inline base block on every page.
+   ============================================================================ */
+
+/* Border-box everywhere — width/height include padding & border */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Document: kill default margins; the navy-950 backdrop shows in any gap
+   (e.g. overscroll) so the page never flashes white. */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bbt-c-navy-950);
+}
+
+/* Body: the readable canvas sits on top — light bg, slate text, Plex Sans. */
+body {
+  font-family: var(--bbt-font-body);
+  color: var(--bbt-c-slate-600);
+  background: var(--bbt-c-bg);
+  -webkit-font-smoothing: antialiased; /* Crisper text on macOS/WebKit */
+}
+
+/* Links inherit color (we color them contextually) and drop underlines —
+   underlines are reintroduced deliberately via .c-link / .nl effects. */
+a { color: inherit; text-decoration: none; }
+
+/* Media: block-level by default to remove inline-gap, and never overflow. */
+img, svg { display: block; max-width: 100%; }
+
+
+/* ============================================================================
+   03. TYPOGRAPHY
+   ----------------------------------------------------------------------------
+   The headline system. Headings use Bricolage Grotesque; technical labels use
+   Plex Mono; body uses Plex Sans (inherited from <body>).
+   ============================================================================ */
+
+/* Hero headline — the single biggest element on a page. Black weight, ultra
+   tight leading and negative tracking for a confident, compact mass. The amber
+   word/period accent is applied inline per page (e.g. <span> in "Binary."). */
+.bbt-h1 {
+  font-family: var(--bbt-font-display);
+  font-weight: var(--bbt-fw-black);
+  font-size: var(--bbt-text-h1);
+  line-height: var(--bbt-lh-display);
+  letter-spacing: var(--bbt-ls-display);
+  color: var(--bbt-c-navy-900);
+  margin: 0 0 var(--bbt-space-6);
+}
+
+/* Hero sub-headline — sits under the h1. Lighter weight (medium) so it reads
+   as supporting copy, but still Bricolage for family cohesion. */
+.bbt-h2-hero {
+  font-family: var(--bbt-font-display);
+  font-weight: var(--bbt-fw-medium);
+  font-size: var(--bbt-text-h2-hero);
+  line-height: var(--bbt-lh-snug);
+  letter-spacing: var(--bbt-ls-snug);
+  color: var(--bbt-c-navy-800);
+  margin: 0 0 var(--bbt-space-5);
+  max-width: 640px;
+}
+
+/* Section title — the standard heading that opens each content section.
+   Semibold, fluid. Used as `.tit` inline today; `.bbt-tit` is the namespaced
+   equivalent. */
+.bbt-tit,
+h2.bbt-tit {
+  font-family: var(--bbt-font-display);
+  font-weight: var(--bbt-fw-semibold);
+  font-size: var(--bbt-text-tit);
+  line-height: var(--bbt-lh-heading);
+  letter-spacing: var(--bbt-ls-heading);
+  color: var(--bbt-c-navy-900);
+  margin: 14px 0 16px;
+}
+
+/* Sub-section / card heading — bold Bricolage at a fixed comfortable size. */
+.bbt-h3 {
+  font-family: var(--bbt-font-display);
+  font-weight: var(--bbt-fw-bold);
+  font-size: var(--bbt-text-h3);
+  line-height: var(--bbt-lh-snug);
+  letter-spacing: var(--bbt-ls-heading);
+  color: var(--bbt-c-navy-900);
+  margin: 0;
+}
+
+/* Eyebrow / kicker — the little mono label that sits above a title, e.g.
+   "// career tracks". Uppercase, wide-tracked, amber, with a small square
+   bullet rendered via ::before. */
+.bbt-eyebrow {
+  font-family: var(--bbt-font-mono);
+  font-size: var(--bbt-text-eyebrow);
+  letter-spacing: var(--bbt-ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--bbt-c-amber-700);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bbt-space-2);
+}
+.bbt-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--bbt-c-amber);
+}
+
+/* Lead paragraph ("deck") — the intro sentence beside/under a title. Slightly
+   larger than body, constrained to a readable measure. */
+.bbt-deck {
+  font-size: var(--bbt-text-deck);
+  line-height: var(--bbt-lh-body);
+  color: var(--bbt-c-slate-600);
+  margin: 0;
+  max-width: var(--bbt-measure);
+}
+
+/* Generic body paragraph helper. */
+.bbt-body {
+  font-size: var(--bbt-text-body);
+  line-height: var(--bbt-lh-body);
+  color: var(--bbt-c-slate-600);
+}
+
+/* Monospace voice — apply to anything that should read as "technical":
+   terminal mocks, code, table labels, durations. */
+.bbt-mono { font-family: var(--bbt-font-mono); }
+
+
+/* ============================================================================
+   04. LAYOUT
+   ----------------------------------------------------------------------------
+   The page shell, centered container, full-bleed sections and the responsive
+   grids used throughout.
+   ============================================================================ */
+
+/* Page shell — wraps the whole document so the light canvas always fills the
+   viewport even when content is short. */
+.bbt-page {
+  background: var(--bbt-c-bg);
+  min-height: 100vh;
+}
+
+/* Centered content column — the 1200px max-width band used inside the header,
+   every section and the footer. */
+.bbt-container {
+  max-width: var(--bbt-container);
+  margin: 0 auto;
+  padding-left: var(--bbt-section-px);
+  padding-right: var(--bbt-section-px);
+}
+
+/* Full-bleed section — the standard content band. Light background, fluid
+   vertical rhythm, and a hairline divider at the bottom to separate bands. */
+.bbt-section {
+  padding: var(--bbt-section-py) var(--bbt-section-px);
+  border-bottom: 1px solid var(--bbt-c-border);
+}
+
+/* Section background variants — alternate the canvas for visual banding. */
+.bbt-section--alt  { background: var(--bbt-c-bg-alt); }   /* Cool grey band */
+.bbt-section--dark {                                       /* Navy "spotlight" band */
+  background: var(--bbt-c-navy-900);
+  color: var(--bbt-c-on-navy);
+}
+
+/* ---- GRID HELPERS ----------------------------------------------------------
+   Lightweight column helpers. Each collapses to a single column on small
+   screens (see section 09). `.bbt-hero` is the asymmetric hero split. */
+.bbt-grid       { display: grid; gap: var(--bbt-space-6); }
+.bbt-grid-2     { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--bbt-space-6); }
+.bbt-grid-3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bbt-space-6); }
+.bbt-grid-4     { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--bbt-space-6); }
+
+/* Hero split — content-heavy left column, lighter visual right column. */
+.bbt-hero {
+  display: grid;
+  grid-template-columns: 1.5fr .5fr;
+  gap: var(--bbt-space-12);
+  align-items: center;
+}
+
+/* Horizontal snap carousel — for swipeable card rows on touch devices. */
+.bbt-snap-x {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  display: flex;
+  gap: var(--bbt-space-5);
+  padding-bottom: 14px;
+}
+.bbt-snap-x > * { scroll-snap-align: start; flex: none; }
+.bbt-snap-x::-webkit-scrollbar { height: 6px; }
+.bbt-snap-x::-webkit-scrollbar-thumb { background: var(--bbt-c-border); border-radius: 3px; }
+
+
+/* ============================================================================
+   05. NAVIGATION
+   ----------------------------------------------------------------------------
+   Sticky header, desktop nav links with an animated amber underline, and the
+   CSS-only mobile hamburger menu (toggled by a `data-open` attribute on the
+   <header>).
+   ============================================================================ */
+
+/* Sticky header bar — white, hairline bottom border, sits above content. */
+.bbt-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--bbt-z-header);
+  background: var(--bbt-c-surface);
+  border-bottom: 1px solid var(--bbt-c-border);
+}
+
+/* Desktop nav link — animated underline grows from the left on hover/focus,
+   plus a soft amber wash. The underline is an absolutely-positioned ::after
+   bar scaled on the X axis. */
+.bbt-nl {
+  position: relative;
+  padding: var(--bbt-space-2) var(--bbt-space-3);
+  border-radius: var(--bbt-radius-sm);
+  transition: background var(--bbt-dur-base) ease, color var(--bbt-dur-base) ease;
+}
+.bbt-nl::after {
+  content: "";
+  position: absolute;
+  left: 10px; right: 10px; bottom: 3px;
+  height: 2px;
+  background: var(--bbt-c-amber);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--bbt-dur-base) var(--bbt-ease-out);
+}
+.bbt-nl:hover,
+.bbt-nl:focus-visible { background: var(--bbt-c-amber-50); color: var(--bbt-c-navy-800); }
+.bbt-nl:hover::after,
+.bbt-nl:focus-visible::after { transform: scaleX(1); }
+
+/* Active page link — underline shown, navy bold. */
+.bbt-nl.is-active { color: var(--bbt-c-navy-900); font-weight: var(--bbt-fw-semibold); }
+.bbt-nl.is-active::after { transform: scaleX(1); }
+
+/* ---- HAMBURGER BUTTON (mobile) ---------------------------------------------
+   Hidden on desktop; revealed ≤980px. Three bars morph into an X when the
+   parent <header> carries the `data-open` attribute. */
+.bbt-hamb {
+  display: none; /* shown via media query in section 09 */
+  width: 42px; height: 42px;
+  border: 1px solid var(--bbt-c-border);
+  background: var(--bbt-c-surface);
+  border-radius: var(--bbt-radius-lg);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  transition: background var(--bbt-dur-base), border-color var(--bbt-dur-base);
+  flex: none;
+}
+.bbt-hamb:hover { background: var(--bbt-c-amber-50); border-color: var(--bbt-c-amber); }
+.bbt-hamb span {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--bbt-c-navy-900);
+  border-radius: 2px;
+  transition: transform var(--bbt-dur-base), opacity var(--bbt-dur-fast);
+}
+/* X-morph when the header is open */
+.bbt-header[data-open] .bbt-hamb span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.bbt-header[data-open] .bbt-hamb span:nth-child(2) { opacity: 0; }
+.bbt-header[data-open] .bbt-hamb span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- MOBILE NAV PANEL ------------------------------------------------------
+   Collapsed (max-height:0) by default; expands when header[data-open]. Each
+   item staggers in. Full behaviour is defined in the ≤980px block (section 09)
+   because it's mobile-only; the base just hides it. */
+.bbt-mob-nav { display: none; }
+
+
+/* ============================================================================
+   06. COMPONENTS
+   ----------------------------------------------------------------------------
+   The reusable building blocks: buttons, cards, tags, logo tiles, the
+   terminal/“career path” mock, and animated text links.
+   ============================================================================ */
+
+/* ---- BUTTONS ---------------------------------------------------------------
+   `.bbt-btn` is the shared base (transition only). Pair it with a variant:
+     --primary  navy fill, white text     (main CTA)
+     --secondary amber fill, navy text     (Enroll Now pill)
+     --ghost    outlined, transparent      (secondary action)
+   Variants set their own padding/radius inline per use, but defaults live here. */
+.bbt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bbt-space-2);
+  font-weight: var(--bbt-fw-semibold);
+  border-radius: var(--bbt-radius-md);
+  transition:
+    transform var(--bbt-dur-fast),
+    box-shadow var(--bbt-dur-fast),
+    background var(--bbt-dur-fast),
+    color var(--bbt-dur-fast),
+    border-color var(--bbt-dur-fast);
+}
+
+/* Primary — navy, the dominant call-to-action. Lifts and deepens on hover. */
+.bbt-btn--primary {
+  background: var(--bbt-c-navy-800);
+  color: var(--bbt-c-on-navy);
+  font-weight: var(--bbt-fw-bold);
+  padding: 17px 26px;
+  box-shadow: var(--bbt-shadow-md);
+}
+.bbt-btn--primary:hover {
+  background: var(--bbt-c-navy-700);
+  transform: translateY(-2px);
+  box-shadow: var(--bbt-shadow-sm);
+}
+
+/* Secondary — amber pill, the "Enroll Now" identity button. */
+.bbt-btn--secondary {
+  background: var(--bbt-c-amber);
+  color: var(--bbt-c-on-amber);
+  font-weight: var(--bbt-fw-bold);
+  padding: 12px 24px;
+  border-radius: var(--bbt-radius-pill);
+}
+.bbt-btn--secondary:hover {
+  background: var(--bbt-c-amber-700);
+  transform: translateY(-2px);
+}
+
+/* Ghost — outlined, low-emphasis. Fills white and darkens its border on hover. */
+.bbt-btn--ghost {
+  background: var(--bbt-c-surface);
+  color: var(--bbt-c-navy-800);
+  border: 1px solid var(--bbt-c-border);
+  padding: 17px 26px;
+  box-shadow: var(--bbt-shadow-xs);
+}
+.bbt-btn--ghost:hover {
+  border-color: var(--bbt-c-navy-800);
+  color: var(--bbt-c-navy-800);
+  background: var(--bbt-c-surface);
+}
+
+/* ---- CARD ------------------------------------------------------------------
+   Lifts on hover and reveals a small amber corner "tick". Use on any white
+   panel that should feel interactive. */
+.bbt-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bbt-c-surface);
+  border: 1px solid var(--bbt-c-border);
+  border-radius: var(--bbt-radius-xl);
+  box-shadow: var(--bbt-shadow-xs);
+  transition: transform var(--bbt-dur-base), box-shadow var(--bbt-dur-base);
+}
+.bbt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bbt-shadow-sm);
+}
+/* Corner tick — a folded amber triangle that fades in on hover. */
+.bbt-card .bbt-tick {
+  opacity: 0;
+  transition: opacity var(--bbt-dur-base);
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 0;
+  border-top: 14px solid var(--bbt-c-amber);
+  border-right: 14px solid transparent;
+}
+.bbt-card:hover .bbt-tick { opacity: 1; }
+
+/* ---- COHORT TAG ------------------------------------------------------------
+   The small "cohort_07 · enrolling now" chip — pale amber fill, mono text, and
+   a pulsing dot to signal "live". */
+.bbt-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bbt-space-2);
+  padding: 6px 10px;
+  background: var(--bbt-c-amber-50);
+  border: 1px solid var(--bbt-c-amber-a35);
+  border-radius: var(--bbt-radius-sm);
+  font-family: var(--bbt-font-mono);
+  font-size: var(--bbt-text-tag);
+  letter-spacing: var(--bbt-ls-eyebrow);
+  color: var(--bbt-c-amber-700);
+  text-transform: uppercase;
+  font-weight: var(--bbt-fw-semibold);
+}
+.bbt-tag .bbt-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--bbt-c-amber);
+  border-radius: 50%;
+  animation: bbt-pill-pulse 2s ease-out infinite; /* see section 08 */
+}
+
+/* ---- LOGO TILE & MARQUEE ---------------------------------------------------
+   Partner logos sit in white tiles that lift on hover. The marquee track
+   scrolls infinitely and pauses on hover; edges fade via a mask. */
+.bbt-logo-mq {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.bbt-logo-mq-track {
+  display: flex;
+  gap: var(--bbt-space-8);
+  width: max-content;
+  animation: bbt-logo-marquee 42s linear infinite;
+}
+.bbt-logo-mq:hover .bbt-logo-mq-track { animation-play-state: paused; }
+
+.bbt-logo-tile {
+  flex: none;
+  width: 200px; height: 96px;
+  background: var(--bbt-c-surface);
+  border: 1px solid var(--bbt-c-border);
+  border-radius: var(--bbt-radius-xl);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--bbt-dur-base), border-color var(--bbt-dur-base), box-shadow var(--bbt-dur-base);
+}
+.bbt-logo-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--bbt-c-amber);
+  box-shadow: 0 10px 28px rgba(13, 27, 42, .10);
+}
+.bbt-logo-tile img {
+  max-height: 100%; max-width: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+  filter: saturate(.9);
+  transition: filter var(--bbt-dur-base);
+}
+.bbt-logo-tile:hover img { filter: saturate(1.1); }
+
+/* ---- ANIMATED TEXT LINK ("c-link") ----------------------------------------
+   Inline link that draws an underline left-to-right and nudges its arrow on
+   hover. Wrap the arrow glyph in `.bbt-arr`. */
+.bbt-c-link {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color var(--bbt-dur-base) ease;
+}
+.bbt-c-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 1px; width: 0;
+  background: currentColor;
+  transition: width var(--bbt-dur-slow) var(--bbt-ease-out);
+}
+.bbt-c-link:hover { color: var(--bbt-c-navy-900); }
+.bbt-c-link:hover::after,
+.bbt-c-link:focus-visible::after { width: 100%; }
+.bbt-c-link .bbt-arr {
+  display: inline-block;
+  transition: transform var(--bbt-dur-slow) var(--bbt-ease-out);
+}
+.bbt-c-link:hover .bbt-arr { transform: translateX(6px); }
+
+/* ---- TERMINAL / WINDOW MOCK ------------------------------------------------
+   The faux app window used in hero panels ("bbt_career.path", "track_inspector").
+   A white card with a chrome bar of three dots and a mono title. */
+.bbt-window {
+  background: var(--bbt-c-surface);
+  border: 1px solid var(--bbt-c-border);
+  border-radius: var(--bbt-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--bbt-shadow-lg);
+}
+.bbt-window-chrome {
+  background: var(--bbt-c-bg);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--bbt-space-2);
+  border-bottom: 1px solid var(--bbt-c-border);
+}
+/* Traffic-light dots — first is amber (active), rest are grey. */
+.bbt-window-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--bbt-c-border);
+}
+.bbt-window-dot--live { background: var(--bbt-c-amber); }
+.bbt-window-title {
+  margin-left: 10px;
+  font-family: var(--bbt-font-mono);
+  font-size: var(--bbt-text-tag);
+  letter-spacing: var(--bbt-ls-tag);
+  color: var(--bbt-c-slate-400);
+  text-transform: uppercase;
+}
+
+
+/* ============================================================================
+   07. UTILITIES
+   ----------------------------------------------------------------------------
+   Small single-purpose helpers. Kept few and obvious.
+   ============================================================================ */
+
+/* Text color helpers */
+.bbt-text-navy    { color: var(--bbt-c-navy-900); }
+.bbt-text-slate   { color: var(--bbt-c-slate-600); }
+.bbt-text-muted   { color: var(--bbt-c-slate-400); }
+.bbt-text-amber   { color: var(--bbt-c-amber-700); }
+.bbt-text-success { color: var(--bbt-c-success); }
+.bbt-text-white   { color: var(--bbt-c-on-navy); }
+
+/* Background helpers */
+.bbt-bg-surface { background: var(--bbt-c-surface); }
+.bbt-bg-alt     { background: var(--bbt-c-bg-alt); }
+.bbt-bg-navy    { background: var(--bbt-c-navy-900); }
+.bbt-bg-amber   { background: var(--bbt-c-amber); }
+.bbt-bg-amber-50{ background: var(--bbt-c-amber-50); }
+
+/* Measure (max readable line length) */
+.bbt-measure { max-width: var(--bbt-measure); }
+
+/* Visually hide but keep available to screen readers */
+.bbt-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ============================================================================
+   08. MOTION & KEYFRAMES
+   ----------------------------------------------------------------------------
+   All named animations used across the system. Scroll-driven reveals use the
+   modern `animation-timeline` and are gated behind @supports + a
+   reduced-motion check so they enhance progressively and respect preferences.
+   ============================================================================ */
+
+/* Fade-and-rise — the default entrance for content blocks. */
+@keyframes bbt-reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* SVG line-draw — animates a dashed stroke into a solid drawn line. */
+@keyframes bbt-draw {
+  from { stroke-dashoffset: 1200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Blink — the terminal cursor / "live" indicator. */
+@keyframes bbt-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .25; }
+}
+
+/* Scroll-progress bar fill (paired with animation-timeline: scroll()). */
+@keyframes bbt-sprog {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Logo marquee — translate the duplicated track by -50% for a seamless loop. */
+@keyframes bbt-logo-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pill pulse — expanding amber halo on the "live cohort" dot. */
+@keyframes bbt-pill-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, .4); }
+  50%      { box-shadow: 0 0 0 6px rgba(245, 166, 35, 0); }
+}
+
+/* Blinking cursor utility (applies the keyframe above). */
+.bbt-blink { animation: bbt-blink 1.6s steps(2, end) infinite; }
+
+/* Top-of-page scroll progress bar — fixed amber gradient that fills as the
+   user scrolls. Falls back to invisible (scaleX 0) where unsupported. */
+.bbt-scroll-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bbt-c-amber), var(--bbt-c-amber-700));
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: var(--bbt-z-scrollbar);
+  pointer-events: none;
+}
+
+/* SCROLL-DRIVEN ENHANCEMENTS
+   Only run when the browser supports scroll/view timelines AND the user hasn't
+   asked for reduced motion. Everything degrades gracefully to static. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Content blocks reveal as they scroll into view. */
+    .bbt-reveal {
+      animation: bbt-reveal both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+    /* SVG rails draw themselves in. */
+    .bbt-line {
+      animation: bbt-draw 1.4s ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+  @supports (animation-timeline: scroll()) {
+    /* Progress bar tracks the document scroll position. */
+    .bbt-scroll-bar {
+      animation: bbt-sprog linear forwards;
+      animation-timeline: scroll();
+    }
+  }
+}
+/* Dashed SVG paths start fully "undrawn". */
+.bbt-line { stroke-dasharray: 1200; }
+
+
+/* ============================================================================
+   09. RESPONSIVE
+   ----------------------------------------------------------------------------
+   Two breakpoints, matching the rest of the site:
+     ≤980px  — tablet / small desktop: collapse multi-column layouts, swap the
+               desktop nav for the hamburger + slide-down panel.
+     ≤640px  — phones: single column everywhere, tighter padding, full-width
+               buttons, 16px inputs (prevents iOS auto-zoom).
+   ============================================================================ */
+
+/* ---- TABLET / SMALL DESKTOP (≤980px) ------------------------------------- */
+@media (max-width: 980px) {
+
+  /* Hide desktop-only elements, reveal mobile-only ones. */
+  .bbt-desk { display: none !important; }
+  .bbt-hamb { display: flex !important; }
+
+  /* Collapse the standard multi-column grids to a single column. */
+  .bbt-hero,
+  .bbt-grid-2,
+  .bbt-grid-3,
+  .bbt-grid-4 { grid-template-columns: 1fr !important; }
+
+  /* Tighten section gutters. */
+  .bbt-section { padding-left: var(--bbt-space-5) !important; padding-right: var(--bbt-space-5) !important; }
+
+  /* MOBILE NAV PANEL — slide/fade open from the header. Collapsed by default
+     (max-height 0, hidden), expanded when header[data-open]. Items stagger. */
+  .bbt-mob-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bbt-space-1);
+    padding: 0 var(--bbt-space-5);
+    background: var(--bbt-c-surface);
+    border-top: 1px solid transparent;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition:
+      max-height .42s var(--bbt-ease-spring),
+      opacity .28s ease,
+      padding .42s var(--bbt-ease-spring),
+      visibility 0s linear .42s,
+      border-color .2s ease;
+  }
+  .bbt-header[data-open] .bbt-mob-nav {
+    max-height: 520px;
+    opacity: 1;
+    visibility: visible;
+    padding: 14px 20px 22px;
+    border-top-color: var(--bbt-c-border);
+    transition:
+      max-height .55s var(--bbt-ease-spring),
+      opacity .35s ease .05s,
+      padding .42s var(--bbt-ease-spring),
+      visibility 0s linear,
+      border-color .2s ease;
+  }
+
+  /* Individual mobile nav item — large tap target, slides down + fades in. */
+  .bbt-mob-nav .bbt-mn {
+    font-family: var(--bbt-font-body);
+    font-size: 16px;
+    color: var(--bbt-c-navy-900);
+    font-weight: var(--bbt-fw-medium);
+    padding: 14px 18px;
+    border-radius: var(--bbt-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-12px);
+    opacity: 0;
+    transition:
+      transform .35s var(--bbt-ease-spring),
+      opacity .3s ease,
+      background .2s,
+      color .2s;
+  }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn { transform: none; opacity: 1; }
+  /* Stagger each item in sequence as the panel opens. */
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(1) { transition-delay: .08s; }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(2) { transition-delay: .13s; }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(3) { transition-delay: .18s; }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(4) { transition-delay: .23s; }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(5) { transition-delay: .28s; }
+  .bbt-header[data-open] .bbt-mob-nav .bbt-mn:nth-child(6) { transition-delay: .33s; }
+
+  .bbt-mob-nav .bbt-mn:hover,
+  .bbt-mob-nav .bbt-mn.is-active {
+    background: var(--bbt-c-amber-50);
+    color: var(--bbt-c-amber-700);
+    font-weight: var(--bbt-fw-semibold);
+  }
+  /* Trailing arrow glyph on each item. */
+  .bbt-mob-nav .bbt-mn::after { content: "\2192"; opacity: .35; font-family: var(--bbt-font-mono); }
+
+  /* The CTA item inside the mobile menu — amber pill, no arrow. */
+  .bbt-mob-nav .bbt-mn-cta {
+    margin-top: 10px;
+    background: var(--bbt-c-amber);
+    color: var(--bbt-c-on-amber) !important;
+    font-weight: var(--bbt-fw-bold);
+    padding: 16px;
+    border-radius: var(--bbt-radius-pill);
+    text-align: center;
+    font-family: var(--bbt-font-mono);
+    font-size: 14px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    justify-content: center;
+  }
+  .bbt-mob-nav .bbt-mn-cta::after { content: none; }
+
+  /* Prevent any horizontal overflow on small screens. */
+  html, body { overflow-x: hidden; }
+}
+
+/* ---- PHONES (≤640px) ------------------------------------------------------ */
+@media (max-width: 640px) {
+
+  /* Everything stacks to one column. */
+  .bbt-grid-2,
+  .bbt-grid-3,
+  .bbt-grid-4 { grid-template-columns: 1fr !important; }
+
+  /* Tighter section rhythm on phones. */
+  .bbt-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Buttons go full-width so they're easy to tap. */
+  .bbt-btn { width: 100%; justify-content: center; }
+
+  /* 16px form controls stop iOS from zooming the viewport on focus. */
+  input, select, textarea { font-size: 16px !important; width: 100%; min-width: 0; }
+}
+
+
+/* ============================================================================
+   10. ACCESSIBILITY
+   ----------------------------------------------------------------------------
+   Focus visibility, motion preferences, and reduced-motion fallbacks.
+   ============================================================================ */
+
+/* Visible keyboard focus — a thick blue ring offset from the element. Uses
+   :focus-visible so it only shows for keyboard/AT users, not mouse clicks. */
+:focus-visible {
+  outline: 3px solid var(--bbt-c-focus);
+  outline-offset: 2px;
+  border-radius: var(--bbt-radius-xs);
+}
+
+/* Honour "reduce motion": neutralise long transitions/animations for users who
+   ask for it. Scroll-driven effects are already gated in section 08; this is
+   the blanket safety net for everything else. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
