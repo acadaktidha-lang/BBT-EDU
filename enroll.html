@@ -18,6 +18,8 @@ body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:#475569;background:#
 a{color:inherit;text-decoration:none}
 img,svg{display:block;max-width:100%}
 :focus-visible{outline:3px solid #2563EB;outline-offset:2px;border-radius:4px}
+@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){.reveal{animation:reveal both;animation-timeline:view();animation-range:entry 0% cover 25%}}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .blink{animation:blink 1.6s steps(2,end) infinite}
 @keyframes sprog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -412,7 +414,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- Right: Cohort terminal panel -->
-    <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 60px rgba(13,27,42,.10),0 2px 6px rgba(13,27,42,.04);">
+    <div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 60px rgba(13,27,42,.10),0 2px 6px rgba(13,27,42,.04);">
       <div style="background:#F4F6F9;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #DCE3EC;">
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F5A623;"></span>
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
@@ -476,7 +478,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- RIGHT: Form -->
-    <form style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;" novalidate>
+    <form class="reveal" style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;" novalidate>
       <!-- PERSONAL INFORMATION -->
       <div>
         <div class="sec-head"><span class="sec-head-text">PERSONAL INFORMATION</span></div>
@@ -581,7 +583,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-      <div class="step-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+      <div class="step-card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
           <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#F5A623;letter-spacing:-.04em;line-height:.9;">01</span>
           <span class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;font-weight:700;">WITHIN 24H</span>
@@ -590,7 +592,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Admissions reads your application and contacts you on WhatsApp or email to schedule a short discovery call.</p>
       </div>
 
-      <div class="step-card" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
+      <div class="step-card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
           <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#F5A623;letter-spacing:-.04em;line-height:.9;">02</span>
           <span class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;font-weight:700;">30 MIN CALL</span>
@@ -599,7 +601,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">We learn your goals, suggest the right track, walk you through the curriculum, fees and the placement track. Ask anything.</p>
       </div>
 
-      <div class="step-card" style="background:#F5A623;border:1px solid #F5A623;border-radius:14px;padding:28px;color:#0D1B2A;">
+      <div class="step-card reveal" style="background:#F5A623;border:1px solid #F5A623;border-radius:14px;padding:28px;color:#0D1B2A;">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
           <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3rem;color:#0D1B2A;letter-spacing:-.04em;line-height:.9;">03</span>
           <span class="mono" style="font-size:10px;letter-spacing:.18em;color:#0D1B2A;text-transform:uppercase;font-weight:700;">SEAT CONFIRMED</span>
@@ -610,7 +612,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- FAQ shortcuts -->
-    <div style="margin-top:48px;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">
+    <div class="reveal" style="margin-top:48px;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">
       <div>
         <div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;margin-bottom:6px;">// still deciding?</div>
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.25rem;color:#0D1B2A;">Visit the campus before you apply - no pressure.</div>
