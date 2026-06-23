@@ -478,7 +478,8 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- RIGHT: Form -->
-    <form class="reveal" style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;" novalidate>
+    <form id="bbtEnrollForm" class="reveal" style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;" novalidate>
+      <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" inputmode="none">
       <!-- PERSONAL INFORMATION -->
       <div>
         <div class="sec-head"><span class="sec-head-text">PERSONAL INFORMATION</span></div>
@@ -565,6 +566,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
           SUBMIT APPLICATION
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg>
         </button>
+        <div id="bbtEnrollStatus" role="status" aria-live="polite" style="display:none;font-size:.92rem;line-height:1.5;text-align:center;border-radius:10px;padding:14px 16px;"></div>
         <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;text-align:center;">We respond within 24 hours &middot; * required</div>
       </div>
     </form>
@@ -647,6 +649,62 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 <a href="https://wa.me/923260188811?text=Hi%20BBT" aria-label="Chat with BBT on WhatsApp" style="position:fixed;bottom:max(24px,env(safe-area-inset-bottom));right:max(24px,env(safe-area-inset-right));z-index:80;width:56px;height:56px;border-radius:50%;background:#13294B;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(13,27,42,.28);border:2px solid transparent;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='transparent';this.style.transform='none';">
   <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3zm0 23.6c-1.96 0-3.88-.527-5.56-1.523l-.4-.237-3.97 1.04 1.06-3.866-.26-.41a10.6 10.6 0 0 1-1.63-5.602c0-5.846 4.756-10.602 10.6-10.602 5.846 0 10.6 4.756 10.6 10.602 0 5.844-4.754 10.598-10.6 10.598zm5.81-7.94c-.318-.16-1.886-.93-2.18-1.036-.292-.107-.504-.16-.717.16-.213.32-.823 1.036-1.01 1.249-.187.213-.372.24-.69.08-.318-.16-1.346-.495-2.563-1.58-.948-.846-1.586-1.89-1.772-2.208-.187-.318-.02-.49.14-.65.144-.143.32-.372.48-.558.16-.187.213-.32.32-.532.107-.213.053-.4-.027-.56-.08-.16-.717-1.73-.984-2.37-.258-.62-.52-.535-.717-.545l-.61-.012c-.213 0-.558.08-.85.4-.292.32-1.116 1.09-1.116 2.66 0 1.57 1.143 3.09 1.302 3.303.16.213 2.249 3.434 5.45 4.815.762.33 1.357.526 1.82.673.766.244 1.463.21 2.013.127.614-.092 1.886-.77 2.152-1.514.266-.745.266-1.383.187-1.515-.08-.133-.292-.213-.61-.372z"></path></svg>
 </a>
+
+<script>
+(function () {
+  var form = document.getElementById('bbtEnrollForm');
+  if (!form) return;
+  var statusEl = document.getElementById('bbtEnrollStatus');
+  var btn = form.querySelector('.submit-btn');
+  var WA = 'https://wa.me/923260188811?text=' + encodeURIComponent("Hi BBT, I'd like to enroll.");
+  var ENDPOINT = location.origin + '/wp-json/bbt/v1/enroll';
+
+  function show(kind, html) {
+    statusEl.style.display = 'block';
+    statusEl.innerHTML = html;
+    if (kind === 'ok')  { statusEl.style.background = 'rgba(22,121,77,.12)'; statusEl.style.border = '1px solid #16794D'; statusEl.style.color = '#0F5132'; }
+    else                { statusEl.style.background = 'rgba(220,53,69,.10)'; statusEl.style.border = '1px solid #DC3545'; statusEl.style.color = '#B02A37'; }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+    var original = btn.innerHTML;
+    btn.disabled = true; btn.style.opacity = '.7'; btn.style.cursor = 'wait';
+    btn.textContent = 'Submitting…';
+    statusEl.style.display = 'none';
+
+    var waFallback = '<br>Please try again, or <a href="' + WA + '" style="color:#B02A37;font-weight:700;text-decoration:underline;">message us on WhatsApp</a>.';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function (r) {
+      return r.text().then(function (t) { var j = {}; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, j: j }; });
+    })
+    .then(function (res) {
+      if (res.ok && res.j && res.j.ok) {
+        form.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
+        show('ok', '<strong>✓ ' + (res.j.message || 'Application received!') + '</strong><br>We’ll reach out within 24 hours.');
+        form.reset();
+      } else {
+        show('err', ((res.j && res.j.error) || 'We couldn’t submit your application right now.') + waFallback);
+      }
+    })
+    .catch(function () {
+      show('err', 'We couldn’t reach the server right now.' + waFallback);
+    })
+    .finally(function () {
+      btn.disabled = false; btn.style.opacity = ''; btn.style.cursor = ''; btn.innerHTML = original;
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

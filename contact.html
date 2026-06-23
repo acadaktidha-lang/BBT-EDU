@@ -461,7 +461,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div class="reveal">
       <span class="eye">// book a free counselling session</span>
       <h2 class="tit" style="margin:14px 0 24px;">Tell us where you want to go.</h2>
-      <form onsubmit="return bbtContact(event)" style="display:flex;flex-direction:column;gap:16px;">
+      <form id="bbtContactForm" onsubmit="return bbtContact(event)" style="display:flex;flex-direction:column;gap:16px;">
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" inputmode="none">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="g2">
           <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Name<input required name="name" type="text" placeholder="Your name" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"></label>
           <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Phone / WhatsApp<input required name="phone" type="tel" placeholder="03xx-xxxxxxx" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"></label>
@@ -470,7 +471,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">I'm interested in<select name="interest" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"><option>A career track</option><option>A freestyle course</option><option>Fees &amp; scholarships</option><option>Franchise</option><option>Something else</option></select></label>
         <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Message<textarea name="message" rows="4" placeholder="What would you like to know?" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;resize:vertical;"></textarea></label>
         <button type="submit" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 26px;border-radius:8px;font-size:16px;border:none;cursor:pointer;display:inline-flex;gap:10px;align-items:center;justify-content:center;">Send via WhatsApp<svg width="16" height="16" viewBox="0 0 32 32" fill="#fff"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg></button>
-        <p style="margin:0;color:#8A99A8;font-size:.85rem;">Your details open a pre-filled WhatsApp chat with our team — nothing is stored on this site.</p>
+        <p style="margin:0;color:#8A99A8;font-size:.85rem;">We save your query and open a pre-filled WhatsApp chat so you get the fastest possible reply.</p>
+        <div id="bbtContactStatus" role="status" aria-live="polite" style="display:none;font-size:.88rem;line-height:1.5;border-radius:8px;padding:12px 14px;"></div>
       </form>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;">
@@ -516,6 +518,27 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 function bbtContact(e){
   e.preventDefault();
   var f=e.target;
+  if(!f.reportValidity()) return false;
+  if(f.company && f.company.value) return false; // honeypot
+
+  // 1) Capture the lead + send confirmation email (WordPress endpoint)
+  var data={};
+  new FormData(f).forEach(function(v,k){data[k]=v;});
+  var statusEl=document.getElementById('bbtContactStatus');
+  fetch(location.origin+'/wp-json/bbt/v1/contact',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(data)
+  }).then(function(r){return r.text().then(function(t){var j={};try{j=JSON.parse(t);}catch(e){}return {ok:r.ok,j:j};});})
+    .then(function(res){
+      if(statusEl && res.ok && res.j && res.j.ok){
+        statusEl.style.display='block';
+        statusEl.style.background='rgba(22,121,77,.10)';statusEl.style.border='1px solid #16794D';statusEl.style.color='#0F5132';
+        statusEl.innerHTML='<strong>✓ '+(res.j.message||'Got it!')+'</strong> Opening WhatsApp…';
+      }
+    }).catch(function(){ /* silently proceed — WhatsApp still opens below */ });
+
+  // 2) Preserve the existing fast-reply behaviour: open a pre-filled WhatsApp chat
   var msg="Hi BBT, I'm "+f.name.value+" ("+f.phone.value+(f.email.value?", "+f.email.value:"")+"). I'm interested in: "+f.interest.value+"."+(f.message.value?" "+f.message.value:"");
   window.open("https://wa.me/923260188811?text="+encodeURIComponent(msg),"_blank");
   return false;
