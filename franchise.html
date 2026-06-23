@@ -117,6 +117,8 @@ header[data-open] .hamb span:nth-child(3){transform:translateY(-7px) rotate(-45d
   /* Phase / step rows: stack vertically */
   .phase-row,.step-row{grid-template-columns:1fr!important;gap:18px!important;padding:24px!important}
   .phase-row .phase-num,.step-row .step-num{font-size:2.6rem!important}
+  /* Hide the decorative vertical timeline rail once rows stack (it's pinned at left:122px and would cut through content) */
+  .phase-stack>svg[aria-hidden="true"]{display:none!important}
   /* Logo tiles tighter */
   .logo-tile{width:160px!important;height:80px!important;padding:14px!important}
   /* Typography */
