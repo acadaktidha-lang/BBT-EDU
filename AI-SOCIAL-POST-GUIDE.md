@@ -1,4 +1,4 @@
-# Big Binary Trainings — AI Social Post Generation Guide
+# Big Binary Trainings - AI Social Post Generation Guide
 
 > **Purpose of this file.** This is a self-contained instruction set for an AI
 > (Claude, GPT, an image-gen pipeline, or a human designer) to generate
@@ -33,30 +33,30 @@ end a carousel with a CTA slide.
 | Attribute | BBT is… |
 |-----------|---------|
 | **Who** | Pakistan's premium IT flagship training ecosystem. |
-| **Promise** | "More than courses — a complete career-growth ecosystem." |
+| **Promise** | "More than courses - a complete career-growth ecosystem." |
 | **Signature model** | Trainee → Internee → Shadow → Expert (4 phases). |
 | **Personality** | Senior, technical, confident, calm. Engineering-grade, not hype. |
 | **Feeling a post should give** | "These people are serious and know their craft." |
 
 **Tone in one line:** *Premium and technical, never loud or salesy.* Think a
-well-designed developer tool's landing page — not a discount coupon.
+well-designed developer tool's landing page - not a discount coupon.
 
 ---
 
 ## 2. Post formats we produce
 
-1. **Instagram carousel** (primary) — 3–9 slides, "DON'T / DO" or
+1. **Instagram carousel** (primary) - 3–9 slides, "DON'T / DO" or
    "Hook → 3 points → CTA" structure. Highest reach; this is the default.
-2. **Instagram single image** — one strong statement + logo. For announcements
+2. **Instagram single image** - one strong statement + logo. For announcements
    (new cohort, event, result).
-3. **LinkedIn carousel (PDF/document)** — same content, slightly more formal
+3. **LinkedIn carousel (PDF/document)** - same content, slightly more formal
    copy, denser allowed.
-4. **LinkedIn single image + caption** — thought-leadership; the image carries a
+4. **LinkedIn single image + caption** - thought-leadership; the image carries a
    headline, the caption carries the depth.
 
 ---
 
-## 3. Canvas sizes (USE THE 2026 SIZES — never the old squares)
+## 3. Canvas sizes (USE THE 2026 SIZES - never the old squares)
 
 > The reference decks are explicit: **don't use old 1080×1080 / 1080×1350.**
 > Design tall, for the 2026 feed.
@@ -72,7 +72,7 @@ well-designed developer tool's landing page — not a discount coupon.
 
 **Safe margins:** keep all text and key graphics within a **90px inset** on
 every edge (matches the reference's "180px top / 50px sides" safe-zone idea,
-scaled). Nothing important touches the edge — IG UI overlaps corners.
+scaled). Nothing important touches the edge - IG UI overlaps corners.
 
 **Thumbnail rule:** the headline must be **legible at thumbnail size** (≈150px
 wide in the grid). If you'd have to squint at 1/7 scale, the text is too small
@@ -95,7 +95,7 @@ These are the **only** colors. They are the same tokens as the website
 | **Navy secondary** | `#13294B` | Sub-headings, supporting text. |
 | **Slate body** | `#475569` | Body copy on light. |
 | **Muted** | `#8A99A8` | Captions, slide numbers, "// labels". |
-| **Amber accent** | `#F5A623` | THE accent — one highlight per slide, CTA fill. |
+| **Amber accent** | `#F5A623` | THE accent - one highlight per slide, CTA fill. |
 | **Amber deep** | `#D98A07` | Amber text on light backgrounds. |
 | **Amber wash** | `#FCEFD4` | Highlight blocks, chips behind a word. |
 | **Border / hairline** | `#DCE3EC` | Dividers, card outlines, the dotted grid. |
@@ -104,16 +104,16 @@ These are the **only** colors. They are the same tokens as the website
 
 ### The 60-30-10 rule (apply to EVERY slide)
 
-- **60% — dominant:** the light canvas (`#F4F6F9` / `#FFFFFF`). The slide should
+- **60% - dominant:** the light canvas (`#F4F6F9` / `#FFFFFF`). The slide should
   feel mostly empty and bright.
-- **30% — secondary:** navy (`#0D1B2A` / `#13294B`) — the headline mass and any
+- **30% - secondary:** navy (`#0D1B2A` / `#13294B`) - the headline mass and any
   dark panel/diagram.
-- **10% — accent:** amber (`#F5A623`) — ONE highlight: a key word, an arrow, the
+- **10% - accent:** amber (`#F5A623`) - ONE highlight: a key word, an arrow, the
   CTA button, a dot. Never flood a slide with amber.
 
 > If a slide has more than ~10% amber, it's wrong. Amber is a spice, not a base.
 
-**Dark-slide variant:** flip it for emphasis slides — 60% navy `#0D1B2A`
+**Dark-slide variant:** flip it for emphasis slides - 60% navy `#0D1B2A`
 background, 30% white text, 10% amber accent. Use for the Hook or CTA slide to
 create contrast in the carousel.
 
@@ -132,7 +132,7 @@ These are hard constraints. Each maps to a "DON'T → DO" from our references.
    big headline → supporting line/visual → CTA or "swipe" cue (bottom-right).
    Lead the eye 1 → 2 → 3 → 4 down and across.
 
-3. **✅ Use the 2026 tall sizes (1080×1440)** — see §3. Never old squares.
+3. **✅ Use the 2026 tall sizes (1080×1440)** - see §3. Never old squares.
 
 4. **❌ Don't add too much graphics → ✅ Keep it minimalistic.**
    One idea per slide. Lots of whitespace (the 60% canvas). At most one
@@ -161,10 +161,10 @@ These are hard constraints. Each maps to a "DON'T → DO" from our references.
 
 | Slide | Role | Content |
 |-------|------|---------|
-| **1 — Hook** | Stop the scroll | A bold claim, question, or number. 3–7 words. Often a **dark navy slide** for contrast. Add a subtle "swipe →" cue. |
-| **2–4 — Points** | Deliver value | One insight per slide. Kicker label + headline + 1–2 supporting lines + optional small visual. Number them (01/02/03). |
-| **5 — Proof / structure** | Make it concrete | A simple diagram (the Hook→Point→CTA flow, the 4-phase path, a before/after). Built from BBT shapes — squares, arrows, the amber rail. |
-| **Last — CTA** | Convert | Clear next action + handle. Amber button look. e.g. "Enroll in Cohort 07 → link in bio" / "DM us 'TRACK'". |
+| **1 - Hook** | Stop the scroll | A bold claim, question, or number. 3–7 words. Often a **dark navy slide** for contrast. Add a subtle "swipe →" cue. |
+| **2–4 - Points** | Deliver value | One insight per slide. Kicker label + headline + 1–2 supporting lines + optional small visual. Number them (01/02/03). |
+| **5 - Proof / structure** | Make it concrete | A simple diagram (the Hook→Point→CTA flow, the 4-phase path, a before/after). Built from BBT shapes - squares, arrows, the amber rail. |
+| **Last - CTA** | Convert | Clear next action + handle. Amber button look. e.g. "Enroll in Cohort 07 → link in bio" / "DM us 'TRACK'". |
 
 ### DON'T / DO format (alternate, matches the references)
 
@@ -174,7 +174,7 @@ split by a horizontal hairline. Use this for "tips" / educational carousels.
 
 ### Every slide carries (the persistent furniture)
 
-- **Dotted-grid background** (faint `#DCE3EC` dots on the light canvas) — our
+- **Dotted-grid background** (faint `#DCE3EC` dots on the light canvas) - our
   signature texture from the website hero.
 - **Slide counter** top-right (e.g. `3/9`) in muted mono.
 - **BBT logo mark** small, bottom-left or top-left, consistent across slides.
@@ -198,15 +198,15 @@ split by a horizontal hairline. Use this for "tips" / educational carousels.
 ### Copy rules
 
 - **Headlines:** 3–8 words. Punchy. One amber-highlighted keyword max.
-- **Sentence case** for headlines (not Title Case, not ALL CAPS) — except the
+- **Sentence case** for headlines (not Title Case, not ALL CAPS) - except the
   DON'T/DO labels and mono kickers which are UPPERCASE.
 - **Body:** short. Max ~2 lines per slide. Plain, senior, specific. No fluff
   adjectives, no "🚀 game-changer" hype.
 - **Numbers and specifics win:** "9-month path", "4 phases", "Cohort 07",
-  "seats open" — concrete beats vague.
+  "seats open" - concrete beats vague.
 - **Roman-Urdu is allowed** in captions when the audience expects it (the
   reference example "US clients ko local +1 number se call karein" shows mixed
-  voice is fine for relatability) — but keep *on-slide* headline copy in clean
+  voice is fine for relatability) - but keep *on-slide* headline copy in clean
   English for premium feel.
 - **End every carousel** with one clear CTA and the handle/link.
 
@@ -220,7 +220,7 @@ split by a horizontal hairline. Use this for "tips" / educational carousels.
 
 ---
 
-## 8. Output format A — slide-by-slide spec (default text output)
+## 8. Output format A - slide-by-slide spec (default text output)
 
 When not rendering an image, return the post as a structured spec the designer
 can build directly. Use exactly this shape:
@@ -231,14 +231,14 @@ SIZE: 1080 x 1440 (3:4)
 SLIDES: 6
 THEME: navy + amber, dotted grid, 60-30-10
 
-— SLIDE 1 (HOOK) — [dark navy background variant]
+- SLIDE 1 (HOOK) - [dark navy background variant]
   Kicker (mono, amber):   // cohort_07
   Headline (Bricolage):   Stop "learning to code." Start a career.
   Accent:                 amber underline on "career"
   Footer:                 swipe →   |   BBT logo bottom-left
   Layout:                 left-aligned, headline fills 60% of height
 
-— SLIDE 2 (POINT 01) —
+- SLIDE 2 (POINT 01) -
   Kicker:                 // 01 · the problem
   Headline:               Courses end. Careers don't.
   Body (Plex Sans):       Most bootcamps stop at a certificate. We don't.
@@ -247,7 +247,7 @@ THEME: navy + amber, dotted grid, 60-30-10
 
 ... (repeat for each slide) ...
 
-— SLIDE 6 (CTA) — [amber accent button]
+- SLIDE 6 (CTA) - [amber accent button]
   Headline:               Cohort 07 is enrolling.
   Button:                 Enroll now → link in bio
   Handle:                 @bigbinarytrainings
@@ -261,7 +261,7 @@ CAPTION:
 
 ---
 
-## 9. Output format B — HTML/CSS render (pixel-accurate, reuses brand tokens)
+## 9. Output format B - HTML/CSS render (pixel-accurate, reuses brand tokens)
 
 When asked for a *rendered* slide, output a single self-contained HTML file
 sized to the canvas, using the BBT tokens. This guarantees brand accuracy and
@@ -317,7 +317,7 @@ Produce one such block per slide (or stack them). They can be screenshotted at
 
 ---
 
-## 10. Output format C — image-generation prompt (for AI image tools)
+## 10. Output format C - image-generation prompt (for AI image tools)
 
 When the target is a text-to-image model, translate the slide into a prompt
 that pins the brand. Template:
@@ -344,7 +344,7 @@ Fill `<kicker>`, `<headline>`, `<keyword>`, `<visual>` per slide.
 Before any post is final, verify all of these:
 
 - [ ] Size is **1080×1440** (or correct per-platform §3), not an old square.
-- [ ] **60-30-10** respected — slide is mostly light, navy mass, ~10% amber.
+- [ ] **60-30-10** respected - slide is mostly light, navy mass, ~10% amber.
 - [ ] Body text is **left-aligned**.
 - [ ] Headline is **legible at thumbnail** scale; text not shrunk to fit.
 - [ ] **One idea per slide**; minimalist; ≤1 visual per slide.

@@ -11,46 +11,46 @@
      BBT's identity is a deep navy paired with a warm amber accent, on a cool
      off-white canvas. Navy = trust/seniority, amber = energy/CTA. */
 
-  /* Navy family — backgrounds for dark sections, primary text, headings */
-  --bbt-c-navy-950:   #0A1422;  /* Deepest navy — the html/body backdrop behind everything */
-  --bbt-c-navy-900:   #0D1B2A;  /* Primary navy — body headings, dark section bg, theme-color */
-  --bbt-c-navy-800:   #13294B;  /* Secondary navy — sub-headings, link hover, ghost-button text */
-  --bbt-c-navy-700:   #1C3A6B;  /* Navy hover — primary button hover state */
+  /* Navy family - backgrounds for dark sections, primary text, headings */
+  --bbt-c-navy-950:   #0A1422;  /* Deepest navy - the html/body backdrop behind everything */
+  --bbt-c-navy-900:   #0D1B2A;  /* Primary navy - body headings, dark section bg, theme-color */
+  --bbt-c-navy-800:   #13294B;  /* Secondary navy - sub-headings, link hover, ghost-button text */
+  --bbt-c-navy-700:   #1C3A6B;  /* Navy hover - primary button hover state */
 
-  /* Slate family — body copy and muted captions */
+  /* Slate family - body copy and muted captions */
   --bbt-c-slate-600:  #475569;  /* Default body text color */
-  --bbt-c-slate-400:  #8A99A8;  /* Muted text — mono captions, table headers, "// selected" notes */
+  --bbt-c-slate-400:  #8A99A8;  /* Muted text - mono captions, table headers, "// selected" notes */
 
-  /* Surface / neutral family — canvas, cards, borders */
+  /* Surface / neutral family - canvas, cards, borders */
   --bbt-c-bg:         #F4F6F9;  /* Page background (light) */
-  --bbt-c-bg-alt:     #EEF2F7;  /* Alternate section background — gentle banding between sections */
+  --bbt-c-bg-alt:     #EEF2F7;  /* Alternate section background - gentle banding between sections */
   --bbt-c-surface:    #FFFFFF;  /* Cards, header, raised surfaces */
   --bbt-c-border:     #DCE3EC;  /* Hairline borders, dividers, input outlines */
 
-  /* Amber family — the accent / CTA color */
-  --bbt-c-amber:      #F5A623;  /* Primary accent — CTA fill, ticks, dots, rails, focus accents */
-  --bbt-c-amber-700:  #D98A07;  /* Darker amber — amber text on light, amber button hover */
-  --bbt-c-amber-50:   #FCEFD4;  /* Pale amber — highlight backgrounds, tag fills, hover wash */
+  /* Amber family - the accent / CTA color */
+  --bbt-c-amber:      #F5A623;  /* Primary accent - CTA fill, ticks, dots, rails, focus accents */
+  --bbt-c-amber-700:  #D98A07;  /* Darker amber - amber text on light, amber button hover */
+  --bbt-c-amber-50:   #FCEFD4;  /* Pale amber - highlight backgrounds, tag fills, hover wash */
 
   /* Functional colors */
-  --bbt-c-focus:      #2563EB;  /* Focus ring blue — used ONLY for :focus-visible outlines */
-  --bbt-c-success:    #16794D;  /* Success green — "seats open", "career.ready = true" */
+  --bbt-c-focus:      #2563EB;  /* Focus ring blue - used ONLY for :focus-visible outlines */
+  --bbt-c-success:    #16794D;  /* Success green - "seats open", "career.ready = true" */
 
-  /* Translucent amber — for pulsing glows and soft borders (rgba so it layers) */
+  /* Translucent amber - for pulsing glows and soft borders (rgba so it layers) */
   --bbt-c-amber-a35:  rgba(245, 166, 35, .35); /* Tag/border tint */
   --bbt-c-amber-a18:  rgba(245, 166, 35, .18); /* Ambient hero glow */
 
-  /* On-color text helpers — what to put ON a given background for contrast */
+  /* On-color text helpers - what to put ON a given background for contrast */
   --bbt-c-on-navy:    #FFFFFF;  /* Text on navy surfaces */
   --bbt-c-on-amber:   #0D1B2A;  /* Text on amber surfaces (navy reads best on amber) */
 
 
   /* ---- TYPOGRAPHY: FONT FAMILIES -------------------------------------------
      Three Google fonts, each with a clear job:
-       • Bricolage Grotesque — expressive display face for all headings (h1–h3,
+       • Bricolage Grotesque - expressive display face for all headings (h1–h3,
          .tit). Variable optical-size + weight, used 400–800.
-       • IBM Plex Sans       — workhorse UI/body face. Weights 400/500/600/700.
-       • IBM Plex Mono       — technical voice: eyebrows, code/terminal mocks,
+       • IBM Plex Sans       - workhorse UI/body face. Weights 400/500/600/700.
+       • IBM Plex Mono       - technical voice: eyebrows, code/terminal mocks,
          table labels, "cohort" tags. Weights 400/500/600.
      Load these in the page <head> with:
        https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800
@@ -83,18 +83,18 @@
   --bbt-text-eyebrow: 12px;                                 /* Mono eyebrow label */
   --bbt-text-tag:     10px;                                 /* Mono micro tag / caption */
 
-  /* Line-heights — tuned per role (display is tight, body is airy) */
-  --bbt-lh-display:   .92;   /* Hero h1 — very tight for impact */
+  /* Line-heights - tuned per role (display is tight, body is airy) */
+  --bbt-lh-display:   .92;   /* Hero h1 - very tight for impact */
   --bbt-lh-heading:   1.05;  /* Section titles */
   --bbt-lh-snug:      1.2;   /* Sub-headings */
-  --bbt-lh-body:      1.6;   /* Body copy — comfortable reading */
+  --bbt-lh-body:      1.6;   /* Body copy - comfortable reading */
   --bbt-lh-tight:     1.45;  /* Compact card copy */
 
-  /* Letter-spacing — display faces are negative (tight), mono labels positive (wide) */
+  /* Letter-spacing - display faces are negative (tight), mono labels positive (wide) */
   --bbt-ls-display:   -.035em; /* Hero h1 */
   --bbt-ls-heading:   -.02em;  /* Section titles, h3 */
   --bbt-ls-snug:      -.015em; /* Sub-headings */
-  --bbt-ls-eyebrow:   .18em;   /* Mono eyebrows — wide tracking, uppercase */
+  --bbt-ls-eyebrow:   .18em;   /* Mono eyebrows - wide tracking, uppercase */
   --bbt-ls-tag:       .14em;   /* Mono micro tags */
 
 
@@ -111,7 +111,7 @@
   --bbt-space-12:  48px;
   --bbt-space-14:  56px;
 
-  /* Fluid section rhythm — the standard vertical/horizontal padding for a
+  /* Fluid section rhythm - the standard vertical/horizontal padding for a
      full-bleed <section>. Vertical grows with viewport height, horizontal with
      width, so sections breathe on large screens and tighten on small ones. */
   --bbt-section-py:  clamp(72px, 10vh, 120px);
@@ -144,15 +144,15 @@
   --bbt-dur-fast:    .18s;
   --bbt-dur-base:    .25s;
   --bbt-dur-slow:    .35s;
-  --bbt-ease-out:    cubic-bezier(.6, .05, .25, 1); /* Signature ease — underlines, arrows */
-  --bbt-ease-spring: cubic-bezier(.22, 1, .36, 1);  /* Springy — mobile nav reveal */
+  --bbt-ease-out:    cubic-bezier(.6, .05, .25, 1); /* Signature ease - underlines, arrows */
+  --bbt-ease-spring: cubic-bezier(.22, 1, .36, 1);  /* Springy - mobile nav reveal */
 
 
   /* ---- LAYOUT --------------------------------------------------------------- */
   --bbt-container:   1200px;  /* Max content width */
   --bbt-measure:     680px;   /* Max line length for readable paragraphs (.deck) */
   --bbt-z-header:    50;      /* Sticky header stacking */
-  --bbt-z-scrollbar: 200;     /* Top scroll-progress bar — above everything */
+  --bbt-z-scrollbar: 200;     /* Top scroll-progress bar - above everything */
 }
 
 
@@ -162,7 +162,7 @@
    Minimal, opinionated reset. Mirrors the inline base block on every page.
    ============================================================================ */
 
-/* Border-box everywhere — width/height include padding & border */
+/* Border-box everywhere - width/height include padding & border */
 *, *::before, *::after { box-sizing: border-box; }
 
 /* Document: kill default margins; the navy-950 backdrop shows in any gap
@@ -173,7 +173,7 @@ html, body {
   background: var(--bbt-c-navy-950);
 }
 
-/* Body: the readable canvas sits on top — light bg, slate text, Plex Sans. */
+/* Body: the readable canvas sits on top - light bg, slate text, Plex Sans. */
 body {
   font-family: var(--bbt-font-body);
   color: var(--bbt-c-slate-600);
@@ -181,7 +181,7 @@ body {
   -webkit-font-smoothing: antialiased; /* Crisper text on macOS/WebKit */
 }
 
-/* Links inherit color (we color them contextually) and drop underlines —
+/* Links inherit color (we color them contextually) and drop underlines -
    underlines are reintroduced deliberately via .c-link / .nl effects. */
 a { color: inherit; text-decoration: none; }
 
@@ -196,7 +196,7 @@ img, svg { display: block; max-width: 100%; }
    Plex Mono; body uses Plex Sans (inherited from <body>).
    ============================================================================ */
 
-/* Hero headline — the single biggest element on a page. Black weight, ultra
+/* Hero headline - the single biggest element on a page. Black weight, ultra
    tight leading and negative tracking for a confident, compact mass. The amber
    word/period accent is applied inline per page (e.g. <span> in "Binary."). */
 .bbt-h1 {
@@ -209,7 +209,7 @@ img, svg { display: block; max-width: 100%; }
   margin: 0 0 var(--bbt-space-6);
 }
 
-/* Hero sub-headline — sits under the h1. Lighter weight (medium) so it reads
+/* Hero sub-headline - sits under the h1. Lighter weight (medium) so it reads
    as supporting copy, but still Bricolage for family cohesion. */
 .bbt-h2-hero {
   font-family: var(--bbt-font-display);
@@ -222,7 +222,7 @@ img, svg { display: block; max-width: 100%; }
   max-width: 640px;
 }
 
-/* Section title — the standard heading that opens each content section.
+/* Section title - the standard heading that opens each content section.
    Semibold, fluid. Used as `.tit` inline today; `.bbt-tit` is the namespaced
    equivalent. */
 .bbt-tit,
@@ -236,7 +236,7 @@ h2.bbt-tit {
   margin: 14px 0 16px;
 }
 
-/* Sub-section / card heading — bold Bricolage at a fixed comfortable size. */
+/* Sub-section / card heading - bold Bricolage at a fixed comfortable size. */
 .bbt-h3 {
   font-family: var(--bbt-font-display);
   font-weight: var(--bbt-fw-bold);
@@ -247,7 +247,7 @@ h2.bbt-tit {
   margin: 0;
 }
 
-/* Eyebrow / kicker — the little mono label that sits above a title, e.g.
+/* Eyebrow / kicker - the little mono label that sits above a title, e.g.
    "// career tracks". Uppercase, wide-tracked, amber, with a small square
    bullet rendered via ::before. */
 .bbt-eyebrow {
@@ -268,7 +268,7 @@ h2.bbt-tit {
   background: var(--bbt-c-amber);
 }
 
-/* Lead paragraph ("deck") — the intro sentence beside/under a title. Slightly
+/* Lead paragraph ("deck") - the intro sentence beside/under a title. Slightly
    larger than body, constrained to a readable measure. */
 .bbt-deck {
   font-size: var(--bbt-text-deck);
@@ -285,7 +285,7 @@ h2.bbt-tit {
   color: var(--bbt-c-slate-600);
 }
 
-/* Monospace voice — apply to anything that should read as "technical":
+/* Monospace voice - apply to anything that should read as "technical":
    terminal mocks, code, table labels, durations. */
 .bbt-mono { font-family: var(--bbt-font-mono); }
 
@@ -297,14 +297,14 @@ h2.bbt-tit {
    grids used throughout.
    ============================================================================ */
 
-/* Page shell — wraps the whole document so the light canvas always fills the
+/* Page shell - wraps the whole document so the light canvas always fills the
    viewport even when content is short. */
 .bbt-page {
   background: var(--bbt-c-bg);
   min-height: 100vh;
 }
 
-/* Centered content column — the 1200px max-width band used inside the header,
+/* Centered content column - the 1200px max-width band used inside the header,
    every section and the footer. */
 .bbt-container {
   max-width: var(--bbt-container);
@@ -313,14 +313,14 @@ h2.bbt-tit {
   padding-right: var(--bbt-section-px);
 }
 
-/* Full-bleed section — the standard content band. Light background, fluid
+/* Full-bleed section - the standard content band. Light background, fluid
    vertical rhythm, and a hairline divider at the bottom to separate bands. */
 .bbt-section {
   padding: var(--bbt-section-py) var(--bbt-section-px);
   border-bottom: 1px solid var(--bbt-c-border);
 }
 
-/* Section background variants — alternate the canvas for visual banding. */
+/* Section background variants - alternate the canvas for visual banding. */
 .bbt-section--alt  { background: var(--bbt-c-bg-alt); }   /* Cool grey band */
 .bbt-section--dark {                                       /* Navy "spotlight" band */
   background: var(--bbt-c-navy-900);
@@ -335,7 +335,7 @@ h2.bbt-tit {
 .bbt-grid-3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bbt-space-6); }
 .bbt-grid-4     { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--bbt-space-6); }
 
-/* Hero split — content-heavy left column, lighter visual right column. */
+/* Hero split - content-heavy left column, lighter visual right column. */
 .bbt-hero {
   display: grid;
   grid-template-columns: 1.5fr .5fr;
@@ -343,7 +343,7 @@ h2.bbt-tit {
   align-items: center;
 }
 
-/* Horizontal snap carousel — for swipeable card rows on touch devices. */
+/* Horizontal snap carousel - for swipeable card rows on touch devices. */
 .bbt-snap-x {
   scroll-snap-type: x mandatory;
   overflow-x: auto;
@@ -364,7 +364,7 @@ h2.bbt-tit {
    <header>).
    ============================================================================ */
 
-/* Sticky header bar — white, hairline bottom border, sits above content. */
+/* Sticky header bar - white, hairline bottom border, sits above content. */
 .bbt-header {
   position: sticky;
   top: 0;
@@ -373,7 +373,7 @@ h2.bbt-tit {
   border-bottom: 1px solid var(--bbt-c-border);
 }
 
-/* Desktop nav link — animated underline grows from the left on hover/focus,
+/* Desktop nav link - animated underline grows from the left on hover/focus,
    plus a soft amber wash. The underline is an absolutely-positioned ::after
    bar scaled on the X axis. */
 .bbt-nl {
@@ -397,7 +397,7 @@ h2.bbt-tit {
 .bbt-nl:hover::after,
 .bbt-nl:focus-visible::after { transform: scaleX(1); }
 
-/* Active page link — underline shown, navy bold. */
+/* Active page link - underline shown, navy bold. */
 .bbt-nl.is-active { color: var(--bbt-c-navy-900); font-weight: var(--bbt-fw-semibold); }
 .bbt-nl.is-active::after { transform: scaleX(1); }
 
@@ -466,7 +466,7 @@ h2.bbt-tit {
     border-color var(--bbt-dur-fast);
 }
 
-/* Primary — navy, the dominant call-to-action. Lifts and deepens on hover. */
+/* Primary - navy, the dominant call-to-action. Lifts and deepens on hover. */
 .bbt-btn--primary {
   background: var(--bbt-c-navy-800);
   color: var(--bbt-c-on-navy);
@@ -480,7 +480,7 @@ h2.bbt-tit {
   box-shadow: var(--bbt-shadow-sm);
 }
 
-/* Secondary — amber pill, the "Enroll Now" identity button. */
+/* Secondary - amber pill, the "Enroll Now" identity button. */
 .bbt-btn--secondary {
   background: var(--bbt-c-amber);
   color: var(--bbt-c-on-amber);
@@ -493,7 +493,7 @@ h2.bbt-tit {
   transform: translateY(-2px);
 }
 
-/* Ghost — outlined, low-emphasis. Fills white and darkens its border on hover. */
+/* Ghost - outlined, low-emphasis. Fills white and darkens its border on hover. */
 .bbt-btn--ghost {
   background: var(--bbt-c-surface);
   color: var(--bbt-c-navy-800);
@@ -523,7 +523,7 @@ h2.bbt-tit {
   transform: translateY(-4px);
   box-shadow: var(--bbt-shadow-sm);
 }
-/* Corner tick — a folded amber triangle that fades in on hover. */
+/* Corner tick - a folded amber triangle that fades in on hover. */
 .bbt-card .bbt-tick {
   opacity: 0;
   transition: opacity var(--bbt-dur-base);
@@ -536,7 +536,7 @@ h2.bbt-tit {
 .bbt-card:hover .bbt-tick { opacity: 1; }
 
 /* ---- COHORT TAG ------------------------------------------------------------
-   The small "cohort_07 · enrolling now" chip — pale amber fill, mono text, and
+   The small "cohort_07 · enrolling now" chip - pale amber fill, mono text, and
    a pulsing dot to signal "live". */
 .bbt-tag {
   display: inline-flex;
@@ -647,7 +647,7 @@ h2.bbt-tit {
   gap: var(--bbt-space-2);
   border-bottom: 1px solid var(--bbt-c-border);
 }
-/* Traffic-light dots — first is amber (active), rest are grey. */
+/* Traffic-light dots - first is amber (active), rest are grey. */
 .bbt-window-dot {
   display: inline-block;
   width: 10px; height: 10px;
@@ -709,19 +709,19 @@ h2.bbt-tit {
    reduced-motion check so they enhance progressively and respect preferences.
    ============================================================================ */
 
-/* Fade-and-rise — the default entrance for content blocks. */
+/* Fade-and-rise - the default entrance for content blocks. */
 @keyframes bbt-reveal {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
 }
 
-/* SVG line-draw — animates a dashed stroke into a solid drawn line. */
+/* SVG line-draw - animates a dashed stroke into a solid drawn line. */
 @keyframes bbt-draw {
   from { stroke-dashoffset: 1200; }
   to   { stroke-dashoffset: 0; }
 }
 
-/* Blink — the terminal cursor / "live" indicator. */
+/* Blink - the terminal cursor / "live" indicator. */
 @keyframes bbt-blink {
   0%, 100% { opacity: 1; }
   50%      { opacity: .25; }
@@ -733,13 +733,13 @@ h2.bbt-tit {
   to   { transform: scaleX(1); }
 }
 
-/* Logo marquee — translate the duplicated track by -50% for a seamless loop. */
+/* Logo marquee - translate the duplicated track by -50% for a seamless loop. */
 @keyframes bbt-logo-marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-/* Pill pulse — expanding amber halo on the "live cohort" dot. */
+/* Pill pulse - expanding amber halo on the "live cohort" dot. */
 @keyframes bbt-pill-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, .4); }
   50%      { box-shadow: 0 0 0 6px rgba(245, 166, 35, 0); }
@@ -748,7 +748,7 @@ h2.bbt-tit {
 /* Blinking cursor utility (applies the keyframe above). */
 .bbt-blink { animation: bbt-blink 1.6s steps(2, end) infinite; }
 
-/* Top-of-page scroll progress bar — fixed amber gradient that fills as the
+/* Top-of-page scroll progress bar - fixed amber gradient that fills as the
    user scrolls. Falls back to invisible (scaleX 0) where unsupported. */
 .bbt-scroll-bar {
   position: fixed;
@@ -795,9 +795,9 @@ h2.bbt-tit {
    09. RESPONSIVE
    ----------------------------------------------------------------------------
    Two breakpoints, matching the rest of the site:
-     ≤980px  — tablet / small desktop: collapse multi-column layouts, swap the
+     ≤980px  - tablet / small desktop: collapse multi-column layouts, swap the
                desktop nav for the hamburger + slide-down panel.
-     ≤640px  — phones: single column everywhere, tighter padding, full-width
+     ≤640px  - phones: single column everywhere, tighter padding, full-width
                buttons, 16px inputs (prevents iOS auto-zoom).
    ============================================================================ */
 
@@ -817,7 +817,7 @@ h2.bbt-tit {
   /* Tighten section gutters. */
   .bbt-section { padding-left: var(--bbt-space-5) !important; padding-right: var(--bbt-space-5) !important; }
 
-  /* MOBILE NAV PANEL — slide/fade open from the header. Collapsed by default
+  /* MOBILE NAV PANEL - slide/fade open from the header. Collapsed by default
      (max-height 0, hidden), expanded when header[data-open]. Items stagger. */
   .bbt-mob-nav {
     display: flex;
@@ -851,7 +851,7 @@ h2.bbt-tit {
       border-color .2s ease;
   }
 
-  /* Individual mobile nav item — large tap target, slides down + fades in. */
+  /* Individual mobile nav item - large tap target, slides down + fades in. */
   .bbt-mob-nav .bbt-mn {
     font-family: var(--bbt-font-body);
     font-size: 16px;
@@ -888,7 +888,7 @@ h2.bbt-tit {
   /* Trailing arrow glyph on each item. */
   .bbt-mob-nav .bbt-mn::after { content: "\2192"; opacity: .35; font-family: var(--bbt-font-mono); }
 
-  /* The CTA item inside the mobile menu — amber pill, no arrow. */
+  /* The CTA item inside the mobile menu - amber pill, no arrow. */
   .bbt-mob-nav .bbt-mn-cta {
     margin-top: 10px;
     background: var(--bbt-c-amber);
@@ -939,7 +939,7 @@ h2.bbt-tit {
    Focus visibility, motion preferences, and reduced-motion fallbacks.
    ============================================================================ */
 
-/* Visible keyboard focus — a thick blue ring offset from the element. Uses
+/* Visible keyboard focus - a thick blue ring offset from the element. Uses
    :focus-visible so it only shows for keyboard/AT users, not mouse clicks. */
 :focus-visible {
   outline: 3px solid var(--bbt-c-focus);
