@@ -1,0 +1,30 @@
+# Big Binary Trainings (BBT)
+
+> Big Binary Trainings is a modern IT training institute in Lahore, Pakistan - a training institute built inside a working software house. It delivers practical, AI-integrated, career-focused technology education through hands-on projects, mentorship, paid internships and industry exposure. BBT is accredited by NAVTTC and recognized by PSDA and PSEB.
+
+## About
+- Location: 444-Q, DHA Phase II, Lahore, Pakistan (onsite + online cohorts)
+- Model: A four-phase ecosystem - Training, Internship, Shadow, Expert - that takes beginners to job-ready.
+- Accreditation: NAVTTC-approved; recognized by PSDA and PSEB; partnered with universities (FAST-NUCES, UMT) and industry (Cisco, SOFTEC).
+- Contact: WhatsApp 0326-0188811, email hello@bbt.edu.pk
+
+## Key pages
+- [Home](https://bbtedu.mza-t.com/): Overview of BBT, courses, ecosystem and partners.
+- [About](https://bbtedu.mza-t.com/about/): Mission, faculty, affiliations and campus.
+- [NAVTTC Courses](https://bbtedu.mza-t.com/navttc/): Free, government-certified IT courses under Pakistan's National Vocational & Technical Training Commission.
+- [Tracks](https://bbtedu.mza-t.com/tracks/): Structured career tracks (Generative AI, Cloud + MLOps, Odoo ERP, AI Full Stack, Cybersecurity, UI/UX, AI Marketing).
+- [Freestyle Courses](https://bbtedu.mza-t.com/courses/): 16 individual skill courses across hi-tech, design and marketing.
+- [Franchise](https://bbtedu.mza-t.com/franchise/): Partner and software-house network opportunities.
+- [Contact](https://bbtedu.mza-t.com/contact/): Free career assessment and enrolment.
+
+## NAVTTC courses (free, government-certified)
+- AI For Everyone
+- AI-Powered E-Commerce
+- Earning Money Through Freelancing
+- Digital Marketing & SEO
+- Graphic Designing & Video Editing
+- AI Financial Analyst with Power BI
+
+## Notes
+- Certification: NAVTTC certificates are government-recognized and accepted by many overseas employers.
+- Enrolment: Free for eligible applicants under government skills programs.
