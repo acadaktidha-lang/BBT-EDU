@@ -276,6 +276,56 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-details-marker{display:none}details.faq[open] .chev{transform:rotate(45deg)}.chev{transition:transform .25s ease}
 /*BBT-NOPINK*/.hamb:focus,.hamb:focus-visible{background:#FFFFFF}.fbtn:focus,.fbtn:focus-visible{background:#FFFFFF;color:#475569}.fbtn[data-active='1']:focus,.fbtn[data-active='1']:focus-visible{background:#13294B;color:#fff}.submit-btn:focus,.submit-btn:focus-visible{background:#F5A623}</style>
 
+<style id="bbt-ff-css">
+/* ==== BBT Fluent Forms brand styling (matches approved palette) ==== */
+.bbt-ff .ff-el-group{margin-bottom:18px}
+.bbt-ff form,.bbt-ff .frm-fluent-form{font-family:'IBM Plex Sans',sans-serif}
+.bbt-ff .ff-el-input--label label{font-size:.85rem;font-weight:600;margin-bottom:7px;display:block;padding:0}
+.bbt-ff .ff-el-is-required{margin-left:3px}
+.bbt-ff input[type=text],.bbt-ff input[type=email],.bbt-ff input[type=tel],.bbt-ff input[type=number],
+.bbt-ff select,.bbt-ff textarea,.bbt-ff .ff-el-form-control{
+  width:100%!important;border-radius:8px!important;padding:14px 16px!important;font:inherit!important;
+  font-size:15px!important;line-height:1.4!important;box-shadow:none!important;outline:none!important;
+  transition:border-color .2s,background .2s;-webkit-appearance:none;appearance:none}
+.bbt-ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A99A8' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px!important}
+.bbt-ff textarea{min-height:120px}
+.bbt-ff .ff-btn-submit{border:none!important;border-radius:8px!important;font-weight:700!important;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .18s,background .18s}
+.bbt-ff .ff-el-form-check{display:flex;align-items:center;gap:12px;padding:6px 0}
+.bbt-ff .ff-el-form-check input{width:18px;height:18px;margin:0;flex:none}
+.bbt-ff .ff-message-success{border-radius:8px;padding:16px 18px;font-family:'IBM Plex Sans',sans-serif}
+
+/* ---------- LIGHT theme (contact, home) ---------- */
+.bbt-ff--light .ff-el-input--label label{color:#475569}
+.bbt-ff--light input[type=text],.bbt-ff--light input[type=email],.bbt-ff--light input[type=tel],
+.bbt-ff--light select,.bbt-ff--light textarea,.bbt-ff--light .ff-el-form-control{
+  background:#fff!important;border:1px solid #DCE3EC!important;color:#0D1B2A!important}
+.bbt-ff--light input:focus,.bbt-ff--light select:focus,.bbt-ff--light textarea:focus{border-color:#13294B!important}
+.bbt-ff--light .ff-el-form-check-label,.bbt-ff--light .ff-el-form-check label{color:#475569}
+.bbt-ff--light input[type=radio],.bbt-ff--light input[type=checkbox]{accent-color:#13294B}
+.bbt-ff--light .ff-btn-submit{background:#13294B!important;color:#fff!important;padding:15px 30px!important;font-size:16px!important;width:auto}
+.bbt-ff--light .ff-btn-submit:hover{background:#0D1B2A!important;transform:translateY(-1px)}
+
+/* mono uppercase labels variant (home hero) */
+.bbt-ff--mono .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;font-weight:500}
+.bbt-ff--mono input[type=text],.bbt-ff--mono input[type=email],.bbt-ff--mono input[type=tel],
+.bbt-ff--mono select,.bbt-ff--mono textarea{background:#F4F6F9!important}
+
+/* ---------- DARK theme (enroll, franchise) ---------- */
+.bbt-ff--dark .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600}
+.bbt-ff--dark input[type=text],.bbt-ff--dark input[type=email],.bbt-ff--dark input[type=tel],
+.bbt-ff--dark select,.bbt-ff--dark textarea,.bbt-ff--dark .ff-el-form-control{
+  background:#0A1422!important;border:1px solid #1C3A6B!important;color:#fff!important}
+.bbt-ff--dark input::placeholder,.bbt-ff--dark textarea::placeholder{color:#5E6B7E}
+.bbt-ff--dark input:focus,.bbt-ff--dark select:focus,.bbt-ff--dark textarea:focus{border-color:#F5A623!important;background:#0F1B2F!important}
+.bbt-ff--dark select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+.bbt-ff--dark select option{background:#0A1422;color:#fff}
+.bbt-ff--dark .ff-el-form-check-label,.bbt-ff--dark .ff-el-form-check label{color:#DCE3EC;font-size:.95rem}
+.bbt-ff--dark .ff-el-form-check:hover .ff-el-form-check-label{color:#F5A623}
+.bbt-ff--dark input[type=radio],.bbt-ff--dark input[type=checkbox]{accent-color:#F5A623}
+.bbt-ff--dark .ff-btn-submit{background:#F5A623!important;color:#0D1B2A!important;padding:18px 28px!important;font-size:14px!important;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;width:100%}
+.bbt-ff--dark .ff-btn-submit:hover{background:#FFB94A!important;transform:translateY(-2px);box-shadow:0 14px 32px rgba(245,166,35,.32)}
+</style>
 </head>
 <body>
 
@@ -470,19 +520,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div class="reveal">
       <span class="eye">// book a free counselling session</span>
       <h2 class="tit" style="margin:14px 0 24px;">Tell us where you want to go.</h2>
-      <form id="bbtContactForm" onsubmit="return bbtContact(event)" style="display:flex;flex-direction:column;gap:16px;">
-        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" inputmode="none">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="g2">
-          <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Name<input required name="name" type="text" placeholder="Your name" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"></label>
-          <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Phone / WhatsApp<input required name="phone" type="tel" placeholder="03xx-xxxxxxx" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"></label>
-        </div>
-        <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Email<input name="email" type="email" placeholder="you@email.com" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"></label>
-        <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">I'm interested in<select name="interest" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;"><option>A career track</option><option>A freestyle course</option><option>Fees &amp; scholarships</option><option>Franchise</option><option>Something else</option></select></label>
-        <label style="display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#475569;font-weight:600;">Message<textarea name="message" rows="4" placeholder="What would you like to know?" style="padding:13px 14px;border:1px solid #DCE3EC;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;resize:vertical;"></textarea></label>
-        <button type="submit" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 26px;border-radius:8px;font-size:16px;border:none;cursor:pointer;display:inline-flex;gap:10px;align-items:center;justify-content:center;">Send via WhatsApp<svg width="16" height="16" viewBox="0 0 32 32" fill="#fff"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg></button>
-        <p style="margin:0;color:#8A99A8;font-size:.85rem;">We save your query and open a pre-filled WhatsApp chat so you get the fastest possible reply.</p>
-        <div id="bbtContactStatus" role="status" aria-live="polite" style="display:none;font-size:.88rem;line-height:1.5;border-radius:8px;padding:12px 14px;"></div>
-      </form>
+      <div class="bbt-ff bbt-ff--light">[fluentform id="5"]</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;">
       <div class="card reveal" style="background:#0D1B2A;color:#fff;border-radius:16px;padding:28px;">
@@ -522,37 +560,6 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     </div>
   </div>
 </section>
-
-<script>
-function bbtContact(e){
-  e.preventDefault();
-  var f=e.target;
-  if(!f.reportValidity()) return false;
-  if(f.company && f.company.value) return false; // honeypot
-
-  // 1) Capture the lead + send confirmation email (WordPress endpoint)
-  var data={};
-  new FormData(f).forEach(function(v,k){data[k]=v;});
-  var statusEl=document.getElementById('bbtContactStatus');
-  fetch(location.origin+'/wp-json/bbt/v1/contact',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(data)
-  }).then(function(r){return r.text().then(function(t){var j={};try{j=JSON.parse(t);}catch(e){}return {ok:r.ok,j:j};});})
-    .then(function(res){
-      if(statusEl && res.ok && res.j && res.j.ok){
-        statusEl.style.display='block';
-        statusEl.style.background='rgba(22,121,77,.10)';statusEl.style.border='1px solid #16794D';statusEl.style.color='#0F5132';
-        statusEl.innerHTML='<strong>✓ '+(res.j.message||'Got it!')+'</strong> Opening WhatsApp…';
-      }
-    }).catch(function(){ /* silently proceed - WhatsApp still opens below */ });
-
-  // 2) Preserve the existing fast-reply behaviour: open a pre-filled WhatsApp chat
-  var msg="Hi BBT, I'm "+f.name.value+" ("+f.phone.value+(f.email.value?", "+f.email.value:"")+"). I'm interested in: "+f.interest.value+"."+(f.message.value?" "+f.message.value:"");
-  window.open("https://wa.me/923260188811?text="+encodeURIComponent(msg),"_blank");
-  return false;
-}
-</script>
 
 <footer data-screen-label="Home / Footer" style="background:#0A1422;color:#DCE3EC;padding:56px clamp(20px,5vw,40px) 24px;">
   <div style="max-width:1200px;margin:0 auto;">

@@ -243,6 +243,56 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 
 /*BBT-NOPINK*/.hamb:focus,.hamb:focus-visible{background:#FFFFFF}.fbtn:focus,.fbtn:focus-visible{background:#FFFFFF;color:#475569}.fbtn[data-active='1']:focus,.fbtn[data-active='1']:focus-visible{background:#13294B;color:#fff}.submit-btn:focus,.submit-btn:focus-visible{background:#F5A623}</style>
 
+<style id="bbt-ff-css">
+/* ==== BBT Fluent Forms brand styling (matches approved palette) ==== */
+.bbt-ff .ff-el-group{margin-bottom:18px}
+.bbt-ff form,.bbt-ff .frm-fluent-form{font-family:'IBM Plex Sans',sans-serif}
+.bbt-ff .ff-el-input--label label{font-size:.85rem;font-weight:600;margin-bottom:7px;display:block;padding:0}
+.bbt-ff .ff-el-is-required{margin-left:3px}
+.bbt-ff input[type=text],.bbt-ff input[type=email],.bbt-ff input[type=tel],.bbt-ff input[type=number],
+.bbt-ff select,.bbt-ff textarea,.bbt-ff .ff-el-form-control{
+  width:100%!important;border-radius:8px!important;padding:14px 16px!important;font:inherit!important;
+  font-size:15px!important;line-height:1.4!important;box-shadow:none!important;outline:none!important;
+  transition:border-color .2s,background .2s;-webkit-appearance:none;appearance:none}
+.bbt-ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A99A8' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px!important}
+.bbt-ff textarea{min-height:120px}
+.bbt-ff .ff-btn-submit{border:none!important;border-radius:8px!important;font-weight:700!important;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .18s,background .18s}
+.bbt-ff .ff-el-form-check{display:flex;align-items:center;gap:12px;padding:6px 0}
+.bbt-ff .ff-el-form-check input{width:18px;height:18px;margin:0;flex:none}
+.bbt-ff .ff-message-success{border-radius:8px;padding:16px 18px;font-family:'IBM Plex Sans',sans-serif}
+
+/* ---------- LIGHT theme (contact, home) ---------- */
+.bbt-ff--light .ff-el-input--label label{color:#475569}
+.bbt-ff--light input[type=text],.bbt-ff--light input[type=email],.bbt-ff--light input[type=tel],
+.bbt-ff--light select,.bbt-ff--light textarea,.bbt-ff--light .ff-el-form-control{
+  background:#fff!important;border:1px solid #DCE3EC!important;color:#0D1B2A!important}
+.bbt-ff--light input:focus,.bbt-ff--light select:focus,.bbt-ff--light textarea:focus{border-color:#13294B!important}
+.bbt-ff--light .ff-el-form-check-label,.bbt-ff--light .ff-el-form-check label{color:#475569}
+.bbt-ff--light input[type=radio],.bbt-ff--light input[type=checkbox]{accent-color:#13294B}
+.bbt-ff--light .ff-btn-submit{background:#13294B!important;color:#fff!important;padding:15px 30px!important;font-size:16px!important;width:auto}
+.bbt-ff--light .ff-btn-submit:hover{background:#0D1B2A!important;transform:translateY(-1px)}
+
+/* mono uppercase labels variant (home hero) */
+.bbt-ff--mono .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;font-weight:500}
+.bbt-ff--mono input[type=text],.bbt-ff--mono input[type=email],.bbt-ff--mono input[type=tel],
+.bbt-ff--mono select,.bbt-ff--mono textarea{background:#F4F6F9!important}
+
+/* ---------- DARK theme (enroll, franchise) ---------- */
+.bbt-ff--dark .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600}
+.bbt-ff--dark input[type=text],.bbt-ff--dark input[type=email],.bbt-ff--dark input[type=tel],
+.bbt-ff--dark select,.bbt-ff--dark textarea,.bbt-ff--dark .ff-el-form-control{
+  background:#0A1422!important;border:1px solid #1C3A6B!important;color:#fff!important}
+.bbt-ff--dark input::placeholder,.bbt-ff--dark textarea::placeholder{color:#5E6B7E}
+.bbt-ff--dark input:focus,.bbt-ff--dark select:focus,.bbt-ff--dark textarea:focus{border-color:#F5A623!important;background:#0F1B2F!important}
+.bbt-ff--dark select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+.bbt-ff--dark select option{background:#0A1422;color:#fff}
+.bbt-ff--dark .ff-el-form-check-label,.bbt-ff--dark .ff-el-form-check label{color:#DCE3EC;font-size:.95rem}
+.bbt-ff--dark .ff-el-form-check:hover .ff-el-form-check-label{color:#F5A623}
+.bbt-ff--dark input[type=radio],.bbt-ff--dark input[type=checkbox]{accent-color:#F5A623}
+.bbt-ff--dark .ff-btn-submit{background:#F5A623!important;color:#0D1B2A!important;padding:18px 28px!important;font-size:14px!important;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;width:100%}
+.bbt-ff--dark .ff-btn-submit:hover{background:#FFB94A!important;transform:translateY(-2px);box-shadow:0 14px 32px rgba(245,166,35,.32)}
+</style>
 </head>
 <body>
 
@@ -487,98 +537,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- RIGHT: Form -->
-    <form id="bbtEnrollForm" class="reveal" style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;" novalidate>
-      <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" inputmode="none">
-      <!-- PERSONAL INFORMATION -->
-      <div>
-        <div class="sec-head"><span class="sec-head-text">PERSONAL INFORMATION</span></div>
-        <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
-          <label class="fld-label">
-            <span class="lbl">FIRST NAME<span class="req">*</span></span>
-            <input class="fld" type="text" name="first_name" required placeholder="e.g. Ali" autocomplete="given-name" minlength="2" maxlength="40">
-          </label>
-          <label class="fld-label">
-            <span class="lbl">LAST NAME<span class="req">*</span></span>
-            <input class="fld" type="text" name="last_name" required placeholder="e.g. Hassan" autocomplete="family-name" minlength="2" maxlength="40">
-          </label>
-          <label class="fld-label" style="grid-column:1/-1;">
-            <span class="lbl">EMAIL ADDRESS<span class="req">*</span></span>
-            <input class="fld" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
-          </label>
-          <label class="fld-label">
-            <span class="lbl">WHATSAPP / PHONE<span class="req">*</span></span>
-            <input class="fld" type="tel" name="phone" required placeholder="03XX-XXXXXXX" autocomplete="tel" inputmode="tel" pattern="[0-9\-\s\+]{10,20}">
-          </label>
-          <label class="fld-label">
-            <span class="lbl">CITY<span class="req">*</span></span>
-            <input class="fld" type="text" name="city" required placeholder="Lahore, Karachi, etc." autocomplete="address-level2">
-          </label>
-        </div>
-      </div>
-
-      <!-- LEARNING PREFERENCES -->
-      <div>
-        <div class="sec-head"><span class="sec-head-text">LEARNING PREFERENCES</span></div>
-        <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
-          <label class="fld-label">
-            <span class="lbl">TRACK OF INTEREST<span class="req">*</span></span>
-            <select class="fld" name="track" required style="cursor:pointer;">
-              <option value="">Select a track&hellip;</option>
-              <option>Coding &amp; Web Development</option>
-              <option>AI &amp; Future Tech</option>
-              <option>Cybersecurity &amp; Cloud</option>
-              <option>Creative &amp; Design</option>
-              <option>E-Commerce &amp; Marketing</option>
-              <option>Not sure yet - need guidance</option>
-            </select>
-          </label>
-          <label class="fld-label">
-            <span class="lbl">YOUR BACKGROUND<span class="req">*</span></span>
-            <select class="fld" name="background" required style="cursor:pointer;">
-              <option value="">Select your background&hellip;</option>
-              <option>Fresh graduate (CS / IT)</option>
-              <option>Fresh graduate (non-CS)</option>
-              <option>University student</option>
-              <option>Working professional</option>
-              <option>Career switcher</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <div style="grid-column:1/-1;">
-            <span class="lbl" style="display:block;margin-bottom:14px;">PREFERRED FORMAT<span class="req">*</span></span>
-            <div style="display:flex;gap:24px;flex-wrap:wrap;">
-              <label class="radio-row"><input type="radio" name="format" value="onsite" required><span>Onsite at Lahore HQ</span></label>
-              <label class="radio-row"><input type="radio" name="format" value="online"><span>Online</span></label>
-              <label class="radio-row"><input type="radio" name="format" value="hybrid"><span>Hybrid</span></label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADDITIONAL INFORMATION -->
-      <div>
-        <div class="sec-head"><span class="sec-head-text">ADDITIONAL INFORMATION</span></div>
-        <label class="fld-label">
-          <span class="lbl">ANYTHING YOU'D LIKE US TO KNOW? <span style="color:#8A99A8;text-transform:uppercase;font-weight:500;">(Optional)</span></span>
-          <textarea class="fld" name="notes" rows="5" placeholder="Your goals, questions, or relevant experience&hellip;" maxlength="600" style="resize:vertical;"></textarea>
-          <span class="mono" style="font-size:10px;letter-spacing:.12em;color:#5E6B7E;text-transform:uppercase;align-self:flex-end;">Max 600 characters</span>
-        </label>
-      </div>
-
-      <!-- Consent + Submit -->
-      <div style="display:flex;flex-direction:column;gap:22px;">
-        <label class="checkbox-row">
-          <input type="checkbox" name="consent" required>
-          <span>I consent to Big Binary Trainings contacting me about my application. I understand my data will be used only for admissions purposes.</span>
-        </label>
-        <button type="submit" class="submit-btn">
-          SUBMIT APPLICATION
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg>
-        </button>
-        <div id="bbtEnrollStatus" role="status" aria-live="polite" style="display:none;font-size:.92rem;line-height:1.5;text-align:center;border-radius:10px;padding:14px 16px;"></div>
-        <div class="mono" style="font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;text-align:center;">We respond within 24 hours &middot; * required</div>
-      </div>
-    </form>
+    <div class="bbt-ff bbt-ff--dark" style="background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:16px;padding:36px;">[fluentform id="4"]</div>
   </div>
 </section>
 
@@ -658,62 +617,6 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 <a href="https://wa.me/923260188811?text=Hi%20BBT" aria-label="Chat with BBT on WhatsApp" style="position:fixed;bottom:max(24px,env(safe-area-inset-bottom));right:max(24px,env(safe-area-inset-right));z-index:80;width:56px;height:56px;border-radius:50%;background:#13294B;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(13,27,42,.28);border:2px solid transparent;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='transparent';this.style.transform='none';">
   <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3zm0 23.6c-1.96 0-3.88-.527-5.56-1.523l-.4-.237-3.97 1.04 1.06-3.866-.26-.41a10.6 10.6 0 0 1-1.63-5.602c0-5.846 4.756-10.602 10.6-10.602 5.846 0 10.6 4.756 10.6 10.602 0 5.844-4.754 10.598-10.6 10.598zm5.81-7.94c-.318-.16-1.886-.93-2.18-1.036-.292-.107-.504-.16-.717.16-.213.32-.823 1.036-1.01 1.249-.187.213-.372.24-.69.08-.318-.16-1.346-.495-2.563-1.58-.948-.846-1.586-1.89-1.772-2.208-.187-.318-.02-.49.14-.65.144-.143.32-.372.48-.558.16-.187.213-.32.32-.532.107-.213.053-.4-.027-.56-.08-.16-.717-1.73-.984-2.37-.258-.62-.52-.535-.717-.545l-.61-.012c-.213 0-.558.08-.85.4-.292.32-1.116 1.09-1.116 2.66 0 1.57 1.143 3.09 1.302 3.303.16.213 2.249 3.434 5.45 4.815.762.33 1.357.526 1.82.673.766.244 1.463.21 2.013.127.614-.092 1.886-.77 2.152-1.514.266-.745.266-1.383.187-1.515-.08-.133-.292-.213-.61-.372z"></path></svg>
 </a>
-
-<script>
-(function () {
-  var form = document.getElementById('bbtEnrollForm');
-  if (!form) return;
-  var statusEl = document.getElementById('bbtEnrollStatus');
-  var btn = form.querySelector('.submit-btn');
-  var WA = 'https://wa.me/923260188811?text=' + encodeURIComponent("Hi BBT, I'd like to enroll.");
-  var ENDPOINT = location.origin + '/wp-json/bbt/v1/enroll';
-
-  function show(kind, html) {
-    statusEl.style.display = 'block';
-    statusEl.innerHTML = html;
-    if (kind === 'ok')  { statusEl.style.background = 'rgba(22,121,77,.12)'; statusEl.style.border = '1px solid #16794D'; statusEl.style.color = '#0F5132'; }
-    else                { statusEl.style.background = 'rgba(220,53,69,.10)'; statusEl.style.border = '1px solid #DC3545'; statusEl.style.color = '#B02A37'; }
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    var data = {};
-    new FormData(form).forEach(function (v, k) { data[k] = v; });
-
-    var original = btn.innerHTML;
-    btn.disabled = true; btn.style.opacity = '.7'; btn.style.cursor = 'wait';
-    btn.textContent = 'Submitting…';
-    statusEl.style.display = 'none';
-
-    var waFallback = '<br>Please try again, or <a href="' + WA + '" style="color:#B02A37;font-weight:700;text-decoration:underline;">message us on WhatsApp</a>.';
-
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(function (r) {
-      return r.text().then(function (t) { var j = {}; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, j: j }; });
-    })
-    .then(function (res) {
-      if (res.ok && res.j && res.j.ok) {
-        form.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
-        show('ok', '<strong>✓ ' + (res.j.message || 'Application received!') + '</strong><br>We’ll reach out within 24 hours.');
-        form.reset();
-      } else {
-        show('err', ((res.j && res.j.error) || 'We couldn’t submit your application right now.') + waFallback);
-      }
-    })
-    .catch(function () {
-      show('err', 'We couldn’t reach the server right now.' + waFallback);
-    })
-    .finally(function () {
-      btn.disabled = false; btn.style.opacity = ''; btn.style.cursor = ''; btn.innerHTML = original;
-    });
-  });
-})();
-</script>
 
 </body>
 </html>
