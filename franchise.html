@@ -240,6 +240,56 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 
 /*BBT-NOPINK*/.hamb:focus,.hamb:focus-visible{background:#FFFFFF}.fbtn:focus,.fbtn:focus-visible{background:#FFFFFF;color:#475569}.fbtn[data-active='1']:focus,.fbtn[data-active='1']:focus-visible{background:#13294B;color:#fff}.submit-btn:focus,.submit-btn:focus-visible{background:#F5A623}</style>
 
+<style id="bbt-ff-css">
+/* ==== BBT Fluent Forms brand styling (matches approved palette) ==== */
+.bbt-ff .ff-el-group{margin-bottom:18px}
+.bbt-ff form,.bbt-ff .frm-fluent-form{font-family:'IBM Plex Sans',sans-serif}
+.bbt-ff .ff-el-input--label label{font-size:.85rem;font-weight:600;margin-bottom:7px;display:block;padding:0}
+.bbt-ff .ff-el-is-required{margin-left:3px}
+.bbt-ff input[type=text],.bbt-ff input[type=email],.bbt-ff input[type=tel],.bbt-ff input[type=number],
+.bbt-ff select,.bbt-ff textarea,.bbt-ff .ff-el-form-control{
+  width:100%!important;border-radius:8px!important;padding:14px 16px!important;font:inherit!important;
+  font-size:15px!important;line-height:1.4!important;box-shadow:none!important;outline:none!important;
+  transition:border-color .2s,background .2s;-webkit-appearance:none;appearance:none}
+.bbt-ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A99A8' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px!important}
+.bbt-ff textarea{min-height:120px}
+.bbt-ff .ff-btn-submit{border:none!important;border-radius:8px!important;font-weight:700!important;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .18s,background .18s}
+.bbt-ff .ff-el-form-check{display:flex;align-items:center;gap:12px;padding:6px 0}
+.bbt-ff .ff-el-form-check input{width:18px;height:18px;margin:0;flex:none}
+.bbt-ff .ff-message-success{border-radius:8px;padding:16px 18px;font-family:'IBM Plex Sans',sans-serif}
+
+/* ---------- LIGHT theme (contact, home) ---------- */
+.bbt-ff--light .ff-el-input--label label{color:#475569}
+.bbt-ff--light input[type=text],.bbt-ff--light input[type=email],.bbt-ff--light input[type=tel],
+.bbt-ff--light select,.bbt-ff--light textarea,.bbt-ff--light .ff-el-form-control{
+  background:#fff!important;border:1px solid #DCE3EC!important;color:#0D1B2A!important}
+.bbt-ff--light input:focus,.bbt-ff--light select:focus,.bbt-ff--light textarea:focus{border-color:#13294B!important}
+.bbt-ff--light .ff-el-form-check-label,.bbt-ff--light .ff-el-form-check label{color:#475569}
+.bbt-ff--light input[type=radio],.bbt-ff--light input[type=checkbox]{accent-color:#13294B}
+.bbt-ff--light .ff-btn-submit{background:#13294B!important;color:#fff!important;padding:15px 30px!important;font-size:16px!important;width:auto}
+.bbt-ff--light .ff-btn-submit:hover{background:#0D1B2A!important;transform:translateY(-1px)}
+
+/* mono uppercase labels variant (home hero) */
+.bbt-ff--mono .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;font-weight:500}
+.bbt-ff--mono input[type=text],.bbt-ff--mono input[type=email],.bbt-ff--mono input[type=tel],
+.bbt-ff--mono select,.bbt-ff--mono textarea{background:#F4F6F9!important}
+
+/* ---------- DARK theme (enroll, franchise) ---------- */
+.bbt-ff--dark .ff-el-input--label label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600}
+.bbt-ff--dark input[type=text],.bbt-ff--dark input[type=email],.bbt-ff--dark input[type=tel],
+.bbt-ff--dark select,.bbt-ff--dark textarea,.bbt-ff--dark .ff-el-form-control{
+  background:#0A1422!important;border:1px solid #1C3A6B!important;color:#fff!important}
+.bbt-ff--dark input::placeholder,.bbt-ff--dark textarea::placeholder{color:#5E6B7E}
+.bbt-ff--dark input:focus,.bbt-ff--dark select:focus,.bbt-ff--dark textarea:focus{border-color:#F5A623!important;background:#0F1B2F!important}
+.bbt-ff--dark select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+.bbt-ff--dark select option{background:#0A1422;color:#fff}
+.bbt-ff--dark .ff-el-form-check-label,.bbt-ff--dark .ff-el-form-check label{color:#DCE3EC;font-size:.95rem}
+.bbt-ff--dark .ff-el-form-check:hover .ff-el-form-check-label{color:#F5A623}
+.bbt-ff--dark input[type=radio],.bbt-ff--dark input[type=checkbox]{accent-color:#F5A623}
+.bbt-ff--dark .ff-btn-submit{background:#F5A623!important;color:#0D1B2A!important;padding:18px 28px!important;font-size:14px!important;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;width:100%}
+.bbt-ff--dark .ff-btn-submit:hover{background:#FFB94A!important;transform:translateY(-2px);box-shadow:0 14px 32px rgba(245,166,35,.32)}
+</style>
 </head>
 <body>
 
@@ -1020,55 +1070,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- RIGHT: Form -->
-    <form style="display:flex;flex-direction:column;gap:40px;background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:14px;padding:36px;">
-      <!-- PERSONAL INFORMATION -->
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">PERSONAL INFORMATION</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">FULL NAME <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="Your full name"  style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">CNIC NUMBER <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="XXXXX-XXXXXXX-X" pattern="[0-9]{5}-[0-9]{7}-[0-9]" autocomplete="off" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">MOBILE NUMBER <span style="color:#F5A623;">*</span></span><input type="tel" required placeholder="0300-0000000" inputmode="tel" autocomplete="tel" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">EMAIL ADDRESS <span style="color:#F5A623;">*</span></span><input type="email" required placeholder="you@email.com" autocomplete="email" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">CITY OF RESIDENCE <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="Your city" autocomplete="address-level2" style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-          
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">PREFERRED CITY FOR FRANCHISE <span style="color:#F5A623;">*</span></span><input type="text" required placeholder="e.g. Karachi"  style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></label>
-        </div>
-      </div>
-
-      <!-- INVESTMENT & MODEL SELECTION -->
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">INVESTMENT &amp; MODEL SELECTION</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px;">
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">INVESTMENT CATEGORY <span style="color:#F5A623;">*</span></span><select required style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;cursor:pointer;outline:none;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"><option value="">Select tier</option><option>Category I - PKR 15.0M (First Unit)</option><option>Category II - PKR 12.0M (Second Unit)</option><option>Category III - PKR 10.0M (3rd Unit +)</option></select></label>
-          <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">NUMBER OF UNITS <span style="color:#F5A623;">*</span></span><select required style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;cursor:pointer;outline:none;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"><option value="">Select</option><option>1 unit</option><option>2 units</option><option>3+ units</option></select></label>
-        </div>
-        <div>
-          <span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;display:block;margin-bottom:14px;">PREFERRED MODEL <span style="color:#F5A623;">*</span></span>
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" required style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Training Institute</span></label>
-            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Software &amp; Consultancy</span></label>
-            <label style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:6px 0;"><input type="radio" name="model" style="accent-color:#F5A623;width:18px;height:18px;cursor:pointer;"><span style="color:#DCE3EC;font-size:.96rem;">Hybrid</span></label>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADDITIONAL INFORMATION -->
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;"><span style="display:inline-block;width:22px;height:2px;background:#8A99A8;"></span><span class="mono" style="font-size:13px;letter-spacing:.16em;color:#fff;text-transform:uppercase;font-weight:600;">ADDITIONAL INFORMATION</span></div>
-        <label style="display:flex;flex-direction:column;gap:8px;"><span class="mono" style="font-size:10px;letter-spacing:.16em;color:#F5A623;text-transform:uppercase;font-weight:600;">WHY DO YOU WANT TO PARTNER WITH BBT?</span><textarea rows="5" placeholder="Tell us about your vision..." style="background:#0A1422;border:1px solid #DCE3EC;border-radius:8px;padding:14px 16px;color:#fff;font:inherit;font-size:14px;resize:vertical;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#1C3A6B'"></textarea></label>
-      </div>
-
-      <!-- Consent + Submit -->
-      <div style="display:flex;flex-direction:column;gap:22px;">
-        <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;"><input type="checkbox" required style="accent-color:#F5A623;width:18px;height:18px;margin-top:3px;flex:none;cursor:pointer;"><span style="color:#A8B4D0;font-size:.92rem;line-height:1.55;">I understand this is an expression of interest and not a formal commitment. I consent to Big Binary Tech contacting me regarding this application.</span></label>
-        <button type="submit" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:20px;border-radius:8px;border:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;display:inline-flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:transform .18s,box-shadow .18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 28px rgba(245,166,35,.32)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">SUBMIT EXPRESSION OF INTEREST<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></button>
-      </div>
-    </form>
+    <div class="bbt-ff bbt-ff--dark" style="background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:14px;padding:36px;">[fluentform id="6"]</div>
   </div>
 </section>
 
