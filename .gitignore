@@ -10,3 +10,9 @@ Thumbs.db
 # Logs / temp
 *.log
 .cache/
+
+# Playwright MCP artifacts (snapshots, console logs, screenshots)
+.playwright-mcp/
+
+# Local prod screenshots
+*-prod.jpeg
