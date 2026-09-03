@@ -239,6 +239,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -291,7 +292,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
@@ -305,7 +306,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -336,7 +337,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="kids.html">Kids<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
           <a class="dd-link" href="course-kids-ai.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
