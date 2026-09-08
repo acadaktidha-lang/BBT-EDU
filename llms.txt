@@ -12,7 +12,7 @@
 - [Home](https://bbtedu.mza-t.com/): Overview of BBT, courses, ecosystem and partners.
 - [About](https://bbtedu.mza-t.com/about/): Mission, faculty, affiliations and campus.
 - [NAVTTC Courses](https://bbtedu.mza-t.com/navttc/): Free, government-certified IT courses under Pakistan's National Vocational & Technical Training Commission.
-- [Tracks](https://bbtedu.mza-t.com/tracks/): Structured career tracks (Generative AI, Cloud + MLOps, Odoo ERP, AI Full Stack, Cybersecurity, UI/UX, AI Marketing).
+- [Tracks](https://bbtedu.mza-t.com/tracks/): Structured career tracks (Generative AI, Cloud + MLOps, Odoo Functional Consultant, AI Full Stack, Cybersecurity, AI-Powered Graphic Design, AI Marketing).
 - [Freestyle Courses](https://bbtedu.mza-t.com/courses/): 16 individual skill courses across hi-tech, design and marketing.
 - [Franchise](https://bbtedu.mza-t.com/franchise/): Partner and software-house network opportunities.
 - [Contact](https://bbtedu.mza-t.com/contact/): Free career assessment and enrolment.
