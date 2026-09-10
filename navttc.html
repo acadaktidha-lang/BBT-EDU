@@ -167,6 +167,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -219,21 +220,21 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -244,6 +245,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -258,15 +260,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -295,10 +308,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -310,6 +323,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -319,8 +333,15 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -346,8 +367,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   </svg>
   <div style="max-width:1000px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,5vw,40px);text-align:center;position:relative;">
     <span class="cohort-tag" style="margin-bottom:24px;"><span class="dot"></span>NAVTTC · Government-Certified Training</span>
-    <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.5rem,1.7rem + 4vw,5rem);line-height:.98;letter-spacing:-.03em;color:#0D1B2A;margin:16px 0 22px;">NAVTTC-Approved IT Courses - government-certified skills that <span style="color:#D98A07;">employers trust</span><span style="color:#D98A07;">.</span></h1>
-    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto 30px;max-width:720px;">Big Binary Trainings delivers free, fully accredited IT courses under Pakistan&#39;s National Vocational &amp; Technical Training Commission (NAVTTC) - practical, AI-integrated training that ends with a nationally and internationally recognized certificate. Real skills, real projects, real career outcomes - at no cost to you.</p>
+    <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.5rem,1.7rem + 4vw,5rem);line-height:.98;letter-spacing:-.03em;color:#0D1B2A;margin:16px 0 22px;">NAVTTC-Approved IT Courses: government-certified skills that <span style="color:#D98A07;">employers trust</span><span style="color:#D98A07;">.</span></h1>
+    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto 30px;max-width:720px;">Big Binary Trainings delivers free, fully accredited IT courses under Pakistan&#39;s National Vocational &amp; Technical Training Commission (NAVTTC). Practical, AI-integrated training that ends with a nationally and internationally recognized certificate. Real skills, real projects, real career outcomes, at no cost to you.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
       <a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Apply for a free seat<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a>
       <a href="#courses" class="btn bg" style="background:transparent;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;border:1px solid #DCE3EC;display:inline-flex;gap:10px;align-items:center;">View NAVTTC courses</a>
@@ -362,14 +383,14 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div>
         <span class="eye">// what is navttc</span>
         <h2 class="tit" style="margin:14px 0 16px;">The national authority behind Pakistan&#39;s skilled workforce.</h2>
-        <p class="deck" style="margin-bottom:16px;">The National Vocational &amp; Technical Training Commission (NAVTTC) is the apex government body that regulates, develops and certifies technical and vocational education across Pakistan. It sets the national skills standards that employers - at home and abroad - rely on when hiring.</p>
+        <p class="deck" style="margin-bottom:16px;">The National Vocational &amp; Technical Training Commission (NAVTTC) is the apex government body that regulates, develops and certifies technical and vocational education across Pakistan. It sets the national skills standards that employers, at home and abroad, rely on when hiring.</p>
         <p class="deck">As a NAVTTC-accredited institute, Big Binary Trainings delivers approved curricula and issues certification that carries the weight of the federal government, opening doors to local jobs, freelancing income and international employment.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
           <div style="display:flex;gap:16px;align-items:flex-start;">
             <div style="flex:none;width:46px;height:46px;border-radius:12px;background:#13294B;color:#F5A623;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 6px;letter-spacing:-.01em;">Government accreditation</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Curriculum and certification approved and regulated by a federal commission - not a private certificate.</p></div>
+            <div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 6px;letter-spacing:-.01em;">Government accreditation</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Curriculum and certification approved and regulated by a federal commission, not a private certificate.</p></div>
           </div>
         </div>
         <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
@@ -381,7 +402,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
           <div style="display:flex;gap:16px;align-items:flex-start;">
             <div style="flex:none;width:46px;height:46px;border-radius:12px;background:#13294B;color:#F5A623;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21v-2a6 6 0 0 1 6-6h0a6 6 0 0 1 6 6v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="7" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M17 11l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 6px;letter-spacing:-.01em;">Free, merit-based access</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Training is fully funded for eligible candidates - skills development without a financial barrier.</p></div>
+            <div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 6px;letter-spacing:-.01em;">Free, merit-based access</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Training is fully funded for eligible candidates: skills development without a financial barrier.</p></div>
           </div>
         </div>
       </div>
@@ -479,7 +500,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <p style="margin:6px 0 0;color:#475569;font-size:.9rem;line-height:1.5;">Trained in &quot;Skills of Tomorrow&quot;</p></div>
       <div class="reveal" style="background:#13294B;border:1px solid #1C3A6B;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;">
         <div class="mono" style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#F5A623;margin-bottom:8px;">// and counting</div>
-        <p style="margin:0;color:#DCE3EC;font-size:.92rem;line-height:1.55;">A growing national skills movement - and BBT is part of it.</p></div>
+        <p style="margin:0;color:#DCE3EC;font-size:.92rem;line-height:1.55;">A growing national skills movement, and BBT is part of it.</p></div>
     </div>
   </div>
 </section>
@@ -492,7 +513,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <span class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;">// flagship</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:8px 0 10px;letter-spacing:-.01em;">PM&#39;s Youth Skills Development Program (PMYSDP)</h3>
-        <p style="margin:0;color:#475569;font-size:.95rem;line-height:1.6;">The Prime Minister&#39;s flagship initiative funding free, market-relevant skills training for youth across Pakistan - the umbrella under which BBT&#39;s NAVTTC courses run.</p></div>
+        <p style="margin:0;color:#475569;font-size:.95rem;line-height:1.6;">The Prime Minister&#39;s flagship initiative funding free, market-relevant skills training for youth across Pakistan, the umbrella under which BBT&#39;s NAVTTC courses run.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <span class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;">// seasonal</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:8px 0 10px;letter-spacing:-.01em;">Summer of Code</h3>
@@ -500,7 +521,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <span class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;">// future-skills</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:8px 0 10px;letter-spacing:-.01em;">Skills of Tomorrow</h3>
-        <p style="margin:0;color:#475569;font-size:.95rem;line-height:1.6;">A forward-looking track focused on emerging technologies - AI, data and automation - to prepare the workforce for the jobs of the next decade.</p></div>
+        <p style="margin:0;color:#475569;font-size:.95rem;line-height:1.6;">A forward-looking track focused on emerging technologies (AI, data and automation) to prepare the workforce for the jobs of the next decade.</p></div>
     </div>
   </div>
 </section>
@@ -533,7 +554,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:28px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:48px;height:48px;border-radius:12px;background:#13294B;color:#F5A623;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M8 7h6a2.5 2.5 0 0 1 0 5H8m0 0h7a2.5 2.5 0 0 1 0 5H8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Earning Money Through Freelancing</h3>
-        <p style="margin:0 0 14px;color:#475569;font-size:.92rem;line-height:1.6;">Turn a digital skill into income on global freelance platforms - from profile to first paid client.</p>
+        <p style="margin:0 0 14px;color:#475569;font-size:.92rem;line-height:1.6;">Turn a digital skill into income on global freelance platforms, from profile to first paid client.</p>
         <div class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;margin-bottom:8px;">// key topics</div>
         <ul style="margin:0 0 20px;padding-left:18px;color:#475569;font-size:.9rem;line-height:1.8;"><li>Profiles &amp; portfolios that win</li><li>Fiverr &amp; Upwork strategy</li><li>Proposals, pricing &amp; clients</li><li>Payments &amp; long-term growth</li></ul>
         <a href="enroll.html" class="c-link mono" style="margin-top:auto;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#0D1B2A;font-weight:600;align-self:flex-start;">Apply for this course <span class="arr">&rarr;</span></a></div>
@@ -541,7 +562,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:28px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:48px;height:48px;border-radius:12px;background:#13294B;color:#F5A623;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Digital Marketing &amp; SEO</h3>
-        <p style="margin:0 0 14px;color:#475569;font-size:.92rem;line-height:1.6;">Grow brands online with search, social and paid channels - and rank pages higher with modern SEO.</p>
+        <p style="margin:0 0 14px;color:#475569;font-size:.92rem;line-height:1.6;">Grow brands online with search, social and paid channels, and rank pages higher with modern SEO.</p>
         <div class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;margin-bottom:8px;">// key topics</div>
         <ul style="margin:0 0 20px;padding-left:18px;color:#475569;font-size:.9rem;line-height:1.8;"><li>SEO &amp; keyword strategy</li><li>Social media &amp; content marketing</li><li>Google &amp; Meta ad campaigns</li><li>Analytics &amp; conversion tracking</li></ul>
         <a href="enroll.html" class="c-link mono" style="margin-top:auto;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#0D1B2A;font-weight:600;align-self:flex-start;">Apply for this course <span class="arr">&rarr;</span></a></div>
@@ -578,7 +599,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:46px;height:46px;border-radius:50%;background:#16794D;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="#fff" stroke-width="1.5"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">International acceptance</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Recognized by overseas employers - a real edge for jobs in the Gulf and beyond.</p></div>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Recognized by overseas employers, a real edge for jobs in the Gulf and beyond.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:46px;height:46px;border-radius:50%;background:#16794D;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7v5h-5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Better job prospects</h3>
@@ -590,7 +611,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:46px;height:46px;border-radius:50%;background:#16794D;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="14" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M4 9h16M8 14h5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Free, funded training</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">High-quality, certified skills at zero cost for eligible applicants - no fee barrier.</p></div>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">High-quality, certified skills at zero cost for eligible applicants, with no fee barrier.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:46px;height:46px;border-radius:50%;background:#16794D;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Lifelong credential</h3>
@@ -611,7 +632,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="step-row card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="step-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:#F5A623;line-height:1;letter-spacing:-.03em;">02</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;">Submit your application</h3>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">Fill out the enrolment form with your details - it takes only a couple of minutes.</p></div>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">Fill out the enrolment form with your details. It takes only a couple of minutes.</p></div>
       <div class="step-row card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="step-num" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:#F5A623;line-height:1;letter-spacing:-.03em;">03</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;">Confirm eligibility</h3>
@@ -621,7 +642,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;">Start training</h3>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">Join your cohort, build real projects and earn your government-recognized certificate.</p></div>
     </div>
-    <div style="text-align:center;margin-top:36px;"><a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 30px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Apply now - it&#39;s free<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a></div>
+    <div style="text-align:center;margin-top:36px;"><a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 30px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Apply now &middot; it&#39;s free<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a></div>
   </div>
 </section>
 
@@ -633,7 +654,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:48px;height:48px;border-radius:12px;background:#FCEFD4;color:#D98A07;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14M4 19h16M9 19v-5h6v5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Learn inside a working tech company</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">BBT runs inside an active software house, so you train alongside real teams shipping real products - not in a classroom bubble.</p></div>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">BBT runs inside an active software house, so you train alongside real teams shipping real products, not in a classroom bubble.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:48px;height:48px;border-radius:12px;background:#FCEFD4;color:#D98A07;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Taught by working professionals</h3>
@@ -641,7 +662,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div style="width:48px;height:48px;border-radius:12px;background:#FCEFD4;color:#D98A07;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Career support beyond the certificate</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Portfolio building, CV reviews, interview prep and referrals to our software-house partners - we help you turn skills into work.</p></div>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Portfolio building, CV reviews, interview prep and referrals to our software-house partners. We help you turn skills into work.</p></div>
     </div>
   </div>
 </section>
@@ -650,11 +671,11 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="NAVTTC / FAQ" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:840px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;"><span class="eye" style="justify-content:center;">// frequently asked questions</span><h2 class="tit" style="margin:14px 0 0;">NAVTTC, answered.</h2></div>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Are NAVTTC courses really free?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. For eligible applicants, NAVTTC courses at BBT are fully funded under government skills programs - there is no tuition fee for the training or the certificate.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Who is eligible to apply?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">NAVTTC programs are aimed at Pakistani youth looking to build market-relevant digital skills. Exact age and education criteria vary by program - submit an application and our team will confirm your eligibility.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is the certificate recognized internationally?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">NAVTTC certification is a government-issued, nationally recognized credential that is also accepted by many overseas employers - a real advantage for those seeking work in the Gulf and other international markets.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do I need prior experience?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">No. These courses are designed to take beginners to job-ready - they start from fundamentals and build up through hands-on, project-based learning, so motivated newcomers are welcome.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Are classes online or on-campus?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">BBT runs both on-campus sessions at our Lahore DHA campus and online cohorts - same curriculum, same mentors and the same NAVTTC certification, so you can train in the format that suits you.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Are NAVTTC courses really free?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. For eligible applicants, NAVTTC courses at BBT are fully funded under government skills programs, so there is no tuition fee for the training or the certificate.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Who is eligible to apply?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">NAVTTC programs are aimed at Pakistani youth looking to build market-relevant digital skills. Exact age and education criteria vary by program, so submit an application and our team will confirm your eligibility.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is the certificate recognized internationally?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">NAVTTC certification is a government-issued, nationally recognized credential that is also accepted by many overseas employers, a real advantage for those seeking work in the Gulf and other international markets.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do I need prior experience?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">No. These courses are designed to take beginners to job-ready. They start from fundamentals and build up through hands-on, project-based learning, so motivated newcomers are welcome.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Are classes online or on-campus?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">BBT runs both on-campus sessions at our Lahore DHA campus and online cohorts, with the same curriculum, same mentors and the same NAVTTC certification, so you can train in the format that suits you.</div></details>
   </div>
 </section>
 
@@ -666,8 +687,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Get certified. Get hired.<br>Start free with NAVTTC<span style="color:#F5A623;">.</span></h2>
     <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:580px;">Seats in each funded cohort are limited. Apply today and a BBT advisor will help you choose the right NAVTTC course and confirm your eligibility.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20apply%20for%20a%20NAVTTC%20course." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp - Talk to Advisor</a>
-      <a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Apply now - Save your seat</a>
+      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20apply%20for%20a%20NAVTTC%20course." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp &middot; Talk to Advisor</a>
+      <a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Apply now &middot; Save your seat</a>
     </div>
   </div>
 </section>
@@ -679,7 +700,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="navttc.html">NAVTTC Courses</a><a href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="kids.html">BBT Kids</a><a href="navttc.html">NAVTTC Courses</a><a href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="blog.html">Blog</a><a href="events.html">Events</a><a href="podcast.html">Podcast</a><a href="webseries.html">Webseries</a><a href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a href="https://wa.me/923210908881">WhatsApp · 0321-0908881</a><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>

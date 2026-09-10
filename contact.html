@@ -239,6 +239,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -341,21 +342,21 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -366,6 +367,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -380,15 +382,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -417,10 +430,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -432,6 +445,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -441,8 +455,15 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -469,7 +490,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1000px;margin:0 auto;padding:clamp(56px,9vh,110px) clamp(20px,5vw,40px);text-align:center;position:relative;">
     <span class="cohort-tag" style="margin-bottom:24px;"><span class="dot"></span>Contact · Lahore, Pakistan</span>
     <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.5rem,1.7rem + 4vw,5rem);line-height:.98;letter-spacing:-.03em;color:#0D1B2A;margin:16px 0 20px;">Let&#39;s talk about<br>your <span style="color:#D98A07;">career</span><span style="color:#D98A07;">.</span></h1>
-    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto;max-width:620px;">Questions about a course, fees, batches or your career path? Reach out any way you like - or book a free counselling session with an advisor. Zero pressure.</p>
+    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto;max-width:620px;">Questions about a course, fees, batches or your career path? Reach out any way you like, or book a free counselling session with an advisor. Zero pressure.</p>
   </div>
 </section>
 
@@ -482,7 +503,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div style="width:48px;height:48px;border-radius:12px;background:#EEF2F7;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 32 32" fill="#16794D"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg></div>
         <div><div class="mono" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#D98A07;">WhatsApp</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:4px 0 6px;letter-spacing:-.01em;">Chat with an advisor</h3>
-        <p style="margin:0 0 4px;color:#475569;font-size:.92rem;line-height:1.5;">Fastest way to reach us - questions, fees, batches.</p>
+        <p style="margin:0 0 4px;color:#475569;font-size:.92rem;line-height:1.5;">Fastest way to reach us: questions, fees, batches.</p>
         <p style="margin:0;color:#0D1B2A;font-weight:600;font-size:.98rem;">0321-0908881</p></div>
         <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20talk%20to%20an%20advisor%20about%20BBT." target="_blank" rel="noopener" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;color:#13294B;font-weight:600;font-size:.95rem;text-decoration:none;">Chat now<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a>
       </div>
@@ -520,7 +541,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div class="reveal">
       <span class="eye">// book a free counselling session</span>
       <h2 class="tit" style="margin:14px 0 24px;">Tell us where you want to go.</h2>
-      <div class="bbt-ff bbt-ff--light">[fluentform id="5"]</div>
+      <div class="bbt-ff bbt-ff--light">[fluentform id="4"]</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;">
       <div class="card reveal" style="background:#0D1B2A;color:#fff;border-radius:16px;padding:28px;">
@@ -542,9 +563,9 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="Contact / FAQ" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:840px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;"><div style="text-align:center;"><span class="eye" style="justify-content:center;">// quick questions</span><h2 class="tit" style="margin:14px 0 0;">Before you reach out.</h2></div></div>
-    <details class="faq reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">How soon will I hear back?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">WhatsApp replies are fastest - usually within the hour during working hours. Email replies come within one working day.</div></details>
+    <details class="faq reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">How soon will I hear back?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">WhatsApp replies are fastest, usually within the hour during working hours. Email replies come within one working day.</div></details>
     <details class="faq reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Can I visit the campus before enrolling?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Absolutely. Drop by 444-Q, DHA Phase II, Lahore during working hours, or book a free counselling session and we'll show you around.</div></details>
-    <details class="faq reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do you offer online counselling?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes - online students anywhere in Pakistan can book a video counselling call. Just mention it when you reach out.</div></details>
+    <details class="faq reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do you offer online counselling?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. Online students anywhere in Pakistan can book a video counselling call. Just mention it when you reach out.</div></details>
   </div>
 </section>
 
@@ -555,8 +576,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Your seat is<br>waiting<span style="color:#F5A623;">.</span></h2>
     <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:580px;">Book a free counselling session or browse the courses and lock in your spot in the next cohort.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20talk%20to%20an%20advisor%20about%20BBT." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp - Talk to Advisor</a>
-      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now - Save your seat</a>
+      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20talk%20to%20an%20advisor%20about%20BBT." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp &middot; Talk to Advisor</a>
+      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now &middot; Save your seat</a>
     </div>
   </div>
 </section>
@@ -568,7 +589,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="kids.html">BBT Kids</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="blog.html">Blog</a><a href="events.html">Events</a><a href="podcast.html">Podcast</a><a href="webseries.html">Webseries</a><a href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a href="https://wa.me/923210908881">WhatsApp · 0321-0908881</a><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>

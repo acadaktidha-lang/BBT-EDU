@@ -239,6 +239,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -291,21 +292,21 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -316,6 +317,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -330,15 +332,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -367,10 +380,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -382,6 +395,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -391,8 +405,15 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -419,7 +440,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1000px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,5vw,40px);text-align:center;position:relative;">
     <span class="cohort-tag" style="margin-bottom:24px;"><span class="dot"></span>Insights</span>
     <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.5rem,1.7rem + 4.5vw,5.4rem);line-height:.96;letter-spacing:-.03em;color:#0D1B2A;margin:16px 0 20px;">Learn beyond<br>the classroom<span style="color:#D98A07;">.</span></h1>
-    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto;max-width:640px;">Guides, events, conversations and build-alongs from the practitioners who teach at BBT - everything you need to keep growing, free and open to everyone.</p>
+    <p style="font-size:1.18rem;line-height:1.6;color:#475569;margin:0 auto;max-width:640px;">Guides, events, conversations and build-alongs from the practitioners who teach at BBT: everything you need to keep growing, free and open to everyone.</p>
   </div>
 </section>
 
@@ -439,7 +460,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div style="width:48px;height:48px;border-radius:12px;background:#EEF2F7;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#13294B" stroke-width="1.6"/><path d="M4 9h16M8 3v4M16 3v4" stroke="#13294B" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <span class="mono" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#D98A07;">Workshops, bootcamps &amp; meetups</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0;letter-spacing:-.015em;">Events</h3>
-        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Free workshops, weekend bootcamps and hiring meetups - onsite and online.</p>
+        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Free workshops, weekend bootcamps and hiring meetups, onsite and online.</p>
         <span class="mono" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#13294B;font-weight:600;">Explore<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></span>
       </a>
       <a href="podcast.html" class="card reveal" style="text-decoration:none;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 18px 40px rgba(13,27,42,.12)';this.style.borderColor='#F5A623';" onmouseout="this.style.transform='none';this.style.boxShadow='0 1px 2px rgba(13,27,42,.06)';this.style.borderColor='#DCE3EC';">
@@ -453,14 +474,14 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div style="width:48px;height:48px;border-radius:12px;background:#EEF2F7;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#13294B" stroke-width="1.6"/><path d="M10 9l5 3-5 3z" fill="#13294B"/></svg></div>
         <span class="mono" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#D98A07;">Build-along video series</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0;letter-spacing:-.015em;">Web Series</h3>
-        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Multi-part series where we build complete projects end-to-end - you follow along.</p>
+        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Multi-part series where we build complete projects end-to-end, and you follow along.</p>
         <span class="mono" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#13294B;font-weight:600;">Explore<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></span>
       </a>
       <a href="faqs.html" class="card reveal" style="text-decoration:none;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 18px 40px rgba(13,27,42,.12)';this.style.borderColor='#F5A623';" onmouseout="this.style.transform='none';this.style.boxShadow='0 1px 2px rgba(13,27,42,.06)';this.style.borderColor='#DCE3EC';">
         <div style="width:48px;height:48px;border-radius:12px;background:#EEF2F7;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#13294B" stroke-width="1.6"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4 2c0 1.5-2 2-2 3M12 17h.01" stroke="#13294B" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <span class="mono" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#D98A07;">Everything about BBT, answered</span>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#0D1B2A;margin:0;letter-spacing:-.015em;">FAQs</h3>
-        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Courses, fees, internships, certificates and placement - straight answers.</p>
+        <p style="margin:0;color:#475569;font-size:.94rem;line-height:1.55;flex:1;">Courses, fees, internships, certificates and placement: straight answers.</p>
         <span class="mono" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#13294B;font-weight:600;">Explore<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></span>
       </a>
     </div>
@@ -472,10 +493,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:900px;margin:0 auto;text-align:center;position:relative;">
     <span class="eye" style="justify-content:center;">// your next move starts here</span>
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Never miss<br>a drop<span style="color:#F5A623;">.</span></h2>
-    <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:580px;">New guides, events and episodes are landing soon. Message us on WhatsApp to get notified - and tell us what you want to see first.</p>
+    <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:580px;">New guides, events and episodes are landing soon. Message us on WhatsApp to get notified, and tell us what you want to see first.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20follow%20BBT%20Insights%20%E2%80%94%20add%20me%20to%20your%20updates." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp - Talk to Advisor</a>
-      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now - Save your seat</a>
+      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20follow%20BBT%20Insights%20%E2%80%94%20add%20me%20to%20your%20updates." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp &middot; Talk to Advisor</a>
+      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now &middot; Save your seat</a>
     </div>
   </div>
 </section>
@@ -487,7 +508,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="kids.html">BBT Kids</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="blog.html">Blog</a><a href="events.html">Events</a><a href="podcast.html">Podcast</a><a href="webseries.html">Webseries</a><a href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a href="https://wa.me/923210908881">WhatsApp · 0321-0908881</a><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>

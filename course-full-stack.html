@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <meta name="theme-color" content="#0D1B2A">
-<meta name="description" content="Full Stack Development course in Lahore, Pakistan. Most developers know one half of the equation - they&#x27;re either frontend or backend, never both. Hands-on projects, certificate - online &amp; onsite.">
+<meta name="description" content="Full Stack Development course in Lahore, Pakistan. Most developers know one half of the equation. They&#x27;re either frontend or backend, never both. Hands-on projects, certificate - online &amp; onsite.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,6 +239,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -291,21 +292,21 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig active" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig active" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -316,6 +317,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -330,15 +332,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -367,10 +380,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -382,6 +395,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -391,8 +405,15 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -417,7 +438,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <span class="cohort-tag" style="margin-bottom:22px;"><span class="dot"></span>Freestyle Course &middot; Development</span>
       <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.6rem,1.8rem + 4vw,4.8rem);line-height:.98;letter-spacing:-.03em;color:#0D1B2A;margin:14px 0 18px;">Full Stack Development<span style="color:#D98A07;">.</span></h1>
       <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(1.3rem,1.1rem + 1vw,1.8rem);line-height:1.2;letter-spacing:-.015em;color:#13294B;margin:0 0 20px;max-width:560px;">Build Complete Web Applications from Frontend to Backend</h2>
-      <p style="font-size:1.06rem;line-height:1.65;color:#475569;margin:0 0 26px;max-width:560px;">Most developers know one half of the equation - they're either frontend or backend, never both. Full stack developers are the ones who can take an idea and build the entire thing, start to finish, without waiting on anyone else.</p>
+      <p style="font-size:1.06rem;line-height:1.65;color:#475569;margin:0 0 26px;max-width:560px;">Most developers know one half of the equation. They're either frontend or backend, never both. Full stack developers are the ones who can take an idea and build the entire thing, start to finish, without waiting on anyone else.</p>
       <div class="mono" style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#475569;">
         <span>Flexible Duration</span><span style="color:#DCE3EC;">&middot;</span><span>Hybrid</span><span style="color:#DCE3EC;">&middot;</span><span>Certificate</span><span style="color:#DCE3EC;">&middot;</span><span style="color:#16794D;font-weight:600;">&#9679; Project-based</span>
       </div>
@@ -436,17 +457,17 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="Full Stack / Learn" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:1200px;margin:0 auto;">
     <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
-      <div><span class="eye">// what you will learn</span><h2 class="tit" style="margin:14px 0 0;">Full Stack Development - from the ground up.</h2></div>
-      <p class="deck">Not a little of everything - enough of everything to build something real, end to end, on your own.</p>
+      <div><span class="eye">// what you will learn</span><h2 class="tit" style="margin:14px 0 0;">Full Stack Development, from the ground up.</h2></div>
+      <p class="deck">Not a little of everything, but enough of everything to build something real, end to end, on your own.</p>
     </div>
     <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:16px;">// core skills</div>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;"><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>React.js &amp; Modern Frontend</strong> - Build interactive UIs with React hooks, state management, and component-based architecture</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>Node.js &amp; Express Backend</strong> - Create RESTful APIs, handle authentication, and build scalable server-side applications</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>FastAPI &amp; Python Backend</strong> - Build high-performance APIs with Python, perfect for AI integration</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>Database Design (SQL &amp; NoSQL)</strong> - Master MongoDB for flexible data storage and PostgreSQL for relational data Column 2:</span></li></ul>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;"><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>React.js &amp; Modern Frontend</strong>: Build interactive UIs with React hooks, state management, and component-based architecture</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>Node.js &amp; Express Backend</strong>: Create RESTful APIs, handle authentication, and build scalable server-side applications</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>FastAPI &amp; Python Backend</strong>: Build high-performance APIs with Python, perfect for AI integration</span></li><li style="display:flex;gap:12px;color:#475569;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#0D1B2A;'>Database Design (SQL &amp; NoSQL)</strong>: Master MongoDB for flexible data storage and PostgreSQL for relational data</span></li></ul>
       </div>
       <div class="card reveal" style="background:#0D1B2A;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 6px 18px rgba(13,27,42,.16);color:#fff;"><span class="tick"></span>
         <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:16px;">// going further</div>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;"><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Authentication &amp; Authorization</strong> - Implement JWT, OAuth, and role-based access control</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Deployment &amp; Cloud Hosting</strong> - Deploy applications on Vercel, Netlify, AWS, or Heroku</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Git &amp; Version Control</strong> - Master branching, merging, and collaborative workflows</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Testing &amp; Debugging</strong> - Write unit tests, integration tests, and debug like a pro</span></li></ul>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;"><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Authentication &amp; Authorization</strong>: Implement JWT, OAuth, and role-based access control</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Deployment &amp; Cloud Hosting</strong>: Deploy applications on Vercel, Netlify, AWS, or Heroku</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Git &amp; Version Control</strong>: Master branching, merging, and collaborative workflows</span></li><li style="display:flex;gap:12px;color:#DCE3EC;font-size:.95rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;flex:none;">&#9642;</span><span><strong style='color:#fff;'>Testing &amp; Debugging</strong>: Write unit tests, integration tests, and debug like a pro</span></li></ul>
       </div>
     </div>
   </div>
@@ -456,7 +477,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1200px;margin:0 auto;">
     <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
       <div><span class="eye">// tools you will master</span><h2 class="tit" style="margin:14px 0 0;">The exact stack teams hire for.</h2></div>
-      <p class="deck">These aren't academic exercises - every tool here shows up in real job descriptions, used daily by professionals around the world.</p>
+      <p class="deck">These aren't academic exercises. Every tool here shows up in real job descriptions, used daily by professionals around the world.</p>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:12px;"><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">React.js</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Node.js</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Express.js</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">MongoDB</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">PostgreSQL / MySQL</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Git &amp; GitHub</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Postman</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Tailwind CSS</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Vercel &amp; Render</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Docker (Fundamentals)</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">VS Code</span><span class="mono" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:999px;padding:12px 20px;font-size:13px;color:#0D1B2A;letter-spacing:.04em;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='#F5A623';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#DCE3EC';this.style.transform='none';">Every tool here shows up in real job descriptions, not just course outlines.</span></div>
   </div>
@@ -467,7 +488,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1200px;margin:0 auto;position:relative;">
     <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
       <div><span class="eye">// your career after this course</span><h2 class="tit" style="color:#fff;margin:14px 0 0;">Where this takes you.</h2></div>
-      <p class="deck" style="color:#DCE3EC;">Skilled professionals in this field are in demand across Pakistan and globally - locally, remotely and freelance. Here's where this course points your career.</p>
+      <p class="deck" style="color:#DCE3EC;">Skilled professionals in this field are in demand across Pakistan and globally, whether locally, remotely or freelance. Here's where this course points your career.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
       <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid #2A3A55;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;">
@@ -488,7 +509,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <p style="margin:0;color:#DCE3EC;font-size:.88rem;line-height:1.5;">Enter a software engineering team with a foundation strong enough to grow quickly into mid and senior roles.</p></div>
       <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid #2A3A55;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;">
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin:0;letter-spacing:-.01em;">Freelance Web Developer</h3>
-        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#F5A623;">Variable - ₨80,000+/month</span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#F5A623;">Variable &middot; ₨80,000+/month</span>
         <p style="margin:0;color:#DCE3EC;font-size:.88rem;line-height:1.5;">Build websites and web applications for clients on Upwork, Fiverr, and direct contracts.</p></div>
       <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid #2A3A55;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;">
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin:0;letter-spacing:-.01em;">Startup Technical Co-Founder</h3>
@@ -500,7 +521,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <p style="margin:0;color:#DCE3EC;font-size:.88rem;line-height:1.5;">Advise businesses on architecture, technology choices, and development strategy for their digital products.</p></div>
       <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid #2A3A55;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;">
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin:0;letter-spacing:-.01em;">Remote Developer (International Clients)</h3>
-        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#F5A623;">Variable - $1,500 to $5,000+/month</span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#F5A623;">Variable &middot; $1,500 to $5,000+/month</span>
         <p style="margin:0;color:#DCE3EC;font-size:.88rem;line-height:1.5;">Full stack skills are among the most requested for remote roles with international companies and agencies.</p></div>
     </div>
   </div>
@@ -510,13 +531,13 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1200px;margin:0 auto;">
     <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
       <div><span class="eye">// real projects. real portfolio.</span><h2 class="tit" style="margin:14px 0 0;">Everything you learn, you build.</h2></div>
-      <p class="deck">Every major concept ends with something you actually built - documented and portfolio-ready, exactly what employers and clients want to see.</p>
+      <p class="deck">Every major concept ends with something you actually built, documented and portfolio-ready, exactly what employers and clients want to see.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:8px;">01</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">Personal Portfolio Website</h3>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">A fully responsive, deployed portfolio site to showcase your projects, skills, and resume - your first professional online presence.</p></div>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">A fully responsive, deployed portfolio site to showcase your projects, skills, and resume, your first professional online presence.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:8px;">02</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">E-Commerce Web Application</h3>
@@ -536,7 +557,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:8px;">06</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">Real-Time Chat Application</h3>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">Build a chat app using WebSockets - covering real-time data flow, a skill that separates intermediate developers from advanced ones.</p></div>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">Build a chat app using WebSockets, covering real-time data flow, a skill that separates intermediate developers from advanced ones.</p></div>
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:8px;">07</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.015em;">Capstone Full Stack Project</h3>
@@ -548,28 +569,35 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="Full Stack / Audience" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:48px;"><div style="text-align:center;"><span class="eye" style="justify-content:center;">// is this course right for you?</span><h2 class="tit" style="margin:14px 0 0;">Built for anyone ready to build.</h2></div></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Complete Beginners - No prior coding experience needed.</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Fresh Graduates - Add a job-ready, in-demand technical skill to your degree and walk into interviews with a working portfolio, not just a transcript.</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Career Switchers - Coming from a completely different field?</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Frontend or Backend Developers Wanting the Other Half - Already know one side?</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Freelancers &amp; Side-Hustlers - Build the skills to take on client projects independently - websites, web apps, and custom tools without depending on a team.</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Entrepreneurs &amp; Founders - Build your own startup's first product yourself instead of paying a development agency tens of thousands of rupees before you've even validated your idea.</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
-        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.01em;">Students Still in University - Graduate with a portfolio of real, working applications - not just academic assignments nobody outside your class will ever see.</h3>
-        <p style="margin:0;color:#475569;font-size:.9rem;line-height:1.55;"></p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px;">
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Complete Beginners</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">No prior coding experience needed.</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Fresh Graduates</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Add a job-ready, in-demand technical skill to your degree and walk into interviews with a working portfolio, not just a transcript.</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Career Switchers</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Coming from a completely different field?</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Frontend or Backend Developers Wanting the Other Half</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Already know one side?</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Freelancers &amp; Side-Hustlers</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Build the skills to take on client projects independently: websites, web apps, and custom tools without depending on a team.</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Entrepreneurs &amp; Founders</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Build your own startup's first product yourself instead of paying a development agency tens of thousands of rupees before you've even validated your idea.</p></div>
+      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px 24px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FDF1DE;color:#D98A07;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.4 3.4L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:#0D1B2A;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.32;">Students Still in University</h3>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.62;">Graduate with a portfolio of real, working applications, not just academic assignments nobody outside your class will ever see.</p></div>
     </div>
   </div>
 </section>
@@ -579,7 +607,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div style="flex:1;min-width:280px;">
       <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:10px;">// want to go deeper?</div>
       <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;color:#0D1B2A;margin:0 0 8px;letter-spacing:-.015em;">Upgrade into the AI-Integrated Full Stack track.</h3>
-      <p style="margin:0;color:#475569;font-size:1rem;line-height:1.6;">Take this further with our full 4-phase ecosystem - Trainee &rarr; Intern &rarr; Shadow &rarr; Expert - including a paid internship. Your course progress carries over.</p>
+      <p style="margin:0;color:#475569;font-size:1rem;line-height:1.6;">Take this further with our full 4-phase ecosystem (Trainee &rarr; Intern &rarr; Shadow &rarr; Expert), including a paid internship. Your course progress carries over.</p>
     </div>
     <a href="track-ai-fullstack.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:14px 26px;border-radius:999px;font-size:15px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;">Explore the track<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a>
   </div>
@@ -588,11 +616,11 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="Full Stack / FAQ" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:840px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;"><div style="text-align:center;"><span class="eye" style="justify-content:center;">// full stack development faqs</span><h2 class="tit" style="margin:14px 0 0;">Your questions, answered straight.</h2></div></div>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What is the best Full Stack Development course in Lahore?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">BBT's Full Stack Development course covers the complete MERN stack - React, Node.js, Express, and MongoDB alongside SQL databases, authentication, and deployment, with every module ending in a real, deployed project.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What is the best Full Stack Development course in Lahore?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">BBT's Full Stack Development course covers the complete MERN stack: React, Node.js, Express, and MongoDB alongside SQL databases, authentication, and deployment, with every module ending in a real, deployed project.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do I need any coding experience to join this course?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">No. We start from absolute basics: HTML, CSS, and JavaScript.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is this frontend or backend focused?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Both. You learn full stack: frontend, backend, databases, and deployment.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is full stack development a good career in Pakistan?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. It's consistently one of the highest-demand technical roles in Pakistan's IT industry, with strong opportunities in both local software houses and international remote roles.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Which is better - full stack development or specializing in frontend/backend only?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Both have value, but full stack skills give you significantly more flexibility. You can build complete products independently, which makes you valuable to startups, freelance clients, and small teams especially.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Which is better: full stack development or specializing in frontend/backend only?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Both have value, but full stack skills give you significantly more flexibility. You can build complete products independently, which makes you valuable to startups, freelance clients, and small teams especially.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Can I freelance as a full stack developer after this course?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. Full stack development is one of the most requested skill sets on freelancing platforms like Upwork and Fiverr, since clients prefer hiring one developer who can handle the entire project.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Will I get a certificate after completing the course?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. You'll receive a Big Binary Trainings completion certificate recognizing your full stack development skills, along with a portfolio of deployed projects.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is this course available online?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. BBT offers the Full Stack Development course online via live sessions, onsite at our Lahore campus, and in a hybrid format.</div></details>
@@ -605,7 +633,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:900px;margin:0 auto;text-align:center;position:relative;">
     <span class="eye" style="justify-content:center;">// full stack development at big binary</span>
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Stop Learning to Code in Pieces. Learn to Build the Whole Thing<span style="color:#F5A623;">.</span></h2>
-    <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:560px;">Hands-on projects from day one, onsite in Lahore or online from anywhere. 0% EMI &amp; merit scholarships available - secure your seat.</p>
+    <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:560px;">Hands-on projects from day one, onsite in Lahore or online from anywhere. Secure your seat.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
       <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20Development%20course." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat with us</a>
       <a href="enroll.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;">Enroll now</a>
@@ -620,7 +648,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="kids.html">BBT Kids</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="blog.html">Blog</a><a href="events.html">Events</a><a href="podcast.html">Podcast</a><a href="webseries.html">Webseries</a><a href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a href="https://wa.me/923210908881">WhatsApp · 0321-0908881</a><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>

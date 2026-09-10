@@ -244,6 +244,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -296,21 +297,21 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -321,6 +322,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -335,15 +337,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig active" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -372,10 +385,10 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -387,6 +400,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -396,8 +410,15 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -424,7 +445,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1000px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,5vw,40px);text-align:center;position:relative;">
     <span class="cohort-tag" style="margin-bottom:24px;"><span class="dot"></span>Student Success Stories</span>
     <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.4rem,1.7rem + 4vw,4.8rem);line-height:1;letter-spacing:-.03em;color:#0D1B2A;margin:16px 0 22px;">Real careers,<br>launched at BBT<span style="color:#D98A07;">.</span></h1>
-    <p style="font-size:1.15rem;line-height:1.6;color:#475569;margin:0 auto 24px;max-width:660px;">We don't measure success by how many students enroll - we measure it by what happens after they leave. Every story here belongs to a real BBT student who came in with a goal and walked out with the skills, the portfolio and the confidence to act on it.</p>
+    <p style="font-size:1.15rem;line-height:1.6;color:#475569;margin:0 auto 24px;max-width:660px;">We don't measure success by how many students enroll. We measure it by what happens after they leave. Every story here belongs to a real BBT student who came in with a goal and walked out with the skills, the portfolio and the confidence to act on it.</p>
     <div class="mono" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#475569;margin-bottom:28px;">
       <span>500+ Graduates</span><span style="color:#DCE3EC;">·</span><span>20+ Courses</span><span style="color:#DCE3EC;">·</span><span>Lahore, Pakistan</span><span style="color:#DCE3EC;">·</span><span>Onsite + Online</span>
     </div>
@@ -465,8 +486,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
           <div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;">Ahmed Raza</div><div class="mono" style="font-size:11px;color:#D98A07;letter-spacing:.06em;">Artificial Intelligence</div></div>
         </div>
         <div style="background:#E7F3EC;border-radius:8px;padding:8px 12px;color:#16794D;font-size:.85rem;font-weight:600;">→ Junior ML Engineer at a Lahore fintech startup</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">Before:</strong> A CS degree but no practical AI experience - 30+ applications, zero replies.</p>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Built his first ML model by week 8 and graduated with 5 deployed AI projects on GitHub. Hired three months later at ₨90,000/month - 60% above his previous offers.</p>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">Before:</strong> A CS degree but no practical AI experience. 30+ applications, zero replies.</p>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Built his first ML model by week 8 and graduated with 5 deployed AI projects on GitHub. Hired three months later at ₨90,000/month, 60% above his previous offers.</p>
         <p style="margin:0;padding-top:14px;border-top:1px solid #EEF2F7;color:#13294B;font-style:italic;font-size:.95rem;line-height:1.6;">"I'd been sending CVs for months and getting silence. After BBT, I sent 5 applications and got 3 interviews. The portfolio made all the difference."</p>
       </div><div class="card reveal story" id="story-sana-malik" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:14px;">
         <div style="display:flex;align-items:center;gap:14px;">
@@ -484,7 +505,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         </div>
         <div style="background:#E7F3EC;border-radius:8px;padding:8px 12px;color:#16794D;font-size:.85rem;font-weight:600;">→ SOC Analyst at a Lahore IT-security firm</div>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">Before:</strong> A network admin who knew networking but couldn't break into security.</p>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Running real pen-tests and simulated SOC work from week 2. His capstone penetration-test report became his job application - hired before the course ended.</p>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Running real pen-tests and simulated SOC work from week 2. His capstone penetration-test report became his job application. He was hired before the course ended.</p>
         <p style="margin:0;padding-top:14px;border-top:1px solid #EEF2F7;color:#13294B;font-style:italic;font-size:.95rem;line-height:1.6;">"What I learned at BBT in 6 months took my career further than 3 years of self-study. The labs, the real scenarios, the instructors who actually work in the industry."</p>
       </div><div class="card reveal story" id="story-fatima-chaudhry" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:14px;">
         <div style="display:flex;align-items:center;gap:14px;">
@@ -501,8 +522,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
           <div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#0D1B2A;font-size:1.05rem;">Hassan Mirza</div><div class="mono" style="font-size:11px;color:#D98A07;letter-spacing:.06em;">Generative AI</div></div>
         </div>
         <div style="background:#E7F3EC;border-radius:8px;padding:8px 12px;color:#16794D;font-size:.85rem;font-weight:600;">→ AI Automation Consultant, ₨150,000+/month freelance</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">Before:</strong> Running a small agency, using ChatGPT casually - a user, not a builder.</p>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Learned to build AI agents, RAG pipelines and automated content systems; cut his own content time 70%. Clients asked him to build the same - agency owner to AI consultant in 60 days.</p>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">Before:</strong> Running a small agency, using ChatGPT casually: a user, not a builder.</p>
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;"><strong style="color:#0D1B2A;">After:</strong> Learned to build AI agents, RAG pipelines and automated content systems; cut his own content time 70%. Clients asked him to build the same. Agency owner to AI consultant in 60 days.</p>
         <p style="margin:0;padding-top:14px;border-top:1px solid #EEF2F7;color:#13294B;font-style:italic;font-size:.95rem;line-height:1.6;">"I thought I was joining to learn a tool. I came out with an entirely new business model. BBT didn't just teach me Generative AI. It showed me what was possible."</p>
       </div><div class="card reveal story" id="story-maryam-noor" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:14px;">
         <div style="display:flex;align-items:center;gap:14px;">
@@ -525,32 +546,32 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
       <div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I recommend everyone come and take courses from Big Binary Trainings - it's the only institute offering courses and job placements for trainees. Loved the experience!"</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Emaan A.</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I recommend everyone come and take courses from Big Binary Trainings. It's the only institute offering courses and job placements for trainees. Loved the experience!"</p>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Emaan A.</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"It was a very good experience learning Python and AI from Sir Hasnain Muavia."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Yameen S. · Python &amp; AI</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Yameen S. · Python &amp; AI</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I completed the Digital Marketing &amp; SEO course - the trainers were knowledgeable and explained SEO, social media, Meta Ads, Google Ads and content marketing with hands-on practice. Highly recommend BBT."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Abubakar I. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I completed the Digital Marketing &amp; SEO course. The trainers were knowledgeable and explained SEO, social media, Meta Ads, Google Ads and content marketing with hands-on practice. Highly recommend BBT."</p>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Abubakar I. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"Best experience learning Generative AI with Hasnain Muavia. Clear explanations, practical guidance and real-world examples."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Sarbuland A. · Generative AI</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Sarbuland A. · Generative AI</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"My SEO and Digital Marketing course was excellent - cooperative staff, highly qualified trainers and modern teaching methods that make complex topics easy."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Abdul Latif K. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"My SEO and Digital Marketing course was excellent: cooperative staff, highly qualified trainers and modern teaching methods that make complex topics easy."</p>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Abdul Latif K. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I enrolled in cybersecurity - the staff is very nice and the instructor taught us very well."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Abdul Ghafar · Cybersecurity</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"I enrolled in cybersecurity. The staff is very nice and the instructor taught us very well."</p>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Abdul Ghafar · Cybersecurity</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"Completed SEO and Digital Marketing courses from BBT. The experience was very good, Alhamdulillah, thanks to the instructor."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Samia J. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Samia J. · Digital Marketing &amp; SEO</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
-        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"A very good initiative to take computer skills to these levels - the teachers are experienced and very helpful."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- M. Taha A.</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
+        <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"A very good initiative to take computer skills to these levels. The teachers are experienced and very helpful."</p>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">M. Taha A.</span></div><div class="reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(13,27,42,.06);display:flex;flex-direction:column;gap:12px;">
         <div style="color:#F5A623;font-size:1rem;">★★★★★</div>
         <p style="margin:0;color:#475569;font-size:.92rem;line-height:1.6;">"One of the best institutes in DHA. I prefer everyone come here and start learning advanced skills."</p>
-        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">- Rana Islam</span></div>
+        <span class="mono" style="margin-top:auto;font-size:11px;color:#13294B;font-weight:600;letter-spacing:.04em;">Rana Islam</span></div>
     </div>
   </div>
 </section>
@@ -585,7 +606,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-size:2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:10px;">01</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.18rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Projects Over Lectures</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Every course ends with real, deployed work - not notes, not assignments. Actual projects employers and clients can evaluate.</p></div><div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Every course ends with real, deployed work, not notes, not assignments. Actual projects employers and clients can evaluate.</p></div><div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-size:2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:10px;">02</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.18rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Industry Practitioners</h3>
         <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Every instructor is an active practitioner who brings real work, real clients and real problems into the classroom.</p></div><div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
@@ -594,7 +615,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">Trainee → Intern → Shadow → Expert: a structured progression no other institute in Pakistan offers.</p></div><div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span>
         <div class="mono" style="font-size:2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#EEF2F7;-webkit-text-stroke:1px #DCE3EC;line-height:1;margin-bottom:10px;">04</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.18rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Career Support Before You Graduate</h3>
-        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">CV review, LinkedIn optimization, portfolio feedback and interview prep happen during the course - so you're job-ready before graduation day.</p></div>
+        <p style="margin:0;color:#475569;font-size:.93rem;line-height:1.6;">CV review, LinkedIn optimization, portfolio feedback and interview prep happen during the course, so you're job-ready before graduation day.</p></div>
     </div>
   </div>
 </section>
@@ -603,9 +624,9 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 <section data-screen-label="Stories / FAQ" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <div style="max-width:840px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;"><div style="text-align:center;"><span class="eye" style="justify-content:center;">// still have questions?</span><h2 class="tit" style="margin:14px 0 0;">Straight answers.</h2></div></div>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What kind of projects will I work on?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Live projects from real clients - from building custom Odoo modules to developing AI agents for startups. All designed to become concrete assets for your portfolio.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What kind of projects will I work on?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Live projects from real clients, from building custom Odoo modules to developing AI agents for startups. All designed to become concrete assets for your portfolio.</div></details>
     <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">I'm a complete beginner. Am I cut out for this?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. Many of our top performers started as absolute beginners. The structured 4-phase program (Trainee → Expert) guides you step by step with dedicated mentorship.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What support do you offer after certification?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Mentorship continues after you finish - plus career counseling, resume and interview prep, and direct job referrals to our partner software houses.</div></details>
+    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What support do you offer after certification?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Mentorship continues after you finish, plus career counseling, resume and interview prep, and direct job referrals to our partner software houses.</div></details>
   </div>
 </section>
 
@@ -616,8 +637,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Start your success<br>story today<span style="color:#F5A623;">.</span></h2>
     <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:580px;">Browse our courses, pick your skill, and join 500+ graduates building real careers across Pakistan and beyond.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20enroll%20and%20write%20my%20own%20success%20story." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp - Talk to Advisor</a>
-      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now - Save your seat</a>
+      <a href="https://wa.me/923210908881?text=Hi%20BBT%2C%20I%27d%20like%20to%20enroll%20and%20write%20my%20own%20success%20story." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp &middot; Talk to Advisor</a>
+      <a href="courses.html" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now &middot; Save your seat</a>
     </div>
   </div>
 </section>
@@ -629,7 +650,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="tracks.html">Tracks</a><a href="courses.html">Freestyle Courses</a><a href="kids.html">BBT Kids</a><a href="contact.html">Career Assessment</a><a href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a href="blog.html">Blog</a><a href="events.html">Events</a><a href="podcast.html">Podcast</a><a href="webseries.html">Webseries</a><a href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a href="https://wa.me/923210908881">WhatsApp · 0321-0908881</a><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>

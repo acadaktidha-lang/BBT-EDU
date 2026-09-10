@@ -204,6 +204,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 .nl.active{color:#0D1B2A;font-weight:600}
 .nl.active::after{transform:scaleX(1)}
 .nav-trig{display:inline-flex;align-items:center}
+span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
@@ -305,21 +306,21 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     <nav class="desk" style="display:flex;gap:20px;align-items:center;font-size:14px;color:#0D1B2A;font-weight:500;">
       <a class="nl" href="index.html">Home</a>
       <div class="nav-item">
-        <a class="nl nav-trig" href="tracks.html">Tracks<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Tracks<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// career tracks</div>
           <a class="dd-link" href="track-generative-ai.html"><span class="dd-t">Generative &amp; Agentic AI</span><span class="dd-d">LLMs, AI agents &amp; automation</span></a>
           <a class="dd-link" href="track-cloud-mlops.html"><span class="dd-t">Cloud + MLOps</span><span class="dd-d">AWS, Docker, Kubernetes, CI/CD</span></a>
-          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo ERP Development</span><span class="dd-d">Build enterprise software</span></a>
+          <a class="dd-link" href="track-odoo-erp.html"><span class="dd-t">Odoo Functional Consultant</span><span class="dd-d">Configure &amp; run enterprise ERP</span></a>
           <a class="dd-link" href="track-ai-fullstack.html"><span class="dd-t">AI-Integrated Full Stack</span><span class="dd-d">React, Node, FastAPI + AI</span></a>
           <a class="dd-link" href="track-cybersecurity.html"><span class="dd-t">Cybersecurity</span><span class="dd-d">Ethical hacking &amp; SOC analyst</span></a>
-          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">UI/UX + Brand Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
+          <a class="dd-link" href="track-uiux-brand.html"><span class="dd-t">AI-Powered Graphic Design</span><span class="dd-d">Figma, prototyping, identity</span></a>
           <a class="dd-link" href="track-ai-marketing.html"><span class="dd-t">AI-Powered Marketing</span><span class="dd-d">SEO, ads &amp; automation</span></a>
           <a class="nav-dd-cta" href="tracks.html"><span>View all 7 tracks</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a class="nl nav-trig" href="courses.html">Freestyle&nbsp;Courses<i class="nav-cv"></i></a>
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Freestyle&nbsp;Courses<i class="nav-cv"></i></span>
         <div class="nav-dd nav-dd-wide"><div class="nav-dd-inner">
           <div>
             <div class="nav-col-h">// hi-tech</div>
@@ -330,6 +331,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
             <a class="dd-link" href="course-web-development.html"><span class="dd-t">Web Development</span></a>
             <a class="dd-link" href="course-app-development.html"><span class="dd-t">App Development</span></a>
             <a class="dd-link" href="course-app-game-development.html"><span class="dd-t">App &amp; Game Development</span></a>
+            <a class="dd-link" href="course-devops.html"><span class="dd-t">DevOps</span></a>
           </div>
           <div>
             <div class="nav-col-h">// design &amp; creative</div>
@@ -344,15 +346,26 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
             <a class="dd-link" href="course-shopify.html"><span class="dd-t">Shopify</span></a>
             <a class="dd-link" href="course-amazon.html"><span class="dd-t">Amazon</span></a>
             <a class="dd-link" href="course-digital-marketing.html"><span class="dd-t">Digital Media Marketing</span></a>
-            <a class="nav-dd-cta" href="courses.html"><span>Browse all 16 courses</span><b>&rarr;</b></a>
+            <a class="nav-dd-cta" href="courses.html"><span>Browse all 17 courses</span><b>&rarr;</b></a>
           </div>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <span class="nl nav-trig" tabindex="0" aria-haspopup="true">Kids<i class="nav-cv"></i></span>
+        <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
+          <div class="nav-col-h">// bbt kids &middot; age 6-15</div>
+          <a class="dd-link" href="ai-course-for-kids.html"><span class="dd-t">AI for Kids</span><span class="dd-d">Build with AI, not just use it</span></a>
+          <a class="dd-link" href="maths-course-for-kids.html"><span class="dd-t">Big Maths</span><span class="dd-d">Korean &amp; Japanese mental math</span></a>
+          <a class="dd-link" href="spoken-english-course-for-kids.html"><span class="dd-t">Spoken English</span><span class="dd-d">Confidence, speeches &amp; debates</span></a>
+          <a class="dd-link" href="stem-robotics-course-for-kids.html"><span class="dd-t">STEM Robotics</span><span class="dd-d">12 hands-on robot builds</span></a>
+          <a class="dd-link" href="entrepreneurship-course-for-kids.html"><span class="dd-t">Kids Entrepreneurship</span><span class="dd-d">Ideas, pitches &amp; business models</span></a>
+          <a class="nav-dd-cta" href="kids.html"><span>Explore BBT Kids</span><b>&rarr;</b></a>
         </div></div>
       </div>
       <div class="nav-item">
         <a class="nl nav-trig active" href="about.html">About<i class="nav-cv"></i></a>
         <div class="nav-dd nav-dd-1"><div class="nav-dd-inner">
           <div class="nav-col-h">// company</div>
-          <a class="dd-link" href="about.html"><span class="dd-t">About BBT</span><span class="dd-d">Our story, mission &amp; team</span></a>
           <a class="dd-link" href="testimonials.html"><span class="dd-t">Testimonials</span><span class="dd-d">Student stories &amp; outcomes</span></a>
           <a class="dd-link" href="franchise.html"><span class="dd-t">Franchise</span><span class="dd-d">Partner &amp; franchise network</span></a>
         </div></div>
@@ -381,10 +394,10 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <a href="tracks.html">All Tracks</a>
         <a href="track-generative-ai.html">Generative &amp; Agentic AI</a>
         <a href="track-cloud-mlops.html">Cloud + MLOps</a>
-        <a href="track-odoo-erp.html">Odoo ERP Development</a>
+        <a href="track-odoo-erp.html">Odoo Functional Consultant</a>
         <a href="track-ai-fullstack.html">AI-Integrated Full Stack</a>
         <a href="track-cybersecurity.html">Cybersecurity</a>
-        <a href="track-uiux-brand.html">UI/UX + Brand Design</a>
+        <a href="track-uiux-brand.html">AI-Powered Graphic Design</a>
         <a href="track-ai-marketing.html">AI-Powered Marketing</a>
       </div></details>
       <details class="mob-acc"><summary>Freestyle Courses <i class="mob-cv"></i></summary><div class="mob-sub">
@@ -396,6 +409,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <a href="course-web-development.html">Web Development</a>
         <a href="course-app-development.html">App Development</a>
         <a href="course-app-game-development.html">App &amp; Game Development</a>
+        <a href="course-devops.html">DevOps</a>
         <a href="course-graphic-design.html">Graphic Design</a>
         <a href="course-uiux-design.html">UI/UX Design</a>
         <a href="course-video-editing.html">Video Editing</a>
@@ -405,8 +419,15 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <a href="course-amazon.html">Amazon</a>
         <a href="course-digital-marketing.html">Digital Media Marketing</a>
       </div></details>
+      <details class="mob-acc"><summary>Kids <i class="mob-cv"></i></summary><div class="mob-sub">
+        <a href="kids.html">BBT Kids</a>
+        <a href="ai-course-for-kids.html">AI for Kids</a>
+        <a href="maths-course-for-kids.html">Big Maths</a>
+        <a href="spoken-english-course-for-kids.html">Spoken English</a>
+        <a href="stem-robotics-course-for-kids.html">STEM Robotics</a>
+        <a href="entrepreneurship-course-for-kids.html">Kids Entrepreneurship</a>
+      </div></details>
       <details class="mob-acc"><summary>About <i class="mob-cv"></i></summary><div class="mob-sub">
-        <a href="about.html">About BBT</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="franchise.html">Franchise</a>
       </div></details>
@@ -471,10 +492,10 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         Bring <span style="color:#D98A07;">BBT</span> to your city<span style="color:#D98A07;">.</span>
       </h1>
       <p style="font-size:clamp(1.1rem,1rem + .35vw,1.3rem);line-height:1.55;color:#13294B;margin:0 0 22px;max-width:760px;">
-        Open a Big Binary Trainings campus in your city - with our curriculum, our brand, our mentors, and the same four-phase ecosystem already running in Lahore.
+        Open a Big Binary Trainings campus in your city, with our curriculum, our brand, our mentors, and the same four-phase ecosystem already running in Lahore.
       </p>
       <p style="font-size:1.05rem;line-height:1.65;color:#475569;margin:0 0 36px;max-width:680px;">
-        We've trained 3,000+ students through 07 cohorts. The model works. We're now opening it to operators in second-tier cities across Pakistan - and beyond.
+        We've trained 3,000+ students through 07 cohorts. The model works. We're now opening it to operators in second-tier cities across Pakistan, and beyond.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;">
         <a href="#apply" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:15px 22px;border-radius:8px;font-size:15px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(13,27,42,.18);">Apply to franchise<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"></path></svg></a>
@@ -563,13 +584,13 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>WHAT YOU GET</span>
         <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">FULL SUPPORT. FROM DAY <span style="color:#F5A623;">ONE.</span></h2>
       </div>
-      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">BBT doesn't hand you a brand and step back. You get a complete operational system - from setup through daily management - built from our own experience running the model.</p>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">BBT doesn't hand you a brand and step back. You get a complete operational system (from setup through daily management) built from our own experience running the model.</p>
     </div>
     <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;background:#FFFFFF;">
       <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:1px solid #DCE3EC;">
         <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">01</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">FULL BUSINESS SUPPORT</h3>
-        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">End-to-end guidance from setup through daily operations. You don't need to figure out the system - we've already built it.</p>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">End-to-end guidance from setup through daily operations. You don't need to figure out the system. We've already built it.</p>
       </div>
       <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:1px solid #DCE3EC;">
         <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">02</div>
@@ -589,7 +610,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
       <div style="padding:32px;border-right:1px solid #DCE3EC;border-bottom:none;">
         <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">05</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">GOVERNMENT PROJECTS</h3>
-        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Access to NAVTTC, provincial government, and institutional project pipelines - additional revenue streams unavailable to independent institutes.</p>
+        <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">Access to NAVTTC, provincial government, and institutional project pipelines: additional revenue streams unavailable to independent institutes.</p>
       </div>
       <div style="padding:32px;border-right:none;border-bottom:none;">
         <div class="mono" style="font-size:12px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:24px;font-weight:600;">06</div>
@@ -608,7 +629,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>INSTITUTE MODELS</span>
         <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">THREE WAYS TO <span style="color:#F5A623;">PARTNER.</span></h2>
       </div>
-      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Whether you're starting fresh, converting an existing institute, or building a hybrid operation - BBT's franchise structure accommodates the model that fits your situation.</p>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Whether you're starting fresh, converting an existing institute, or building a hybrid operation, BBT's franchise structure accommodates the model that fits your situation.</p>
     </div>
     <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
       <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:32px;transition:transform .22s,border-color .22s;">
@@ -624,7 +645,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
       <div style="background:#F5A623;border:1px solid #F5A623;border-radius:14px;padding:32px;color:#0D1B2A;position:relative;">
         <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#0D1B2A;text-transform:uppercase;margin-bottom:16px;font-weight:700;">MODEL C</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">HYBRID MODEL</h3>
-        <p style="margin:0;color:#0D1B2A;line-height:1.6;font-size:.95rem;font-weight:500;">Institute plus consultancy in one operation. The most comprehensive model - and the most capable of accessing every BBT revenue stream simultaneously.</p>
+        <p style="margin:0;color:#0D1B2A;line-height:1.6;font-size:.95rem;font-weight:500;">Institute plus consultancy in one operation. The most comprehensive model, and the most capable of accessing every BBT revenue stream simultaneously.</p>
       </div>
     </div>
   </div>
@@ -749,7 +770,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>THREE REVENUE SCHOOLS</span>
         <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">SEVEN TRACKS. ALL <span style="color:#F5A623;">MARKET-GAP BUILT.</span></h2>
       </div>
-      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Your franchise delivers all 7 BBT courses - each chosen because qualified applicants are genuinely scarce in that role. Not what was popular three years ago. What the market is missing right now.</p>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Your franchise delivers all 7 BBT courses, each chosen because qualified applicants are genuinely scarce in that role. Not what was popular three years ago. What the market is missing right now.</p>
     </div>
     <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:14px;overflow:hidden;border:1px solid #DCE3EC;">
       <div style="background:#FFFFFF;padding:32px;border-right:1px solid #DCE3EC;">
@@ -758,9 +779,9 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
           <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>LLM Engineering + Prompt Architecture</span></li>
           <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>RAG Systems + Vector Databases</span></li>
-          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Agentic AI - Tool Use + Multi-Agent</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Agentic AI: Tool Use + Multi-Agent</span></li>
           <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Fine-Tuning + LoRA on Open-Source Models</span></li>
-          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>LLMOps - Deployment + Monitoring</span></li>
+          <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>LLMOps: Deployment + Monitoring</span></li>
           <li style="display:flex;gap:12px;color:#475569;font-size:.92rem;line-height:1.5;"><span style="color:#F5A623;flex:none;font-weight:700;">&rarr;</span><span>Capstone: Deployed AI Product with Live URL</span></li>
         </ul>
       </div>
@@ -780,10 +801,10 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#0D1B2A;text-transform:uppercase;margin-bottom:14px;font-weight:700;">TRACKS 04 &middot; 05 &middot; 06 &middot; 07</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 22px;letter-spacing:.01em;text-transform:uppercase;line-height:1.2;">FULL STACK, CYBER, UI/UX + MARKETING</h3>
         <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
-          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Integrated Full Stack - React, Next.js, Node.js</span></li>
-          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>Cybersecurity - Ethical Hacking, Cloud Security, CEH-Aligned</span></li>
-          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>UI/UX + Brand Design - Figma, UX Research, Design Systems</span></li>
-          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Powered Marketing + Sales - Meta Ads, HubSpot, Tele-Sales</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Integrated Full Stack: React, Next.js, Node.js</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>Cybersecurity: Ethical Hacking, Cloud Security, CEH-Aligned</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Powered Graphic Design: Figma, UX Research, Design Systems</span></li>
+          <li style="display:flex;gap:12px;color:#0D1B2A;font-size:.92rem;line-height:1.5;font-weight:500;"><span style="color:#0D1B2A;flex:none;font-weight:700;">&rarr;</span><span>AI-Powered Marketing + Sales: Meta Ads, HubSpot, Tele-Sales</span></li>
         </ul>
       </div>
     </div>
@@ -819,7 +840,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
       <div style="background:#0F1A40;padding:32px;border-right:none;border-bottom:none;">
         <div class="mono" style="font-size:11px;letter-spacing:.22em;color:#F5A623;text-transform:uppercase;margin-bottom:14px;font-weight:600;">SOFTWARE</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;color:#0D1B2A;margin:0 0 14px;letter-spacing:.01em;text-transform:uppercase;">SOFTWARE HOUSE JV / PARTNERSHIPS</h3>
-        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">Selected franchise locations can participate in BBT's software house joint venture model - extending revenue beyond education into service delivery.</p>
+        <p style="margin:0;color:#A8B4D0;line-height:1.6;font-size:.95rem;">Selected franchise locations can participate in BBT's software house joint venture model, extending revenue beyond education into service delivery.</p>
       </div>
     </div>
   </div>
@@ -834,7 +855,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <span class="mono" style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:700;"><span style="display:inline-block;width:24px;height:2px;background:#F5A623;"></span>THE PROCESS</span>
         <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#0D1B2A;margin:18px 0 0;text-transform:uppercase;">FROM INTEREST TO OPEN DOORS. <span style="color:#F5A623;">FIVE STEPS.</span></h2>
       </div>
-      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Typical timeline 90 to 120 days from signed agreement to first cohort. We're not in a rush - we're picking partners we plan to work with for the next decade.</p>
+      <p style="font-size:1.05rem;line-height:1.6;color:#475569;margin:0;">Typical timeline 90 to 120 days from signed agreement to first cohort. We're not in a rush. We're picking partners we plan to work with for the next decade.</p>
     </div>
 
     <div class="phase-stack" style="position:relative;border:1px solid #DCE3EC;border-radius:14px;background:#FFFFFF;overflow:hidden;box-shadow:0 2px 10px rgba(13,27,42,.04);">
@@ -1046,9 +1067,9 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 
       <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_05</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">What happens if a partner underperforms?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Quarterly business reviews catch issues early. If a campus persistently misses quality or growth thresholds, we intervene with on-site support before any harder action.</div></details>
 
-      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_06</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Are international partners welcome?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes - GCC and select South Asian markets are open. International terms differ slightly to account for currency &amp; compliance; we walk you through them at discovery.</div></details>
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_06</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Are international partners welcome?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes. GCC and select South Asian markets are open. International terms differ slightly to account for currency &amp; compliance; we walk you through them at discovery.</div></details>
 
-      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_07</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Can I franchise just the freestyle side?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes - the Starter format is exactly this. Freestyle courses + 2 tracks, smaller footprint, faster ramp. Good entry point for satellite cities.</div></details>
+      <details style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:12px;padding:0;"><summary style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;gap:24px;"><div style="display:flex;align-items:center;gap:16px;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#8A99A8;">Q_07</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#0D1B2A;font-size:1.05rem;letter-spacing:-.01em;">Can I franchise just the freestyle side?</span></div><span class="chev" style="display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #DCE3EC;border-radius:50%;color:#13294B;flex:none;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.6"></path></svg></span></summary><div style="padding:0 24px 22px 78px;color:#475569;line-height:1.65;">Yes. The Starter format is exactly this. Freestyle courses + 2 tracks, smaller footprint, faster ramp. Good entry point for satellite cities.</div></details>
     </div>
   </div>
 </section>
@@ -1061,7 +1082,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     <div style="position:sticky;top:120px;">
       <span class="mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;display:inline-flex;align-items:center;gap:10px;font-weight:600;"><span style="display:inline-block;width:22px;height:2px;background:#F5A623;"></span>EXPRESS YOUR INTEREST</span>
       <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,2rem + 3vw,4rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:18px 0 24px;text-transform:uppercase;">START THE CONVERSATION. <span style="color:#F5A623;">TODAY.</span></h2>
-      <p style="font-size:1.05rem;line-height:1.65;color:#A8B4D0;margin:0 0 36px;max-width:520px;">Fill in your details below. Our franchise team reviews every application and contacts qualified candidates directly. No commitment required at this stage - just tell us about yourself and where you want to build.</p>
+      <p style="font-size:1.05rem;line-height:1.65;color:#A8B4D0;margin:0 0 36px;max-width:520px;">Fill in your details below. Our franchise team reviews every application and contacts qualified candidates directly. No commitment required at this stage, so just tell us about yourself and where you want to build.</p>
       <div style="display:flex;flex-direction:column;gap:18px;">
         <div style="display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;font-weight:700;">PHONE</span><a href="tel:+923210908881" style="color:#DCE3EC;font-size:.98rem;">0321-0908881</a></div>
         <div style="display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;"><span class="mono" style="font-size:11px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;font-weight:700;">EMAIL</span><a href="mailto:franchise@bbt.edu.pk" style="color:#DCE3EC;font-size:.98rem;">franchise@bbt.edu.pk</a></div>
@@ -1070,7 +1091,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
     </div>
 
     <!-- RIGHT: Form -->
-    <div class="bbt-ff bbt-ff--dark" style="background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:14px;padding:36px;">[fluentform id="6"]</div>
+    <div class="bbt-ff bbt-ff--dark" style="background:rgba(19,41,75,.35);border:1px solid #DCE3EC;border-radius:14px;padding:36px;">[fluentform id="5"]</div>
   </div>
 </section>
 
@@ -1082,7 +1103,7 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
         <img src="assets/bbt-logo-dark.png" alt="Big Binary Tech" style="height:68px;width:auto;display:block;">
         <p style="margin:18px 0 0;font-size:.92rem;line-height:1.6;color:#8A99A8;max-width:300px;">Lahore's flagship IT training institute. A four-phase ecosystem that takes you from trainee to expert.</p>
       </div>
-      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="tracks.html">Tracks</a><a class="c-link" href="courses.html">Freestyle Courses</a><a class="c-link" href="contact.html">Career Assessment</a><a class="c-link" href="franchise.html">Franchise</a></div></div>
+      <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// PROGRAMS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="tracks.html">Tracks</a><a class="c-link" href="courses.html">Freestyle Courses</a><a class="c-link" href="kids.html">BBT Kids</a><a class="c-link" href="contact.html">Career Assessment</a><a class="c-link" href="franchise.html">Franchise</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// INSIGHTS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:.92rem;"><a class="c-link" href="blog.html">Blog</a><a class="c-link" href="events.html">Events</a><a class="c-link" href="podcast.html">Podcast</a><a class="c-link" href="webseries.html">Webseries</a><a class="c-link" href="faqs.html">FAQs</a></div></div>
       <div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F5A623;margin-bottom:14px;">// CONTACT</div><div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem;"><a class="c-link" href="https://wa.me/923210908881">WhatsApp &middot; 0321-0908881</a><a class="c-link" href="mailto:partners@bbt.edu.pk">partners@bbt.edu.pk</a><span style="color:#8A99A8;">Lahore, Pakistan</span></div></div>
     </div>
