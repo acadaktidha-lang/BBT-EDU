@@ -16,3 +16,6 @@ Thumbs.db
 
 # Local prod screenshots
 *-prod.jpeg
+
+# Generated: rebuild with bbt-chat/tools/build-index.php
+bbt-chat/data/index.json
