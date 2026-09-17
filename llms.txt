@@ -14,6 +14,7 @@
 - [NAVTTC Courses](https://bbtedu.mza-t.com/navttc/): Free, government-certified IT courses under Pakistan's National Vocational & Technical Training Commission.
 - [Tracks](https://bbtedu.mza-t.com/tracks/): Structured career tracks (Generative AI, Cloud + MLOps, Odoo Functional Consultant, AI Full Stack, Cybersecurity, AI-Powered Graphic Design, AI Marketing).
 - [Freestyle Courses](https://bbtedu.mza-t.com/courses/): 16 individual skill courses across hi-tech, design and marketing.
+- [Corporate AI Training](https://bbtedu.mza-t.com/corporate-ai-training/): Customized AI and Generative AI training for business teams, delivered onsite, online or hybrid.
 - [Franchise](https://bbtedu.mza-t.com/franchise/): Partner and software-house network opportunities.
 - [Contact](https://bbtedu.mza-t.com/contact/): Free career assessment and enrolment.
 
@@ -24,6 +25,11 @@
 - Digital Marketing & SEO
 - Graphic Designing & Video Editing
 - AI Financial Analyst with Power BI
+
+## Corporate AI training (for businesses)
+- Department tracks: AI for HR, AI for Marketing, AI for Sales, AI for Finance, AI for Operations, AI for Customer Service.
+- Skills covered: AI & Generative AI, prompt engineering, AI productivity, AI workflows, AI tools, responsible AI.
+- Formats: onsite, online, hybrid, private team training. Customized by department, employees, skill level, workflows, business goals and preferred tools.
 
 ## Notes
 - Certification: NAVTTC certificates are government-recognized and accepted by many overseas employers.
