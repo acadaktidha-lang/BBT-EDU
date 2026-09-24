@@ -1,0 +1,203 @@
+/* ============================================================================
+   BBT skin for the AI Engine chatbot (chatgpt theme)
+   ----------------------------------------------------------------------------
+   Paste into Appearance > Customize > Additional CSS, AFTER the existing
+   BBT-CHAT-POS block (that one only positions the window above the WhatsApp
+   button - leave it alone).
+
+   The chatgpt theme ships dark: #2f2f2f panel, #212121 header, #0d7df2 accent.
+   The site is a light canvas (#F4F6F9) with navy #0D1B2A and amber #F5A623,
+   so the widget read as a foreign object. Nearly all of the theme is driven by
+   --mwai-* custom properties, so most of this file is just re-declaring those
+   with the tokens from global.css. The rules after the variable block exist
+   only because the theme hardcodes white/blue in a few places that a variable
+   cannot reach.
+   ============================================================================ */
+
+/* ---- 1. Palette + type: the variables the theme already reads ------------- */
+.mwai-chatgpt-theme {
+  --mwai-fontFamily: 'IBM Plex Sans', system-ui, sans-serif;
+  --mwai-fontSize: 15px;
+  --mwai-lineHeight: 1.6;
+  --mwai-borderRadius: 12px;
+  --mwai-spacing: 15px;
+
+  /* Surfaces: white panel on the site's off-white page, navy header */
+  --mwai-backgroundSecondaryColor: #FFFFFF;  /* panel body */
+  --mwai-backgroundPrimaryColor:   #F4F6F9;  /* input pill, shortcuts */
+  --mwai-backgroundHeaderColor:    #0D1B2A;  /* header bar */
+  --mwai-borderColor:              #DCE3EC;
+
+  /* Text */
+  --mwai-fontColor:   #13294B;               /* replies, textarea */
+  --mwai-headerColor: #FFFFFF;               /* header title + close X */
+
+  /* Accent: navy, same as the primary button on the site */
+  --mwai-accentColor: #13294B;
+
+  /* Launcher bubble - matched to the WhatsApp FAB so the pair reads as one set */
+  --mwai-bubbleColor: #13294B;
+  --mwai-iconSize:    56px;
+  --mwai-iconTextBackgroundColor: #0D1B2A;
+  --mwai-iconTextColor:           #FFFFFF;
+
+  /* Conversation list (only shown if conversations are turned on) */
+  --mwai-conversationsBackgroundColor: #F4F6F9;
+  --mwai-conversationsTextColor:       #13294B;
+
+  /* Errors */
+  --mwai-errorBackgroundColor: #FDECEC;
+  --mwai-errorTextColor:       #8C1D18;
+  --mwai-errorFontColor:       #8C1D18;  /* the theme reads this name in one rule */
+
+  /* A bit more room to read than the stock 40vh */
+  --mwai-maxHeight: 52vh;
+}
+
+/* ---- 2. Panel: hairline border + the site's shadow ------------------------ */
+.mwai-chatgpt-theme.mwai-window .mwai-window-box {
+  filter: drop-shadow(0 18px 48px rgba(13, 27, 42, .28)) !important;
+}
+.mwai-chatgpt-theme .mwai-body {
+  border: 1px solid #DCE3EC;
+}
+.mwai-chatgpt-theme.mwai-window .mwai-header {
+  border-bottom: 2px solid #F5A623;
+  padding: 4px 4px 4px 16px;
+  min-height: 44px;
+}
+
+/* No "Popup Title" is set in AI Engine, so the header renders as an empty bar
+   with just the close X. Name it. If a real title is ever set in the plugin the
+   :not(:has(...)) drops this pseudo out of the way. */
+.mwai-chatgpt-theme.mwai-window .mwai-header:not(:has(.mwai-name))::before {
+  content: "BBT Assistant";
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+/* ---- 3. The "BBT Assistant:" label, in the site's mono eyebrow style ------ */
+.mwai-chatgpt-theme .mwai-reply.mwai-ai .mwai-name .mwai-name-text {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #D98A07;
+  opacity: 1;
+}
+
+/* ---- 4. User bubble: navy fill needs white text --------------------------- */
+.mwai-chatgpt-theme .mwai-reply.mwai-user .mwai-text {
+  background: #13294B;
+  color: #FFFFFF;
+  border-radius: 14px 14px 4px 14px;
+}
+
+/* ---- 5. Links and code: theme hardcodes #2196f3 and a 30% black block ----- */
+.mwai-chatgpt-theme .mwai-reply .mwai-text a {
+  color: #13294B;
+  text-decoration: underline;
+  text-decoration-color: #F5A623;
+  text-underline-offset: 3px;
+}
+.mwai-chatgpt-theme .mwai-reply .mwai-text a:hover {
+  color: #D98A07;
+}
+.mwai-chatgpt-theme .mwai-reply .mwai-text pre {
+  background: #F4F6F9;
+  border: 1px solid #DCE3EC;
+}
+.mwai-chatgpt-theme .mwai-reply .mwai-text p code {
+  background: #EEF2F7;
+}
+
+/* ---- 6. Input pill ------------------------------------------------------- */
+.mwai-chatgpt-theme .mwai-input {
+  border-color: #DCE3EC;
+}
+.mwai-chatgpt-theme .mwai-input:focus-within {
+  border-color: #F5A623;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, .18);
+}
+.mwai-chatgpt-theme .mwai-input .mwai-input-text textarea::placeholder {
+  color: #8A99A8;
+  opacity: 1;
+}
+
+/* ---- 7. Send button: white-on-white in the stock theme -------------------- */
+.mwai-chatgpt-theme .mwai-input button.mwai-input-submit {
+  background: #EEF2F7;
+  color: #8A99A8;
+}
+.mwai-chatgpt-theme .mwai-input button.mwai-input-submit.mwai-has-content {
+  background: #F5A623;   /* amber = the site's CTA */
+  color: #0D1B2A;
+}
+.mwai-chatgpt-theme .mwai-input button.mwai-input-submit.mwai-has-content:hover {
+  background: #D98A07;
+  filter: none;
+}
+.mwai-chatgpt-theme .mwai-input button.mwai-input-submit.mwai-busy {
+  background: #EEF2F7;
+}
+.mwai-chatgpt-theme .mwai-input button.mwai-input-submit.mwai-busy .mwai-timer {
+  color: #475569;
+}
+
+/* ---- 8. Compliance line under the input ---------------------------------- */
+.mwai-chatgpt-theme .mwai-compliance {
+  color: #8A99A8;
+  opacity: 1;
+  font-size: 11.5px;
+  line-height: 1.5;
+  border-top: 1px solid #EEF2F7;
+  margin: 0 15px;
+  padding: 10px 0 12px;
+}
+
+/* ---- 9. Scrollbar: the theme's is white-on-dark -------------------------- */
+.mwai-chatgpt-theme .mwai-conversation {
+  scrollbar-color: #C7D2E0 transparent;
+}
+.mwai-chatgpt-theme .mwai-conversation::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mwai-chatgpt-theme .mwai-conversation::-webkit-scrollbar-thumb {
+  background: #C7D2E0;
+}
+.mwai-chatgpt-theme .mwai-conversation::-webkit-scrollbar-thumb:hover {
+  background: #8A99A8;
+}
+
+/* ---- 10. Launcher: amber ring on hover, like the WhatsApp button ---------- */
+.mwai-chatgpt-theme.mwai-bubble .mwai-trigger .mwai-icon-container {
+  border: 2px solid transparent;
+  box-shadow: 0 18px 48px rgba(13, 27, 42, .28);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.mwai-chatgpt-theme.mwai-bubble .mwai-trigger .mwai-icon-container:hover {
+  border-color: #F5A623;
+  transform: translateY(-3px);
+  filter: none;
+}
+.mwai-chatgpt-theme .mwai-trigger .mwai-icon-text-container .mwai-icon-text {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(13, 27, 42, .22);
+}
+
+/* ---- 11. Shortcut chips (if shortcuts are ever configured) ---------------- */
+.mwai-chatgpt-theme .mwai-shortcuts .mwai-shortcut {
+  border-color: #DCE3EC;
+  color: #13294B;
+}
+.mwai-chatgpt-theme .mwai-shortcuts .mwai-shortcut:hover {
+  background: #FCEFD4;
+  border-color: rgba(245, 166, 35, .35);
+  filter: none;
+}
