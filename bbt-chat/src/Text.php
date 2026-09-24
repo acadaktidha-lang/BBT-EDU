@@ -44,7 +44,7 @@ final class Text
             $html
         ) ?? $html;
 
-        // Adjacent tags get a separator, so <span>0321-0908881</span><span>admissions@…</span>
+        // Adjacent tags get a separator, so <span>0326-0188811</span><span>admissions@…</span>
         // does not come out of strip_tags() as one glued token.
         $html = str_replace('><', '> <', $html);
 

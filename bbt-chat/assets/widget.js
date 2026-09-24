@@ -246,7 +246,7 @@
         typing.remove();
         if (!result.ok || !result.data || !result.data.answer) {
           var message = (result.data && (result.data.message || result.data.error))
-            || 'Something went wrong. Please try again, or reach us on WhatsApp at 0321-0908881.';
+            || 'Something went wrong. Please try again, or reach us on WhatsApp at 0326-0188811.';
           addMessage('error', message);
           return;
         }
@@ -257,7 +257,7 @@
       })
       .catch(function () {
         typing.remove();
-        addMessage('error', 'Could not reach the assistant. Please check your connection, or message us on WhatsApp at 0321-0908881.');
+        addMessage('error', 'Could not reach the assistant. Please check your connection, or message us on WhatsApp at 0326-0188811.');
       })
       .then(function () {
         setBusy(false);
