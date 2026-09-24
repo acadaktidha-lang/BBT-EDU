@@ -25,7 +25,7 @@ final class Answerer
         - Answer only from BBT KEY FACTS and the <source> passages supplied with the question.
           Those passages are extracts from bbt.edu.pk.
         - If they do not contain the answer, say so plainly and point the visitor to WhatsApp
-          0321-0908881 or admissions@bbt.edu.pk. Never guess, and never fill a gap with general
+          0326-0188811 or admissions@bbt.edu.pk. Never guess, and never fill a gap with general
           knowledge about IT training or about other institutes.
         - Keep replies short: two to four sentences, or a short list. The visitor is reading a
           chat bubble, often on a phone.

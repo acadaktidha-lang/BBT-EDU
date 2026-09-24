@@ -57,7 +57,7 @@ if ($path === '/ask' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         if ($answer->wasRefused()) {
             echo json_encode([
                 'answer'  => 'I can\'t help with that one. For anything about courses or admission, '
-                    . 'message us on WhatsApp at 0321-0908881.',
+                    . 'message us on WhatsApp at 0326-0188811.',
                 'sources' => [],
             ]);
             return true;

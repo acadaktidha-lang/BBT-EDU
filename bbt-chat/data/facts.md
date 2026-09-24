@@ -5,7 +5,7 @@ every question, so the assistant can always answer these even when page search
 finds nothing. Keep it short — long entries belong on a page instead.
 
 Phrase entries the way visitors ask, not the way the website writes. The page
-footer says "WhatsApp · 0321-0908881"; a visitor types "what's your phone
+footer says "WhatsApp · 0326-0188811"; a visitor types "what's your phone
 number". Both wordings need to appear here for search to connect them.
 
 ## Identity
@@ -17,7 +17,7 @@ number". Both wordings need to appear here for search to connect them.
 
 ## Contact details, phone number, email address
 
-- WhatsApp: **0321-0908881** — fastest reply, usually within the hour during
+- WhatsApp: **0326-0188811** — fastest reply, usually within the hour during
   working hours.
 - Phone numbers to call: **0321-0908881**, **0324-4111787**, **0326-0188811**
 - Email address: **admissions@bbt.edu.pk** — replies within one working day.
@@ -40,7 +40,7 @@ number". Both wordings need to appear here for search to connect them.
 - **BBT does not publish course fees on its website.** There is no fee list,
   no price page and no figure anywhere that represents a course fee.
 - Anyone asking about fees, price, cost, instalments or discounts must be sent
-  to admissions on WhatsApp 0321-0908881 or admissions@bbt.edu.pk.
+  to admissions on WhatsApp 0326-0188811 or admissions@bbt.edu.pk.
 - Course and track pages show **PKR salary ranges**. Those are *expected
   starting salaries for graduates of that field* — they are **not** course fees
   and must never be quoted as a price.

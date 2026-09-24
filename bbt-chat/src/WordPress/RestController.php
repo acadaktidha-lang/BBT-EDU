@@ -66,7 +66,7 @@ final class RestController
 
         if (!$this->withinLimits()) {
             return $this->error(
-                'The assistant is busy right now. Please message us on WhatsApp at 0321-0908881.',
+                'The assistant is busy right now. Please message us on WhatsApp at 0326-0188811.',
                 429
             );
         }
@@ -88,7 +88,7 @@ final class RestController
             error_log('[bbt-chat] ' . $e->getMessage());
 
             return $this->error(
-                'I could not answer that just now. Please message us on WhatsApp at 0321-0908881.',
+                'I could not answer that just now. Please message us on WhatsApp at 0326-0188811.',
                 502
             );
         }
@@ -97,7 +97,7 @@ final class RestController
         if ($answer->wasRefused() || trim($answer->text) === '') {
             return new \WP_REST_Response([
                 'answer'  => 'I can\'t help with that one. For anything about courses or admission, '
-                    . 'message us on WhatsApp at 0321-0908881.',
+                    . 'message us on WhatsApp at 0326-0188811.',
                 'sources' => [],
             ], 200);
         }
