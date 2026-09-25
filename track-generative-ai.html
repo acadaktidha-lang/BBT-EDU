@@ -480,12 +480,11 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   .md-dark:hover,.md-dark:focus-within{box-shadow:0 22px 48px rgba(13,27,42,.35),0 0 0 1px #F5A623}
   .md-id{display:flex;flex-direction:column;gap:4px}
   .md-id small{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#D98A07}
-  .md-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
-  .md-tags span{font-size:.82rem;font-weight:500;color:#13294B;background:#F4F6F9;border:1px solid #E6EBF2;border-radius:999px;padding:6px 12px;transition:background .2s,border-color .2s}
-  .md-c:hover .md-tags span,.md-c:focus-within .md-tags span{background:#FEF3DC;border-color:#F8D38A}
   .md-dark .md-id small{color:#F5A623}
-  .md-dark .md-tags span{background:rgba(255,255,255,.06);border-color:#2A3A55;color:#fff}
-  .md-dark:hover .md-tags span,.md-dark:focus-within .md-tags span{background:rgba(245,166,35,.14);border-color:#F5A623}
+  .md-kp{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:10px}
+  .md-kp li{position:relative;padding-left:20px;font-size:.93rem;font-weight:500;line-height:1.45;color:#13294B}
+  .md-kp li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;background:#F5A623}
+  .md-dark .md-kp li{color:#fff}
   @media (max-width:980px){.md-g{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){.md-c,.md-bar,.md-n{transition:none}.md-c:hover{transform:none}}
   </style>
@@ -500,7 +499,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">01</span></div><span class="md-chip">Months 1 &ndash; 3</span></div>
         <h3>IT &amp; Programming Foundations</h3>
         <p class="md-in">Assumes nothing and contains no code. How computers, AI and full stack apps work, before you write a line.</p>
-        <div class="md-tags"><span>MS Office</span><span>How LLMs work</span><span>Prompt engineering</span><span>Web &amp; APIs</span><span>Git &amp; GitHub</span></div>
+        <ul class="md-kp"><li>MS Office, how LLMs work and prompt engineering</li><li>How the web, APIs, databases and Git fit together</li></ul>
         <div class="md-who"><div>// who it is for</div><p>Complete beginners. No computer or coding background needed.</p></div>
       </article>
       <article class="md-c reveal" tabindex="0">
@@ -508,7 +507,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">02</span></div><span class="md-chip">Months 4 &ndash; 5</span></div>
         <h3>Generative AI</h3>
         <p class="md-in">This is where the code starts. Python, real data, and your first chatbot grounded in real documents.</p>
-        <div class="md-tags"><span>Python</span><span>Pandas &amp; SQL</span><span>LLM APIs</span><span>Embeddings</span><span>RAG chatbots</span></div>
+        <ul class="md-kp"><li>Python, Pandas and SQL for real data</li><li>LLM APIs, embeddings and RAG chatbots</li></ul>
         <div class="md-who"><div>// who it is for</div><p>Anyone who understands prompting and basic web concepts, or a Module 1 graduate.</p></div>
       </article>
       <article class="md-c md-dark reveal" tabindex="0">
@@ -516,7 +515,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">03</span></div><span class="md-chip">Months 6 &ndash; 8</span></div>
         <h3>Agentic AI</h3>
         <p class="md-in">A chatbot answers. An agent does. Build AI that takes real actions, then run it safely in production.</p>
-        <div class="md-tags"><span>AI agents</span><span>LangGraph</span><span>MCP</span><span>Multi agent</span><span>Deployment</span></div>
+        <ul class="md-kp"><li>AI agents, LangGraph, memory and MCP</li><li>Multi agent systems, evaluation and deployment</li></ul>
         <div class="md-who"><div>// who it is for</div><p>Anyone who can already call an LLM API from code, or a Module 2 graduate.</p></div>
       </article>
     </div>
