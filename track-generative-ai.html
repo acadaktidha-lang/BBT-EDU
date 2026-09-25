@@ -464,15 +464,11 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   .md-bar{position:absolute;left:0;top:0;height:4px;width:34%;background:linear-gradient(90deg,#F5A623,#D98A07);transition:width .45s cubic-bezier(.2,.7,.2,1)}
   .md-c:hover .md-bar,.md-c:focus-within .md-bar{width:100%}
   .md-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-  .md-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #DCE3EC;transition:color .3s,-webkit-text-stroke-color .3s}
+  .md-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:3rem;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #DCE3EC;transition:color .3s,-webkit-text-stroke-color .3s}
   .md-c:hover .md-n,.md-c:focus-within .md-n{color:#F5A623;-webkit-text-stroke-color:#F5A623}
   .md-chip{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#0D1B2A;background:#FEF3DC;border:1px solid #F8D38A;border-radius:999px;padding:6px 12px}
   .md-c h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;color:#0D1B2A;margin:0 0 10px}
   .md-in{margin:0 0 24px;color:#475569;font-size:.94rem;line-height:1.55}
-  .md-months{display:flex;flex-direction:column;gap:8px;margin:0 0 28px}
-  .md-mo{display:flex;gap:10px;align-items:center;background:#F4F6F9;border:1px solid #E6EBF2;border-radius:8px;padding:12px 14px;font-size:.9rem;font-weight:600;color:#13294B;transition:background .2s,border-color .2s}
-  .md-mo span{flex:none;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#D98A07;min-width:58px}
-  .md-mo:hover{background:#FEF3DC;border-color:#F8D38A}
   .md-who{margin-top:auto;padding-top:16px;border-top:1px solid #DCE3EC}
   .md-who div{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;margin-bottom:6px}
   .md-who p{margin:0;color:#475569;font-size:.88rem;line-height:1.5}
@@ -480,10 +476,17 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   .md-dark h3{color:#fff}.md-dark .md-in,.md-dark .md-who p{color:#DCE3EC}
   .md-dark .md-n{-webkit-text-stroke-color:#2A3A55}.md-dark .md-who div{color:#F5A623}
   .md-dark .md-chip{background:#F5A623;border-color:#F5A623}
-  .md-dark .md-mo{background:rgba(255,255,255,.05);border-color:#2A3A55;color:#fff}.md-dark .md-mo span{color:#F5A623}
-  .md-dark .md-mo:hover{background:rgba(245,166,35,.12);border-color:#F5A623}
   .md-dark .md-who{border-color:#2A3A55}
   .md-dark:hover,.md-dark:focus-within{box-shadow:0 22px 48px rgba(13,27,42,.35),0 0 0 1px #F5A623}
+  .md-id{display:flex;flex-direction:column;gap:4px}
+  .md-id small{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#D98A07}
+  .md-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+  .md-tags span{font-size:.82rem;font-weight:500;color:#13294B;background:#F4F6F9;border:1px solid #E6EBF2;border-radius:999px;padding:6px 12px;transition:background .2s,border-color .2s}
+  .md-c:hover .md-tags span,.md-c:focus-within .md-tags span{background:#FEF3DC;border-color:#F8D38A}
+  .md-dark .md-id small{color:#F5A623}
+  .md-dark .md-tags span{background:rgba(255,255,255,.06);border-color:#2A3A55;color:#fff}
+  .md-dark:hover .md-tags span,.md-dark:focus-within .md-tags span{background:rgba(245,166,35,.14);border-color:#F5A623}
+  @media (max-width:980px){.md-g{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){.md-c,.md-bar,.md-n{transition:none}.md-c:hover{transform:none}}
   </style>
   <div style="max-width:1200px;margin:0 auto;">
@@ -494,26 +497,26 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
     <div class="md-g">
       <article class="md-c reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><span class="md-n">01</span><span class="md-chip">Months 1 &ndash; 3</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">01</span></div><span class="md-chip">Months 1 &ndash; 3</span></div>
         <h3>IT &amp; Programming Foundations</h3>
         <p class="md-in">Assumes nothing and contains no code. How computers, AI and full stack apps work, before you write a line.</p>
-        <div class="md-months"><div class="md-mo"><span>Month 1</span>IT &amp; Computer Essentials</div><div class="md-mo"><span>Month 2</span>AI &amp; Prompt Engineering</div><div class="md-mo"><span>Month 3</span>Full Stack Foundations</div></div>
+        <div class="md-tags"><span>MS Office</span><span>How LLMs work</span><span>Prompt engineering</span><span>Web &amp; APIs</span><span>Git &amp; GitHub</span></div>
         <div class="md-who"><div>// who it is for</div><p>Complete beginners. No computer or coding background needed.</p></div>
       </article>
       <article class="md-c reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><span class="md-n">02</span><span class="md-chip">Months 4 &ndash; 5</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">02</span></div><span class="md-chip">Months 4 &ndash; 5</span></div>
         <h3>Generative AI</h3>
         <p class="md-in">This is where the code starts. Python, real data, and your first chatbot grounded in real documents.</p>
-        <div class="md-months"><div class="md-mo"><span>Month 4</span>Python &amp; Data</div><div class="md-mo"><span>Month 5</span>AI Engineering &amp; RAG</div></div>
+        <div class="md-tags"><span>Python</span><span>Pandas &amp; SQL</span><span>LLM APIs</span><span>Embeddings</span><span>RAG chatbots</span></div>
         <div class="md-who"><div>// who it is for</div><p>Anyone who understands prompting and basic web concepts, or a Module 1 graduate.</p></div>
       </article>
       <article class="md-c md-dark reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><span class="md-n">03</span><span class="md-chip">Months 6 &ndash; 8</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">03</span></div><span class="md-chip">Months 6 &ndash; 8</span></div>
         <h3>Agentic AI</h3>
         <p class="md-in">A chatbot answers. An agent does. Build AI that takes real actions, then run it safely in production.</p>
-        <div class="md-months"><div class="md-mo"><span>Month 6</span>Agents, Frameworks &amp; Memory</div><div class="md-mo"><span>Month 7</span>Integrations &amp; Multi Agent</div><div class="md-mo"><span>Month 8</span>Production &amp; Capstone</div></div>
+        <div class="md-tags"><span>AI agents</span><span>LangGraph</span><span>MCP</span><span>Multi agent</span><span>Deployment</span></div>
         <div class="md-who"><div>// who it is for</div><p>Anyone who can already call an LLM API from code, or a Module 2 graduate.</p></div>
       </article>
     </div>
