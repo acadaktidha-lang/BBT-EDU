@@ -4,7 +4,7 @@
     { "q": "what courses do you offer",                              "expect": ["/courses/", "/tracks/"] },
     { "q": "how long is the cybersecurity course",                   "expect": ["/course-cybersecurity/", "/track-cybersecurity/"] },
     { "q": "do you teach ethical hacking",                           "expect": ["/course-cybersecurity/", "/track-cybersecurity/"] },
-    { "q": "tell me about the full stack course",                    "expect": ["/course-full-stack/", "/track-ai-fullstack/"] },
+    { "q": "tell me about the full stack course",                    "expect": ["/course-full-stack/"] },
     { "q": "i want to learn graphic design",                         "expect": ["/course-graphic-design/", "/track-uiux-brand/"] },
     { "q": "do you have video editing classes",                      "expect": ["/course-video-editing/", "/course-advanced-video-editing/"] },
     { "q": "can i learn shopify and amazon",                         "expect": ["/course-shopify/", "/course-amazon/"] },
