@@ -455,12 +455,12 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
   <div style="max-width:1200px;margin:0 auto;">
     <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
       <div><span class="eye">// how your 8 months run</span><h2 class="tit" style="margin:14px 0 0;">Three modules. One full stack AI engineer.</h2></div>
-      <p class="deck">Each module is self contained, with its own project, exam and certificate. Take the full 8-month track, or join at the module that matches where you already are.</p>
+      <p class="deck">Each module is self contained, with its own project, exam and certificate. Take the full 8 month track, or join at the module that matches where you already are.</p>
     </div>
     <div class="md-g">
       <article class="md-c reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">01</span></div><span class="md-chip">Months 1 &ndash; 3</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">01</span></div><span class="md-chip">Months 1 to 3</span></div>
         <h3>IT &amp; Programming Foundations</h3>
         <p class="md-in">Assumes nothing and contains no code. How computers, AI and full stack apps work, before you write a line.</p>
         <ul class="md-kp"><li>MS Office, how LLMs work and prompt engineering</li><li>How the web, APIs, databases and Git fit together</li></ul>
@@ -468,7 +468,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       </article>
       <article class="md-c reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">02</span></div><span class="md-chip">Months 4 &ndash; 5</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">02</span></div><span class="md-chip">Months 4 to 5</span></div>
         <h3>Generative AI</h3>
         <p class="md-in">This is where the code starts. Python, real data, and your first chatbot grounded in real documents.</p>
         <ul class="md-kp"><li>Python, Pandas and SQL for real data</li><li>LLM APIs, embeddings and RAG chatbots</li></ul>
@@ -476,7 +476,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
       </article>
       <article class="md-c md-dark reveal" tabindex="0">
         <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">03</span></div><span class="md-chip">Months 6 &ndash; 8</span></div>
+        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">03</span></div><span class="md-chip">Months 6 to 8</span></div>
         <h3>Agentic AI</h3>
         <p class="md-in">A chatbot answers. An agent does. Build AI that takes real actions, then run it safely in production.</p>
         <ul class="md-kp"><li>AI agents, LangGraph, memory and MCP</li><li>Multi agent systems, evaluation and deployment</li></ul>
@@ -671,7 +671,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         <div class="cr-top"><span class="cr-lv">Level 03 &middot; After all 3 modules</span><span class="cr-n">03</span></div>
         <h3>AI engineer</h3>
         <div class="cr-roles"><span>AI Engineer</span><span>Agentic AI Developer</span><span>LLM Application Developer</span><span>AI Automation Engineer</span><span>Applied AI Engineer</span></div>
-        <div class="cr-sal"><small>// starting salary &middot; after all 3 modules</small><b>PKR 80,000 &ndash; 150,000+<span> /mo</span></b></div>
+        <div class="cr-sal"><small>// starting salary &middot; after all 3 modules</small><b>PKR 80,000 to 150,000+<span> /mo</span></b></div>
       </article>
     </div>
     <div class="cr-gl">
@@ -783,6 +783,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 html.x-bot-on,html.x-bot-on *{cursor:none!important}
 html.x-bot-on input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),html.x-bot-on textarea,html.x-bot-on select,html.x-bot-on [contenteditable]{cursor:auto!important}
 .x-bot.txt{opacity:0}
+html.x-bot-on .mwai-window-box,html.x-bot-on .mwai-window-box *{cursor:auto!important}
+html.x-bot-on .mwai-window-box :is(button,a,[role=button],.mwai-close-button,.mwai-close-button *){cursor:pointer!important}
 .x-bot svg{transform-origin:50% 9%}
 @media (hover:none),(pointer:coarse){.x-bot{display:none}}
 @media (prefers-reduced-motion:reduce){.x-bot .eye,.x-bot.big .bulb{animation:none}}
@@ -809,7 +811,7 @@ document.addEventListener('mousemove',function(e){var dx=e.clientX-px,dy=e.clien
  clearTimeout(b._t);b._t=setTimeout(function(){tilt=0;eyes.style.transform='';if(!raf)raf=requestAnimationFrame(draw)},140)},{passive:true});
 document.addEventListener('mouseout',function(e){if(!e.relatedTarget){b.classList.remove('on')}});
 document.addEventListener('mouseover',function(e){var t=e.target.closest?e.target:null;if(!t)return;
- b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe'));
+ b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe,.mwai-window-box'));
  b.classList.toggle('big',!!t.closest('a,button,summary,[role=tab],label,input[type=submit],input[type=button]'))});
 document.addEventListener('mousedown',function(){b.classList.add('down')});document.addEventListener('mouseup',function(){b.classList.remove('down')});})();
 </script>

@@ -868,7 +868,7 @@ span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
         <div>
           <div class="mono" style="font-size:11px;letter-spacing:.18em;color:#475569;text-transform:uppercase;margin-bottom:8px;">AGREEMENT &middot; 2 WEEKS</div>
           <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#0D1B2A;margin:0 0 8px;letter-spacing:-.02em;">Territory, terms, signatures.</h3>
-          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">Lock in your exclusive city, package and royalty. Standard 5-year term, renewable.</p>
+          <p style="margin:0;color:#475569;line-height:1.55;max-width:620px;font-size:.96rem;">Lock in your exclusive city, package and royalty. Standard 5 year term, renewable.</p>
         </div>
         <span class="mono" style="font-size:10px;letter-spacing:.14em;color:#F5A623;text-transform:uppercase;font-weight:700;border:1px solid rgba(245,166,35,.35);padding:8px 12px;border-radius:8px;background:rgba(245,166,35,.04);flex:none;">WEEK 5</span>
       </div>
@@ -1089,6 +1089,8 @@ span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 html.x-bot-on,html.x-bot-on *{cursor:none!important}
 html.x-bot-on input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),html.x-bot-on textarea,html.x-bot-on select,html.x-bot-on [contenteditable]{cursor:auto!important}
 .x-bot.txt{opacity:0}
+html.x-bot-on .mwai-window-box,html.x-bot-on .mwai-window-box *{cursor:auto!important}
+html.x-bot-on .mwai-window-box :is(button,a,[role=button],.mwai-close-button,.mwai-close-button *){cursor:pointer!important}
 .x-bot svg{transform-origin:50% 9%}
 @media (hover:none),(pointer:coarse){.x-bot{display:none}}
 @media (prefers-reduced-motion:reduce){.x-bot .eye,.x-bot.big .bulb{animation:none}}
@@ -1115,7 +1117,7 @@ document.addEventListener('mousemove',function(e){var dx=e.clientX-px,dy=e.clien
  clearTimeout(b._t);b._t=setTimeout(function(){tilt=0;eyes.style.transform='';if(!raf)raf=requestAnimationFrame(draw)},140)},{passive:true});
 document.addEventListener('mouseout',function(e){if(!e.relatedTarget){b.classList.remove('on')}});
 document.addEventListener('mouseover',function(e){var t=e.target.closest?e.target:null;if(!t)return;
- b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe'));
+ b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe,.mwai-window-box'));
  b.classList.toggle('big',!!t.closest('a,button,summary,[role=tab],label,input[type=submit],input[type=button]'))});
 document.addEventListener('mousedown',function(){b.classList.add('down')});document.addEventListener('mouseup',function(){b.classList.remove('down')});})();
 </script>
