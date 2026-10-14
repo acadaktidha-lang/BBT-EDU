@@ -438,7 +438,7 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
         </ul>
       </div>
       <div class="card reveal" style="background:#0D1B2A;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 6px 18px rgba(13,27,42,.16);color:#fff;"><span class="tick"></span>
-        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:16px;">// months 02 &ndash; 08 &middot; core track</div>
+        <div class="mono" style="font-size:10px;letter-spacing:.18em;color:#F5A623;text-transform:uppercase;margin-bottom:16px;">// months 02 to 08 &middot; core track</div>
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;margin:0 0 18px;letter-spacing:-.015em;">Cloud + MLOps, in depth</h3>
         <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
           <li style="display:flex;gap:12px;color:#DCE3EC;font-size:.96rem;line-height:1.5;"><span style="color:#F5A623;font-weight:700;">&#9642;</span>The complete Cloud + MLOps curriculum, taught phase by phase</li>
@@ -638,6 +638,8 @@ details.faq>summary{list-style:none;cursor:pointer}details.faq>summary::-webkit-
 html.x-bot-on,html.x-bot-on *{cursor:none!important}
 html.x-bot-on input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),html.x-bot-on textarea,html.x-bot-on select,html.x-bot-on [contenteditable]{cursor:auto!important}
 .x-bot.txt{opacity:0}
+html.x-bot-on .mwai-window-box,html.x-bot-on .mwai-window-box *{cursor:auto!important}
+html.x-bot-on .mwai-window-box :is(button,a,[role=button],.mwai-close-button,.mwai-close-button *){cursor:pointer!important}
 .x-bot svg{transform-origin:50% 9%}
 @media (hover:none),(pointer:coarse){.x-bot{display:none}}
 @media (prefers-reduced-motion:reduce){.x-bot .eye,.x-bot.big .bulb{animation:none}}
@@ -664,7 +666,7 @@ document.addEventListener('mousemove',function(e){var dx=e.clientX-px,dy=e.clien
  clearTimeout(b._t);b._t=setTimeout(function(){tilt=0;eyes.style.transform='';if(!raf)raf=requestAnimationFrame(draw)},140)},{passive:true});
 document.addEventListener('mouseout',function(e){if(!e.relatedTarget){b.classList.remove('on')}});
 document.addEventListener('mouseover',function(e){var t=e.target.closest?e.target:null;if(!t)return;
- b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe'));
+ b.classList.toggle('txt',!!t.closest('input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable],iframe,.mwai-window-box'));
  b.classList.toggle('big',!!t.closest('a,button,summary,[role=tab],label,input[type=submit],input[type=button]'))});
 document.addEventListener('mousedown',function(){b.classList.add('down')});document.addEventListener('mouseup',function(){b.classList.remove('down')});})();
 </script>
