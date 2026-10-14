@@ -715,6 +715,8 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
   <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.2 0-.9.7-1.6 1.6-1.6H17a4 4 0 0 0 4-4c0-4.7-4-8.6-9-8.6z"/><path d="M7.5 11.5h.01M10 7.5h.01M14.5 7.5h.01M17 11h.01"/></symbol>
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
@@ -874,6 +876,51 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
   .t-row{grid-template-columns:1fr;padding:20px}
   .t-trust{grid-template-columns:1fr}
 }
+/* card polish */
+.t-card{background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 7%,#fff) 0,#fff 46%)}
+.t-card .wm{position:absolute;right:-26px;top:-26px;width:150px;height:150px;fill:none;stroke:var(--ac);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;opacity:.09;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .3s}
+.t-card:hover .wm{transform:rotate(-12deg) scale(1.08);opacity:.16}
+.t-card .ic{background:var(--ac);color:#fff;box-shadow:0 12px 24px -12px var(--ac)}
+.t-card .n{position:relative;z-index:1}
+.t-card .foot{margin-top:auto;padding:14px 14px 14px 18px;margin-top:24px;border-radius:18px;background:color-mix(in srgb,var(--ac) 7%,#fff);align-items:center}
+.t-card .go{background:#fff;border-color:transparent;box-shadow:0 6px 14px -8px rgba(10,20,34,.3)}
+.t-card--feat{background:linear-gradient(150deg,color-mix(in srgb,var(--ac) 13%,#fff),#fff 62%)}
+.t-card--feat .wm{width:260px;height:260px;right:-40px;top:-50px}
+.t-card--feat .foot{max-width:420px}
+.t-help.t-card{background:var(--amber)}
+.t-help .ic{background:var(--ink);color:var(--amber);box-shadow:none}
+.t-help .foot{background:rgba(255,255,255,.35)}
+.t-help .wm{stroke:var(--ink)}
+
+.t-phases .card{position:relative;overflow:hidden}
+.t-phases .pi{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:#fff;color:var(--amber-d);box-shadow:0 8px 18px -10px rgba(217,138,7,.6)}
+.t-phases .p1 .card{background:#FFFCF5;border-color:#F6E9CC}
+.t-phases .p2 .card{background:#FFF6E2;border-color:#F4DDA8}
+.t-phases .p3 .card{background:#FFEDC6;border-color:#F0CD80}
+.t-phases .p1 .node{border-color:#F4DDA8;color:var(--amber-d)}
+.t-phases .p3 .node{background:var(--amber-d);border-color:var(--amber-d);color:#fff}
+.t-phases .p4 .card{background:var(--ink);border-color:var(--ink)}
+.t-phases .p4 .card::after{content:"";position:absolute;right:-60px;bottom:-70px;width:170px;height:170px;border-radius:50%;background:var(--amber);opacity:.14}
+.t-phases .p4 h3{color:#fff}.t-phases .p4 p{color:#A9B6C8}.t-phases .p4 .k{color:#FFD27A}
+.t-phases .p4 .pi{background:var(--amber);color:var(--ink);box-shadow:none}
+
+.t-batch{position:relative;overflow:hidden;gap:26px}
+.t-batch .nm{display:block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-d);margin-bottom:6px}
+.t-batch h3{font-size:clamp(1.7rem,1.3rem + 1vw,2.2rem)}
+.t-batch .ic{width:54px;height:54px;border-radius:16px}
+.t-batch .ic .x-ico{width:26px;height:26px}
+.t-batch::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-80px;opacity:.5;pointer-events:none}
+.t-batch>*{position:relative;z-index:1}
+.t-batch--am{background:#FFF8EA;border-color:#F6E3B8}
+.t-batch--am::after{background:#FCE3B0}
+.t-batch--am .ic{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.t-batch--ink::after{background:#1C3A6B}
+.t-batch--ink .nm{color:#FFD27A}
+.t-batch--wk{background:#EEF5FF;border-color:#D4E4FB}
+.t-batch--wk::after{background:#D4E4FB}
+.t-batch--wk .ic{background:#1F7AE0;border-color:#1F7AE0;color:#fff}
+.t-batch--wk .nm{color:#1F6FE0}
+.t-batch--am dl div{border-color:#EED9A8}.t-batch--wk dl div{border-color:#CFDDF3}
 </style>
 
 <!-- ==================== HERO ==================== -->
@@ -951,49 +998,49 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
     </div>
     <div class="t-grid">
       <a href="track-full-stack-ai-engineer.html" class="t-card t-card--feat" style="--ac:#6D4AFF">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-chip"/></svg></span><span class="badge">Flagship track</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-chip"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-chip"/></svg><span class="badge">Flagship track</span></div>
         <h3>Full Stack AI Engineer</h3>
         <p>Master the next evolution of AI, from crafting prompts to deploying intelligent agents that work for you.</p>
         <div class="tags"><span>LLMs</span><span>AI agents</span><span>Automation</span><span>Python</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 80k to 150k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-cloud-mlops.html" class="t-card" style="--ac:#1F7AE0">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-cloud"/></svg></span><span class="n">02</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-cloud"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-cloud"/></svg><span class="n">02</span></div>
         <h3>Cloud Computing &amp; MLOps</h3>
         <p>Go from cloud fundamentals to automated ML pipelines, and run AI in production.</p>
         <div class="tags"><span>AWS</span><span>Docker</span><span>Kubernetes</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 90k to 160k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-cybersecurity.html" class="t-card" style="--ac:#0E9F6E">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-shield"/></svg></span><span class="n">03</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-shield"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-shield"/></svg><span class="n">03</span></div>
         <h3>Cybersecurity</h3>
         <p>Build job ready security skills with industry focused training and real, hands-on lab exercises.</p>
         <div class="tags"><span>Ethical hacking</span><span>SOC</span><span>Network security</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 80k to 180k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-odoo-erp.html" class="t-card" style="--ac:#714B67">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-grid"/></svg></span><span class="n">04</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-grid"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-grid"/></svg><span class="n">04</span></div>
         <h3>Odoo Functional Consultant</h3>
         <p>Configure, implement and run enterprise ERP for real businesses, with no coding required.</p>
         <div class="tags"><span>Odoo</span><span>ERP</span><span>No coding</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 60k to 120k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-uiux-brand.html" class="t-card" style="--ac:#E0457B">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-pen"/></svg></span><span class="n">05</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-pen"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-pen"/></svg><span class="n">05</span></div>
         <h3>AI-Powered Graphic Design</h3>
         <p>Learn UI/UX and brand design with practical classes built for beginners and aspiring designers.</p>
         <div class="tags"><span>Figma</span><span>Prototyping</span><span>Brand</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 50k to 100k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-ai-marketing.html" class="t-card" style="--ac:#EA6A12">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span><span class="n">06</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-mega"/></svg><span class="n">06</span></div>
         <h3>AI-Powered Marketing + Sales</h3>
         <p>Become industry ready with AI marketing focused on automation, analytics and performance.</p>
         <div class="tags"><span>SEO</span><span>Ads</span><span>Automation</span></div>
         <div class="foot"><div class="sal"><small>Starting salary</small><b>PKR 50k to 90k+ <i>/mo</i></b></div><span class="go"><svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></span></div>
       </a>
       <a href="track-ai-ecommerce.html" class="t-card" style="--ac:#0F9690">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-cart"/></svg></span><span class="n">07</span></div>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-cart"/></svg></span><svg class="wm" aria-hidden="true"><use href="#i-cart"/></svg><span class="n">07</span></div>
         <h3>AI-Powered E&#8209;Commerce</h3>
         <p>Build, run and scale online stores and marketplace businesses, with AI handling listings, pricing and support.</p>
         <div class="tags"><span>Shopify</span><span>Marketplaces</span><span>AI tools</span></div>
@@ -1052,32 +1099,11 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
       <p class="x-sub">These four phases run across months two to eight, once your foundation month is done.</p>
     </div>
     <ol class="t-phases">
-      <li><span class="node">01</span><div class="card"><span class="k">Build your foundation</span><h3>Trainee</h3><p>Learn the core concepts, the reasoning behind the work and the basic tools. Mastering the fundamentals makes every advanced skill easier.</p></div></li>
-      <li class="paid"><span class="node">02</span><div class="card"><span class="k">Bridge theory and practice</span><h3>Intern <em>Paid</em></h3><p>Step into real workflows and apply the basics, guided by industry mentors. You are paid from this phase onwards.</p></div></li>
-      <li class="paid"><span class="node">03</span><div class="card"><span class="k">Watch real execution</span><h3>Shadow <em>Paid</em></h3><p>Work alongside senior team members in real time and see how decisions are made and problems are solved when it counts.</p></div></li>
-      <li class="top"><span class="node">04</span><div class="card"><span class="k">Step into mastery</span><h3>Expert</h3><p>Become the senior others rely on. Lead projects, mentor newcomers and guide your team with deep understanding.</p></div></li>
+      <li class="p1"><span class="node">01</span><div class="card"><span class="pi"><svg class="x-ico"><use href="#i-user"/></svg></span><span class="k">Build your foundation</span><h3>Trainee</h3><p>Learn the core concepts, the reasoning behind the work and the basic tools. Mastering the fundamentals makes every advanced skill easier.</p></div></li>
+      <li class="paid p2"><span class="node">02</span><div class="card"><span class="pi"><svg class="x-ico"><use href="#i-cash"/></svg></span><span class="k">Bridge theory and practice</span><h3>Intern <em>Paid</em></h3><p>Step into real workflows and apply the basics, guided by industry mentors. You are paid from this phase onwards.</p></div></li>
+      <li class="paid p3"><span class="node">03</span><div class="card"><span class="pi"><svg class="x-ico"><use href="#i-team"/></svg></span><span class="k">Watch real execution</span><h3>Shadow <em>Paid</em></h3><p>Work alongside senior team members in real time and see how decisions are made and problems are solved when it counts.</p></div></li>
+      <li class="top p4"><span class="node">04</span><div class="card"><span class="pi"><svg class="x-ico"><use href="#i-award"/></svg></span><span class="k">Step into mastery</span><h3>Expert</h3><p>Become the senior others rely on. Lead projects, mentor newcomers and guide your team with deep understanding.</p></div></li>
     </ol>
-  </div>
-</section>
-
-<!-- ==================== OUTCOMES ==================== -->
-<section data-screen-label="Tracks / Outcomes" class="x-sec" style="background:var(--soft);">
-  <div class="x-wrap">
-    <div class="x-th">
-      <div><span class="x-label">After your track</span><h2 class="x-h2">Real careers. Real salaries.</h2></div>
-      <div><p class="x-sub">What graduates step into, in Pakistan and remotely for international clients.</p></div>
-    </div>
-    <div class="t-out">
-      <div class="t-row t-row--head"><span>Track</span><span>Roles</span><span>Starting salary</span><span>Global work</span></div>
-      <div class="t-row" style="--ac:#6D4AFF"><div class="nm"><i></i>Full Stack AI Engineer</div><div class="roles">AI Engineer, LLM Specialist, AI Agent Developer, Prompt Engineer</div><div class="pay">PKR 80k to 150k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>Remote AI roles with US and EU startups</div></div>
-      <div class="t-row" style="--ac:#1F7AE0"><div class="nm"><i></i>Cloud + MLOps</div><div class="roles">Cloud Engineer, DevOps Engineer, MLOps Specialist, AWS Architect</div><div class="pay">PKR 90k to 160k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>Cloud certifications valid worldwide</div></div>
-      <div class="t-row" style="--ac:#0E9F6E"><div class="nm"><i></i>Cybersecurity</div><div class="roles">SOC Analyst, Ethical Hacker, Network Security Engineer, Pentester</div><div class="pay">PKR 80k to 180k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>Remote security analyst roles</div></div>
-      <div class="t-row" style="--ac:#714B67"><div class="nm"><i></i>Odoo Functional Consultant</div><div class="roles">Functional Consultant, ERP Implementation Consultant, Business Analyst</div><div class="pay">PKR 60k to 120k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>UAE and GCC ERP partners, Upwork</div></div>
-      <div class="t-row" style="--ac:#E0457B"><div class="nm"><i></i>AI-Powered Graphic Design</div><div class="roles">UI/UX Designer, Product Designer, Brand Strategist, Visual Designer</div><div class="pay">PKR 50k to 100k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>Freelance and remote design roles</div></div>
-      <div class="t-row" style="--ac:#EA6A12"><div class="nm"><i></i>AI-Powered Marketing + Sales</div><div class="roles">Digital Marketing Specialist, SEO Expert, Social Media Manager</div><div class="pay">PKR 50k to 90k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>International agencies, freelance clients</div></div>
-      <div class="t-row" style="--ac:#0F9690"><div class="nm"><i></i>AI-Powered E&#8209;Commerce</div><div class="roles">E-Commerce Manager, Marketplace Specialist, Store Operations Lead</div><div class="pay">PKR 50k to 90k+ <i>/mo</i></div><div class="glob"><svg class="x-ico"><use href="#i-globe"/></svg>Stores for international brands</div></div>
-    </div>
-    <p class="t-note">BBT graduates work at software houses, banks and tech companies across Pakistan, and remotely for international clients.</p>
   </div>
 </section>
 
@@ -1090,20 +1116,20 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
       <p class="x-sub">Limited seats per track. Cohort 12 starts in October 2026.</p>
     </div>
     <div class="t-batches">
-      <div class="t-batch">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-clock"/></svg></span><span class="st">Seats available</span></div>
-        <h3>Morning</h3>
-        <dl><div><dt>Timing</dt><dd>10:00 AM to 1:00 PM</dd></div><div><dt>Days</dt><dd>Monday to Friday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
+      <div class="t-batch t-batch--am">
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-sun"/></svg></span><span class="st">Seats available</span></div>
+        <div><span class="nm">Morning</span><h3>10 AM to 1 PM</h3></div>
+        <dl><div><dt>Days</dt><dd>Monday to Friday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
       </div>
       <div class="t-batch t-batch--ink">
-        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-clock"/></svg></span><span class="st st--hot">Almost full</span></div>
-        <h3>Evening</h3>
-        <dl><div><dt>Timing</dt><dd>6:00 PM to 9:00 PM</dd></div><div><dt>Days</dt><dd>Monday to Friday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
+        <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-moon"/></svg></span><span class="st st--hot">Almost full</span></div>
+        <div><span class="nm">Evening</span><h3>6 PM to 9 PM</h3></div>
+        <dl><div><dt>Days</dt><dd>Monday to Friday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
       </div>
-      <div class="t-batch">
+      <div class="t-batch t-batch--wk">
         <div class="top"><span class="ic"><svg class="x-ico"><use href="#i-cal"/></svg></span><span class="st st--open">Open for registration</span></div>
-        <h3>Weekend</h3>
-        <dl><div><dt>Timing</dt><dd>10:00 AM to 4:00 PM</dd></div><div><dt>Days</dt><dd>Saturday and Sunday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
+        <div><span class="nm">Weekend</span><h3>10 AM to 4 PM</h3></div>
+        <dl><div><dt>Days</dt><dd>Saturday and Sunday</dd></div><div><dt>Starts</dt><dd>October 2026</dd></div></dl>
       </div>
     </div>
     <div class="t-wa"><a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27d%20like%20to%20know%20more%20about%20your%20career%20tracks."><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>No batch fits? Chat with us on WhatsApp</a></div>
