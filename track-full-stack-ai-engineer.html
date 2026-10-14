@@ -726,183 +726,302 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
   <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
 </svg>
 
+<div class="x">
 <style>
-/* ============ FULL STACK AI: original layout, new site theme ============ */
-section[data-screen-label^="GenAI /"]{--ac:#6D4AFF;--ink:#0A1422;--muted:#5B6B7F;--line:#E3E8EF;--soft:#F6F8FB;--amber:#F5A623;--amber-d:#D98A07;border-bottom:0!important}
-section[data-screen-label="GenAI / Hero"]{background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 7%,#FBF7F0) 0%,#FBF7F0 75%)!important}
-section[data-screen-label="GenAI / Hero"]>svg[aria-hidden="true"]{display:none}
-section[data-screen-label="GenAI / Hero"]::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-160px;top:-220px;background:var(--ac);opacity:.08;pointer-events:none}
-section[data-screen-label="GenAI / Structure"],section[data-screen-label="GenAI / Tools"],section[data-screen-label="GenAI / Audience"],section[data-screen-label="GenAI / FAQ"]{background:var(--soft)!important}
-section[data-screen-label="GenAI / Learn"],section[data-screen-label="GenAI / Projects"]{background:#fff!important}
-section[data-screen-label="GenAI / Careers"]{background:var(--ink)!important}
-section[data-screen-label="GenAI / Careers"]>svg[aria-hidden="true"]{display:none}
+/* ============ TRACK PAGE TEMPLATE (2026-10) - one accent per track via --ac ============ */
+/* shared with the Tracks page */
+.t-plan{display:grid;grid-template-columns:5fr 7fr;gap:16px;margin-top:56px}
+.t-month{border-radius:26px;padding:clamp(26px,3.4vw,40px);border:1px solid var(--line);background:#fff}
+.t-month .k{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-d)}
+.t-month h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.6rem,1.2rem + 1vw,2.1rem);letter-spacing:-.03em;line-height:1.08;color:var(--ink);margin:12px 0 22px}
+.t-month ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.t-month li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;line-height:1.5;color:#3B4A5C}
+.t-month li .x-ico{width:20px;height:20px;color:var(--amber-d);margin-top:1px}
+.t-month--ink{background:var(--ink);border-color:var(--ink);position:relative;overflow:hidden}
+.t-month--ink::before{content:"";position:absolute;right:-100px;top:-120px;width:300px;height:300px;border-radius:50%;background:rgba(245,166,35,.14)}
+.t-month--ink>*{position:relative}
+.t-month--ink .k{color:#FFD27A}.t-month--ink h3{color:#fff}.t-month--ink li{color:#C9D3E0}.t-month--ink li .x-ico{color:var(--amber)}
+.t-faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.t-faq-wrap .stick{position:sticky;top:110px}
+.t-faq{display:flex;flex-direction:column;gap:10px}
+.t-faq details{background:#fff;border:1px solid var(--line);border-radius:18px;transition:border-color .2s,box-shadow .2s}
+.t-faq details[open]{border-color:#D5DCE6;box-shadow:0 18px 40px -24px rgba(10,20,34,.25)}
+.t-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:-.015em;color:var(--ink)}
+.t-faq summary::-webkit-details-marker{display:none}
+.t-faq summary i{width:32px;height:32px;border-radius:50%;background:var(--soft);flex:none;position:relative;transition:background .2s}
+.t-faq summary i::before,.t-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.t-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.t-faq details[open] summary i{background:var(--amber)}
+.t-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.t-faq .a{padding:0 24px 22px;font-size:.98rem;line-height:1.65;color:var(--muted)}
+.t-trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.t-trust li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;color:#fff;font-weight:600;font-size:.98rem;line-height:1.35}
+.t-trust .x-ico{width:22px;height:22px;color:var(--amber)}
 
-/* type */
-section[data-screen-label^="GenAI /"] .eye{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.16em;color:var(--amber-d);gap:10px}
-section[data-screen-label^="GenAI /"] .eye::before{width:28px;height:2px;background:var(--amber)}
-section[data-screen-label="GenAI / Careers"] .eye,section[data-screen-label="GenAI / Final CTA"] .eye{color:#FFD27A}
-section[data-screen-label="GenAI / Careers"] .eye::before,section[data-screen-label="GenAI / Final CTA"] .eye::before{background:#FFD27A}
-section[data-screen-label^="GenAI /"] .tit{font-weight:700!important;font-size:clamp(2.3rem,1.3rem + 3.4vw,4rem)!important;line-height:1.02!important;letter-spacing:-.04em!important;margin-top:18px!important}
-section[data-screen-label^="GenAI /"] .deck{color:var(--muted)!important;font-size:1.1rem!important;line-height:1.65!important}
-section[data-screen-label="GenAI / Careers"] .deck{color:#A9B6C8!important}
-section[data-screen-label="GenAI / Hero"] h1{font-weight:700!important;letter-spacing:-.045em!important;line-height:.96!important;color:var(--ink)!important}
-section[data-screen-label="GenAI / Hero"] h1 span{color:var(--ac)!important}
-section[data-screen-label="GenAI / Hero"] h2{font-weight:600!important;color:var(--ink)!important;letter-spacing:-.02em!important}
-section[data-screen-label="GenAI / Hero"] .cohort-tag{background:#fff;border:1px solid #EADFCB;border-radius:999px;padding:7px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);box-shadow:0 6px 20px -12px rgba(10,20,34,.25)}
-section[data-screen-label="GenAI / Hero"] .cohort-tag .dot{width:8px;height:8px;background:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 18%,transparent)}
-section[data-screen-label="GenAI / Hero"] .hero>div:first-child>.mono{gap:8px!important;letter-spacing:0!important;text-transform:none!important;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:first-child>.mono>span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-weight:600;color:var(--ink)!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:first-child>.mono>span:nth-child(even){display:none}
-section[data-screen-label="GenAI / Hero"] .hero>div:first-child>.mono>span:last-child{color:#16794D!important;border-color:#BFE6D1;background:#F0FAF4}
+/* hero */
+.k-hero{position:relative;overflow:hidden;padding:clamp(48px,7vh,88px) clamp(20px,5vw,40px) 56px;background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 7%,#FBF7F0) 0%,#FBF7F0 70%)}
+.k-hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-160px;top:-220px;background:var(--ac);opacity:.08;pointer-events:none}
+.k-hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.k-crumb{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.k-crumb a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.k-crumb a:hover{color:var(--ink)}
+.k-crumb b{font-weight:600;color:#fff;background:var(--ac);border-radius:999px;padding:5px 12px;font-size:13px}
+.k-hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.6rem,1rem + 4.6vw,5rem);line-height:.98;letter-spacing:-.045em;color:var(--ink);margin:26px 0 0}
+.k-hero .x-scrib path{stroke:var(--ac)}
+.k-sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(1.2rem,1rem + .6vw,1.5rem);line-height:1.3;letter-spacing:-.02em;color:var(--ink);margin:24px 0 0;max-width:560px}
+.k-intro{font-size:1.04rem;line-height:1.65;color:#4A5A6E;margin:14px 0 0;max-width:580px}
+.k-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.k-meta span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.k-meta .x-ico{width:16px;height:16px;color:var(--ac)}
+.k-hero .x-cta{justify-content:flex-start;margin-top:30px}
+.k-big{font-size:17px;padding:19px 32px}
+.k-win-wrap{position:relative}
+.k-win-wrap::before{content:"";position:absolute;inset:24px -16px -16px 24px;border-radius:28px;background:var(--ac);transform:rotate(3deg)}
+.k-win{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 40px 80px -40px rgba(10,20,34,.4);overflow:hidden}
+.k-win-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--soft)}
+.k-win-bar i{width:11px;height:11px;border-radius:50%;background:#E3E8EF}
+.k-win-bar i:first-child{background:#FF6B5F}.k-win-bar i:nth-child(2){background:#FFBE2E}.k-win-bar i:nth-child(3){background:#2ACB42}
+.k-win-bar span{margin-left:10px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted)}
+.k-win-bar b{margin-left:auto;width:30px;height:30px;border-radius:9px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center}
+.k-win-bar b .x-ico{width:17px;height:17px}
+.k-term{padding:24px 24px 26px;font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.95;color:#3B4A5C}
+.k-term .cm{color:#8A99A8}
+.k-term span{color:var(--ac);font-weight:600}
+.k-term div>span:first-child{color:#B4BFCC;font-weight:500}
+.k-term .ok{color:#16794D;font-weight:600}
+.k-term .cur{color:var(--ink)}
+.k-term .blink{color:var(--ac);animation:k-blink 1s steps(1) infinite}
+@keyframes k-blink{50%{opacity:0}}
+.k-mets{padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px}
+.k-mets .cm,.k-ds .cm{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8A99A8}
+.k-met .t{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;font-size:14px;color:var(--muted)}
+.k-met b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink)}
+.k-met em{font-style:normal;font-size:.8rem;font-weight:600;color:#16794D}
+.k-met .bar{display:block;height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.k-met .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 55%,#fff),var(--ac))}
+.k-mets .ok{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#16794D}
+.k-ds{padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px}
+.k-ds .sw{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.k-ds .sw span{height:52px;border-radius:12px}
+.k-ds .ty{display:flex;align-items:baseline;gap:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--ink)}
+.k-ds .ty span:nth-child(1){font-size:2.6rem}.k-ds .ty span:nth-child(2){font-size:1.8rem;color:var(--ac)}.k-ds .ty span:nth-child(3){font-size:1.15rem;color:var(--muted)}
+.k-ds .sp{display:flex;align-items:flex-end;gap:8px}
+.k-ds .sp span{background:color-mix(in srgb,var(--ac) 22%,#fff);border:1px dashed var(--ac);border-radius:6px}
+.k-ds .sp span:nth-child(1){width:16px;height:16px}.k-ds .sp span:nth-child(2){width:24px;height:24px}.k-ds .sp span:nth-child(3){width:32px;height:32px}.k-ds .sp span:nth-child(4){width:48px;height:48px}
+.k-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.k-fact{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px 22px;display:flex;gap:14px;align-items:center}
+.k-fact .ic{width:46px;height:46px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
+.k-fact b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.025em;color:var(--ink);line-height:1.1}
+.k-fact span{font-size:.88rem;color:var(--muted)}
+.k-fact--ink{background:var(--ink);border-color:var(--ink)}
+.k-fact--ink .ic{background:var(--ac);color:#fff}
+.k-fact--ink b{color:#fff}.k-fact--ink span{color:#A9B6C8}
 
-/* hero mock window */
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child{border-radius:24px!important;box-shadow:0 40px 80px -40px rgba(10,20,34,.4)!important;position:relative}
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child>div:first-child>span:nth-child(1){background:#FF6B5F!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child>div:first-child>span:nth-child(2){background:#FFBE2E!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child>div:first-child>span:nth-child(3){background:#2ACB42!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child .mono span[style*="D98A07"]{color:var(--ac)!important}
-section[data-screen-label="GenAI / Hero"] .hero>div:last-child>.mono{font-size:14px!important;padding:24px!important}
+/* curriculum */
+.k-learns{display:grid;gap:16px;margin-top:56px;grid-template-columns:repeat(6,1fr)}
+.k-learn{grid-column:span 3;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,border-color .3s}
+.k-learns--5 .k-learn:nth-child(-n+3){grid-column:span 2}
+.k-learns--3 .k-learn{grid-column:span 2}
+.k-learn::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--ac);transform:scaleX(.25);transform-origin:left;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.k-learn:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--ac) 30%,#fff);box-shadow:0 30px 60px -28px color-mix(in srgb,var(--ac) 50%,transparent)}
+.k-learn:hover::before{transform:scaleX(1)}
+.k-learn .top{display:flex;align-items:center;gap:12px}
+.k-learn .nb{width:44px;height:44px;border-radius:13px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;box-shadow:0 10px 22px -12px var(--ac)}
+.k-learn .k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--ac) 80%,#000)}
+.k-learn h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.4rem;line-height:1.15;letter-spacing:-.025em;color:var(--ink);margin:20px 0 16px}
+.k-learn ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.k-learn li{display:flex;gap:11px;align-items:flex-start;font-size:.96rem;line-height:1.5;color:#3B4A5C}
+.k-learn li .x-ico{width:19px;height:19px;color:var(--ac);margin-top:1px}
 
-/* buttons */
-section[data-screen-label^="GenAI /"] .btn{border-radius:999px!important}
-section[data-screen-label^="GenAI /"] .bp{background:var(--ink)!important}
-section[data-screen-label^="GenAI /"] .bp:hover{background:#13294B!important}
-section[data-screen-label="GenAI / Hero"] .bp{padding:19px 32px!important;font-size:17px!important}
+/* tools */
+.k-tools{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.k-chips{display:flex;flex-wrap:wrap;gap:10px}
+.k-chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 18px;font-weight:600;font-size:.98rem;color:var(--ink);box-shadow:0 6px 16px -12px rgba(10,20,34,.3);transition:transform .2s,border-color .2s}
+.k-chip:hover{transform:translateY(-2px);border-color:var(--ac)}
+.k-chip i{width:9px;height:9px;border-radius:3px;background:var(--ac);transform:rotate(45deg)}
+.k-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin-top:56px}
+.k-logo{display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 10px;font-size:.88rem;font-weight:600;color:var(--ink);text-align:center;transition:transform .2s,border-color .2s,box-shadow .2s}
+.k-logo:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--ac) 35%,#fff);box-shadow:0 16px 30px -18px rgba(10,20,34,.3)}
+.k-logo img{width:40px;height:40px;object-fit:contain}
 
-/* cards: same cards, rounder and lighter */
-section[data-screen-label^="GenAI /"] .card{border-radius:24px!important;border-color:var(--line)!important;box-shadow:none!important}
-section[data-screen-label^="GenAI /"] .card:hover{box-shadow:0 26px 50px -26px rgba(10,20,34,.3)!important}
-section[data-screen-label^="GenAI /"] .card .tick{border-top-color:var(--ac)}
-section[data-screen-label^="GenAI /"] .md-c,section[data-screen-label^="GenAI /"] .ct-c{border-radius:26px}
-section[data-screen-label^="GenAI /"] .md-c:hover,section[data-screen-label^="GenAI /"] .md-c:focus-within{border-color:var(--ac)}
-section[data-screen-label^="GenAI /"] .md-bar{background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 55%,#fff),var(--ac))}
-section[data-screen-label^="GenAI /"] .md-dark,section[data-screen-label^="GenAI /"] .ct-hl{background:var(--ink);border-color:var(--ink)}
-section[data-screen-label^="GenAI /"] .cr-c{border-radius:22px}
-section[data-screen-label^="GenAI /"] .stk-t{border-radius:16px}
-section[data-screen-label="GenAI / FAQ"] details{border-radius:18px!important}
+/* careers */
+.k-car{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:56px}
+.k-car .h{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-d);margin-bottom:16px}
+.k-roles{background:var(--soft);border:1px solid var(--line);border-radius:26px;padding:clamp(24px,3vw,36px)}
+.k-roles ul{list-style:none;margin:0;padding:0}
+.k-roles li{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.2rem;letter-spacing:-.02em;color:var(--ink)}
+.k-roles li:first-child{border-top:0;padding-top:4px}
+.k-roles li .nb{width:36px;height:36px;border-radius:11px;flex:none;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.k-roles li .x-ico{margin-left:auto;width:18px;height:18px;color:#B4BFCC;transition:color .2s,transform .2s}
+.k-roles li:hover .x-ico{color:var(--ac);transform:translate(2px,-2px)}
+.k-car-side{display:flex;flex-direction:column;gap:16px}
+.k-sal{position:relative;overflow:hidden;background:var(--ink);border-radius:26px;padding:clamp(24px,3vw,34px);color:#A9B6C8}
+.k-sal::before{content:"";position:absolute;right:-70px;top:-90px;width:220px;height:220px;border-radius:50%;background:var(--ac);opacity:.35}
+.k-sal>*{position:relative}
+.k-sal .h{color:#FFD27A}
+.k-sal b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2rem,1.4rem + 1.6vw,2.8rem);line-height:1;letter-spacing:-.04em;color:#fff}
+.k-sal small{display:block;margin-top:8px;font-size:.9rem}
+.k-gl{flex:1;background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(24px,3vw,32px)}
+.k-gl ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.k-gl li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;line-height:1.45;color:#3B4A5C}
+.k-gl .x-ico{width:20px;height:20px;color:var(--ac);margin-top:1px}
 
-/* final CTA becomes the site's dark card on white */
-section[data-screen-label="GenAI / Final CTA"]{background:#fff!important;padding:clamp(56px,8vh,96px) clamp(20px,5vw,40px)!important}
-section[data-screen-label="GenAI / Final CTA"]>div[aria-hidden="true"]{display:none}
-section[data-screen-label="GenAI / Final CTA"]>div:last-child{max-width:1200px!important;background:var(--ink);border-radius:32px;padding:clamp(40px,6vw,80px) clamp(24px,5vw,64px);overflow:hidden}
-section[data-screen-label="GenAI / Final CTA"]>div:last-child::before{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;background:var(--ac);opacity:.28;pointer-events:none}
-section[data-screen-label="GenAI / Final CTA"] h2{font-weight:700!important;letter-spacing:-.04em!important}
-section[data-screen-label="GenAI / Final CTA"] .bp{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.18)!important}
-section[data-screen-label="GenAI / Final CTA"] .bs{box-shadow:0 12px 32px -8px rgba(245,166,35,.6)}
+/* audience */
+.k-auds{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.k-aud{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;transition:transform .3s,box-shadow .3s}
+.k-aud:hover{transform:translateY(-4px);box-shadow:0 26px 50px -26px rgba(10,20,34,.3)}
+.k-aud .ic{width:50px;height:50px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
+.k-aud h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;color:var(--ink);margin:20px 0 8px}
+.k-aud p{margin:0;font-size:.95rem;line-height:1.6;color:var(--muted)}
+.k-unsure{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:16px;background:#fff;border:1px dashed color-mix(in srgb,var(--ac) 45%,#fff);border-radius:22px;padding:18px 18px 18px 24px}
+.k-unsure span{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--muted)}
+.k-unsure b{color:var(--ink)}
+.k-unsure .x-ico{width:22px;height:22px;color:var(--ac)}
+
+/* projects */
+.k-projs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.k-proj{position:relative;overflow:hidden;border-radius:26px;padding:30px;background:linear-gradient(170deg,color-mix(in srgb,var(--ac) 10%,#fff),#fff 55%);border:1px solid color-mix(in srgb,var(--ac) 18%,#fff);transition:transform .3s,box-shadow .3s}
+.k-proj:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px color-mix(in srgb,var(--ac) 55%,transparent)}
+.k-proj .num{position:absolute;right:20px;top:6px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:6rem;line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--ac) 30%,#fff)}
+.k-proj .k{position:relative;display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ac);border-radius:999px;padding:5px 12px}
+.k-proj h3{position:relative;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.025em;color:var(--ink);margin:64px 0 10px}
+.k-proj p{position:relative;margin:0;font-size:.97rem;line-height:1.6;color:var(--muted)}
+
+/* full stack only */
+.k-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.k-mod{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;transition:transform .3s,box-shadow .3s}
+.k-mod:hover{transform:translateY(-4px);box-shadow:0 30px 60px -28px rgba(10,20,34,.3)}
+.k-mod .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.k-mod .nb{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
+.k-mod .chip{font-size:12.5px;font-weight:600;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.k-mod h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.6rem;letter-spacing:-.03em;line-height:1.1;color:var(--ink);margin:22px 0 10px}
+.k-mod .in{margin:0 0 20px;font-size:.97rem;line-height:1.6;color:var(--muted)}
+.k-mod ul{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:10px}
+.k-mod li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;font-weight:500;line-height:1.45;color:var(--ink)}
+.k-mod li .x-ico{width:19px;height:19px;color:var(--ac)}
+.k-mod .who{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line)}
+.k-mod .who small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-d);margin-bottom:6px}
+.k-mod .who p{margin:0;font-size:.9rem;line-height:1.5;color:var(--muted)}
+.k-mod--ink{background:var(--ink);border-color:var(--ink);position:relative;overflow:hidden}
+.k-mod--ink::before{content:"";position:absolute;right:-90px;top:-110px;width:260px;height:260px;border-radius:50%;background:var(--ac);opacity:.3}
+.k-mod--ink>*{position:relative}
+.k-mod--ink h3,.k-mod--ink li{color:#fff}.k-mod--ink .in,.k-mod--ink .who p{color:#A9B6C8}.k-mod--ink .nb{color:#C4B5FD}.k-mod--ink .who small{color:#FFD27A}
+.k-mod--ink .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}.k-mod--ink .who{border-color:rgba(255,255,255,.15)}.k-mod--ink li .x-ico{color:#C4B5FD}
+.k-certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.k-cert{position:relative;overflow:hidden;background:var(--soft);border:1px solid var(--line);border-radius:26px;padding:30px}
+.k-cert .st{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-d)}
+.k-cert h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.45rem;letter-spacing:-.025em;line-height:1.15;color:var(--ink);margin:14px 0 10px}
+.k-cert p{margin:0;font-size:.97rem;line-height:1.6;color:var(--muted)}
+.k-cert--hl{background:var(--amber);border-color:var(--amber)}
+.k-cert--hl .st{color:var(--ink)}.k-cert--hl p{color:#3A2A08}
+.k-cert .off{float:right;margin:0 0 10px 10px;text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;line-height:1;color:var(--amber);background:var(--ink);border-radius:14px;padding:10px 12px}
+.k-cert .off small{display:block;margin-top:4px;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.k-cert .lg{display:flex;gap:10px;margin-top:22px}
+.k-cert .lg span{flex:1;height:58px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center}
+.k-cert .lg img{max-width:70%;max-height:30px;width:auto;height:auto}
+.k-lvs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.k-lv{display:flex;flex-direction:column;background:var(--soft);border:1px solid var(--line);border-radius:26px;padding:30px}
+.k-lv .st{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac)}
+.k-lv h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.03em;color:var(--ink);margin:12px 0 16px}
+.k-lv .rl{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.k-lv .rl span{font-size:13px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px}
+.k-lv .pg{margin-top:auto;height:8px;border-radius:99px;background:#fff;overflow:hidden}
+.k-lv .pg span{display:block;height:100%;background:var(--ac);border-radius:99px}
+.k-lv--ink{background:var(--ink);border-color:var(--ink)}
+.k-lv--ink .st{color:#C4B5FD}.k-lv--ink h3{color:#fff}
+.k-lv--ink .rl span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#fff}
+.k-lv .sal{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.k-lv .sal small{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#FFD27A;margin-bottom:6px}
+.k-lv .sal b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:-.03em;color:#fff}
+.k-lv .sal b i{font-style:normal;font-size:.9rem;font-weight:500;color:#A9B6C8}
+.k-glob{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.k-glob span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-weight:500;color:var(--ink)}
+.k-glob .x-ico{width:18px;height:18px;color:var(--ac)}
+
+/* other tracks */
+.k-other{background:#fff;padding:0 clamp(20px,5vw,40px) clamp(56px,8vh,96px)}
+.k-other-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.k-other-head b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink)}
+.k-other-head a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink)}
+.k-other-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.k-other-grid a{display:flex;align-items:center;gap:12px;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:600;font-size:.98rem;color:var(--ink);transition:background .2s,border-color .2s}
+.k-other-grid a:hover{background:color-mix(in srgb,var(--ac) 8%,#fff);border-color:color-mix(in srgb,var(--ac) 35%,#fff)}
+.k-other-grid .ic{width:38px;height:38px;border-radius:11px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.k-other-grid .ic .x-ico{width:19px;height:19px}
+.k-other-grid .ar{margin-left:auto;width:18px;height:18px;stroke-width:2;color:#B4BFCC;transition:transform .2s,color .2s}
+.k-other-grid a:hover .ar{color:var(--ac);transform:translateX(3px)}
+
+@media(max-width:980px){
+  .k-hero-grid{grid-template-columns:1fr;gap:48px}
+  .k-facts{grid-template-columns:1fr 1fr}
+  .t-plan{grid-template-columns:1fr}
+  .k-learns{grid-template-columns:1fr 1fr}
+  .k-learn,.k-learns--5 .k-learn:nth-child(-n+3),.k-learns--3 .k-learn{grid-column:auto}
+  .k-tools{grid-template-columns:1fr;gap:32px}
+  .k-car{grid-template-columns:1fr}
+  .k-auds{grid-template-columns:1fr 1fr}
+  .k-projs,.k-mods,.k-certs,.k-lvs{grid-template-columns:1fr}
+  .t-faq-wrap{grid-template-columns:1fr;gap:32px}
+  .t-faq-wrap .stick{position:static}
+  .k-other-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .k-hero h1{font-size:clamp(2.4rem,1rem + 8vw,3.2rem)}
+  .k-facts{gap:10px}
+  .k-fact{padding:16px;flex-direction:column;align-items:flex-start;gap:10px}
+  .k-fact b{font-size:1.1rem}
+  .k-learns,.k-auds,.k-other-grid{grid-template-columns:1fr}
+  .k-learn,.k-mod,.k-proj{padding:24px}
+  .k-roles li{font-size:1.05rem}
+  .t-trust{grid-template-columns:1fr}
+  .k-term{font-size:12.5px;padding:18px}
+  .k-win-wrap::before{inset:18px -8px -10px 16px}
+  .k-unsure{padding:18px}
+}
 </style>
-<section data-screen-label="GenAI / Hero" style="position:relative;background:#F4F6F9;overflow:hidden;border-bottom:1px solid #DCE3EC;">
-  <svg aria-hidden="true" style="position:absolute;right:-80px;top:-60px;width:680px;height:680px;opacity:.35;pointer-events:none;" viewBox="0 0 540 540" fill="none">
-    <defs><pattern id="bgG" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#DCE3EC" stroke-width="1"/><circle cx="0" cy="0" r="1.5" fill="#DCE3EC"/></pattern></defs>
-    <rect width="540" height="540" fill="url(#bgG)"/>
-    <rect x="108" y="72" width="6" height="6" fill="#F5A623"/><rect x="252" y="180" width="6" height="6" fill="#F5A623"/><rect x="396" y="108" width="6" height="6" fill="#F5A623"/><rect x="324" y="324" width="6" height="6" fill="#F5A623"/>
-  </svg>
-  <div class="hero" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vh,110px) clamp(20px,5vw,40px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,72px);align-items:center;position:relative;">
-    <div>
-      <span class="cohort-tag" style="margin-bottom:22px;"><span class="dot"></span>Career Track 01 · AI</span>
-      <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(3rem,2rem + 5vw,6.5rem);line-height:.92;letter-spacing:-.035em;color:#0D1B2A;margin:18px 0 22px;">
-        Full Stack<br>AI <span style="color:#D98A07;">Engineer</span><span style="color:#D98A07;">.</span>
-      </h1>
-      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(1.4rem,1.2rem + 1vw,1.9rem);line-height:1.2;letter-spacing:-.015em;color:#13294B;margin:0 0 22px;max-width:560px;">
-        Build autonomous AI agents that think and act.
-      </h2>
-      <p style="font-size:1.1rem;line-height:1.6;color:#475569;margin:0 0 28px;max-width:560px;">Companies now hire people who can build with AI, connect it to real systems, deploy it and prove it works. Across three modules and 8 months, you go from your first computer skills to shipping production AI agents.</p>
-      <div class="mono" style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:30px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#475569;">
-        <span>8 months</span><span style="color:#DCE3EC;">·</span><span>Onsite + Online</span><span style="color:#DCE3EC;">·</span><span>Beginner-friendly</span><span style="color:#DCE3EC;">·</span><span style="color:#16794D;font-weight:600;">● Paid internship</span>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="enroll.html#apply" class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 26px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(13,27,42,.18);">Enroll now<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="2"/></svg></a>
-        <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="btn bg" style="background:#FFFFFF;color:#13294B;font-weight:600;padding:16px 26px;border-radius:8px;font-size:16px;border:1px solid #DCE3EC;box-shadow:0 1px 2px rgba(13,27,42,.04);">Chat on WhatsApp</a>
+<style>
+/* Full Stack AI: certification + tech stack keep their original cards, in the site theme */
+section[data-screen-label="GenAI / Learn"],section[data-screen-label="GenAI / Tools"]{border-bottom:0!important}
+section[data-screen-label="GenAI / Learn"]{background:#fff!important}
+section[data-screen-label="GenAI / Tools"]{background:var(--soft)!important}
+section[data-screen-label="GenAI / Learn"] .eye,section[data-screen-label="GenAI / Tools"] .eye{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.16em;color:var(--amber-d);gap:10px}
+section[data-screen-label="GenAI / Learn"] .eye::before,section[data-screen-label="GenAI / Tools"] .eye::before{width:28px;height:2px;background:var(--amber)}
+section[data-screen-label="GenAI / Learn"] .tit,section[data-screen-label="GenAI / Tools"] .tit{font-weight:700!important;font-size:clamp(2.3rem,1.3rem + 3.4vw,4rem)!important;line-height:1.02!important;letter-spacing:-.04em!important;margin-top:18px!important;color:var(--ink)!important}
+section[data-screen-label="GenAI / Learn"] .deck{color:var(--muted)!important;font-size:1.1rem!important;line-height:1.65!important}
+section[data-screen-label="GenAI / Learn"] .ct-c{border-radius:26px}
+section[data-screen-label="GenAI / Learn"] .ct-hl{background:var(--ink);border-color:var(--ink)}
+section[data-screen-label="GenAI / Tools"] .stk-t{border-radius:16px}
+</style>
+<section data-screen-label="GenAI / Hero" class="k-hero" style="--ac:#6D4AFF">
+  <div class="x-wrap k-hero-grid">
+    <div class="k-hero-in">
+      <nav class="k-crumb" aria-label="Breadcrumb"><a href="tracks.html">Career tracks</a><span>/</span><b>Track 01 &middot; AI</b></nav>
+      <h1>Full Stack AI <span class="x-scrib">Engineer<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span></h1>
+      <p class="k-sub">Build autonomous AI agents that think and act.</p>
+      <p class="k-intro">Companies now hire people who can build with AI, connect it to real systems, deploy it and prove it works. Across three modules and 8 months, you go from your first computer skills to shipping production AI agents.</p>
+      <div class="k-meta"><span><svg class="x-ico"><use href="#i-cal"/></svg>8 months</span><span><svg class="x-ico"><use href="#i-map"/></svg>Onsite + Online</span><span><svg class="x-ico"><use href="#i-check"/></svg>Beginner-friendly</span><span><svg class="x-ico"><use href="#i-cash"/></svg>Paid internship</span></div>
+      <div class="x-cta">
+        <a href="enroll.html#apply" class="x-btn x-btn--ink k-big">Apply for cohort 12 <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a>
+        <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="x-btn x-btn--ghost">Chat on WhatsApp</a>
       </div>
     </div>
-    <!-- agent run mock -->
-    <div style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 60px rgba(13,27,42,.10),0 2px 6px rgba(13,27,42,.04);">
-      <div style="background:#F4F6F9;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #DCE3EC;">
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F5A623;"></span>
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#DCE3EC;"></span>
-        <span class="mono" style="margin-left:10px;font-size:10px;letter-spacing:.14em;color:#8A99A8;text-transform:uppercase;">agent.run</span>
-      </div>
-      <div class="mono" style="padding:22px 18px;font-size:13px;line-height:1.9;color:#0D1B2A;">
-        <div style="color:#8A99A8;">$ agent --task "research &amp; draft"</div>
-        <div><span style="color:#D98A07;font-weight:600;">[01]</span> planner.<span style="color:#13294B;">decompose()</span></div>
-        <div><span style="color:#D98A07;font-weight:600;">[02]</span> retriever.<span style="color:#13294B;">search(vector_db)</span></div>
-        <div><span style="color:#D98A07;font-weight:600;">[03]</span> writer.<span style="color:#13294B;">draft()</span></div>
-        <div><span style="color:#D98A07;font-weight:600;">[04]</span> critic.<span style="color:#13294B;">review()</span></div>
-        <div style="margin-top:10px;color:#16794D;font-weight:500;">✓ output.ready = true</div>
-        <div style="color:#8A99A8;">$ <span class="blink" style="color:#D98A07;">_</span></div>
+    <div class="k-win-wrap" aria-hidden="true">
+      <div class="k-win">
+        <div class="k-win-bar"><i></i><i></i><i></i><span>agent.run</span><b><svg class="x-ico"><use href="#i-chip"/></svg></b></div>
+        <div class="k-term"><div class="cm">$ agent --task "research &amp; draft"</div><div><span>[01]</span> planner.<span>decompose()</span></div><div><span>[02]</span> retriever.<span>search(vector_db)</span></div><div><span>[03]</span> writer.<span>draft()</span></div><div><span>[04]</span> critic.<span>review()</span></div><div class="ok">✓ output.ready = true</div><div class="cur">&gt; <span class="blink">_</span></div></div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ THE THREE MODULES ============ -->
-<section data-screen-label="GenAI / Structure" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
-  <style>
-  .md-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-  .md-c{position:relative;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:16px;padding:34px 30px 30px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,27,42,.06);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;overflow:hidden;outline:none}
-  .md-c:hover,.md-c:focus-within,.md-c:focus-visible{transform:translateY(-6px);border-color:#F5A623;box-shadow:0 22px 48px rgba(13,27,42,.14)}
-  .md-bar{position:absolute;left:0;top:0;height:4px;width:34%;background:linear-gradient(90deg,#F5A623,#D98A07);transition:width .45s cubic-bezier(.2,.7,.2,1)}
-  .md-c:hover .md-bar,.md-c:focus-within .md-bar{width:100%}
-  .md-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-  .md-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:3rem;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #DCE3EC;transition:color .3s,-webkit-text-stroke-color .3s}
-  .md-c:hover .md-n,.md-c:focus-within .md-n{color:#F5A623;-webkit-text-stroke-color:#F5A623}
-  .md-chip{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#0D1B2A;background:#FEF3DC;border:1px solid #F8D38A;border-radius:999px;padding:6px 12px}
-  .md-c h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;color:#0D1B2A;margin:0 0 10px}
-  .md-in{margin:0 0 24px;color:#475569;font-size:.94rem;line-height:1.55}
-  .md-who{margin-top:auto;padding-top:16px;border-top:1px solid #DCE3EC}
-  .md-who div{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#D98A07;margin-bottom:6px}
-  .md-who p{margin:0;color:#475569;font-size:.88rem;line-height:1.5}
-  .md-dark{background:#0D1B2A;border-color:#0D1B2A;box-shadow:0 10px 28px rgba(13,27,42,.22)}
-  .md-dark h3{color:#fff}.md-dark .md-in,.md-dark .md-who p{color:#DCE3EC}
-  .md-dark .md-n{-webkit-text-stroke-color:#2A3A55}.md-dark .md-who div{color:#F5A623}
-  .md-dark .md-chip{background:#F5A623;border-color:#F5A623}
-  .md-dark .md-who{border-color:#2A3A55}
-  .md-dark:hover,.md-dark:focus-within{box-shadow:0 22px 48px rgba(13,27,42,.35),0 0 0 1px #F5A623}
-  .md-id{display:flex;flex-direction:column;gap:4px}
-  .md-id small{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#D98A07}
-  .md-dark .md-id small{color:#F5A623}
-  .md-kp{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:10px}
-  .md-kp li{position:relative;padding-left:20px;font-size:.93rem;font-weight:500;line-height:1.45;color:#13294B}
-  .md-kp li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;background:#F5A623}
-  .md-dark .md-kp li{color:#fff}
-  @media (max-width:980px){.md-g{grid-template-columns:1fr}}
-  @media (prefers-reduced-motion:reduce){.md-c,.md-bar,.md-n{transition:none}.md-c:hover{transform:none}}
-  </style>
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:40px;">
-      <div><span class="eye">how your 8 months run</span><h2 class="tit" style="margin:14px 0 0;">Three modules. One full stack AI engineer.</h2></div>
-      <p class="deck">Each module is self contained, with its own project, exam and certificate. Take the full 8 month track, or join at the module that matches where you already are.</p>
-    </div>
-    <div class="md-g">
-      <article class="md-c reveal" tabindex="0">
-        <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">01</span></div><span class="md-chip">Months 1 to 3</span></div>
-        <h3>IT &amp; Programming Foundations</h3>
-        <p class="md-in">Assumes nothing and contains no code. How computers, AI and full stack apps work, before you write a line.</p>
-        <ul class="md-kp"><li>MS Office, how LLMs work and prompt engineering</li><li>How the web, APIs, databases and Git fit together</li></ul>
-        <div class="md-who"><div>// who it is for</div><p>Complete beginners. No computer or coding background needed.</p></div>
-      </article>
-      <article class="md-c reveal" tabindex="0">
-        <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">02</span></div><span class="md-chip">Months 4 to 5</span></div>
-        <h3>Generative AI</h3>
-        <p class="md-in">This is where the code starts. Python, real data, and your first chatbot grounded in real documents.</p>
-        <ul class="md-kp"><li>Python, Pandas and SQL for real data</li><li>LLM APIs, embeddings and RAG chatbots</li></ul>
-        <div class="md-who"><div>// who it is for</div><p>Anyone who understands prompting and basic web concepts, or a Module 1 graduate.</p></div>
-      </article>
-      <article class="md-c md-dark reveal" tabindex="0">
-        <div class="md-bar"></div>
-        <div class="md-top"><div class="md-id"><small>Module</small><span class="md-n">03</span></div><span class="md-chip">Months 6 to 8</span></div>
-        <h3>Agentic AI</h3>
-        <p class="md-in">A chatbot answers. An agent does. Build AI that takes real actions, then run it safely in production.</p>
-        <ul class="md-kp"><li>AI agents, LangGraph, memory and MCP</li><li>Multi agent systems, evaluation and deployment</li></ul>
-        <div class="md-who"><div>// who it is for</div><p>Anyone who can already call an LLM API from code, or a Module 2 graduate.</p></div>
-      </article>
+  <div class="x-wrap">
+    <div class="k-facts">
+      <div class="k-fact k-fact--ink"><span class="ic"><svg class="x-ico"><use href="#i-cash"/></svg></span><div><b>PKR 80k to 150k+</b><span>Starting salary per month</span></div></div>
+      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-cal"/></svg></span><div><b>8 months</b><span>Trainee to expert</span></div></div>
+      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-map"/></svg></span><div><b>Onsite + Online</b><span>Lahore campus or live online</span></div></div>
+      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-check"/></svg></span><div><b>Beginner-friendly</b><span>Who can join</span></div></div>
     </div>
   </div>
 </section>
-
-<!-- ============ WHY THIS TRACK IS DIFFERENT ============ -->
+<section data-screen-label="GenAI / Structure" class="x-sec" style="background:var(--soft);--ac:#6D4AFF"><div class="x-wrap"><div class="x-th"><div><span class="x-label">How your 8 months run</span><h2 class="x-h2">Three modules. One full stack AI engineer.</h2></div><div><p class="x-sub">Each module is self contained, with its own project, exam and certificate. Take the full 8 month track, or join at the module that matches where you already are.</p></div></div><div class="k-mods"><article class="k-mod"><div class="top"><span class="nb">Module 01</span><span class="chip">Months 1 to 3</span></div><h3>IT &amp; Programming Foundations</h3><p class="in">Assumes nothing and contains no code. How computers, AI and full stack apps work, before you write a line.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>MS Office, how LLMs work and prompt engineering</li><li><svg class="x-ico"><use href="#i-check"/></svg>How the web, APIs, databases and Git fit together</li></ul><div class="who"><small>Who it is for</small><p>Complete beginners. No computer or coding background needed.</p></div></article><article class="k-mod"><div class="top"><span class="nb">Module 02</span><span class="chip">Months 4 to 5</span></div><h3>Generative AI</h3><p class="in">This is where the code starts. Python, real data, and your first chatbot grounded in real documents.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>Python, Pandas and SQL for real data</li><li><svg class="x-ico"><use href="#i-check"/></svg>LLM APIs, embeddings and RAG chatbots</li></ul><div class="who"><small>Who it is for</small><p>Anyone who understands prompting and basic web concepts, or a Module 1 graduate.</p></div></article><article class="k-mod k-mod--ink"><div class="top"><span class="nb">Module 03</span><span class="chip">Months 6 to 8</span></div><h3>Agentic AI</h3><p class="in">A chatbot answers. An agent does. Build AI that takes real actions, then run it safely in production.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>AI agents, LangGraph, memory and MCP</li><li><svg class="x-ico"><use href="#i-check"/></svg>Multi agent systems, evaluation and deployment</li></ul><div class="who"><small>Who it is for</small><p>Anyone who can already call an LLM API from code, or a Module 2 graduate.</p></div></article></div></div></section>
 <section data-screen-label="GenAI / Learn" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <style>
   .ct-g{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;align-items:stretch;counter-reset:ct}
@@ -978,8 +1097,6 @@ section[data-screen-label="GenAI / Final CTA"] .bs{box-shadow:0 12px 32px -8px r
     </div>
   </div>
 </section>
-
-<!-- ============ TOOLS & TECHNOLOGIES ============ -->
 <section data-screen-label="GenAI / Tools" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
   <style>
   .stk-g{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:1080px;margin:0 auto}
@@ -1028,135 +1145,44 @@ section[data-screen-label="GenAI / Final CTA"] .bs{box-shadow:0 12px 32px -8px r
     </div>
   </div>
 </section>
-
-<!-- ============ CAREER OUTCOMES ============ -->
-<section data-screen-label="GenAI / Careers" style="background:#0D1B2A;color:#fff;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-bottom:1px solid #DCE3EC;">
-  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.16;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 900" fill="none"><defs><pattern id="bgC" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#F5A623" stroke-width=".4"/></pattern></defs><rect width="1400" height="900" fill="url(#bgC)"/></svg>
-  <style>
-  .cr-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end;margin-bottom:28px}
-  .cr-c{position:relative;background:rgba(255,255,255,.04);border:1px solid #2A3A55;border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s,box-shadow .35s;outline:none}
-  .cr-c:nth-child(1){min-height:400px}.cr-c:nth-child(2){min-height:450px}.cr-c:nth-child(3){min-height:510px}
-  .cr-c:hover,.cr-c:focus-visible{transform:translateY(-8px);border-color:#F5A623;background:rgba(245,166,35,.06);box-shadow:0 24px 50px rgba(0,0,0,.35)}
-  .cr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-  .cr-lv{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#F5A623;font-weight:600}
-  .cr-n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.4rem;line-height:1;color:transparent;-webkit-text-stroke:1.2px #2A3A55;transition:color .3s,-webkit-text-stroke-color .3s}
-  .cr-c:hover .cr-n,.cr-c:focus-visible .cr-n{color:#F5A623;-webkit-text-stroke-color:#F5A623}
-  .cr-c h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.015em;color:#fff;margin:0 0 16px}
-  .cr-roles{display:flex;flex-wrap:wrap;gap:8px}
-  .cr-roles span{font-size:.84rem;font-weight:500;color:#DCE3EC;border:1px solid #2A3A55;background:rgba(255,255,255,.03);border-radius:999px;padding:7px 12px;transition:background .2s,border-color .2s,color .2s,transform .2s;cursor:default}
-  .cr-roles span:hover{background:#F5A623;border-color:#F5A623;color:#0D1B2A;transform:translateY(-2px)}
-  .cr-bar{margin-top:auto;padding-top:22px}
-  .cr-bar div{height:6px;border-radius:3px;background:#1B2B44;overflow:hidden}
-  .cr-bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#D98A07,#F5A623);transform-origin:left;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-  .cr-c:nth-child(1) .cr-bar i{transform:scaleX(.34)}.cr-c:nth-child(2) .cr-bar i{transform:scaleX(.62)}.cr-c:nth-child(3) .cr-bar i{transform:scaleX(1)}
-  .cr-bar small{display:block;margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A99A8}
-  .cr-hl{border-color:#F5A623;background:linear-gradient(180deg,rgba(245,166,35,.10),rgba(245,166,35,.02));box-shadow:0 0 0 1px rgba(245,166,35,.35),0 18px 44px rgba(0,0,0,.3)}
-  .cr-hl:hover,.cr-hl:focus-visible{box-shadow:0 0 0 1px #F5A623,0 26px 56px rgba(0,0,0,.4),0 0 44px rgba(245,166,35,.22)}
-  .cr-sal{margin-top:auto;background:#F5A623;border-radius:12px;padding:18px 18px 16px;color:#0D1B2A}
-  .cr-sal small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.75;margin-bottom:6px}
-  .cr-sal b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.25rem,1rem + .8vw,1.55rem);line-height:1.1;white-space:nowrap;letter-spacing:-.02em}
-  .cr-sal b span{font-size:.95rem;font-weight:600}
-  .cr-hl .cr-roles{margin-bottom:22px}
-  .cr-gl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .cr-gl div{display:flex;align-items:center;gap:14px;border:1px solid #2A3A55;border-radius:12px;padding:16px 18px;color:#DCE3EC;font-size:.96rem;font-weight:500;transition:border-color .25s,background .25s,transform .25s}
-  .cr-gl svg{flex:none;width:38px;height:38px;padding:8px;border-radius:10px;background:rgba(245,166,35,.14);color:#F5A623;transition:background .25s,color .25s}
-  .cr-gl div:hover{border-color:#F5A623;background:rgba(245,166,35,.06);transform:translateY(-3px)}
-  .cr-gl div:hover svg{background:#F5A623;color:#0D1B2A}
-  @media (max-width:980px){.cr-g,.cr-gl{grid-template-columns:1fr}.cr-c:nth-child(n){min-height:0}}
-  @media (prefers-reduced-motion:reduce){.cr-c,.cr-roles span,.cr-gl div,.cr-bar i{transition:none}.cr-c:hover,.cr-gl div:hover,.cr-roles span:hover{transform:none}}
-  </style>
-  <div style="max-width:1200px;margin:0 auto;position:relative;">
-    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
-      <div><span class="eye">your career after the track</span><h2 class="tit" style="color:#fff;margin:14px 0 0;">Real careers. Real salaries.</h2></div>
-      <p class="deck" style="color:#DCE3EC;">Every module makes you job-ready for something, and each one lifts you a level. The salary shown is the typical starting range once you complete all three modules.</p>
-    </div>
-    <div class="cr-g">
-      <article class="cr-c reveal" tabindex="0">
-        <div class="cr-top"><span class="cr-lv">Level 01 &middot; After Module 1</span><span class="cr-n">01</span></div>
-        <h3>AI &amp; office starter</h3>
-        <div class="cr-roles"><span>Computer Operator</span><span>Office &amp; Admin Assistant</span><span>AI Operations Assistant</span><span>Prompt Specialist</span><span>Junior Project Coordinator</span><span>No-Code App Builder</span></div>
-        <div class="cr-bar"><div><i></i></div><small>01 of 03 &middot; keep climbing</small></div>
-      </article>
-      <article class="cr-c reveal" tabindex="0">
-        <div class="cr-top"><span class="cr-lv">Level 02 &middot; After Module 2</span><span class="cr-n">02</span></div>
-        <h3>AI application developer</h3>
-        <div class="cr-roles"><span>Junior Python Developer</span><span>Data Analyst</span><span>AI Application Developer</span><span>Chatbot &amp; RAG Developer</span><span>AI Integration Developer</span></div>
-        <div class="cr-bar"><div><i></i></div><small>02 of 03 &middot; keep climbing</small></div>
-      </article>
-      <article class="cr-c cr-hl reveal" tabindex="0">
-        <div class="cr-top"><span class="cr-lv">Level 03 &middot; After all 3 modules</span><span class="cr-n">03</span></div>
-        <h3>AI engineer</h3>
-        <div class="cr-roles"><span>AI Engineer</span><span>Agentic AI Developer</span><span>LLM Application Developer</span><span>AI Automation Engineer</span><span>Applied AI Engineer</span></div>
-        <div class="cr-sal"><small>// starting salary &middot; after all 3 modules</small><b>PKR 80,000 to 150,000+<span> /mo</span></b></div>
-      </article>
-    </div>
-    <div class="cr-gl">
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Remote AI roles with US &amp; EU startups</div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16v11H4z"/><path d="M9 7V5h6v2"/><path d="M4 12h16"/></svg>Freelance production AI systems</div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>International AI consulting</div>
-    </div>
+<section data-screen-label="GenAI / Careers" class="x-sec" style="background:#fff;--ac:#6D4AFF"><div class="x-wrap"><div class="x-th"><div><span class="x-label">Your career after the track</span><h2 class="x-h2">Every module moves you up a level.</h2></div><div><p class="x-sub">Every module makes you job-ready for something, and each one lifts you a level. The salary shown is the typical starting range once you complete all three modules.</p></div></div><div class="k-lvs"><article class="k-lv"><span class="st">Level 01 &middot; After Module 1</span><h3>AI &amp; office starter</h3><div class="rl"><span>Computer Operator</span><span>Office &amp; Admin Assistant</span><span>AI Operations Assistant</span><span>Prompt Specialist</span><span>Junior Project Coordinator</span><span>No-Code App Builder</span></div><div class="pg"><span style="width:33%"></span></div></article><article class="k-lv"><span class="st">Level 02 &middot; After Module 2</span><h3>AI application developer</h3><div class="rl"><span>Junior Python Developer</span><span>Data Analyst</span><span>AI Application Developer</span><span>Chatbot &amp; RAG Developer</span><span>AI Integration Developer</span></div><div class="pg"><span style="width:66%"></span></div></article><article class="k-lv k-lv--ink"><span class="st">Level 03 &middot; After all 3 modules</span><h3>AI engineer</h3><div class="rl"><span>AI Engineer</span><span>Agentic AI Developer</span><span>LLM Application Developer</span><span>AI Automation Engineer</span><span>Applied AI Engineer</span></div><div class="sal"><small>Starting salary after all 3 modules</small><b>PKR 80k to 150k+ <i>/mo</i></b></div></article></div><div class="k-glob"><span><svg class="x-ico"><use href="#i-globe"/></svg>Remote AI roles with US &amp; EU startups</span><span><svg class="x-ico"><use href="#i-globe"/></svg>Freelance production AI systems</span><span><svg class="x-ico"><use href="#i-globe"/></svg>International AI consulting</span></div></div></section>
+<section data-screen-label="GenAI / Audience" class="x-sec" style="background:var(--soft);--ac:#6D4AFF"><div class="x-wrap"><div class="x-th"><div><span class="x-label">Is this track right for you?</span><h2 class="x-h2">Built for people moving with AI, not watching it.</h2></div><div><p class="x-sub">No prior experience is needed to start. Each module has its own entry point, so you begin wherever you already are.</p></div></div><div class="k-auds"><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-user"/></svg></span><h3>Complete beginners</h3><p>No computer or coding background? Start Module 1 from Month 1. Nobody is turned away.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-award"/></svg></span><h3>Already know basic IT</h3><p>Comfortable with a computer, email and MS Office? Join Module 1 from Month 2.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-team"/></svg></span><h3>Prompters &amp; no-coders</h3><p>Understand prompting, APIs and basic web concepts? Join Module 2 after a short practical check.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-job"/></svg></span><h3>Developers</h3><p>Can write Python and call an LLM API? Join Module 3 after a practical entry evaluation.</p></div></div>
+  <div class="k-unsure"><span><svg class="x-ico"><use href="#i-compass"/></svg><b>Not sure if it&#8217;s the right fit?</b> Talk it through with an advisor before you decide.</span><a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="x-btn x-btn--ink">Take a free career assessment <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a></div>
+</div></section>
+<section data-screen-label="GenAI / Projects" class="x-sec" style="background:#fff;--ac:#6D4AFF"><div class="x-wrap"><div class="x-th"><div><span class="x-label">Real projects. real portfolio.</span><h2 class="x-h2">Learn by building things people pay for.</h2></div><div><p class="x-sub">Every module ends with a real build. Every project is public, on GitHub and on a live URL, so employers can open it and try it.</p></div></div><div class="k-projs"><article class="k-proj"><span class="num">01</span><span class="k">Module 01 capstone</span><h3>A Live Full Stack App</h3><p>A published application with a login and a database, built with AI builders and no code, plus a written explanation of its architecture from browser to database.</p></article><article class="k-proj"><span class="num">02</span><span class="k">Module 02 capstone</span><h3>A RAG Chatbot That Cites Sources</h3><p>A deployed chatbot that answers from real documents, cites where each answer came from and says when it does not know, with an evaluation report proving it improved.</p></article><article class="k-proj"><span class="num">03</span><span class="k">Module 03 capstone</span><h3>A Production AI Agent</h3><p>A secured, monitored agent connected to real business tools such as email, sheets or messaging, with an evaluation suite, a cost report and a client case study.</p></article></div></div></section>
+<section data-screen-label="GenAI / FAQ" class="x-sec" style="background:var(--soft);">
+  <div class="x-wrap t-faq-wrap">
+    <div class="stick"><span class="x-label">FAQ</span><h2 class="x-h2">Straight answers.</h2><p class="x-sub">Still unsure? Message an advisor on WhatsApp and get a reply within 24 hours.</p>
+      <div class="x-cta" style="justify-content:flex-start;"><a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="x-btn x-btn--ghost">Ask on WhatsApp</a></div></div>
+    <div class="t-faq"><details open><summary>Do I need prior coding experience?<i></i></summary><div class="a">No. Module 1 contains no programming and starts from zero, and Python begins in Module 2. If you already have basic IT skills you can join Module 1 from Month 2, and if you can already code you can join Module 2 or 3 after a short practical check.</div></details><details><summary>What is the duration of this track?<i></i></summary><div class="a">The full track runs 8 months across three modules: IT &amp; Programming Foundations (3 months), Generative AI (2 months) and Agentic AI (3 months). Each module can also be taken on its own.</div></details><details><summary>Is the internship paid?<i></i></summary><div class="a">Yes. A paid internship is included as you progress through the track. You earn while you learn, working on real AI projects inside our software-house network.</div></details><details><summary>What is the fee structure?<i></i></summary><div class="a">We offer 0% EMI through partner banks and merit scholarships up to 40%. Chat with an advisor for exact fee details for your situation.</div></details></div>
   </div>
 </section>
-
-<!-- ============ WHO IS THIS FOR ============ -->
-<section data-screen-label="GenAI / Audience" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
-      <div><span class="eye">is this track right for you?</span><h2 class="tit" style="margin:14px 0 0;">Built for people moving with AI, not watching it.</h2></div>
-      <p class="deck">No prior experience is needed to start. Each module has its own entry point, so you begin wherever you already are.</p>
+<section data-screen-label="GenAI / Final CTA" style="background:#fff;padding:clamp(56px,8vh,96px) clamp(20px,5vw,40px);--ac:#6D4AFF">
+  <div class="x-wrap x-final">
+    <div>
+      <span class="x-label x-label--light">Cohort 12 &middot; October 2026</span>
+      <h2 class="x-h2" style="color:#fff;">Ready to become an AI Engineer?</h2>
+      <p class="x-sub" style="color:#A9B6C8;">Three modules, one certificate each. Paid internship. 0% EMI &amp; merit scholarships up to 40%. Limited seats per cohort, so secure yours.</p>
+      <div class="x-cta" style="justify-content:flex-start;">
+        <a href="enroll.html#apply" class="x-btn x-btn--amber">Apply online <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a>
+        <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="x-btn x-btn--line">Chat on WhatsApp</a>
+      </div>
     </div>
-    <div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Complete beginners</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">No computer or coding background? Start Module 1 from Month 1. Nobody is turned away.</p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Already know basic IT</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Comfortable with a computer, email and MS Office? Join Module 1 from Month 2.</p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Prompters &amp; no-coders</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Understand prompting, APIs and basic web concepts? Join Module 2 after a short practical check.</p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#0D1B2A;margin:0 0 10px;letter-spacing:-.01em;">Developers</h3><p style="margin:0;color:#475569;font-size:.92rem;line-height:1.55;">Can write Python and call an LLM API? Join Module 3 after a practical entry evaluation.</p></div>
-    </div>
-    <div style="margin-top:36px;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;">
-      <div style="color:#0D1B2A;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.15rem;">Not sure if it's the right fit?</div>
-      <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:13px 24px;border-radius:999px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">Take a free career assessment</a>
-    </div>
+    <ul class="t-trust">
+      <li><svg class="x-ico"><use href="#i-award"/></svg>NAVTTC &amp; PITB accredited</li>
+      <li><svg class="x-ico"><use href="#i-cash"/></svg>Paid internship included</li>
+      <li><svg class="x-ico"><use href="#i-cal"/></svg>8 months, trainee to expert</li>
+      <li><svg class="x-ico"><use href="#i-team"/></svg>Software house exposure</li>
+    </ul>
   </div>
 </section>
-
-<!-- ============ PROJECTS ============ -->
-<section data-screen-label="GenAI / Projects" style="background:#F4F6F9;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:48px;">
-      <div><span class="eye">real projects. real portfolio.</span><h2 class="tit" style="margin:14px 0 0;">Learn by building things people pay for.</h2></div>
-      <p class="deck">Every module ends with a real build. Every project is public, on GitHub and on a live URL, so employers can open it and try it.</p>
-    </div>
-    <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:#EEF2F7;line-height:1;margin-bottom:8px;-webkit-text-stroke:1px #DCE3EC;">01</div><div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:10px;">// module 01 capstone</div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">A Live Full Stack App</h3><p style="margin:0;color:#475569;font-size:.94rem;line-height:1.6;">A published application with a login and a database, built with AI builders and no code, plus a written explanation of its architecture from browser to database.</p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:#EEF2F7;line-height:1;margin-bottom:8px;-webkit-text-stroke:1px #DCE3EC;">02</div><div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:10px;">// module 02 capstone</div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">A RAG Chatbot That Cites Sources</h3><p style="margin:0;color:#475569;font-size:.94rem;line-height:1.6;">A deployed chatbot that answers from real documents, cites where each answer came from and says when it does not know, with an evaluation report proving it improved.</p></div>
-      <div class="card reveal" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;padding:30px;box-shadow:0 1px 2px rgba(13,27,42,.06);"><span class="tick"></span><div class="mono" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:#EEF2F7;line-height:1;margin-bottom:8px;-webkit-text-stroke:1px #DCE3EC;">03</div><div class="mono" style="font-size:10px;letter-spacing:.18em;color:#D98A07;text-transform:uppercase;margin-bottom:10px;">// module 03 capstone</div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;color:#0D1B2A;margin:0 0 12px;letter-spacing:-.015em;">A Production AI Agent</h3><p style="margin:0;color:#475569;font-size:.94rem;line-height:1.6;">A secured, monitored agent connected to real business tools such as email, sheets or messaging, with an evaluation suite, a cost report and a client case study.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section data-screen-label="GenAI / FAQ" style="background:#EEF2F7;padding:clamp(72px,10vh,120px) clamp(20px,5vw,40px);border-bottom:1px solid #DCE3EC;">
-  <div style="max-width:840px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:40px;"><span class="eye" style="justify-content:center;">frequently asked questions</span><h2 class="tit" style="margin:14px 0 0;">Straight answers.</h2></div>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Do I need prior coding experience?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">No. Module 1 contains no programming and starts from zero, and Python begins in Module 2. If you already have basic IT skills you can join Module 1 from Month 2, and if you can already code you can join Module 2 or 3 after a short practical check.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What is the duration of this track?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">The full track runs 8 months across three modules: IT &amp; Programming Foundations (3 months), Generative AI (2 months) and Agentic AI (3 months). Each module can also be taken on its own.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">Is the internship paid?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">Yes. A paid internship is included as you progress through the track. You earn while you learn, working on real AI projects inside our software-house network.</div></details>
-    <details class="faq" style="background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:0 1px 2px rgba(13,27,42,.05);"><summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.08rem;color:#0D1B2A;letter-spacing:-.01em;">What is the fee structure?<span class="chev" style="flex:none;width:18px;height:18px;position:relative;color:#D98A07;"><span style="position:absolute;inset:0;display:block;"><span style="position:absolute;top:8px;left:2px;right:2px;height:2px;background:currentColor;"></span><span style="position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:currentColor;"></span></span></span></summary><div style="padding:0 26px 24px;color:#475569;font-size:.98rem;line-height:1.65;">We offer 0% EMI through partner banks and merit scholarships up to 40%. Chat with an advisor for exact fee details for your situation.</div></details>
-  </div>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section data-screen-label="GenAI / Final CTA" style="background:#0D1B2A;color:#fff;padding:clamp(72px,11vh,140px) clamp(20px,5vw,40px);position:relative;overflow:hidden;">
-  <div aria-hidden="true" style="position:absolute;top:-180px;right:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(245,166,35,.16) 0%,transparent 65%);pointer-events:none;"></div>
-  <div style="max-width:900px;margin:0 auto;text-align:center;position:relative;">
-    <span class="eye" style="justify-content:center;">the second-best time is now</span>
-    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,1.6rem + 2.4vw,3.6rem);line-height:1.05;letter-spacing:-.025em;color:#fff;margin:16px 0 18px;">Ready to become an<br>AI Engineer<span style="color:#F5A623;">?</span></h2>
-    <p style="font-size:1.1rem;line-height:1.6;color:#DCE3EC;margin:0 auto 32px;max-width:560px;">Three modules, one certificate each. Paid internship. 0% EMI &amp; merit scholarships up to 40%. Limited seats per cohort, so secure yours.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-      <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20Full%20Stack%20AI%20Engineer%20track." class="btn bp" style="background:#13294B;color:#fff;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);"><svg width="16" height="16" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.002 3C8.82 3 3 8.82 3 16.002a12.94 12.94 0 0 0 1.74 6.49L3 29l6.69-1.755A12.96 12.96 0 0 0 16.002 29C23.18 29 29 23.18 29 16.002 29 8.82 23.18 3 16.002 3z"/></svg>Chat on WhatsApp &middot; Talk to Advisor</a>
-      <a href="enroll.html#apply" class="btn bs" style="background:#F5A623;color:#0D1B2A;font-weight:700;padding:16px 28px;border-radius:8px;font-size:16px;display:inline-flex;gap:10px;align-items:center;">Enroll now &middot; Save your seat</a>
-    </div>
-  </div>
-</section>
+<section data-screen-label="GenAI / Other tracks" class="k-other"><div class="x-wrap"><div class="k-other-head"><b>Explore other tracks</b><a href="tracks.html">Compare all 7 <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a></div><div class="k-other-grid"><a href="track-cloud-mlops.html" style="--ac:#1F7AE0"><span class="ic"><svg class="x-ico"><use href="#i-cloud"/></svg></span>Cloud + MLOps<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="track-cybersecurity.html" style="--ac:#0E9F6E"><span class="ic"><svg class="x-ico"><use href="#i-shield"/></svg></span>Cybersecurity<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="track-odoo-erp.html" style="--ac:#714B67"><span class="ic"><svg class="x-ico"><use href="#i-grid"/></svg></span>Odoo Functional Consultant<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="track-uiux-brand.html" style="--ac:#E0457B"><span class="ic"><svg class="x-ico"><use href="#i-pen"/></svg></span>AI-Powered Graphic Design<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="track-ai-marketing.html" style="--ac:#EA6A12"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span>AI-Powered Marketing + Sales<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="track-ai-ecommerce.html" style="--ac:#0F9690"><span class="ic"><svg class="x-ico"><use href="#i-cart"/></svg></span>AI-Powered E&#8209;Commerce<svg class="x-ico ar"><use href="#i-arrow"/></svg></a></div></div></section>
+<script>
+(function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var els=document.querySelectorAll('.x-sec .x-center,.x-th>*,.k-fact,.t-month,.k-mod,.k-learn,.k-cert,.k-tools>*,.k-car>*,.k-lv,.k-aud,.k-proj,.t-faq details,.x-final,.k-unsure');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('x-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p.children,el);el.classList.add('x-rv0');el.style.transitionDelay=Math.min(k,5)*70+'ms';io.observe(el)});})();
+</script>
 
 <footer data-screen-label="Tracks / Footer" class="x x-foot">
 <style>
@@ -1208,6 +1234,7 @@ section[data-screen-label="GenAI / Final CTA"] .bs{box-shadow:0 12px 32px -8px r
     <div class="x-foot-bot"><span>&copy; 2026 Big Binary Trainings. All rights reserved.</span><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to top <svg class="x-ico" style="width:16px;height:16px;transform:rotate(-90deg)"><use href="#i-arrow"/></svg></a></div>
   </div>
 </footer>
+</div>
 
 </div>
 
