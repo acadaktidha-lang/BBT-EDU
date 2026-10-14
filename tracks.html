@@ -877,24 +877,60 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 </style>
 
 <!-- ==================== HERO ==================== -->
-<section data-screen-label="Tracks / Hero" class="x-hero has-pic" style="position:relative;">
+<section data-screen-label="Tracks / Hero" class="x-hero t-hero" style="position:relative;">
+<style>
+.t-hero::before{display:none}
+.t-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.t-hero h1{font-size:clamp(2.6rem,1rem + 4.4vw,4.7rem)}
+.t-hero .x-lead{margin-top:26px;max-width:520px}
+.t-hero .x-cta{margin-top:30px}
+.t-hero .x-cta .x-btn{font-size:17px;padding:19px 34px}
+.t-pick{position:relative}
+.t-pick::before{content:"";position:absolute;inset:26px -18px -18px 26px;background:var(--amber);border-radius:30px;transform:rotate(2.5deg)}
+.t-pick-card{position:relative;background:#fff;border:1px solid #EADFCB;border-radius:28px;padding:18px;box-shadow:0 40px 80px -40px rgba(10,20,34,.35)}
+.t-pick-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px 14px}
+.t-pick-head b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--ink)}
+.t-pick-head span{font-size:12px;font-weight:600;color:#16794D;background:#E3F7EE;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:6px}
+.t-pick-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:#16A34A}
+.t-pick-card a{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;padding:11px 12px;border-radius:16px;color:var(--ink);transition:background .2s}
+.t-pick-card a+a{margin-top:2px}
+.t-pick-card a:hover{background:color-mix(in srgb,var(--ac) 8%,#fff)}
+.t-pick-card .ic{width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac);display:flex;align-items:center;justify-content:center}
+.t-pick-card .ic .x-ico{width:20px;height:20px}
+.t-pick-card .tx b{display:block;font-weight:600;font-size:.98rem;line-height:1.25}
+.t-pick-card .tx small{display:block;font-size:.82rem;color:var(--muted);margin-top:2px}
+.t-pick-card .pk{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);white-space:nowrap}
+.t-pick-card .pk i{font-style:normal;font-size:.75rem;font-weight:500;color:var(--muted)}
+.t-pick-card .ar{width:18px;height:18px;stroke-width:2;color:#B4BFCC;transition:transform .25s,color .25s}
+.t-pick-card a:hover .ar{color:var(--ac);transform:translateX(3px)}
+.t-pick-foot{margin:12px 10px 4px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.t-pick-foot .x-ico{width:16px;height:16px;color:var(--amber-d)}
+@media(max-width:980px){.t-hero-grid{grid-template-columns:1fr;gap:44px}.t-pick::before{inset:20px -8px -12px 18px}}
+@media(max-width:640px){.t-pick-card{padding:12px}.t-pick-card a{grid-template-columns:auto 1fr auto;gap:12px;padding:10px 8px}.t-pick-card .ar{display:none}.t-pick-card .tx small{display:none}}
+</style>
   <div class="x-wrap">
-    <div class="x-hero-in">
-      <a href="enroll.html#apply" class="x-chip"><i></i>Cohort 12 admissions are open <b>Apply &rarr;</b></a>
-      <h1>From beginner<br class="x-br"> to <span class="x-scrib">expert<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span><br class="x-br"> in 8 months.</h1>
-      <div class="x-hero-row">
-        <div>
-          <p class="x-lead">Seven career tracks built on one proven four phase system. Month one covers Basic IT and Spoken English, then you go straight into your track, with a paid internship from phase two.</p>
-          <div class="x-cta">
-            <a href="#tracks" class="x-btn x-btn--ink">Explore the 7 tracks <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a>
-          </div>
+    <div class="t-hero-grid">
+      <div class="x-hero-in">
+        <a href="enroll.html#apply" class="x-chip"><i></i>Cohort 12 admissions are open <b>Apply &rarr;</b></a>
+        <h1>From beginner<br class="x-br"> to <span class="x-scrib">expert<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span><br class="x-br"> in 8 months.</h1>
+        <p class="x-lead">Seven career tracks built on one proven four phase system. Month one covers Basic IT and Spoken English, then you go straight into your track, with a paid internship from phase two.</p>
+        <div class="x-cta">
+          <a href="#tracks" class="x-btn x-btn--ink">Compare the tracks <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a>
         </div>
-        <a href="enroll.html#apply" class="x-badge" aria-label="Apply now for cohort 12">
-          <svg viewBox="0 0 148 148" aria-hidden="true"><defs><path id="t-badge-c" d="M74,74 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"/></defs><text><textPath href="#t-badge-c">Apply now &#8226; Cohort 12 &#8226; October 2026 &#8226;</textPath></text></svg>
-          <span><svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
-        </a>
       </div>
-      <figure class="x-hero-pic"><img src="assets/bbt-tracks-hero.jpg" alt="A BBT instructor teaching a career track class at iMac workstations in Lahore" width="1600" height="1200" fetchpriority="high"></figure>
+      <div class="t-pick">
+        <div class="t-pick-card">
+          <div class="t-pick-head"><b>Pick your track</b><span>Cohort 12 open</span></div>
+          <a href="track-full-stack-ai-engineer.html" style="--ac:#6D4AFF"><span class="ic"><svg class="x-ico"><use href="#i-chip"/></svg></span><span class="tx"><b>Full Stack AI Engineer</b><small>LLMs, AI agents, automation</small></span><span class="pk">PKR 80k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-cloud-mlops.html" style="--ac:#1F7AE0"><span class="ic"><svg class="x-ico"><use href="#i-cloud"/></svg></span><span class="tx"><b>Cloud + MLOps</b><small>AWS, Docker, Kubernetes</small></span><span class="pk">PKR 90k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-cybersecurity.html" style="--ac:#0E9F6E"><span class="ic"><svg class="x-ico"><use href="#i-shield"/></svg></span><span class="tx"><b>Cybersecurity</b><small>Ethical hacking, SOC</small></span><span class="pk">PKR 80k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-odoo-erp.html" style="--ac:#714B67"><span class="ic"><svg class="x-ico"><use href="#i-grid"/></svg></span><span class="tx"><b>Odoo Functional Consultant</b><small>Enterprise ERP, no coding</small></span><span class="pk">PKR 60k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-uiux-brand.html" style="--ac:#E0457B"><span class="ic"><svg class="x-ico"><use href="#i-pen"/></svg></span><span class="tx"><b>AI-Powered Graphic Design</b><small>Figma, prototyping, brand</small></span><span class="pk">PKR 50k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-ai-marketing.html" style="--ac:#EA6A12"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span><span class="tx"><b>AI-Powered Marketing</b><small>SEO, ads, automation</small></span><span class="pk">PKR 50k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <a href="track-ai-ecommerce.html" style="--ac:#0F9690"><span class="ic"><svg class="x-ico"><use href="#i-cart"/></svg></span><span class="tx"><b>AI-Powered E&#8209;Commerce</b><small>Stores, marketplaces, AI</small></span><span class="pk">PKR 50k+<i>/mo</i></span><svg class="x-ico ar"><use href="#i-arrow"/></svg></a>
+          <div class="t-pick-foot"><svg class="x-ico"><use href="#i-cash"/></svg>Starting salaries in Pakistan, per month</div>
+        </div>
+      </div>
     </div>
 
     <div class="t-stats">
