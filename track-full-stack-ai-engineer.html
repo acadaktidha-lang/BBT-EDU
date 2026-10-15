@@ -1131,19 +1131,17 @@ section[data-screen-label="GenAI / Tools"] .stk-t{border-radius:16px}
 .fsx-hero .k-fact{padding:16px 18px}
 .fsx-hero .k-fact b{font-size:1.15rem}
 .fsx-side{position:absolute;z-index:0;top:0;bottom:0;right:0;left:53%;overflow:hidden;background:#0B1220;border-radius:56px 0 0 56px;box-shadow:-30px 0 80px -40px rgba(10,20,34,.45)}
-.fsx-cols{position:absolute;inset:-8% -3% -8% 68px;display:grid;grid-template-columns:1fr 1fr;gap:8px;transform:rotate(-3deg)}
+.fsx-cols{position:absolute;inset:0 0 0 56px;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px}
 .fsx-col{overflow:hidden}
-.fsx-col .tr{display:flex;flex-direction:column;gap:8px;animation:fsxUp 60s linear infinite}
-.fsx-col:nth-child(2) .tr{animation-name:fsxDown;animation-duration:70s}
+.fsx-col .tr{display:flex;flex-direction:column;gap:10px;padding-top:10px;will-change:transform;backface-visibility:hidden;transform:translate3d(0,0,0);animation:fsxUp 80s linear infinite}
+.fsx-col:nth-child(2) .tr{animation-name:fsxDown;animation-duration:92s}
 .fsx-side:hover .tr{animation-play-state:paused}
-.fsx-col figure{position:relative;margin:0;border-radius:12px;overflow:hidden;background:#1C2A3D}
+.fsx-col figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#1C2A3D;transform:translateZ(0)}
 .fsx-col:nth-child(1) figure{aspect-ratio:4/3.4}
 .fsx-col:nth-child(2) figure{aspect-ratio:4/5}
-.fsx-col img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(.25) saturate(.9) contrast(1.08) brightness(.96);transition:transform 1.4s cubic-bezier(.22,1,.36,1),filter .6s}
-.fsx-col figure::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,color-mix(in srgb,var(--ac) 22%,transparent),transparent 55%,rgba(11,18,32,.28));mix-blend-mode:multiply;transition:opacity .6s;pointer-events:none}
-.fsx-col figure:hover img{transform:scale(1.07);filter:none}
-.fsx-col figure:hover::after{opacity:0}
-.fsx-side::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(11,18,32,.55),transparent 18%,transparent 78%,rgba(11,18,32,.7))}
+.fsx-col img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.fsx-col figure:hover img{transform:scale(1.05)}
+.fsx-side::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(11,18,32,.35),transparent 10%,transparent 82%,rgba(11,18,32,.6))}
 .fsx-vt{position:absolute;z-index:2;top:0;bottom:0;left:0;width:56px;background:#0B1220;border-right:1px solid rgba(255,255,255,.08);overflow:hidden}
 .fsx-vt div{display:flex;flex-direction:column;align-items:center;height:max-content;animation:fsxUp 46s linear infinite}
 .fsx-vt span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.78);white-space:nowrap;display:flex;align-items:center;gap:22px;padding:11px 0}
@@ -1161,8 +1159,8 @@ section[data-screen-label="GenAI / Tools"] .stk-t{border-radius:16px}
 .fsx-now .bar{flex:none;width:120px;height:3px;border-radius:9px;background:rgba(255,255,255,.18);overflow:hidden}
 .fsx-now .bar i{display:block;height:100%;width:40%;background:var(--ac);border-radius:9px;animation:fsxBar 3.2s ease-in-out infinite}
 .fsx-tk{display:none}
-@keyframes fsxUp{to{transform:translateY(-50%)}}
-@keyframes fsxDown{from{transform:translateY(-50%)}to{transform:none}}
+@keyframes fsxUp{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+@keyframes fsxDown{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
 @keyframes fsxTk{to{transform:translateX(-50%)}}
 @keyframes fsxBar{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
 @keyframes fsxLive{0%{box-shadow:0 0 0 0 rgba(229,72,77,.5)}70%{box-shadow:0 0 0 7px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
@@ -1174,7 +1172,7 @@ section[data-screen-label="GenAI / Tools"] .stk-t{border-radius:16px}
   .fsx-hero .k-hero-grid{grid-template-columns:1fr;order:1}
   .fsx-ph{display:none}
   .fsx-side{position:relative;order:2;left:auto;height:460px;margin:40px calc(-1 * clamp(20px,5vw,40px)) 0;border-radius:36px 36px 0 0}
-  .fsx-cols{inset:-8% -3% -8% -3%}
+  .fsx-cols{inset:0;padding:0 8px}
   .fsx-vt{display:none}
   .fsx-now{left:20px;right:20px;bottom:22px}
   .fsx-tk{display:block;order:3;position:relative;z-index:4;margin:0 calc(-1 * clamp(20px,5vw,40px)) calc(-1 * 56px);background:#0B1220;color:#fff;padding:14px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
@@ -1190,8 +1188,8 @@ section[data-screen-label="GenAI / Tools"] .stk-t{border-radius:16px}
 <section data-screen-label="GenAI / Hero" class="k-hero fsx-hero" style="--ac:#6D4AFF">
   <div class="fsx-side">
     <div class="fsx-cols">
-      <div class="fsx-col"><div class="tr"><figure><img src="assets/bbt-lab-projector.jpg" alt="Students following a lesson on the projector in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure><img src="assets/bbt-ai-classroom.jpg" alt="A full BBT AI class on the Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure><img src="assets/bbt-lab-girls.jpg" alt="Students in a BBT class at their iMacs" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-projector.jpg" alt="Students following a lesson on the projector in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-ai-classroom.jpg" alt="A full BBT AI class on the Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-girls.jpg" alt="Students in a BBT class at their iMacs" width="1200" height="900" loading="lazy"></figure></div></div>
-      <div class="fsx-col"><div class="tr"><figure><img src="assets/bbt-lab-mentor.jpg" alt="A BBT mentor teaching students at iMac workstations" width="1200" height="900" loading="lazy"></figure><figure><img src="assets/bbt-lab-lenovo.jpg" alt="Professionals in a hands on session in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure><img src="assets/bbt-hero-class.jpg" alt="A BBT instructor teaching at the projector" width="1600" height="1200" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-mentor.jpg" alt="A BBT mentor teaching students at iMac workstations" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-lenovo.jpg" alt="Professionals in a hands on session in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-hero-class.jpg" alt="A BBT instructor teaching at the projector" width="1600" height="1200" loading="lazy"></figure></div></div>
+      <div class="fsx-col"><div class="tr"><figure><img src="assets/bbt-fs-1.jpg" alt="Students following a lesson on the projector in a BBT lab" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-fs-3.jpg" alt="A full BBT AI class on the Lahore campus" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-fs-5.jpg" alt="Students in a BBT class at their iMacs" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-1.jpg" alt="Students following a lesson on the projector in a BBT lab" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-3.jpg" alt="A full BBT AI class on the Lahore campus" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-5.jpg" alt="Students in a BBT class at their iMacs" width="1000" height="750" loading="lazy"></figure></div></div>
+      <div class="fsx-col"><div class="tr"><figure><img src="assets/bbt-fs-2.jpg" alt="A BBT mentor teaching students at iMac workstations" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-fs-4.jpg" alt="Professionals in a hands on session in a BBT lab" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-fs-6.jpg" alt="A BBT instructor teaching at the projector" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-2.jpg" alt="A BBT mentor teaching students at iMac workstations" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-4.jpg" alt="Professionals in a hands on session in a BBT lab" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-6.jpg" alt="A BBT instructor teaching at the projector" width="1000" height="750" loading="lazy"></figure></div></div>
     </div>
     <div class="fsx-vt" aria-hidden="true"><div><span>Python</span><span>Prompt Engineering</span><span>LLM APIs</span><span>RAG Chatbots</span><span>LangChain</span><span>LangGraph</span><span>AI Agents</span><span>MCP</span><span>Vector Search</span><span>FastAPI</span><span>Docker</span><span>Multi Agent Systems</span><span>Python</span><span>Prompt Engineering</span><span>LLM APIs</span><span>RAG Chatbots</span><span>LangChain</span><span>LangGraph</span><span>AI Agents</span><span>MCP</span><span>Vector Search</span><span>FastAPI</span><span>Docker</span><span>Multi Agent Systems</span></div></div>
     <div class="fsx-pill fsx-pill--a" aria-hidden="true"><i></i><span><b>Live class</b>Lahore campus and online</span></div>
