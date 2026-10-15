@@ -1352,6 +1352,12 @@ html body .x-btn--amber:hover{background:var(--ink,#0A1422);color:#fff;box-shado
 html body .x-btn--ghost:hover{background:var(--ink,#0A1422);color:#fff;border-color:var(--ink,#0A1422)}
 html body .x-btn--line:hover{background:#fff;color:var(--ink,#0A1422);border-color:#fff}
 html body .x-btn:hover .x-ico{color:inherit}
+/* ---- pill chips: fill with the page colour on hover ---- */
+html body :is(.k-glob span,.k-meta span,.k-chip,.k-lv .rl span,.fsx-tags span,.tl,.pin,.time){transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;cursor:default}
+html body :is(.k-glob span,.k-meta span,.k-chip,.k-lv:not(.k-lv--ink) .rl span,.fsx-tags span,.tl,.pin):hover{background:var(--ac,#F5A623);border-color:var(--ac,#F5A623);color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px -12px color-mix(in srgb,var(--ac,#F5A623) 70%,transparent)}
+html body :is(.k-glob span,.k-meta span,.k-chip,.tl,.pin):hover .x-ico,html body :is(.k-glob span,.k-meta span,.tl):hover svg{color:#fff;stroke:currentColor}
+html body .k-chip:hover i{background:#fff}
+html body .k-lv--ink .rl span:hover{background:#fff;color:var(--ink,#0A1422)}
 @media (max-width:640px){html body .stk-t.stk-t{width:calc(33.333% - 7px);height:96px}}
 @media (prefers-reduced-motion:reduce){html body .x-btn,html body :is(.k-mod,.k-learn,.k-aud,.k-proj,.t-month,.ct-c){transition:none}}
 </style>
