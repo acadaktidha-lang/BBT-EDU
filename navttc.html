@@ -1358,6 +1358,19 @@ html body :is(.k-glob span,.k-meta span,.k-chip,.k-lv:not(.k-lv--ink) .rl span,.
 html body :is(.k-glob span,.k-meta span,.k-chip,.tl,.pin):hover .x-ico,html body :is(.k-glob span,.k-meta span,.tl):hover svg{color:#fff;stroke:currentColor}
 html body .k-chip:hover i{background:#fff}
 html body .k-lv--ink .rl span:hover{background:#fff;color:var(--ink,#0A1422)}
+/* ---- navbar blends into the hero at the top of the page ---- */
+html body header[data-screen-label]{background:transparent!important;border-bottom-color:transparent!important;--hh:73px}
+html body header[data-screen-label][data-open]{background:#fff!important;border-bottom-color:#DCE3EC!important}
+html body section[data-screen-label$="/ Hero"]{--hh:73px;margin-top:calc(-1 * var(--hh))}
+html body section.k-hero[data-screen-label],html body section.c-hero[data-screen-label],html body section.ar-hero[data-screen-label]{padding-top:calc(clamp(48px,7vh,88px) + var(--hh))}
+html body section.x-hero[data-screen-label]{padding-top:calc(clamp(48px,8vh,96px) + var(--hh))}
+html body section.th-hero[data-screen-label]{padding-top:calc(4vh + var(--hh))}
+html body section.th-hero .th-side{top:var(--hh)}
+html body section.th-hero{height:100vh;height:100svh;min-height:633px;max-height:1033px}
+@media (max-width:980px){html body section.th-hero[data-screen-label]{padding-top:calc(clamp(48px,7vh,88px) + var(--hh))}html body section.th-hero .th-side{top:auto}}
+@media (max-width:980px){html body section.th-hero{height:auto;min-height:0;max-height:none}}
+html body .ar-back{display:flex;width:max-content}
+@media (max-width:640px){html body section[data-screen-label$="/ Hero"]{--hh:63px}}
 @media (max-width:640px){html body .stk-t.stk-t{width:calc(33.333% - 7px);height:96px}}
 @media (prefers-reduced-motion:reduce){html body .x-btn,html body :is(.k-mod,.k-learn,.k-aud,.k-proj,.t-month,.ct-c){transition:none}}
 </style>
