@@ -1171,6 +1171,69 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 @media(min-width:981px){.th-hero .k-hero-in{max-width:530px}.th-hero .k-intro{max-width:530px}}
 @media(min-width:981px){.th-ring{left:calc(76% + 5px);top:calc(50% + 36px)}}
 </style>
+<style id="kids-css">
+/* ============ BBT KIDS (2026-10): logo colours navy, amber, teal, pink ============ */
+.x{--kn:#22195E;--ky:#F5A300;--kt:#12A6B2;--kp:#F2385C}
+/* each section gets one logo colour */
+section[data-screen-label$="/ Hero"]{--ac:#F2385C!important}
+section[data-screen-label$="/ What"],section[data-screen-label$="/ Learn"],section[data-screen-label$="/ Audience"]{--ac:#12A6B2!important}
+section[data-screen-label$="/ Grid"],section[data-screen-label$="/ Outline"],section[data-screen-label$="/ FAQ"]{--ac:#F2385C!important}
+section[data-screen-label$="/ Skills"],section[data-screen-label$="/ Final CTA"],section[data-screen-label$="/ Other courses"]{--ac:#F5A300!important}
+.x .x-label{color:color-mix(in srgb,var(--ac) 78%,#000)}
+.x .x-label::before{background:var(--ac);height:4px;border-radius:4px}
+.x .x-label--light{color:var(--ky)}
+.x .x-scrib path{stroke:var(--kp)}
+.x .x-btn--ink{background:var(--kn)}
+.x .x-btn--ink:hover{background:var(--kp)}
+/* cards cycle through the four colours */
+.k-learns>:nth-child(4n+1),.k-auds>:nth-child(4n+1),.kd-g>:nth-child(4n+1),.k-other-grid>:nth-child(4n+1),.t-faq>:nth-child(4n+1),.k-meta>:nth-child(4n+1){--ac:#F5A300!important}
+.k-learns>:nth-child(4n+2),.k-auds>:nth-child(4n+2),.kd-g>:nth-child(4n+2),.k-other-grid>:nth-child(4n+2),.t-faq>:nth-child(4n+2),.k-meta>:nth-child(4n+2){--ac:#12A6B2!important}
+.k-learns>:nth-child(4n+3),.k-auds>:nth-child(4n+3),.kd-g>:nth-child(4n+3),.k-other-grid>:nth-child(4n+3),.t-faq>:nth-child(4n+3),.k-meta>:nth-child(4n+3){--ac:#F2385C!important}
+.k-learns>:nth-child(4n+4),.k-auds>:nth-child(4n+4),.kd-g>:nth-child(4n+4),.k-other-grid>:nth-child(4n+4),.t-faq>:nth-child(4n+4),.k-meta>:nth-child(4n+4){--ac:#22195E!important}
+.k-meta span .x-ico{color:var(--ac)}
+.k-meta span{transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+.k-meta span:hover{transform:translateY(-3px);border-color:var(--ac)}
+/* bouncy hover */
+.k-learn,.k-aud,.kd-c,.k-other-grid a{transition:opacity .8s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s,background .3s}
+.k-learn:hover,.k-aud:hover,.kd-c:hover{transform:translateY(-8px) rotate(-1deg);border-color:var(--ac);box-shadow:0 28px 50px -26px color-mix(in srgb,var(--ac) 70%,transparent)}
+.k-learns>:nth-child(even):hover,.k-auds>:nth-child(even):hover,.kd-g>:nth-child(even):hover{transform:translateY(-8px) rotate(1deg)}
+.k-other-grid a:hover{transform:translateY(-3px);border-color:var(--ac)}
+.k-other-grid a .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.k-other-grid a:hover .ic{transform:rotate(-12deg) scale(1.1)}
+.k-aud .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .3s,color .3s}
+.k-aud:hover .ic{transform:rotate(-10deg) scale(1.12);background:var(--ac);color:#fff}
+.k-learn .nb{transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.k-learn:hover .nb{transform:rotate(-8deg) scale(1.1)}
+.kd-c .ft b{color:color-mix(in srgb,var(--ac) 72%,#000)}
+.k-learns>:nth-child(4n+1) .nb,.kd-g>:nth-child(4n+1) .ag{color:var(--kn)}
+/* learn panels and FAQ */
+.t-month{border-top:5px solid var(--kt)}
+.t-month--ink{background:var(--kn);border-color:var(--kn);border-top-color:var(--ky)}
+.t-month--ink::before{background:rgba(242,56,92,.22)}
+.t-month li .x-ico{color:var(--kt)}
+.t-month--ink li .x-ico{color:var(--ky)}
+.t-month .k{color:#0B7F89}
+.t-month--ink .k{color:var(--ky)}
+.t-faq details{border-left:5px solid var(--ac)}
+.t-faq details[open] summary i{background:var(--ac)}
+.t-faq details[open] summary i::before,.t-faq details[open] summary i::after{background:#fff}
+/* final CTA in kids navy with flat logo-colour circles */
+.x .x-final{background:var(--kn)}
+.x .x-final::before{background:rgba(242,56,92,.22)}
+.x .x-final::after{content:"";position:absolute;left:-90px;bottom:-110px;width:260px;height:260px;border-radius:50%;background:rgba(18,166,178,.22);pointer-events:none}
+.x .x-final>*{position:relative;z-index:1}
+/* hero */
+.th-kids .th-cols{background:var(--kn)}
+.th-kids .th-pat{color:var(--kn);opacity:.09}
+.th-kids .th-fi1{color:var(--kt);border-color:color-mix(in srgb,var(--kt) 45%,#fff)}
+.th-kids .th-fi3{color:var(--ky);border-color:color-mix(in srgb,var(--ky) 45%,#fff)}
+.th-kids .th-pill--b .x-ico{color:var(--kt);background:color-mix(in srgb,var(--kt) 12%,#fff)}
+.th-kids .th-ring{background:var(--kn);box-shadow:0 0 0 6px var(--kt),0 0 0 12px color-mix(in srgb,var(--kp) 55%,transparent),0 30px 60px -24px rgba(0,0,0,.6)}
+.th-kids .th-ring img{box-shadow:0 0 0 3px var(--ky)}
+.th-kids .th-tk{background:var(--kn)}
+.th-kids .th-tk span:nth-child(4n+1)::after{background:var(--ky)}.th-kids .th-tk span:nth-child(4n+2)::after{background:var(--kt)}.th-kids .th-tk span:nth-child(4n+3)::after{background:var(--kp)}.th-kids .th-tk span:nth-child(4n)::after{background:#fff}
+@media (prefers-reduced-motion:reduce){.k-learn:hover,.k-aud:hover,.kd-c:hover,.k-learns>:nth-child(even):hover,.k-auds>:nth-child(even):hover,.kd-g>:nth-child(even):hover{transform:none}}
+</style>
 <style>
 .kd-g{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:56px}
 .kd-c{grid-column:span 2;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,border-color .3s}
