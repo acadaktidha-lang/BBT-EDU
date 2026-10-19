@@ -1279,6 +1279,21 @@ html body .tl-4 .k-learn.k-learn{padding:0 0 20px;border-radius:24px}html body .
 @media(max-width:980px){.th-kids .th-side{height:520px;margin-top:28px}.kp figcaption{font-size:10px;padding:8px 0 9px}.kp::before{width:64px;height:22px;margin-left:-32px;top:-10px}}
 @media(max-width:640px){.th-kids .th-side{height:420px}.kp{padding:6px 6px 0}}
 @media (prefers-reduced-motion:reduce){.kp{animation:none}}
+/* fit: 2x2 grid sized to the space, ring in the gap, captions on the outer edges */
+.kp-board{inset:76px 30px 104px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:26px 34px;align-items:center;justify-items:center;container-type:size}
+.kp{position:relative;left:auto;top:auto;width:min(100%,(50cqh - 13px - 50px) * 1.333)}
+.kp1,.kp3{justify-self:end}.kp2,.kp4{justify-self:start}
+.kp1 figcaption,.kp3 figcaption{text-align:left;padding-left:6px}
+.kp2 figcaption,.kp4 figcaption{text-align:right;padding-right:6px}
+.th-kids .th-ring{width:160px;height:160px;margin:-80px 0 0 -80px;top:calc(50% - 14px)}
+.th-kids .th-ring img{width:108px;height:108px;margin:-54px 0 0 -54px}
+.kp-st1{left:50%;top:6px;margin-left:-20px}
+.kp-st2{left:-6px;top:50%}
+.kp-st3{right:-8px;top:50%}
+.kp-st4{left:auto;right:28%;bottom:-40px}
+@media(min-width:981px){.th-kids .th-ring{left:calc(76% + 5px)}}
+@media(max-width:980px){.kp-board{inset:30px 14px 26px;gap:20px 18px}.th-kids .th-side{height:min(560px,92vw)}.th-kids .th-ring{position:relative;left:auto;top:auto;margin:6px auto -6px;transform:none}.kp-st4{bottom:-22px}}
+@media(max-width:640px){.kp-board{gap:16px 12px;inset:26px 8px 22px}}
 </style>
 <section data-screen-label="Kids Entrepreneurship / Hero" class="k-hero th-hero th-kids" style="--ac:#D98A07">
   <div class="th-deco" aria-hidden="true"><svg class="th-pat" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="2"><path d="M30 650L130 560L210 600L300 430L380 470L470 280L560 180" stroke-width="5"/><g fill="currentColor"><circle cx="130" cy="560" r="8"/><circle cx="300" cy="430" r="8"/><circle cx="470" cy="280" r="8"/><circle cx="560" cy="180" r="9"/></g><g stroke-width="5"><path d="M110 130a60 60 0 1 1 90 52v28h-60v-28a60 60 0 0 1-30-52z"/><path d="M146 240h48"/></g></svg><span class="th-fi th-fi1"><svg class="x-ico"><use href="#i-trend"/></svg></span><span class="th-fi th-fi3"><svg class="x-ico"><use href="#i-cash"/></svg></span></div>
