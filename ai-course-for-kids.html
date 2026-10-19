@@ -1038,7 +1038,150 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 }
 @media(max-width:640px){.tl-4{grid-template-columns:1fr}}
 </style>
-<section data-screen-label="AI for Kids / Hero" class="k-hero" style="--ac:#D98A07">
+<style id="th-css">
+/* ============ TRACK HERO (2026-10): photo slider, diagonal ticker, themed motion ============ */
+.th-hero{height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:560px;max-height:960px;display:flex;flex-direction:column;justify-content:center;padding-top:4vh;padding-bottom:4vh}
+.th-hero .k-hero-grid{grid-template-columns:1fr 1fr;gap:64px;position:relative;z-index:2}
+.th-hero h1{font-size:clamp(2.4rem,min(8.2vh,5vw),5rem);margin-top:2.4vh}
+.th-hero .k-sub{margin-top:2.2vh}
+.th-hero .k-intro{margin-top:1.3vh}
+.th-hero .k-meta{margin-top:2.2vh}
+.th-hero .x-cta{margin-top:3vh}
+.th-side{position:absolute;z-index:1;top:0;bottom:0;right:0;left:50%;overflow:hidden}
+.th-cols{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px;background:#0B1220;clip-path:polygon(var(--a,4%) 0,100% 0,100% 100%,var(--b,50%) 100%)}
+.th-col{overflow:hidden}
+.th-col .tr{display:flex;flex-direction:column;gap:10px;padding-top:10px;will-change:transform;backface-visibility:hidden;animation:thUp 80s linear infinite}
+.th-col:nth-child(2) .tr{animation-name:thDown;animation-duration:92s}
+.th-side:hover .tr{animation-play-state:paused}
+.th-col figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#1C2A3D;transform:translateZ(0)}
+.th-col:nth-child(1) figure{aspect-ratio:4/3.4}
+.th-col:nth-child(2) figure{aspect-ratio:4/5}
+.th-col img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.th-col figure:hover img{transform:scale(1.05)}
+.th-vt{position:absolute;z-index:2;left:calc(var(--mx,27%) - 29px);top:50%;width:58px;height:var(--len,1400px);margin-top:calc(var(--len,1400px) / -2);background:#0B1220;border-left:1px solid rgba(255,255,255,.12);border-right:1px solid rgba(255,255,255,.12);overflow:hidden;transform:rotate(var(--ang,-25deg));box-shadow:0 0 34px -8px rgba(10,20,34,.55)}
+.th-vt div{display:flex;flex-direction:column;align-items:center;height:max-content;animation:thUp 46s linear infinite}
+.th-vt span{writing-mode:vertical-rl;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;display:flex;align-items:center;gap:22px;padding:11px 0}
+.th-vt span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+.th-pill{position:absolute;z-index:3;display:flex;align-items:center;gap:11px;background:#fff;border-radius:14px;padding:10px 14px 10px 11px;box-shadow:0 20px 44px -20px rgba(0,0,0,.6);font-size:12px;line-height:1.3;color:var(--muted);animation:thFloat 7s ease-in-out infinite}
+.th-pill b{display:block;font-weight:700;font-size:13.5px;color:var(--ink)}
+.th-pill--a{top:92px;right:36px}
+.th-pill--a i{width:30px;height:30px;border-radius:9px;flex:none;background:#FDECEC;position:relative}
+.th-pill--a i::after{content:"";position:absolute;left:10px;top:10px;width:10px;height:10px;border-radius:50%;background:#E5484D;animation:thLive 1.8s ease-out infinite}
+.th-pill--b{bottom:132px;right:32px;animation-delay:-3.5s}
+.th-pill--b .x-ico{width:30px;height:30px;padding:6px;border-radius:9px;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
+.th-now{position:absolute;z-index:3;left:56%;right:28px;bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:14px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.th-now small{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.th-now b{display:block;margin-top:5px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.2rem;letter-spacing:-.02em;color:#fff}
+.th-now .bar{flex:none;width:110px;height:3px;border-radius:9px;background:rgba(255,255,255,.25);overflow:hidden}
+.th-now .bar i{display:block;height:100%;width:40%;background:var(--ac);border-radius:9px;animation:thBar 3.2s ease-in-out infinite}
+.th-cols::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,transparent,rgba(11,18,32,.65));pointer-events:none}
+/* themed decoration */
+.th-deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+.th-pat{position:absolute;left:0;top:0;width:52%;height:100%;color:var(--ac);opacity:.075;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.th-design .th-pat{opacity:.14}
+.th-fi{position:absolute;width:52px;height:52px;border-radius:16px;background:#fff;color:var(--ac);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px -18px rgba(10,20,34,.45);border:1px solid color-mix(in srgb,var(--ac) 22%,#fff);translate:calc(var(--tx,0) * var(--d,14px)) calc(var(--ty,0) * var(--d,14px));transition:translate .5s cubic-bezier(.22,1,.36,1)}
+.th-fi svg{width:26px;height:26px}
+.th-fi1{left:3.5%;top:18%;--d:18px;animation:thFloat 6s ease-in-out infinite}
+.th-fi2{left:53%;top:52%;animation:none;translate:none;transition:none}
+.th-fi3{left:5%;top:82%;--d:12px;width:42px;height:42px;border-radius:13px;animation:thFloat 8s ease-in-out -4s infinite}
+.th-fi3 svg{width:21px;height:21px}
+.th-mascot{position:absolute;left:50%;top:73%;display:flex;align-items:center;gap:12px;padding:10px 16px 10px 10px;border-radius:20px;background:var(--ac);color:#fff;box-shadow:0 24px 50px -20px color-mix(in srgb,var(--ac) 80%,transparent);translate:calc(var(--tx,0) * 22px) calc(var(--ty,0) * 22px);transition:translate .5s cubic-bezier(.22,1,.36,1);animation:thFloat 6.5s ease-in-out -1s infinite}
+.th-mascot svg{width:40px;height:40px;padding:8px;border-radius:13px;background:rgba(255,255,255,.18);flex:none}
+.th-mascot b{font-size:13.5px;font-weight:700;white-space:nowrap}
+.th-ai .th-mascot svg{animation:thTilt 3s ease-in-out infinite}
+.th-cyber .th-mascot svg{animation:thPulse 2s ease-out infinite}
+.th-design .th-mascot svg{animation:thSpin 9s linear infinite}
+.th-odoo .th-mascot svg{animation:thSpin 6s linear infinite}
+.th-ecom .th-mascot svg{animation:thCart 2.4s ease-in-out infinite}
+.th-cloud .th-mascot svg{animation:thDrift 4s ease-in-out infinite}
+.th-marketing .th-mascot svg{animation:thShout 1.6s ease-in-out infinite}
+/* cybersecurity: black and red */
+.th-cyber .th-cols{background:#050505}
+.th-cyber .th-vt{background:#0A0A0A;border-color:rgba(220,38,38,.55);box-shadow:0 0 36px -4px rgba(220,38,38,.45)}
+.th-cyber .th-vt span{color:#FCA5A5}
+.th-cyber .th-cols::before{content:"";position:absolute;z-index:2;left:0;right:0;top:-30%;height:30%;background:linear-gradient(180deg,transparent,rgba(220,38,38,.22),transparent);animation:thScan 6s linear infinite;pointer-events:none}
+.th-cyber .th-mascot{background:#0A0A0A;box-shadow:0 0 0 1px rgba(220,38,38,.5),0 24px 50px -16px rgba(220,38,38,.55)}
+.th-cyber .th-mascot svg{color:#F87171;background:rgba(220,38,38,.18)}
+.th-cyber .th-fi{background:#0A0A0A;color:#F87171;border-color:rgba(220,38,38,.45)}
+/* graphic design: colourful */
+.th-design .th-vt span:nth-child(4n+1)::after{background:#E0457B}.th-design .th-vt span:nth-child(4n+2)::after{background:#F5A623}.th-design .th-vt span:nth-child(4n+3)::after{background:#6D4AFF}.th-design .th-vt span:nth-child(4n)::after{background:#0E9F6E}
+.th-design .th-fi1{color:#E0457B}.th-design .th-fi2{color:#6D4AFF}.th-design .th-fi3{color:#0E9F6E}
+.th-design .th-mascot{background:linear-gradient(120deg,#E0457B,#F5A623)}
+.th-tk{display:none}
+@keyframes thUp{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+@keyframes thDown{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
+@keyframes thTk{to{transform:translateX(-50%)}}
+@keyframes thBar{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
+@keyframes thFloat{50%{transform:translateY(-9px)}}
+@keyframes thLive{0%{box-shadow:0 0 0 0 rgba(229,72,77,.5)}70%{box-shadow:0 0 0 7px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
+@keyframes thTilt{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes thPulse{0%{box-shadow:0 0 0 0 rgba(248,113,113,.6)}100%{box-shadow:0 0 0 12px rgba(248,113,113,0)}}
+@keyframes thSpin{to{transform:rotate(360deg)}}
+@keyframes thCart{0%,100%{transform:translateX(0)}30%{transform:translateX(4px) rotate(-6deg)}60%{transform:translateX(-2px)}}
+@keyframes thDrift{50%{transform:translateX(5px)}}
+@keyframes thShout{50%{transform:scale(1.12) rotate(-6deg)}}
+@keyframes thScan{to{top:100%}}
+@media(max-width:1200px){.th-mascot b{display:none}.th-mascot{padding:10px}}
+@media(max-width:980px){
+  .th-hero{height:auto;max-height:none;min-height:0;justify-content:flex-start}
+  .th-hero .k-hero-grid{grid-template-columns:1fr;order:1}
+  .th-ph,.th-deco,.th-vt{display:none}
+  .th-side{position:relative;order:2;left:auto;height:460px;margin:40px calc(-1 * clamp(20px,5vw,40px)) 0;overflow:hidden;border-radius:36px 36px 0 0}
+  .th-cols{inset:0;padding:0 8px;clip-path:none}
+  .th-now{left:20px;right:20px;bottom:22px}
+  .th-tk{display:block;order:3;position:relative;z-index:4;margin:0 calc(-1 * clamp(20px,5vw,40px)) calc(-1 * 56px);background:#0B1220;color:#fff;padding:14px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
+  .th-tk div{display:flex;width:max-content;animation:thTk 40s linear infinite}
+  .th-tk span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 12px;white-space:nowrap;display:flex;align-items:center;gap:24px}
+  .th-tk span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+  .th-pill--a{left:16px;right:auto;top:20px}.th-pill--b{right:16px;bottom:96px}
+}
+@media(max-width:640px){.th-side{height:380px}.th-pill{padding:8px 10px;font-size:11px}.th-pill b{font-size:12.5px}.th-now b{font-size:1.05rem}.th-now .bar{display:none}}
+@media (prefers-reduced-motion:reduce){.th-col .tr,.th-vt div,.th-tk div,.th-pill,.th-pill--a i::after,.th-now .bar i,.th-fi,.th-mascot,.th-mascot svg,.th-cyber .th-cols::before{animation:none}}
+
+.th-mascot{display:none}
+@media(max-width:1280px){.th-fi{display:none}}
+
+.th-fi,.th-fi1,.th-fi2,.th-fi3{animation:none!important;translate:none!important;transition:none!important}
+.th-hero .th-vt{border-color:color-mix(in srgb,var(--ac) 55%,transparent);box-shadow:0 0 36px -4px color-mix(in srgb,var(--ac) 55%,transparent)}
+.th-hero .th-fi{border-color:color-mix(in srgb,var(--ac) 45%,#fff);box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 20%,transparent),0 18px 36px -14px color-mix(in srgb,var(--ac) 60%,transparent)}
+.th-hero .th-pill{box-shadow:0 20px 44px -18px color-mix(in srgb,var(--ac) 55%,rgba(0,0,0,.5))}
+.th-cyber .th-fi{border-color:rgba(220,38,38,.45)}
+/* full straight photos, band on the left edge, centred caption */
+@media(min-width:981px){
+.th-hero .th-side{left:52%;border-radius:44px 0 0 44px}
+.th-hero .th-cols{clip-path:none;inset:0 0 0 70px}
+.th-hero .th-vt{left:10px;top:-60px;width:58px;height:auto;bottom:-60px;margin-top:0;transform:rotate(4deg)}
+.th-hero .th-pill--a{right:36px;left:auto}
+}
+.th-hero .th-now{left:70px;right:0;justify-content:center;text-align:center;flex-direction:column;gap:10px}
+.th-hero .th-now .bar{width:120px}
+@media(max-width:980px){.th-hero .th-now{left:20px;right:20px}}
+.th-hero .th-fi2{left:47.5%;z-index:3}
+.th-hero .th-vt div{align-items:stretch}.th-hero .th-vt span{width:100%;align-items:center;line-height:1}
+/* logo ring replaces band + caption */
+.th-hero .th-vt,.th-hero .th-now,.th-hero .th-fi2{display:none}
+@media(min-width:981px){.th-hero .th-cols{inset:0;padding-left:10px}}
+.th-ring{position:absolute;z-index:4;left:calc(52% + 48px);top:calc(50% + 36px);width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;background:#0B1220;box-shadow:0 0 0 6px color-mix(in srgb,var(--ac) 35%,transparent),0 0 44px -4px color-mix(in srgb,var(--ac) 60%,transparent),0 30px 60px -24px rgba(0,0,0,.6)}
+.th-ring-t{position:absolute;inset:0;width:100%;height:100%;animation:thSpin 22s linear infinite}
+.th-ring-t text{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;fill:#fff}
+.th-ring img{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;box-shadow:0 0 0 3px var(--ac)}
+.th-hero:hover .th-ring-t{animation-duration:12s}
+@media(max-width:980px){.th-ring{position:relative;left:auto;top:auto;order:3;flex:none;margin:-120px auto -30px;transform:scale(.82)}.th-hero .th-tk{order:4}}
+@media (prefers-reduced-motion:reduce){.th-ring-t{animation:none}}
+@media(min-width:981px){.th-hero .k-hero-in{max-width:530px}.th-hero .k-intro{max-width:530px}}
+@media(min-width:981px){.th-ring{left:calc(76% + 5px);top:calc(50% + 36px)}}
+</style>
+<style>.k-other-grid.kg4{grid-template-columns:repeat(4,1fr)}@media(max-width:980px){.k-other-grid.kg4{grid-template-columns:1fr 1fr}}</style>
+<section data-screen-label="AI for Kids / Hero" class="k-hero th-hero th-kids" style="--ac:#D98A07">
+  <div class="th-deco" aria-hidden="true"><svg class="th-pat" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="2"><g stroke-width="3"><path d="M80 160L220 260L120 420L260 560L140 700M220 260L380 200L470 340L260 560M380 200L520 120M470 340L560 480"/></g><g fill="currentColor"><circle cx="80" cy="160" r="12"/><circle cx="220" cy="260" r="14"/><circle cx="120" cy="420" r="11"/><circle cx="260" cy="560" r="14"/><circle cx="140" cy="700" r="10"/><circle cx="380" cy="200" r="11"/><circle cx="470" cy="340" r="13"/><circle cx="520" cy="120" r="9"/><circle cx="560" cy="480" r="10"/></g></svg><span class="th-fi th-fi1"><svg class="x-ico"><use href="#i-chip"/></svg></span><span class="th-fi th-fi3"><svg class="x-ico"><use href="#i-bolt"/></svg></span></div>
+  <div class="th-side">
+    <div class="th-cols">
+      <div class="th-col"><div class="tr"><figure><img src="assets/bbt-kids-1.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-1.jpg'" alt="Children working on a project in a BBT Kids class" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-kids-3.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-3.jpg'" alt="Kids presenting their work at BBT" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-kids-5.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-5.jpg'" alt="A BBT Kids class on the Lahore campus" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-1.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-1.jpg'" alt="Children working on a project in a BBT Kids class" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-3.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-3.jpg'" alt="Kids presenting their work at BBT" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-5.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-5.jpg'" alt="A BBT Kids class on the Lahore campus" width="1000" height="750" loading="lazy"></figure></div></div>
+      <div class="th-col"><div class="tr"><figure><img src="assets/bbt-kids-2.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-2.jpg'" alt="A BBT Kids mentor helping students" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-kids-4.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-4.jpg'" alt="Students building in the BBT Kids lab" width="1000" height="750" loading="lazy"></figure><figure><img src="assets/bbt-kids-6.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-6.jpg'" alt="Children learning hands on at BBT Kids" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-2.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-2.jpg'" alt="A BBT Kids mentor helping students" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-4.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-4.jpg'" alt="Students building in the BBT Kids lab" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-kids-6.jpg" onerror="this.onerror=null;this.src='assets/bbt-fs-6.jpg'" alt="Children learning hands on at BBT Kids" width="1000" height="750" loading="lazy"></figure></div></div>
+    </div>
+    <div class="th-pill th-pill--a" aria-hidden="true"><i></i><span><b>Onsite only</b>DHA Phase II, Lahore</span></div>
+    <div class="th-pill th-pill--b" aria-hidden="true"><svg class="x-ico"><use href="#i-cal"/></svg><span><b>Summer Camp 2026</b>Age 12+</span></div>
+  </div>
   <div class="x-wrap k-hero-grid">
     <div class="k-hero-in">
       <nav class="k-crumb" aria-label="Breadcrumb"><a href="kids.html">BBT Kids</a><span>/</span><b>Age 12+</b></nav>
@@ -1051,14 +1194,13 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
         <a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20AI%20for%20Kids%20course%20for%20kids." class="x-btn x-btn--ghost">Chat on WhatsApp</a>
       </div>
     </div>
-    <div class="k-win-wrap" aria-hidden="true">
-      <div class="k-win">
-        <div class="k-win-bar"><i></i><i></i><i></i><span>curriculum.preview</span><b><svg class="x-ico"><use href="#i-kids"/></svg></b></div>
-        <div class="k-term"><div><span>[01]</span> Teachable Machine, train your own AI</div><div><span>[02]</span> Website building with Lovable</div><div><span>[03]</span> ChatGPT &amp; Claude workshops</div><div><span>[04]</span> Chatbots &amp; a virtual doctor demo</div><div class="ok">✓ 5 final projects &middot; certificate</div><div class="cur">&gt; <span class="blink">_</span></div></div>
-      </div>
-    </div>
+    <div class="th-ph" aria-hidden="true"></div>
   </div>
+  <div class="th-ring" aria-hidden="true"><svg class="th-ring-t" viewBox="0 0 220 220"><defs><path id="thr-kids-ai" d="M110,110 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs><text><textPath href="#thr-kids-ai" textLength="574" lengthAdjust="spacing">TEACHABLE MACHINE • LOVABLE • V0.DEV • CHATGPT • CLAUDE • </textPath></text></svg><img src="assets/bbt-badge.png" alt="" width="360" height="360"></div>
+  <div class="th-tk" aria-hidden="true"><div><span>Teachable Machine</span><span>Lovable</span><span>OpenAI.fm</span><span>v0.dev</span><span>ChatGPT</span><span>Claude</span><span>Groq Cloud</span><span>Chatbots</span><span>Voice assistants</span><span>AI ethics</span><span>Teachable Machine</span><span>Lovable</span><span>OpenAI.fm</span><span>v0.dev</span><span>ChatGPT</span><span>Claude</span><span>Groq Cloud</span><span>Chatbots</span><span>Voice assistants</span><span>AI ethics</span></div></div>
+  <script>(function(){var sec=document.currentScript.closest('section'),s=sec.querySelector('.th-side');function f(){if(1){s.removeAttribute('style');return}var w=s.clientWidth,h=s.clientHeight,a=w*.05,b=w*.5,d=b-a,len=Math.sqrt(h*h+d*d)+240,ang=-Math.atan(d/h)*180/Math.PI;s.style.cssText='--a:'+a+'px;--b:'+b+'px;--mx:'+((a+b)/2)+'px;--len:'+len+'px;--ang:'+ang+'deg'}f();addEventListener('resize',f);addEventListener('load',f);if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var r=0,x=0,y=0;sec.addEventListener('mousemove',function(e){var b=sec.getBoundingClientRect();x=(e.clientX-b.left)/b.width*2-1;y=(e.clientY-b.top)/b.height*2-1;if(!r)r=requestAnimationFrame(function(){r=0;sec.style.setProperty('--tx',x.toFixed(3));sec.style.setProperty('--ty',y.toFixed(3))})});sec.addEventListener('mouseleave',function(){sec.style.setProperty('--tx',0);sec.style.setProperty('--ty',0)})}})();</script>
 </section>
+<section data-screen-label="Tracks / Other courses" class="k-other"><div class="x-wrap"><div class="k-other-head"><b>Explore other kids courses</b><a href="kids.html#courses">See all 5 <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a></div><div class="k-other-grid kg4"><a href="maths-course-for-kids.html" style="--ac:#D98A07"><span class="ic"><svg class="x-ico"><use href="#i-calc"/></svg></span>Big Maths<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="spoken-english-course-for-kids.html" style="--ac:#D98A07"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span>Spoken English<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="stem-robotics-course-for-kids.html" style="--ac:#D98A07"><span class="ic"><svg class="x-ico"><use href="#i-box"/></svg></span>STEM Robotics<svg class="x-ico ar"><use href="#i-arrow"/></svg></a><a href="entrepreneurship-course-for-kids.html" style="--ac:#D98A07"><span class="ic"><svg class="x-ico"><use href="#i-trend"/></svg></span>Kids Entrepreneurship<svg class="x-ico ar"><use href="#i-arrow"/></svg></a></div></div></section>
 <section data-screen-label="AI for Kids / Learn" class="x-sec" style="background:var(--soft);--ac:#D98A07"><div class="x-wrap"><div class="x-th"><div><span class="x-label">What you will learn</span><h2 class="x-h2">Artificial Intelligence, explained by building it.</h2></div><div><p class="x-sub">Over 16 one hour classes students go from &ldquo;what is AI?&rdquo; to shipping a website, an app, a chatbot and a voice assistant they built themselves.</p></div></div><div class="t-plan" style="grid-template-columns:1fr 1fr"><div class="t-month"><span class="k">What they learn</span><ul style="margin-top:20px"><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Core AI Concepts</strong>: What AI is, how machine learning and data work, and where AI already turns up in YouTube, games, Alexa and maps.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Training Your Own Model</strong>: Google Teachable Machine. Train AI on images, sounds and poses, test it on classmates and find out where it gets things wrong.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Building with No-Code AI</strong>: Create a real personal webpage with Lovable and generate AI voice-over scripts with OpenAI.fm.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Apps &amp; Prototypes with v0.dev</strong>: Turn an idea into a working quiz, game or calculator, then share and test it with the rest of the class.</span></li></ul></div><div class="t-month t-month--ink"><span class="k">Going further</span><ul style="margin-top:20px"><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>ChatGPT &amp; Claude, Side by Side</strong>: Ask both the same questions, compare creative and factual answers, and learn what each one is actually good at.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Chatbots: Text and Voice</strong>: Build a simple text chatbot, then extend it with voice input and output into a talking assistant.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Virtual Doctor with Groq Cloud</strong>: Explore how AI is used in healthcare, role-play with a virtual doctor, then debate whether it should replace one.</span></li><li><svg class="x-ico"><use href="#i-check"/></svg><span><strong>Ethics &amp; Responsible Use</strong>: Bias, limitations, safe use and an honest look at what AI still cannot do.</span></li></ul></div></div></div></section>
 <section id="outline" data-screen-label="AI for Kids / Outline" class="x-sec" style="background:#fff;--ac:#D98A07"><div class="x-wrap"><div class="x-th"><div><span class="x-label">Course outline</span><h2 class="x-h2">Eight weeks. Sixteen classes. Five things built.</h2></div><div><p class="x-sub">Two one hour classes a week. Every module ends with something on screen, not just something in a notebook.</p></div></div><div class="k-learns tl-4"><article class="k-learn"><div class="top"><span class="nb">W1</span><span class="k">Lecture 1 &amp; 2</span></div><h3>Introduction to AI for Oceans &middot; Exploring AI Around Us</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>What is AI?</li><li><svg class="x-ico"><use href="#i-check"/></svg>How AI helps save oceans: plastic detection and climate monitoring</li><li><svg class="x-ico"><use href="#i-check"/></svg>Fun examples of AI in nature &amp; the environment</li><li><svg class="x-ico"><use href="#i-check"/></svg>AI in YouTube, games, Alexa and maps</li><li><svg class="x-ico"><use href="#i-check"/></svg>Difference between human intelligence &amp; AI</li><li><svg class="x-ico"><use href="#i-check"/></svg>Group quiz: &lsquo;AI or Not AI?&rsquo;</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W2</span><span class="k">Lecture 3 &amp; 4</span></div><h3>Teachable Machine Basics &middot; Teachable Machine Activity</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>What is Google Teachable Machine?</li><li><svg class="x-ico"><use href="#i-check"/></svg>Training AI with images and sounds</li><li><svg class="x-ico"><use href="#i-check"/></svg>Hands-on: train a model to recognise poses or sounds</li><li><svg class="x-ico"><use href="#i-check"/></svg>Test trained models with classmates</li><li><svg class="x-ico"><use href="#i-check"/></svg>Discuss limitations &amp; bias</li><li><svg class="x-ico"><use href="#i-check"/></svg>Reflection: &lsquo;Did the AI get it right?&rsquo;</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W3</span><span class="k">Lecture 5 &amp; 6</span></div><h3>Website Creation with Lovable &middot; Voice Script Generation</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>Introduction to Lovable, a no-code AI web builder</li><li><svg class="x-ico"><use href="#i-check"/></svg>Activity: create a personal webpage</li><li><svg class="x-ico"><use href="#i-check"/></svg>Explore templates and customisation</li><li><svg class="x-ico"><use href="#i-check"/></svg>Intro to AI-generated voices with OpenAI.fm</li><li><svg class="x-ico"><use href="#i-check"/></svg>Create simple voice-over scripts</li><li><svg class="x-ico"><use href="#i-check"/></svg>Students generate scripts for their own websites</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W4</span><span class="k">Lecture 7 &amp; 8</span></div><h3>AI App Building with v0.dev &middot; v0.dev Workshop</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>What is v0.dev?</li><li><svg class="x-ico"><use href="#i-check"/></svg>How AI helps make small apps &amp; prototypes</li><li><svg class="x-ico"><use href="#i-check"/></svg>Demo: build a simple interactive app</li><li><svg class="x-ico"><use href="#i-check"/></svg>Students create their own small app: a quiz, game or calculator</li><li><svg class="x-ico"><use href="#i-check"/></svg>Share &amp; test each other&rsquo;s apps</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W5</span><span class="k">Lecture 9 &amp; 10</span></div><h3>Exploring ChatGPT &middot; ChatGPT Hands-On</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>Intro to ChatGPT, text AI</li><li><svg class="x-ico"><use href="#i-check"/></svg>Fun uses: stories, poems, Q&amp;A</li><li><svg class="x-ico"><use href="#i-check"/></svg>Activity: role-play with ChatGPT</li><li><svg class="x-ico"><use href="#i-check"/></svg>Students create chatbot conversations</li><li><svg class="x-ico"><use href="#i-check"/></svg>Compare creative vs factual outputs</li><li><svg class="x-ico"><use href="#i-check"/></svg>Ethics: safe &amp; responsible use</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W6</span><span class="k">Lecture 11 &amp; 12</span></div><h3>Exploring Claude AI &middot; Claude Workshop</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>What is Claude (Anthropic&rsquo;s AI)?</li><li><svg class="x-ico"><use href="#i-check"/></svg>Compare with ChatGPT</li><li><svg class="x-ico"><use href="#i-check"/></svg>Activity: ask both the same questions, see the differences</li><li><svg class="x-ico"><use href="#i-check"/></svg>Team challenge: use Claude to generate a story, article or solution</li><li><svg class="x-ico"><use href="#i-check"/></svg>Reflection: which AI did better?</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W7</span><span class="k">Lecture 13 &amp; 14</span></div><h3>Virtual Doctor with Groq Cloud &middot; Virtual Doctor Activity</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>How AI is used in healthcare</li><li><svg class="x-ico"><use href="#i-check"/></svg>Explore a virtual doctor demo</li><li><svg class="x-ico"><use href="#i-check"/></svg>Discussion: can AI replace doctors?</li><li><svg class="x-ico"><use href="#i-check"/></svg>Students role-play asking the virtual doctor</li><li><svg class="x-ico"><use href="#i-check"/></svg>Group debate: AI in healthcare, pros &amp; cons</li></ul></article><article class="k-learn"><div class="top"><span class="nb">W8</span><span class="k">Lecture 15 &amp; 16</span></div><h3>Chatbots (Text + Voice) &middot; Final Projects &amp; Presentations</h3><ul><li><svg class="x-ico"><use href="#i-check"/></svg>Build a simple text chatbot</li><li><svg class="x-ico"><use href="#i-check"/></svg>Extend it with voice input/output</li><li><svg class="x-ico"><use href="#i-check"/></svg>Demo: voice-activated chatbot assistant</li><li><svg class="x-ico"><use href="#i-check"/></svg>Teams present: website, voice scripts, app, chatbot and virtual doctor</li><li><svg class="x-ico"><use href="#i-check"/></svg>Quiz + certificate</li></ul></article></div></div></section>
 <section data-screen-label="AI for Kids / Skills" class="x-sec" style="background:var(--soft);--ac:#D98A07"><div class="x-wrap"><div class="x-th"><div><span class="x-label">21st century skills</span><h2 class="x-h2">Beyond the syllabus.</h2></div><div><p class="x-sub">Every BBT Kids course is built around the same four skills, taught through the subject rather than alongside it.</p></div></div><div class="k-auds"><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-compass"/></svg></span><h3>Critical Thinking</h3><p>The ability to analyze, evaluate and make reasoned decisions.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-palette"/></svg></span><h3>Creativity</h3><p>Fostering innovation, imagination and problem-solving.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-mega"/></svg></span><h3>Communication</h3><p>Expressing ideas clearly and effectively in different forms.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-team"/></svg></span><h3>Collaboration</h3><p>Working well with others to achieve shared goals.</p></div></div></div></section>
