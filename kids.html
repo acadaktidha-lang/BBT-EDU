@@ -1038,6 +1038,259 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 }
 @media(max-width:640px){.tl-4{grid-template-columns:1fr}}
 </style>
+<style id="th-css">
+/* ============ TRACK HERO (2026-10): photo slider, diagonal ticker, themed motion ============ */
+.th-hero{height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:560px;max-height:960px;display:flex;flex-direction:column;justify-content:center;padding-top:4vh;padding-bottom:4vh}
+.th-hero .k-hero-grid{grid-template-columns:1fr 1fr;gap:64px;position:relative;z-index:2}
+.th-hero h1{font-size:clamp(2.4rem,min(8.2vh,5vw),5rem);margin-top:2.4vh}
+.th-hero .k-sub{margin-top:2.2vh}
+.th-hero .k-intro{margin-top:1.3vh}
+.th-hero .k-meta{margin-top:2.2vh}
+.th-hero .x-cta{margin-top:3vh}
+.th-side{position:absolute;z-index:1;top:0;bottom:0;right:0;left:50%;overflow:hidden}
+.th-cols{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px;background:#0B1220;clip-path:polygon(var(--a,4%) 0,100% 0,100% 100%,var(--b,50%) 100%)}
+.th-col{overflow:hidden}
+.th-col .tr{display:flex;flex-direction:column;gap:10px;padding-top:10px;will-change:transform;backface-visibility:hidden;animation:thUp 80s linear infinite}
+.th-col:nth-child(2) .tr{animation-name:thDown;animation-duration:92s}
+.th-side:hover .tr{animation-play-state:paused}
+.th-col figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#1C2A3D;transform:translateZ(0)}
+.th-col:nth-child(1) figure{aspect-ratio:4/3.4}
+.th-col:nth-child(2) figure{aspect-ratio:4/5}
+.th-col img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.th-col figure:hover img{transform:scale(1.05)}
+.th-vt{position:absolute;z-index:2;left:calc(var(--mx,27%) - 29px);top:50%;width:58px;height:var(--len,1400px);margin-top:calc(var(--len,1400px) / -2);background:#0B1220;border-left:1px solid rgba(255,255,255,.12);border-right:1px solid rgba(255,255,255,.12);overflow:hidden;transform:rotate(var(--ang,-25deg));box-shadow:0 0 34px -8px rgba(10,20,34,.55)}
+.th-vt div{display:flex;flex-direction:column;align-items:center;height:max-content;animation:thUp 46s linear infinite}
+.th-vt span{writing-mode:vertical-rl;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;display:flex;align-items:center;gap:22px;padding:11px 0}
+.th-vt span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+.th-pill{position:absolute;z-index:3;display:flex;align-items:center;gap:11px;background:#fff;border-radius:14px;padding:10px 14px 10px 11px;box-shadow:0 20px 44px -20px rgba(0,0,0,.6);font-size:12px;line-height:1.3;color:var(--muted);animation:thFloat 7s ease-in-out infinite}
+.th-pill b{display:block;font-weight:700;font-size:13.5px;color:var(--ink)}
+.th-pill--a{top:92px;right:36px}
+.th-pill--a i{width:30px;height:30px;border-radius:9px;flex:none;background:#FDECEC;position:relative}
+.th-pill--a i::after{content:"";position:absolute;left:10px;top:10px;width:10px;height:10px;border-radius:50%;background:#E5484D;animation:thLive 1.8s ease-out infinite}
+.th-pill--b{bottom:132px;right:32px;animation-delay:-3.5s}
+.th-pill--b .x-ico{width:30px;height:30px;padding:6px;border-radius:9px;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
+.th-now{position:absolute;z-index:3;left:56%;right:28px;bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:14px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.th-now small{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.th-now b{display:block;margin-top:5px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.2rem;letter-spacing:-.02em;color:#fff}
+.th-now .bar{flex:none;width:110px;height:3px;border-radius:9px;background:rgba(255,255,255,.25);overflow:hidden}
+.th-now .bar i{display:block;height:100%;width:40%;background:var(--ac);border-radius:9px;animation:thBar 3.2s ease-in-out infinite}
+.th-cols::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,transparent,rgba(11,18,32,.65));pointer-events:none}
+/* themed decoration */
+.th-deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+.th-pat{position:absolute;left:0;top:0;width:52%;height:100%;color:var(--ac);opacity:.075;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.th-design .th-pat{opacity:.14}
+.th-fi{position:absolute;width:52px;height:52px;border-radius:16px;background:#fff;color:var(--ac);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px -18px rgba(10,20,34,.45);border:1px solid color-mix(in srgb,var(--ac) 22%,#fff);translate:calc(var(--tx,0) * var(--d,14px)) calc(var(--ty,0) * var(--d,14px));transition:translate .5s cubic-bezier(.22,1,.36,1)}
+.th-fi svg{width:26px;height:26px}
+.th-fi1{left:3.5%;top:18%;--d:18px;animation:thFloat 6s ease-in-out infinite}
+.th-fi2{left:53%;top:52%;animation:none;translate:none;transition:none}
+.th-fi3{left:5%;top:82%;--d:12px;width:42px;height:42px;border-radius:13px;animation:thFloat 8s ease-in-out -4s infinite}
+.th-fi3 svg{width:21px;height:21px}
+.th-mascot{position:absolute;left:50%;top:73%;display:flex;align-items:center;gap:12px;padding:10px 16px 10px 10px;border-radius:20px;background:var(--ac);color:#fff;box-shadow:0 24px 50px -20px color-mix(in srgb,var(--ac) 80%,transparent);translate:calc(var(--tx,0) * 22px) calc(var(--ty,0) * 22px);transition:translate .5s cubic-bezier(.22,1,.36,1);animation:thFloat 6.5s ease-in-out -1s infinite}
+.th-mascot svg{width:40px;height:40px;padding:8px;border-radius:13px;background:rgba(255,255,255,.18);flex:none}
+.th-mascot b{font-size:13.5px;font-weight:700;white-space:nowrap}
+.th-ai .th-mascot svg{animation:thTilt 3s ease-in-out infinite}
+.th-cyber .th-mascot svg{animation:thPulse 2s ease-out infinite}
+.th-design .th-mascot svg{animation:thSpin 9s linear infinite}
+.th-odoo .th-mascot svg{animation:thSpin 6s linear infinite}
+.th-ecom .th-mascot svg{animation:thCart 2.4s ease-in-out infinite}
+.th-cloud .th-mascot svg{animation:thDrift 4s ease-in-out infinite}
+.th-marketing .th-mascot svg{animation:thShout 1.6s ease-in-out infinite}
+/* cybersecurity: black and red */
+.th-cyber .th-cols{background:#050505}
+.th-cyber .th-vt{background:#0A0A0A;border-color:rgba(220,38,38,.55);box-shadow:0 0 36px -4px rgba(220,38,38,.45)}
+.th-cyber .th-vt span{color:#FCA5A5}
+.th-cyber .th-cols::before{content:"";position:absolute;z-index:2;left:0;right:0;top:-30%;height:30%;background:linear-gradient(180deg,transparent,rgba(220,38,38,.22),transparent);animation:thScan 6s linear infinite;pointer-events:none}
+.th-cyber .th-mascot{background:#0A0A0A;box-shadow:0 0 0 1px rgba(220,38,38,.5),0 24px 50px -16px rgba(220,38,38,.55)}
+.th-cyber .th-mascot svg{color:#F87171;background:rgba(220,38,38,.18)}
+.th-cyber .th-fi{background:#0A0A0A;color:#F87171;border-color:rgba(220,38,38,.45)}
+/* graphic design: colourful */
+.th-design .th-vt span:nth-child(4n+1)::after{background:#E0457B}.th-design .th-vt span:nth-child(4n+2)::after{background:#F5A623}.th-design .th-vt span:nth-child(4n+3)::after{background:#6D4AFF}.th-design .th-vt span:nth-child(4n)::after{background:#0E9F6E}
+.th-design .th-fi1{color:#E0457B}.th-design .th-fi2{color:#6D4AFF}.th-design .th-fi3{color:#0E9F6E}
+.th-design .th-mascot{background:linear-gradient(120deg,#E0457B,#F5A623)}
+.th-tk{display:none}
+@keyframes thUp{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+@keyframes thDown{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
+@keyframes thTk{to{transform:translateX(-50%)}}
+@keyframes thBar{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
+@keyframes thFloat{50%{transform:translateY(-9px)}}
+@keyframes thLive{0%{box-shadow:0 0 0 0 rgba(229,72,77,.5)}70%{box-shadow:0 0 0 7px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
+@keyframes thTilt{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes thPulse{0%{box-shadow:0 0 0 0 rgba(248,113,113,.6)}100%{box-shadow:0 0 0 12px rgba(248,113,113,0)}}
+@keyframes thSpin{to{transform:rotate(360deg)}}
+@keyframes thCart{0%,100%{transform:translateX(0)}30%{transform:translateX(4px) rotate(-6deg)}60%{transform:translateX(-2px)}}
+@keyframes thDrift{50%{transform:translateX(5px)}}
+@keyframes thShout{50%{transform:scale(1.12) rotate(-6deg)}}
+@keyframes thScan{to{top:100%}}
+@media(max-width:1200px){.th-mascot b{display:none}.th-mascot{padding:10px}}
+@media(max-width:980px){
+  .th-hero{height:auto;max-height:none;min-height:0;justify-content:flex-start}
+  .th-hero .k-hero-grid{grid-template-columns:1fr;order:1}
+  .th-ph,.th-deco,.th-vt{display:none}
+  .th-side{position:relative;order:2;left:auto;height:460px;margin:40px calc(-1 * clamp(20px,5vw,40px)) 0;overflow:hidden;border-radius:36px 36px 0 0}
+  .th-cols{inset:0;padding:0 8px;clip-path:none}
+  .th-now{left:20px;right:20px;bottom:22px}
+  .th-tk{display:block;order:3;position:relative;z-index:4;margin:0 calc(-1 * clamp(20px,5vw,40px)) calc(-1 * 56px);background:#0B1220;color:#fff;padding:14px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
+  .th-tk div{display:flex;width:max-content;animation:thTk 40s linear infinite}
+  .th-tk span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 12px;white-space:nowrap;display:flex;align-items:center;gap:24px}
+  .th-tk span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+  .th-pill--a{left:16px;right:auto;top:20px}.th-pill--b{right:16px;bottom:96px}
+}
+@media(max-width:640px){.th-side{height:380px}.th-pill{padding:8px 10px;font-size:11px}.th-pill b{font-size:12.5px}.th-now b{font-size:1.05rem}.th-now .bar{display:none}}
+@media (prefers-reduced-motion:reduce){.th-col .tr,.th-vt div,.th-tk div,.th-pill,.th-pill--a i::after,.th-now .bar i,.th-fi,.th-mascot,.th-mascot svg,.th-cyber .th-cols::before{animation:none}}
+
+.th-mascot{display:none}
+@media(max-width:1280px){.th-fi{display:none}}
+
+.th-fi,.th-fi1,.th-fi2,.th-fi3{animation:none!important;translate:none!important;transition:none!important}
+.th-hero .th-vt{border-color:color-mix(in srgb,var(--ac) 55%,transparent);box-shadow:0 0 36px -4px color-mix(in srgb,var(--ac) 55%,transparent)}
+.th-hero .th-fi{border-color:color-mix(in srgb,var(--ac) 45%,#fff);box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 20%,transparent),0 18px 36px -14px color-mix(in srgb,var(--ac) 60%,transparent)}
+.th-hero .th-pill{box-shadow:0 20px 44px -18px color-mix(in srgb,var(--ac) 55%,rgba(0,0,0,.5))}
+.th-cyber .th-fi{border-color:rgba(220,38,38,.45)}
+/* full straight photos, band on the left edge, centred caption */
+@media(min-width:981px){
+.th-hero .th-side{left:52%;border-radius:44px 0 0 44px}
+.th-hero .th-cols{clip-path:none;inset:0 0 0 70px}
+.th-hero .th-vt{left:10px;top:-60px;width:58px;height:auto;bottom:-60px;margin-top:0;transform:rotate(4deg)}
+.th-hero .th-pill--a{right:36px;left:auto}
+}
+.th-hero .th-now{left:70px;right:0;justify-content:center;text-align:center;flex-direction:column;gap:10px}
+.th-hero .th-now .bar{width:120px}
+@media(max-width:980px){.th-hero .th-now{left:20px;right:20px}}
+.th-hero .th-fi2{left:47.5%;z-index:3}
+.th-hero .th-vt div{align-items:stretch}.th-hero .th-vt span{width:100%;align-items:center;line-height:1}
+/* logo ring replaces band + caption */
+.th-hero .th-vt,.th-hero .th-now,.th-hero .th-fi2{display:none}
+@media(min-width:981px){.th-hero .th-cols{inset:0;padding-left:10px}}
+.th-ring{position:absolute;z-index:4;left:calc(52% + 48px);top:calc(50% + 36px);width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;background:#0B1220;box-shadow:0 0 0 6px color-mix(in srgb,var(--ac) 35%,transparent),0 0 44px -4px color-mix(in srgb,var(--ac) 60%,transparent),0 30px 60px -24px rgba(0,0,0,.6)}
+.th-ring-t{position:absolute;inset:0;width:100%;height:100%;animation:thSpin 22s linear infinite}
+.th-ring-t text{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;fill:#fff}
+.th-ring img{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;box-shadow:0 0 0 3px var(--ac)}
+.th-hero:hover .th-ring-t{animation-duration:12s}
+@media(max-width:980px){.th-ring{position:relative;left:auto;top:auto;order:3;flex:none;margin:-120px auto -30px;transform:scale(.82)}.th-hero .th-tk{order:4}}
+@media (prefers-reduced-motion:reduce){.th-ring-t{animation:none}}
+@media(min-width:981px){.th-hero .k-hero-in{max-width:530px}.th-hero .k-intro{max-width:530px}}
+@media(min-width:981px){.th-ring{left:calc(76% + 5px);top:calc(50% + 36px)}}
+</style>
+<style id="kids-css">
+/* ============ BBT KIDS (2026-10): logo colours navy, amber, teal, pink ============ */
+.x{--kn:#22195E;--ky:#F5A300;--kt:#12A6B2;--kp:#F2385C}
+/* each section gets one logo colour */
+section[data-screen-label$="/ Hero"]{--ac:#F2385C!important}
+section[data-screen-label$="/ What"],section[data-screen-label$="/ Learn"],section[data-screen-label$="/ Audience"]{--ac:#12A6B2!important}
+section[data-screen-label$="/ Grid"],section[data-screen-label$="/ Outline"],section[data-screen-label$="/ FAQ"]{--ac:#F2385C!important}
+section[data-screen-label$="/ Skills"],section[data-screen-label$="/ Final CTA"],section[data-screen-label$="/ Other courses"]{--ac:#F5A300!important}
+.x .x-label{color:color-mix(in srgb,var(--ac) 78%,#000)}
+.x .x-label::before{background:var(--ac);height:4px;border-radius:4px}
+.x .x-label--light{color:var(--ky)}
+.x .x-scrib path{stroke:var(--kp)}
+.x .x-btn--ink{background:var(--kn)}
+.x .x-btn--ink:hover{background:var(--kp)}
+/* cards cycle through the four colours */
+.k-learns>:nth-child(4n+1),.k-auds>:nth-child(4n+1),.kd-g>:nth-child(4n+1),.k-other-grid>:nth-child(4n+1),.t-faq>:nth-child(4n+1),.k-meta>:nth-child(4n+1){--ac:#F5A300!important}
+.k-learns>:nth-child(4n+2),.k-auds>:nth-child(4n+2),.kd-g>:nth-child(4n+2),.k-other-grid>:nth-child(4n+2),.t-faq>:nth-child(4n+2),.k-meta>:nth-child(4n+2){--ac:#12A6B2!important}
+.k-learns>:nth-child(4n+3),.k-auds>:nth-child(4n+3),.kd-g>:nth-child(4n+3),.k-other-grid>:nth-child(4n+3),.t-faq>:nth-child(4n+3),.k-meta>:nth-child(4n+3){--ac:#F2385C!important}
+.k-learns>:nth-child(4n+4),.k-auds>:nth-child(4n+4),.kd-g>:nth-child(4n+4),.k-other-grid>:nth-child(4n+4),.t-faq>:nth-child(4n+4),.k-meta>:nth-child(4n+4){--ac:#22195E!important}
+.k-meta span .x-ico{color:var(--ac)}
+.k-meta span{transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+.k-meta span:hover{transform:translateY(-3px);border-color:var(--ac)}
+/* bouncy hover */
+.k-learn,.k-aud,.kd-c,.k-other-grid a{transition:opacity .8s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s,background .3s}
+.k-learn:hover{transform:translateY(-6px)}
+.k-learn:hover,.k-aud:hover,.kd-c:hover{border-color:var(--ac);box-shadow:0 28px 50px -26px color-mix(in srgb,var(--ac) 70%,transparent)}
+.k-aud:hover,.kd-c:hover{transform:translateY(-8px) rotate(-1deg);border-color:var(--ac);box-shadow:0 28px 50px -26px color-mix(in srgb,var(--ac) 70%,transparent)}
+.k-auds>:nth-child(even):hover,.kd-g>:nth-child(even):hover{transform:translateY(-8px) rotate(1deg)}
+.k-other-grid a:hover{transform:translateY(-3px);border-color:var(--ac)}
+.k-other-grid a .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.k-other-grid a:hover .ic{transform:rotate(-12deg) scale(1.1)}
+.k-aud .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .3s,color .3s}
+.k-aud:hover .ic{transform:rotate(-10deg) scale(1.12);background:var(--ac);color:#fff}
+.kd-c .ft b{color:color-mix(in srgb,var(--ac) 72%,#000)}
+.k-learns>:nth-child(4n+1) .nb,.kd-g>:nth-child(4n+1) .ag{color:var(--kn)}
+/* course outline cards: coloured header band, week watermark, no tilt */
+.tl-4{counter-reset:wk}
+html body .tl-4 .k-learn.k-learn{padding:0 0 20px;border-radius:24px}html body .tl-4 .k-learn.k-learn h3{margin:18px 22px 12px}html body .tl-4 .k-learn.k-learn p.pl{margin:0 22px 8px}
+.tl-4 .k-learn{counter-increment:wk;border:1.5px solid color-mix(in srgb,var(--ac) 28%,#fff);border-radius:24px;background:#fff}
+.tl-4 .k-learn::before{transform:none;height:5px;z-index:2}
+.tl-4 .k-learn::after{content:counter(wk,decimal-leading-zero);position:absolute;right:16px;top:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.04em;color:var(--ac);opacity:.18;pointer-events:none}
+.tl-4 .k-learn .top{flex-direction:column;align-items:flex-start;gap:12px;padding:24px 22px 18px;background:color-mix(in srgb,var(--ac) 10%,#fff);border-bottom:1.5px dashed color-mix(in srgb,var(--ac) 40%,#fff);transition:background .3s}
+.tl-4 .k-learn .nb{width:auto;min-width:52px;height:40px;padding:0 14px;border-radius:12px;font-size:1.05rem}
+.tl-4 .k-learn .k{font-size:11.5px;line-height:1.4;padding-right:64px}
+.tl-4 .k-learn h3{margin:18px 22px 12px;font-size:1.12rem}
+.tl-4 .k-learn ul{margin:0 22px;gap:0}
+.tl-4 .k-learn p.pl{margin:0 22px 8px}
+.tl-4 .k-learn li{padding:8px 0;border-top:1px dashed var(--line)}
+.tl-4 .k-learn li:first-child{border-top:0;padding-top:0}
+.tl-4 .k-learn li .x-ico{box-sizing:border-box;width:22px;height:22px;padding:4px;margin-top:-1px;border-radius:50%;background:var(--ac);color:#fff;flex:none;stroke-width:3}
+.tl-4>:nth-child(4n+1) li .x-ico{color:var(--kn)}
+.tl-4 .k-learn:hover{border-color:var(--ac)}
+.tl-4 .k-learn:hover .top{background:color-mix(in srgb,var(--ac) 18%,#fff)}
+/* learn panels and FAQ */
+.t-month{border-top:5px solid var(--kt)}
+.t-month--ink{background:var(--kn);border-color:var(--kn);border-top-color:var(--ky)}
+.t-month--ink::before{background:rgba(242,56,92,.22)}
+.t-month li .x-ico{color:var(--kt)}
+.t-month--ink li .x-ico{color:var(--ky)}
+.t-month .k{color:#0B7F89}
+.t-month--ink .k{color:var(--ky)}
+.t-faq details{border-left:5px solid var(--ac)}
+.t-faq details[open] summary i{background:var(--ac)}
+.t-faq details[open] summary i::before,.t-faq details[open] summary i::after{background:#fff}
+/* final CTA in kids navy with flat logo-colour circles */
+.x .x-final{background:var(--kn)}
+.x .x-final::before{background:rgba(242,56,92,.22)}
+.x .x-final::after{content:"";position:absolute;left:-90px;bottom:-110px;width:260px;height:260px;border-radius:50%;background:rgba(18,166,178,.22);pointer-events:none}
+.x .x-final>*{position:relative;z-index:1}
+/* hero */
+.th-kids .th-cols{background:var(--kn)}
+.th-kids .th-pat{color:var(--kn);opacity:.09}
+.th-kids .th-fi1{color:var(--kt);border-color:color-mix(in srgb,var(--kt) 45%,#fff)}
+.th-kids .th-fi3{color:var(--ky);border-color:color-mix(in srgb,var(--ky) 45%,#fff)}
+.th-kids .th-pill--b .x-ico{color:var(--kt);background:color-mix(in srgb,var(--kt) 12%,#fff)}
+.th-kids .th-ring{background:var(--kn);box-shadow:0 0 0 6px var(--kt),0 0 0 12px color-mix(in srgb,var(--kp) 55%,transparent),0 30px 60px -24px rgba(0,0,0,.6)}
+.th-kids .th-ring img{box-shadow:0 0 0 3px var(--ky)}
+.th-kids .th-tk{background:var(--kn)}
+.th-kids .th-tk span:nth-child(4n+1)::after{background:var(--ky)}.th-kids .th-tk span:nth-child(4n+2)::after{background:var(--kt)}.th-kids .th-tk span:nth-child(4n+3)::after{background:var(--kp)}.th-kids .th-tk span:nth-child(4n)::after{background:#fff}
+@media (prefers-reduced-motion:reduce){.k-learn:hover,.k-aud:hover,.kd-c:hover,.k-auds>:nth-child(even):hover,.kd-g>:nth-child(even):hover{transform:none}}
+</style>
+<style id="kids-pol">
+/* ============ KIDS HERO: polaroid scrapbook instead of photo columns ============ */
+.th-kids .th-side{background:radial-gradient(color-mix(in srgb,var(--kn) 16%,transparent) 1.3px,transparent 1.5px) 0 0/22px 22px;border-radius:0;overflow:visible}
+.th-kids .th-cols{display:none}
+.kp-board{position:absolute;inset:0}
+.kp{position:absolute;margin:0;background:#fff;padding:10px 10px 0;border-radius:6px;box-shadow:0 2px 0 rgba(34,25,94,.06),0 22px 44px -18px rgba(34,25,94,.5);rotate:var(--r);transition:rotate .5s cubic-bezier(.34,1.56,.64,1),scale .5s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;animation:kpFloat 7s ease-in-out infinite;animation-delay:var(--dl,0s);z-index:2}
+.kp img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.kp figcaption{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--kn);text-align:center;padding:11px 0 13px}
+.kp::before{content:"";position:absolute;z-index:1;top:-13px;left:50%;width:96px;height:28px;margin-left:-48px;background:color-mix(in srgb,var(--tp) 72%,transparent);rotate:calc(var(--r) * -1.4);border-radius:3px}
+.kp:hover{rotate:0deg;scale:1.05;z-index:6;box-shadow:0 30px 60px -20px rgba(34,25,94,.55)}
+.kp1{--r:-6deg;--tp:var(--ky);left:5%;top:12%;width:44%}
+.kp2{--r:5deg;--tp:var(--kt);left:51%;top:7%;width:41%;--dl:-2s}
+.kp3{--r:4deg;--tp:var(--kp);left:9%;top:53%;width:40%;--dl:-4s}
+.kp4{--r:-4deg;--tp:var(--kn);left:52%;top:51%;width:43%;--dl:-5.5s}
+.kp-st{position:absolute;z-index:3;width:40px;height:40px;pointer-events:none}
+.kp-st1{left:46%;top:5%;color:var(--ky);rotate:12deg}
+.kp-st2{left:2%;top:46%;color:var(--kp);width:34px;height:34px}
+.kp-st3{right:3%;top:46%;color:var(--kt);width:46px;height:30px}
+.kp-st4{left:44%;bottom:6%;color:var(--kp);rotate:-10deg}
+.th-kids .th-pill{rotate:-3deg}@media(min-width:981px){.th-kids .th-pill--a{top:14px;right:7%}}
+.th-kids .th-pill--b{rotate:3deg;bottom:34px;right:auto;left:6%}.th-kids .kp-st4{left:auto;right:30%}@media(max-width:980px){.th-kids .th-pill--b{display:none}.th-kids .th-ring{margin:-56px auto -24px;transform:scale(.62)}.th-kids .th-side{height:560px}}
+@keyframes kpFloat{50%{translate:0 -8px}}
+@media(max-width:980px){.th-kids .th-side{height:520px;margin-top:28px}.kp figcaption{font-size:10px;padding:8px 0 9px}.kp::before{width:64px;height:22px;margin-left:-32px;top:-10px}}
+@media(max-width:640px){.th-kids .th-side{height:420px}.kp{padding:6px 6px 0}}
+@media (prefers-reduced-motion:reduce){.kp{animation:none}}
+/* fit v2: large photos, captions on the outer edges, ring clear of the text */
+.kp1 figcaption,.kp3 figcaption{text-align:left;padding-left:6px}
+.kp2 figcaption,.kp4 figcaption{text-align:right;padding-right:6px}
+.th-kids .th-ring{width:180px;height:180px;margin:-90px 0 0 -90px}
+.th-kids .th-ring img{width:122px;height:122px;margin:-61px 0 0 -61px}
+@media(max-width:980px){
+.th-kids .th-side{height:auto}
+.kp-board{position:relative;inset:auto;display:grid;grid-template-columns:1fr 1fr;gap:34px 20px;padding:34px 10px 28px}
+.kp{position:relative;left:auto;top:auto;width:100%}
+.kp-st1{left:50%;top:6px;margin-left:-20px}.kp-st2{left:-6px;top:50%}.kp-st3{right:-6px;top:50%}.kp-st4{left:auto;right:30%;bottom:-6px}
+.th-kids .th-ring{position:relative;left:auto;top:auto;margin:4px auto -8px;transform:none}
+}
+@media(max-width:640px){.kp-board{gap:26px 12px;padding:30px 4px 22px}}
+</style>
 <style>
 .kd-g{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:56px}
 .kd-c{grid-column:span 2;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,border-color .3s}
@@ -1053,7 +1306,13 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 @media(max-width:980px){.kd-g{grid-template-columns:1fr 1fr}.kd-c,.kd-c:nth-child(n+4){grid-column:auto}.k-auds--3{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.kd-g,.k-auds--3{grid-template-columns:1fr}}
 </style>
-<section data-screen-label="Kids / Hero" class="k-hero" style="--ac:#D98A07">
+<section data-screen-label="Kids / Hero" class="k-hero th-hero th-kids" style="--ac:#D98A07">
+  <div class="th-deco" aria-hidden="true"><svg class="th-pat" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="2"><g fill="currentColor"><path d="M120 120l14 34 36 3-27 23 9 35-32-19-32 19 9-35-27-23 36-3z"/><path d="M430 300l10 24 26 2-20 17 7 25-23-14-23 14 7-25-20-17 26-2z"/><path d="M180 560l12 28 30 3-23 20 8 29-27-16-27 16 8-29-23-20 30-3z"/></g><g stroke-width="5"><circle cx="420" cy="620" r="40"/><circle cx="300" cy="160" r="22"/></g></svg><span class="th-fi th-fi1"><svg class="x-ico"><use href="#i-kids"/></svg></span><span class="th-fi th-fi3"><svg class="x-ico"><use href="#i-award"/></svg></span></div>
+  <div class="th-side">
+    <div class="kp-board"><figure class="kp kp1"><img src="assets/kids/kids-team-photo.jpg" alt="A BBT Kids group photo while one student shows a stretch" width="1200" height="900" loading="lazy"><figcaption>Team photo</figcaption></figure><figure class="kp kp2"><img src="assets/kids/kids-saving-stall.jpg" alt="Two BBT Kids students at their snack stall with a savings box" width="1200" height="900" loading="lazy"><figcaption>Our stall</figcaption></figure><figure class="kp kp3"><img src="assets/kids/kids-quick-sums.jpg" alt="BBT Kids students playing a speed addition game on the class screen" width="1200" height="900" loading="lazy"><figcaption>Quick sums</figcaption></figure><figure class="kp kp4"><img src="assets/kids/kids-thumbs-up.jpg" alt="A BBT Kids student giving a thumbs up at an iMac in the lab" width="1200" height="900" loading="lazy"><figcaption>Thumbs up</figcaption></figure><svg class="kp-st kp-st1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg><svg class="kp-st kp-st2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></svg><svg class="kp-st kp-st3" viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M3 15c5-10 9-10 14 0s9 10 14 0 9-10 14 0"/></svg><svg class="kp-st kp-st4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7.5L21.5 11 14 13l-2 7.5L10 13l-7.5-2L10 8.5z"/></svg></div>
+    <div class="th-pill th-pill--a" aria-hidden="true"><i></i><span><b>Onsite only</b>DHA Phase II, Lahore</span></div>
+    <div class="th-pill th-pill--b" aria-hidden="true"><svg class="x-ico"><use href="#i-cal"/></svg><span><b>Summer Camp 2026</b>Ages 6 to 15</span></div>
+  </div>
   <div class="x-wrap k-hero-grid">
     <div class="k-hero-in">
       <nav class="k-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><b>BBT Kids &middot; Summer Camp 2026 &middot; Age 6-15</b></nav>
@@ -1064,13 +1323,11 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
         <a href="https://www.instagram.com/bbtkids_/" target="_blank" rel="noopener" class="x-btn x-btn--ghost">Follow @bbtkids_</a>
       </div>
     </div>
-    <div class="k-win-wrap" aria-hidden="true">
-      <div class="k-win">
-        <div class="k-win-bar"><i></i><i></i><i></i><span>summer.camp</span><b><svg class="x-ico"><use href="#i-kids"/></svg></b></div>
-        <div class="k-term"><div><span>[01]</span> AI for Kids</div><div><span>[02]</span> Big Maths</div><div><span>[03]</span> Spoken English</div><div><span>[04]</span> STEM Robotics</div><div><span>[05]</span> Kids Entrepreneurship</div><div class="cur">&gt; <span class="blink">_</span></div></div>
-      </div>
-    </div>
+    <div class="th-ph" aria-hidden="true"></div>
   </div>
+  <div class="th-ring" aria-hidden="true"><svg class="th-ring-t" viewBox="0 0 220 220"><defs><path id="thr-kids" d="M110,110 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs><text><textPath href="#thr-kids" textLength="574" lengthAdjust="spacing">AI • BIG MATHS • SPOKEN ENGLISH • ROBOTICS • STARTUPS • </textPath></text></svg><img src="assets/bbt-badge.png" alt="" width="360" height="360"></div>
+  <div class="th-tk" aria-hidden="true"><div><span>AI for Kids</span><span>Big Maths</span><span>Spoken English</span><span>STEM Robotics</span><span>Kids Entrepreneurship</span><span>AI for Kids</span><span>Big Maths</span><span>Spoken English</span><span>STEM Robotics</span><span>Kids Entrepreneurship</span></div></div>
+  <script>(function(){var sec=document.currentScript.closest('section'),s=sec.querySelector('.th-side');function f(){if(1){s.removeAttribute('style');return}var w=s.clientWidth,h=s.clientHeight,a=w*.05,b=w*.5,d=b-a,len=Math.sqrt(h*h+d*d)+240,ang=-Math.atan(d/h)*180/Math.PI;s.style.cssText='--a:'+a+'px;--b:'+b+'px;--mx:'+((a+b)/2)+'px;--len:'+len+'px;--ang:'+ang+'deg'}f();addEventListener('resize',f);addEventListener('load',f);if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var r=0,x=0,y=0;sec.addEventListener('mousemove',function(e){var b=sec.getBoundingClientRect();x=(e.clientX-b.left)/b.width*2-1;y=(e.clientY-b.top)/b.height*2-1;if(!r)r=requestAnimationFrame(function(){r=0;sec.style.setProperty('--tx',x.toFixed(3));sec.style.setProperty('--ty',y.toFixed(3))})});sec.addEventListener('mouseleave',function(){sec.style.setProperty('--tx',0);sec.style.setProperty('--ty',0)})}})();</script>
 </section>
 <section data-screen-label="Kids / What" class="x-sec" style="background:var(--soft);--ac:#D98A07"><div class="x-wrap">
   <div class="x-th"><div><span class="x-label">What is BBT Kids?</span><h2 class="x-h2">A summer camp that treats children like builders.</h2></div><div><p class="x-sub">Kids do not need a watered-down version of technology. They need a real one, explained properly. BBT Kids uses the same tools we teach adults, at the pace and in the language a child can actually work with.</p></div></div>
@@ -1103,7 +1360,7 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
   <div class="k-unsure p-ig"><span><svg class="x-ico"><use href="#i-globe"/></svg><span><small>See it in action</small><b>See what the kids actually make.</b> Build days, pitch days, robots that work on the third attempt, and student projects, all posted on the BBT Kids Instagram.</span></span><a href="https://www.instagram.com/bbtkids_/" target="_blank" rel="noopener" class="x-btn x-btn--ink">@bbtkids_ <svg class="x-ico" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow-ur"/></svg></a></div>
 </div></section>
 <section data-screen-label="Kids / FAQ" class="x-sec" style="background:#fff;"><div class="x-wrap t-faq-wrap"><div class="stick"><span class="x-label">BBT Kids FAQs</span><h2 class="x-h2">Your questions, answered straight.</h2></div><div class="t-faq">
-  <details open><summary>What ages is BBT Kids for?<i></i></summary><div class="a">The camp covers ages 6 to 15. STEM Robotics takes builders from age 6; AI for Kids, Big Maths, Spoken English and Kids Entrepreneurship are designed for age 12 and above.</div></details>
+  <details open><summary>What ages is BBT Kids for?<i></i></summary><div class="a">The camp covers ages 6 to 15. STEM Robotics takes builders from age 6; AI for Kids, Big Maths, Spoken English and Kids Entrepreneurship are designed for age 5 and above.</div></details>
   <details><summary>How long does each course run?<i></i></summary><div class="a">Two months. Four of the courses run 16 classes: 2 per week, 1 hour each. STEM Robotics runs 12 build sessions.</div></details>
   <details><summary>Can my child take more than one course?<i></i></summary><div class="a">Yes. The courses are independent and the schedules are built to be stackable. Talk to us and we will lay out a timetable that works.</div></details>
   <details><summary>Does my child need a laptop?<i></i></summary><div class="a">For AI for Kids and Kids Entrepreneurship, a laptop is useful for the hands-on sessions. STEM Robotics kits, and everything needed for Big Maths and Spoken English, are provided at the campus.</div></details>
