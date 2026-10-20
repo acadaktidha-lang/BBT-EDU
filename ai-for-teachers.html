@@ -945,6 +945,7 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 .k-lv .sal small{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#FFD27A;margin-bottom:6px}
 .k-lv .sal b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:-.03em;color:#fff}
 .k-lv .sal b i{font-style:normal;font-size:.9rem;font-weight:500;color:#A9B6C8}
+.th-pill--a .x-ico{width:30px;height:30px;padding:6px;border-radius:9px;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
 .k-glob{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
 .k-glob span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-weight:500;color:var(--ink)}
 .k-glob .x-ico{width:18px;height:18px;color:var(--ac)}
@@ -1017,36 +1018,181 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 .stk-t img{width:44px;height:44px;object-fit:contain;display:block}
 .stk-t span{font-size:.8rem;font-weight:500;color:#475569;text-align:center;line-height:1.2;padding:0 8px}
 .stk-note{margin:28px 0 0;text-align:center;font-size:.9rem;color:var(--muted)}
+.k-glob{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px}
+.k-glob span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-weight:500;color:var(--ink)}
+.k-glob .x-ico{width:18px;height:18px;color:var(--ac)}
+/* interactive cards: a soft glow in the page colour follows the cursor */
+html body .t-spot{--mx:50%;--my:50%}
+html body .t-spot:hover{background-image:radial-gradient(340px circle at var(--mx) var(--my),color-mix(in srgb,var(--ac,#F5A623) 20%,transparent),transparent 65%)}
+html body :is(.k-mod--ink,.gd-c--i,.ct-hl).t-spot:hover{background-image:radial-gradient(380px circle at var(--mx) var(--my),color-mix(in srgb,var(--ac,#F5A623) 38%,transparent),transparent 65%)}
+html body .gd-c--a.t-spot:hover{background-image:radial-gradient(340px circle at var(--mx) var(--my),rgba(255,255,255,.45),transparent 65%)}
+html body .t-spot:hover{box-shadow:0 26px 54px -26px color-mix(in srgb,var(--ac,#F5A623) 55%,rgba(10,20,34,.4))}
+html body :is(.k-mod,.k-proj,.gd-c,.ct-c).t-spot:hover{transform:translateY(-6px)}
+html body .k-roles li{transition:color .25s ease,padding-left .25s ease}
+html body .k-roles li:hover{color:var(--ac,#D98A07);padding-left:8px}
+@media (prefers-reduced-motion:reduce){html body .k-roles li:hover{padding-left:0}}
 @media (max-width:560px){.stk-g{gap:10px}.stk-t{width:calc(33.333% - 7px);height:104px}.stk-t img{width:36px;height:36px}.stk-t span{font-size:.72rem}}
 </style>
-<section data-screen-label="Teachers / Hero" class="k-hero" style="--ac:#D98A07">
+<style id="th-css">
+/* ============ TRACK HERO (2026-10): photo slider, diagonal ticker, themed motion ============ */
+.th-hero{height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:560px;max-height:960px;display:flex;flex-direction:column;justify-content:center;padding-top:4vh;padding-bottom:4vh}
+.th-hero .k-hero-grid{grid-template-columns:1fr 1fr;gap:64px;position:relative;z-index:2}
+.th-hero h1{font-size:clamp(2.4rem,min(8.2vh,5vw),5rem);margin-top:2.4vh}
+.th-hero .k-sub{margin-top:2.2vh}
+.th-hero .k-intro{margin-top:1.3vh}
+.th-hero .k-meta{margin-top:2.2vh}
+.th-hero .x-cta{margin-top:3vh}
+.th-side{position:absolute;z-index:1;top:0;bottom:0;right:0;left:50%;overflow:hidden}
+.th-cols{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px;background:#0B1220;clip-path:polygon(var(--a,4%) 0,100% 0,100% 100%,var(--b,50%) 100%)}
+.th-col{overflow:hidden}
+.th-col .tr{display:flex;flex-direction:column;gap:10px;padding-top:10px;will-change:transform;backface-visibility:hidden;animation:thUp 80s linear infinite}
+.th-col:nth-child(2) .tr{animation-name:thDown;animation-duration:92s}
+.th-side:hover .tr{animation-play-state:paused}
+.th-col figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#1C2A3D;transform:translateZ(0)}
+.th-col:nth-child(1) figure{aspect-ratio:4/3.4}
+.th-col:nth-child(2) figure{aspect-ratio:4/5}
+.th-col img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.th-col figure:hover img{transform:scale(1.05)}
+.th-vt{position:absolute;z-index:2;left:calc(var(--mx,27%) - 29px);top:50%;width:58px;height:var(--len,1400px);margin-top:calc(var(--len,1400px) / -2);background:#0B1220;border-left:1px solid rgba(255,255,255,.12);border-right:1px solid rgba(255,255,255,.12);overflow:hidden;transform:rotate(var(--ang,-25deg));box-shadow:0 0 34px -8px rgba(10,20,34,.55)}
+.th-vt div{display:flex;flex-direction:column;align-items:center;height:max-content;animation:thUp 46s linear infinite}
+.th-vt span{writing-mode:vertical-rl;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;display:flex;align-items:center;gap:22px;padding:11px 0}
+.th-vt span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+.th-pill{position:absolute;z-index:3;display:flex;align-items:center;gap:11px;background:#fff;border-radius:14px;padding:10px 14px 10px 11px;box-shadow:0 20px 44px -20px rgba(0,0,0,.6);font-size:12px;line-height:1.3;color:var(--muted);animation:thFloat 7s ease-in-out infinite}
+.th-pill b{display:block;font-weight:700;font-size:13.5px;color:var(--ink)}
+.th-pill--a{top:92px;right:36px}
+.th-pill--a i{width:30px;height:30px;border-radius:9px;flex:none;background:#FDECEC;position:relative}
+.th-pill--a i::after{content:"";position:absolute;left:10px;top:10px;width:10px;height:10px;border-radius:50%;background:#E5484D;animation:thLive 1.8s ease-out infinite}
+.th-pill--b{bottom:132px;right:32px;animation-delay:-3.5s}
+.th-pill--b .x-ico{width:30px;height:30px;padding:6px;border-radius:9px;background:color-mix(in srgb,var(--ac) 12%,#fff);color:var(--ac)}
+.th-now{position:absolute;z-index:3;left:56%;right:28px;bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:14px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.th-now small{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.th-now b{display:block;margin-top:5px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.2rem;letter-spacing:-.02em;color:#fff}
+.th-now .bar{flex:none;width:110px;height:3px;border-radius:9px;background:rgba(255,255,255,.25);overflow:hidden}
+.th-now .bar i{display:block;height:100%;width:40%;background:var(--ac);border-radius:9px;animation:thBar 3.2s ease-in-out infinite}
+.th-cols::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,transparent,rgba(11,18,32,.65));pointer-events:none}
+/* themed decoration */
+.th-deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+.th-pat{position:absolute;left:0;top:0;width:52%;height:100%;color:var(--ac);opacity:.075;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.th-design .th-pat{opacity:.14}
+.th-fi{position:absolute;width:52px;height:52px;border-radius:16px;background:#fff;color:var(--ac);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px -18px rgba(10,20,34,.45);border:1px solid color-mix(in srgb,var(--ac) 22%,#fff);translate:calc(var(--tx,0) * var(--d,14px)) calc(var(--ty,0) * var(--d,14px));transition:translate .5s cubic-bezier(.22,1,.36,1)}
+.th-fi svg{width:26px;height:26px}
+.th-fi1{left:3.5%;top:18%;--d:18px;animation:thFloat 6s ease-in-out infinite}
+.th-fi2{left:53%;top:52%;animation:none;translate:none;transition:none}
+.th-fi3{left:5%;top:82%;--d:12px;width:42px;height:42px;border-radius:13px;animation:thFloat 8s ease-in-out -4s infinite}
+.th-fi3 svg{width:21px;height:21px}
+.th-mascot{position:absolute;left:50%;top:73%;display:flex;align-items:center;gap:12px;padding:10px 16px 10px 10px;border-radius:20px;background:var(--ac);color:#fff;box-shadow:0 24px 50px -20px color-mix(in srgb,var(--ac) 80%,transparent);translate:calc(var(--tx,0) * 22px) calc(var(--ty,0) * 22px);transition:translate .5s cubic-bezier(.22,1,.36,1);animation:thFloat 6.5s ease-in-out -1s infinite}
+.th-mascot svg{width:40px;height:40px;padding:8px;border-radius:13px;background:rgba(255,255,255,.18);flex:none}
+.th-mascot b{font-size:13.5px;font-weight:700;white-space:nowrap}
+.th-ai .th-mascot svg{animation:thTilt 3s ease-in-out infinite}
+.th-cyber .th-mascot svg{animation:thPulse 2s ease-out infinite}
+.th-design .th-mascot svg{animation:thSpin 9s linear infinite}
+.th-odoo .th-mascot svg{animation:thSpin 6s linear infinite}
+.th-ecom .th-mascot svg{animation:thCart 2.4s ease-in-out infinite}
+.th-cloud .th-mascot svg{animation:thDrift 4s ease-in-out infinite}
+.th-marketing .th-mascot svg{animation:thShout 1.6s ease-in-out infinite}
+/* cybersecurity: black and red */
+.th-cyber .th-cols{background:#050505}
+.th-cyber .th-vt{background:#0A0A0A;border-color:rgba(220,38,38,.55);box-shadow:0 0 36px -4px rgba(220,38,38,.45)}
+.th-cyber .th-vt span{color:#FCA5A5}
+.th-cyber .th-cols::before{content:"";position:absolute;z-index:2;left:0;right:0;top:-30%;height:30%;background:linear-gradient(180deg,transparent,rgba(220,38,38,.22),transparent);animation:thScan 6s linear infinite;pointer-events:none}
+.th-cyber .th-mascot{background:#0A0A0A;box-shadow:0 0 0 1px rgba(220,38,38,.5),0 24px 50px -16px rgba(220,38,38,.55)}
+.th-cyber .th-mascot svg{color:#F87171;background:rgba(220,38,38,.18)}
+.th-cyber .th-fi{background:#0A0A0A;color:#F87171;border-color:rgba(220,38,38,.45)}
+/* graphic design: colourful */
+.th-design .th-vt span:nth-child(4n+1)::after{background:#E0457B}.th-design .th-vt span:nth-child(4n+2)::after{background:#F5A623}.th-design .th-vt span:nth-child(4n+3)::after{background:#6D4AFF}.th-design .th-vt span:nth-child(4n)::after{background:#0E9F6E}
+.th-design .th-fi1{color:#E0457B}.th-design .th-fi2{color:#6D4AFF}.th-design .th-fi3{color:#0E9F6E}
+.th-design .th-mascot{background:linear-gradient(120deg,#E0457B,#F5A623)}
+.th-tk{display:none}
+@keyframes thUp{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+@keyframes thDown{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
+@keyframes thTk{to{transform:translateX(-50%)}}
+@keyframes thBar{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
+@keyframes thFloat{50%{transform:translateY(-9px)}}
+@keyframes thLive{0%{box-shadow:0 0 0 0 rgba(229,72,77,.5)}70%{box-shadow:0 0 0 7px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
+@keyframes thTilt{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes thPulse{0%{box-shadow:0 0 0 0 rgba(248,113,113,.6)}100%{box-shadow:0 0 0 12px rgba(248,113,113,0)}}
+@keyframes thSpin{to{transform:rotate(360deg)}}
+@keyframes thCart{0%,100%{transform:translateX(0)}30%{transform:translateX(4px) rotate(-6deg)}60%{transform:translateX(-2px)}}
+@keyframes thDrift{50%{transform:translateX(5px)}}
+@keyframes thShout{50%{transform:scale(1.12) rotate(-6deg)}}
+@keyframes thScan{to{top:100%}}
+@media(max-width:1200px){.th-mascot b{display:none}.th-mascot{padding:10px}}
+@media(max-width:980px){
+  .th-hero{height:auto;max-height:none;min-height:0;justify-content:flex-start}
+  .th-hero .k-hero-grid{grid-template-columns:1fr;order:1}
+  .th-ph,.th-deco,.th-vt{display:none}
+  .th-side{position:relative;order:2;left:auto;height:460px;margin:40px calc(-1 * clamp(20px,5vw,40px)) 0;overflow:hidden;border-radius:36px 36px 0 0}
+  .th-cols{inset:0;padding:0 8px;clip-path:none}
+  .th-now{left:20px;right:20px;bottom:22px}
+  .th-tk{display:block;order:3;position:relative;z-index:4;margin:0 calc(-1 * clamp(20px,5vw,40px)) calc(-1 * 56px);background:#0B1220;color:#fff;padding:14px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
+  .th-tk div{display:flex;width:max-content;animation:thTk 40s linear infinite}
+  .th-tk span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 12px;white-space:nowrap;display:flex;align-items:center;gap:24px}
+  .th-tk span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+  .th-pill--a{left:16px;right:auto;top:20px}.th-pill--b{right:16px;bottom:96px}
+}
+@media(max-width:640px){.th-side{height:380px}.th-pill{padding:8px 10px;font-size:11px}.th-pill b{font-size:12.5px}.th-now b{font-size:1.05rem}.th-now .bar{display:none}}
+@media (prefers-reduced-motion:reduce){.th-col .tr,.th-vt div,.th-tk div,.th-pill,.th-pill--a i::after,.th-now .bar i,.th-fi,.th-mascot,.th-mascot svg,.th-cyber .th-cols::before{animation:none}}
+
+.th-mascot{display:none}
+@media(max-width:1280px){.th-fi{display:none}}
+
+.th-fi,.th-fi1,.th-fi2,.th-fi3{animation:none!important;translate:none!important;transition:none!important}
+.th-hero .th-vt{border-color:color-mix(in srgb,var(--ac) 55%,transparent);box-shadow:0 0 36px -4px color-mix(in srgb,var(--ac) 55%,transparent)}
+.th-hero .th-fi{border-color:color-mix(in srgb,var(--ac) 45%,#fff);box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 20%,transparent),0 18px 36px -14px color-mix(in srgb,var(--ac) 60%,transparent)}
+.th-hero .th-pill{box-shadow:0 20px 44px -18px color-mix(in srgb,var(--ac) 55%,rgba(0,0,0,.5))}
+.th-cyber .th-fi{border-color:rgba(220,38,38,.45)}
+/* full straight photos, band on the left edge, centred caption */
+@media(min-width:981px){
+.th-hero .th-side{left:52%;border-radius:44px 0 0 44px}
+.th-hero .th-cols{clip-path:none;inset:0 0 0 70px}
+.th-hero .th-vt{left:10px;top:-60px;width:58px;height:auto;bottom:-60px;margin-top:0;transform:rotate(4deg)}
+.th-hero .th-pill--a{right:36px;left:auto}
+}
+.th-hero .th-now{left:70px;right:0;justify-content:center;text-align:center;flex-direction:column;gap:10px}
+.th-hero .th-now .bar{width:120px}
+@media(max-width:980px){.th-hero .th-now{left:20px;right:20px}}
+.th-hero .th-fi2{left:47.5%;z-index:3}
+.th-hero .th-vt div{align-items:stretch}.th-hero .th-vt span{width:100%;align-items:center;line-height:1}
+/* logo ring replaces band + caption */
+.th-hero .th-vt,.th-hero .th-now,.th-hero .th-fi2{display:none}
+@media(min-width:981px){.th-hero .th-cols{inset:0;padding-left:10px}}
+.th-ring{position:absolute;z-index:4;left:calc(52% + 48px);top:calc(50% + 36px);width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;background:#0B1220;box-shadow:0 0 0 6px color-mix(in srgb,var(--ac) 35%,transparent),0 0 44px -4px color-mix(in srgb,var(--ac) 60%,transparent),0 30px 60px -24px rgba(0,0,0,.6)}
+.th-ring-t{position:absolute;inset:0;width:100%;height:100%;animation:thSpin 22s linear infinite}
+.th-ring-t text{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;fill:#fff}
+.th-ring img{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;box-shadow:0 0 0 3px var(--ac)}
+.th-hero:hover .th-ring-t{animation-duration:12s}
+@media(max-width:980px){.th-ring{position:relative;left:auto;top:auto;order:3;flex:none;margin:-120px auto -30px;transform:scale(.82)}.th-hero .th-tk{order:4}}
+@media (prefers-reduced-motion:reduce){.th-ring-t{animation:none}}
+@media(min-width:981px){.th-hero .k-hero-in{max-width:530px}.th-hero .k-intro{max-width:530px}}
+@media(min-width:981px){.th-ring{left:calc(76% + 5px);top:calc(50% + 36px)}}
+</style>
+<section data-screen-label="Teachers / Hero" class="k-hero th-hero th-teach" style="--ac:#D98A07">
+  <div class="th-deco" aria-hidden="true"><svg class="th-pat" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="2"><rect x="50" y="90" width="230" height="150" rx="10" stroke-width="5"/><path d="M80 130h120M80 160h170M80 190h90" stroke-width="6" stroke-linecap="round"/><circle cx="430" cy="300" r="110" stroke-width="4"/><ellipse cx="430" cy="300" rx="48" ry="110" stroke-width="3"/><path d="M320 300h220M335 245h190M335 355h190" stroke-width="3"/><path d="M60 620c60-30 120-30 180 0v120c-60-30-120-30-180 0zM240 620c60-30 120-30 180 0v120c-60-30-120-30-180 0z" stroke-width="4"/><path d="M120 470L230 420L330 500L470 470" stroke-width="3"/><g fill="currentColor"><circle cx="120" cy="470" r="8"/><circle cx="230" cy="420" r="8"/><circle cx="330" cy="500" r="8"/><circle cx="470" cy="470" r="9"/></g></svg><span class="th-fi th-fi1"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span><span class="th-fi th-fi2"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/><path d="M9 8h7M9 11h5"/></svg></span><span class="th-fi th-fi3"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg></span></div>
+  <div class="th-side">
+    <div class="th-cols">
+      <div class="th-col"><div class="tr"><figure><img src="assets/bbt-ai-classroom.jpg" alt="Teachers and professionals in an AI class at the BBT Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure><img src="assets/bbt-lab-projector.jpg" alt="A lesson on the projector in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure><img src="assets/bbt-fs-1.jpg" alt="Learners following a lesson on the projector in a BBT lab" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-ai-classroom.jpg" alt="Teachers and professionals in an AI class at the BBT Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-projector.jpg" alt="A lesson on the projector in a BBT lab" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-1.jpg" alt="Learners following a lesson on the projector in a BBT lab" width="1000" height="750" loading="lazy"></figure></div></div>
+      <div class="th-col"><div class="tr"><figure><img src="assets/bbt-hero-class.jpg" alt="A BBT instructor teaching a class at the Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure><img src="assets/bbt-lab-mentor.jpg" alt="A BBT mentor guiding a hands on session" width="1200" height="900" loading="lazy"></figure><figure><img src="assets/bbt-fs-6.jpg" alt="A BBT instructor teaching at the projector" width="1000" height="750" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-hero-class.jpg" alt="A BBT instructor teaching a class at the Lahore campus" width="1600" height="1200" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-lab-mentor.jpg" alt="A BBT mentor guiding a hands on session" width="1200" height="900" loading="lazy"></figure><figure aria-hidden="true"><img src="assets/bbt-fs-6.jpg" alt="A BBT instructor teaching at the projector" width="1000" height="750" loading="lazy"></figure></div></div>
+    </div>
+    <div class="th-pill th-pill--a" aria-hidden="true"><svg class="x-ico"><use href="#i-pen"/></svg><span><b>Your own syllabus</b>Punjab, Federal and Cambridge</span></div>
+    <div class="th-pill th-pill--b" aria-hidden="true"><svg class="x-ico"><use href="#i-globe"/></svg><span><b>Tools used worldwide</b>ChatGPT, Gemini, NotebookLM</span></div>
+  </div>
   <div class="x-wrap k-hero-grid">
     <div class="k-hero-in">
       <nav class="k-crumb" aria-label="Breadcrumb"><span>Professionals</span><span>/</span><b>Advanced Professional Program</b></nav>
       <h1><span class="x-scrib">AI for Teachers<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span></h1>
       <p class="k-sub">Teach smarter with AI, using your own syllabus.</p>
       <p class="k-intro">A 2 month program for school, college and university teachers. Learn to plan lessons, make materials, set papers and check results with AI, and to check every answer it gives you. In month two you build your own AI helpers and automations.</p>
-      <div class="k-meta"><span><svg class="x-ico"><use href="#i-cal"/></svg>2 months</span><span><svg class="x-ico"><use href="#i-grid"/></svg>2 modules</span><span><svg class="x-ico"><use href="#i-check"/></svg>No coding needed</span><span><svg class="x-ico"><use href="#i-team"/></svg>Staff workshops</span></div>
+      <div class="k-meta"><span><svg class="x-ico"><use href="#i-cal"/></svg>2 months</span><span><svg class="x-ico"><use href="#i-grid"/></svg>2 modules</span><span><svg class="x-ico"><use href="#i-check"/></svg>No coding needed</span><span><svg class="x-ico"><use href="#i-award"/></svg>BBT certificate</span><span><svg class="x-ico"><use href="#i-team"/></svg>Staff workshops</span></div>
       <div class="x-cta">
         <a href="enroll.html#apply" class="x-btn x-btn--ink k-big">Apply for the program <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a>
         <a href="#workshops" class="x-btn x-btn--ghost">Book a workshop</a>
       </div>
     </div>
-    <div class="k-win-wrap" aria-hidden="true">
-      <div class="k-win">
-        <div class="k-win-bar"><i></i><i></i><i></i><span>lesson.plan</span><b><svg class="x-ico"><use href="#i-pen"/></svg></b></div>
-        <div class="k-term"><div class="cm">$ plan &#45;&#45;board punjab &#45;&#45;class 9</div><div><span>[01]</span> syllabus.<span>load(SLOs)</span></div><div><span>[02]</span> lesson.<span>level(3, urdu, english)</span></div><div><span>[03]</span> paper.<span>tag(bloom, outcome)</span></div><div><span>[04]</span> teacher.<span>check(every_answer)</span></div><div class="ok">✓ ready for tomorrow's class</div><div class="cur">&gt; <span class="blink">_</span></div></div>
-      </div>
-    </div>
+    <div class="th-ph" aria-hidden="true"></div>
   </div>
-  <div class="x-wrap">
-    <div class="k-facts">
-      <div class="k-fact k-fact--ink"><span class="ic"><svg class="x-ico"><use href="#i-cal"/></svg></span><div><b>2 months</b><span>One month per module</span></div></div>
-      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-grid"/></svg></span><div><b>Join one or both</b><span>Each module is one month</span></div></div>
-      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-check"/></svg></span><div><b>No coding</b><span>Basic computer skills are enough</span></div></div>
-      <div class="k-fact"><span class="ic"><svg class="x-ico"><use href="#i-award"/></svg></span><div><b>BBT certificate</b><span>After one final evaluation</span></div></div>
-    </div>
-  </div>
+  <div class="th-ring" aria-hidden="true"><svg class="th-ring-t" viewBox="0 0 220 220"><defs><path id="thr-teach" d="M110,110 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs><text><textPath href="#thr-teach" textLength="574" lengthAdjust="spacing">CHATGPT • GEMINI • NOTEBOOKLM • CLAUDE • CANVA • GAMMA • </textPath></text></svg><img src="assets/bbt-badge.png" alt="" width="360" height="360"></div>
+  <div class="th-tk" aria-hidden="true"><div><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>NotebookLM</span><span>Microsoft Copilot</span><span>MagicSchool</span><span>Khanmigo</span><span>Canva</span><span>Gamma</span><span>Google Forms</span><span>Google Sheets</span><span>Apps Script</span><span>Consensus</span><span>Zotero</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>NotebookLM</span><span>Microsoft Copilot</span><span>MagicSchool</span><span>Khanmigo</span><span>Canva</span><span>Gamma</span><span>Google Forms</span><span>Google Sheets</span><span>Apps Script</span><span>Consensus</span><span>Zotero</span></div></div>
+  <script>(function(){var sec=document.currentScript.closest('section');if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var r=0,x=0,y=0;sec.addEventListener('mousemove',function(e){var b=sec.getBoundingClientRect();x=(e.clientX-b.left)/b.width*2-1;y=(e.clientY-b.top)/b.height*2-1;if(!r)r=requestAnimationFrame(function(){r=0;sec.style.setProperty('--tx',x.toFixed(3));sec.style.setProperty('--ty',y.toFixed(3))})});sec.addEventListener('mouseleave',function(){sec.style.setProperty('--tx',0);sec.style.setProperty('--ty',0)})}})();</script>
 </section>
 <section data-screen-label="Teachers / Structure" class="x-sec" style="background:var(--soft);--ac:#D98A07"><div class="x-wrap"><div class="x-th"><div><span class="x-label">How the program runs</span><h2 class="x-h2">Two modules. Join one or both.</h2></div><div><p class="x-sub">Each module is one month. There are no quizzes or assignments: one evaluation at the end of your course, then your Big Binary Tech certificate.</p></div></div><div class="k-mods"><article class="k-mod"><div class="top"><span class="nb">Module 01</span><span class="chip">1 month</span></div><h3>AI Powered Teaching</h3><p class="in">Use AI for the work you do every week.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>How AI works and where it makes mistakes</li><li><svg class="x-ico"><use href="#i-check"/></svg>Prompts built on your syllabus and past papers</li><li><svg class="x-ico"><use href="#i-check"/></svg>Unit and lesson plans for weak, average and strong students</li><li><svg class="x-ico"><use href="#i-check"/></svg>Lessons in Urdu and English</li><li><svg class="x-ico"><use href="#i-check"/></svg>Slides, infographics and short video lessons</li><li><svg class="x-ico"><use href="#i-check"/></svg>Question banks, test papers, rubrics and feedback</li></ul><div class="who"><small>Who it is for</small><p>Any teacher who can use a computer. No AI experience needed.</p></div></article><article class="k-mod"><div class="top"><span class="nb">Module 02</span><span class="chip">1 month</span></div><h3>AI Systems for Educators</h3><p class="in">Build AI tools that keep working for you.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>A NotebookLM notebook for your course</li><li><svg class="x-ico"><use href="#i-check"/></svg>A class helper that gives hints, not answers</li><li><svg class="x-ico"><use href="#i-check"/></svg>Quiz games and learning apps, without coding</li><li><svg class="x-ico"><use href="#i-check"/></svg>Result analysis: weak topics and students at risk</li><li><svg class="x-ico"><use href="#i-check"/></svg>Automations for results, reminders and reports</li><li><svg class="x-ico"><use href="#i-check"/></svg>Research tools and a fair AI policy</li></ul><div class="who"><small>Who it is for</small><p>Teachers who already use AI, or Module 1 graduates. Direct entrants take a short entry check.</p></div></article><article class="k-mod k-mod--ink"><div class="top"><span class="nb">Full program</span><span class="chip">2 months</span></div><h3>Both modules</h3><p class="in">From your first prompt to leading AI in your school.</p><ul><li><svg class="x-ico"><use href="#i-check"/></svg>Everything in Module 1 and Module 2</li><li><svg class="x-ico"><use href="#i-check"/></svg>A track for where you teach: School and College, or University</li><li><svg class="x-ico"><use href="#i-check"/></svg>Present your AI teaching toolkit at the final evaluation</li><li><svg class="x-ico"><use href="#i-check"/></svg>A Big Binary Tech certificate</li></ul><div class="who"><small>Best for</small><p>Teachers who want to train colleagues and lead AI use.</p></div></article></div></div></section>
 <section data-screen-label="Teachers / Group offer" class="x-sec" style="background:#fff;--ac:#D98A07"><style>
@@ -1148,7 +1294,7 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
       <div class="k-sal"><span class="h">HEC draft framework</span><b>Every year</b><small>Universities are asked to train their faculty in AI</small></div>
       <div class="k-gl"><span class="h">Extra income</span><ul><li><svg class="x-ico"><use href="#i-cash"/></svg>Lesson packs and test papers for schools and academies</li><li><svg class="x-ico"><use href="#i-cash"/></svg>AI workshops for other teachers</li><li><svg class="x-ico"><use href="#i-cash"/></svg>Online courses and AI assisted tutoring</li></ul></div>
     </div>
-  </div></div></section>
+  </div><div class="k-glob"><span><svg class="x-ico"><use href="#i-globe"/></svg>Teach online to students in other countries</span><span><svg class="x-ico"><use href="#i-globe"/></svg>Sell lesson packs on global marketplaces</span><span><svg class="x-ico"><use href="#i-globe"/></svg>Work with the AI tools teachers use worldwide</span></div></div></section>
 <section data-screen-label="Teachers / Audience" class="x-sec" style="background:var(--soft);--ac:#D98A07"><div class="x-wrap"><div class="x-th"><div><span class="x-label">Who it is for</span><h2 class="x-h2">Built for teachers at every level.</h2></div><div><p class="x-sub">All you need is basic computer skills: typing, email, and Word or Google Docs.</p></div></div><div class="k-auds"><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-kids"/></svg></span><h3>School teachers</h3><p>Any subject, on Punjab Board, Federal Board or Cambridge.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-user"/></svg></span><h3>College lecturers</h3><p>Faster paper setting, result analysis and lessons for every level.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-award"/></svg></span><h3>University faculty</h3><p>Course design, research tools and a University track in Module 2.</p></div><div class="k-aud"><span class="ic"><svg class="x-ico"><use href="#i-team"/></svg></span><h3>Heads and coordinators</h3><p>Lead AI in your department with a fair policy and trained staff.</p></div></div>
   <div class="k-unsure"><span><svg class="x-ico"><use href="#i-compass"/></svg><b>Not sure where to start?</b> Talk to an advisor before you decide.</span><a href="https://wa.me/923260188811?text=Hi%20BBT%2C%20I%27m%20interested%20in%20the%20AI%20for%20Teachers%20program." class="x-btn x-btn--ink">Ask an advisor <svg class="x-ico x-arrow" style="width:18px;height:18px;stroke-width:2"><use href="#i-arrow"/></svg></a></div>
 </div></section>
@@ -1181,6 +1327,10 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p.children,el);el.classList.add('x-rv0');el.style.transitionDelay=Math.min(k,5)*70+'ms';io.observe(el)});})();
 </script>
 
+<script>
+(function(){if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.querySelectorAll('.k-mod,.k-proj,.gd-c,.k-aud,.ct-c,.k-roles,.k-gl,.k-sal').forEach(function(c){c.classList.add('t-spot');var r=0,x=0,y=0;c.addEventListener('pointermove',function(e){var b=c.getBoundingClientRect();x=e.clientX-b.left;y=e.clientY-b.top;if(!r)r=requestAnimationFrame(function(){r=0;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px')})})});})();
+</script>
 <footer data-screen-label="Tracks / Footer" class="x x-foot">
 <style>
 .x-foot{background:#0A1422;color:#9AA8BA;padding:56px clamp(20px,5vw,40px) 24px;position:relative;overflow:hidden}
