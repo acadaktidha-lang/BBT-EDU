@@ -230,11 +230,11 @@ section[data-screen-label$="/ Hero"] > svg[aria-hidden="true"]{
 span.nav-trig{cursor:default;-webkit-user-select:none;user-select:none}
 .nav-cv{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .25s ease;opacity:.5;margin-left:6px}
 .nav-item{position:relative;display:inline-flex;align-items:center}
-.nav-item:hover .nav-cv,.nav-item:focus-within .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
+.nav-item:hover .nav-cv,.nav-item:has(:focus-visible) .nav-cv{transform:rotate(-135deg) translateY(1px);opacity:.9}
 .nav-dd{position:absolute;top:100%;left:50%;padding-top:16px;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s;z-index:70}
-.nav-item:hover .nav-dd,.nav-item:focus-within .nav-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .2s ease}
+.nav-item:hover .nav-dd,.nav-item:has(:focus-visible) .nav-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .2s ease}
 .nav-dd-wide{left:0;transform:translateX(0) translateY(8px)}
-.nav-item:hover .nav-dd-wide,.nav-item:focus-within .nav-dd-wide{transform:translateX(0) translateY(0)}
+.nav-item:hover .nav-dd-wide,.nav-item:has(:focus-visible) .nav-dd-wide{transform:translateX(0) translateY(0)}
 .nav-dd-inner{background:#FFFFFF;border:1px solid #DCE3EC;border-radius:14px;box-shadow:0 24px 60px rgba(13,27,42,.14),0 2px 8px rgba(13,27,42,.05);padding:14px}
 .nav-dd-1 .nav-dd-inner{min-width:300px}
 .nav-dd-wide .nav-dd-inner{display:grid;grid-template-columns:repeat(3,minmax(208px,1fr));gap:6px 22px}
@@ -1242,9 +1242,13 @@ els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p
 .x-foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:.94rem}
 .x-foot .visit li{display:flex;gap:10px;align-items:flex-start;line-height:1.5}
 .x-foot .visit .x-ico{width:18px;height:18px;color:var(--amber);flex:none;margin-top:2px}
-.x-foot-big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.6rem,9vw,7.5rem);line-height:.8;letter-spacing:-.05em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);margin:36px 0 0;white-space:nowrap;user-select:none}
+.x-foot-big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.6rem,6vw,5rem);line-height:.8;letter-spacing:-.05em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);margin:36px 0 0;white-space:nowrap;user-select:none}
 .x-foot-bot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);margin-top:18px;padding-top:20px;font-size:.88rem;position:relative;z-index:1}
 .x-foot-bot a{display:inline-flex;align-items:center;gap:6px}
+.x-soc{flex-wrap:wrap}
+.x-soc a.x-gps{width:auto;height:42px;padding:0 16px 0 12px;gap:8px;color:#fff;font-size:.84rem;font-weight:500;white-space:nowrap}
+.x-soc a.x-gps:hover{background:rgba(255,255,255,.12);border-color:rgba(255,210,122,.6);color:#fff}
+.x-soc .x-gps svg{width:16px;height:16px;fill:none;flex:none}
 @media(max-width:980px){.x-foot-top{grid-template-columns:1fr 1fr 1fr}.x-foot .brand,.x-foot .visit{grid-column:1/-1}}
 @media(max-width:640px){.x-foot{padding:56px 16px 24px!important}.x-foot-top{grid-template-columns:1fr 1fr;gap:32px}.x-foot .brand img{height:54px}}
 </style>
@@ -1258,6 +1262,7 @@ els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p
           <a href="https://www.facebook.com/p/Big-Binary-Tech-61564664435910/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
           <a href="mailto:admissions@bbt.edu.pk" aria-label="Email"><svg class="x-ico"><use href="#i-mail"/></svg></a>
           <a href="https://maps.google.com/?q=Big+Binary+Tech+Lahore" aria-label="Directions" target="_blank" rel="noopener"><svg class="x-ico"><use href="#i-map"/></svg></a>
+          <a class="x-gps" href="https://www.google.com/preferences/source?q=bbt.edu.pk" target="_blank" rel="noopener" aria-label="Add Big Binary Tech as a preferred source on Google"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.91l-3.88-3c-1.07.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.27v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.27 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76l4-3.1z"/><path fill="#EA4335" d="M12 4.75c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.95 1.19 15.23 0 12 0A12 12 0 0 0 1.27 6.62l4 3.1C6.22 6.86 8.87 4.75 12 4.75z"/></svg>Preferred source on Google</a>
         </div>
       </div>
       <div><h4>Programs</h4><ul><li><a href="tracks.html">Career tracks</a></li><li><a href="kids.html">BBT Kids</a></li><li><a href="navttc.html">NAVTTC courses</a></li><li><a href="corporate-training.html">Corporate training</a></li></ul></div>
@@ -1269,7 +1274,7 @@ els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p
         <li><svg class="x-ico"><use href="#i-mail"/></svg><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a></li>
       </ul></div>
     </div>
-    <div class="x-foot-big" aria-hidden="true">BIG BINARY</div>
+    <div class="x-foot-big" aria-hidden="true">BIG BINARY TECH</div>
     <div class="x-foot-bot"><span>&copy; 2026 Big Binary Trainings. All rights reserved.</span><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to top <svg class="x-ico" style="width:16px;height:16px;transform:rotate(-90deg)"><use href="#i-arrow"/></svg></a></div>
   </div>
 </footer>
