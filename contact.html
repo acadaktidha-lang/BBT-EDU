@@ -821,7 +821,8 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 .c-hero{position:relative;overflow:hidden;padding:clamp(48px,7vh,88px) clamp(20px,5vw,40px) clamp(56px,8vh,96px);background:#FBF7F0}
 .c-hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-180px;top:-240px;background:#FCE3B0;opacity:.55;pointer-events:none}
 .c-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
-.c-hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.6rem,1rem + 4.6vw,5rem);line-height:.98;letter-spacing:-.045em;color:var(--ink);margin:28px 0 0}
+.c-hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.4rem,1rem + 3.8vw,4.2rem);line-height:1;letter-spacing:-.04em;color:var(--ink);margin:28px 0 0}
+.c-hero .c-sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(1.3rem,1rem + 1vw,1.75rem);line-height:1.2;letter-spacing:-.02em;color:var(--ink);margin:20px 0 0}
 .c-hero .x-lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.6;color:#4A5A6E;max-width:540px;margin:24px 0 0}
 .c-hero .x-cta{justify-content:flex-start;margin-top:30px}
 .c-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
@@ -861,7 +862,7 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 
 .c-form{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-top:56px;align-items:start}
 .c-form-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(24px,3.4vw,40px);box-shadow:0 30px 60px -36px rgba(10,20,34,.3)}
-.c-form-card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink);margin:0 0 6px}
+.c-form-card h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink);margin:0 0 6px}
 .c-form-card>p{margin:0 0 22px;font-size:.96rem;color:var(--muted)}
 .c-side{display:flex;flex-direction:column;gap:16px}
 .c-visit{position:relative;overflow:hidden;border-radius:26px;min-height:300px;display:flex;align-items:flex-end;color:#fff;background:#10213A}
@@ -893,6 +894,8 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
 .t-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
 .t-faq details[open] summary i{background:var(--amber)}
 .t-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.t-faq summary h3{font:inherit;letter-spacing:inherit;color:inherit;margin:0}
+@media(max-width:980px){section .c-form-card h2{font-size:1.35rem!important;line-height:1.2!important;letter-spacing:-.025em!important}section .t-faq summary h3{font-size:inherit!important;line-height:inherit!important}}
 .t-faq .a{padding:0 24px 22px;font-size:.98rem;line-height:1.65;color:var(--muted)}
 .t-trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .t-trust li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;color:#fff;font-weight:600;font-size:.98rem;line-height:1.35}
@@ -920,7 +923,8 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
   <div class="x-wrap c-hero-grid">
     <div class="x-hero-in">
       <a href="enroll.html#apply" class="x-chip"><i></i>Cohort 12 admissions are open <b>Apply &rarr;</b></a>
-      <h1>Let&#39;s talk about your <span class="x-scrib">career<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span>.</h1>
+      <h1>Contact Big Binary Trainings in <span class="x-scrib">Lahore<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C60 6 140 4 296 10"/></svg></span></h1>
+      <p class="c-sub">Let&#39;s talk about your career.</p>
       <p class="x-lead">Questions about a course, fees, batches or your career path? Reach out any way you like, or book a free counselling session with an advisor. Zero pressure.</p>
       <div class="c-pills"><span><svg class="x-ico"><use href="#i-map"/></svg>DHA Phase II, Lahore</span><span><svg class="x-ico"><use href="#i-clock"/></svg>Mon to Sat, 10 AM to 7 PM</span><span><svg class="x-ico"><use href="#i-globe"/></svg>Onsite + online</span></div>
       <div class="x-cta">
@@ -984,7 +988,7 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
       <div><p class="x-sub">Share a few details and an advisor will call you back to help you pick the right program.</p></div>
     </div>
     <div class="c-form">
-      <div class="c-form-card"><h3>Free counselling request</h3><p>No cost, no pressure. Online counselling is available too.</p><div class="bbt-ff bbt-ff--light">[fluentform id="4"]</div></div>
+      <div class="c-form-card"><h2>Free counselling request</h2><p>No cost, no pressure. Online counselling is available too.</p><div class="bbt-ff bbt-ff--light">[fluentform id="4"]</div></div>
       <div class="c-side">
         <div class="c-visit"><img src="assets/bbt-building-card.jpg" alt="The Big Binary Tech campus building in DHA Phase 2, Lahore" width="1400" height="927" loading="lazy">
           <div class="cap"><b>Visit the campus</b><p>444-Q, DHA Phase II, Lahore, Pakistan. Onsite and online classes available.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Big+Binary+Trainings+DHA+Phase+2+Lahore" target="_blank" rel="noopener">Open in Google Maps <svg class="x-ico" style="width:16px;height:16px;stroke-width:2"><use href="#i-arrow-ur"/></svg></a></div></div>
@@ -1001,9 +1005,9 @@ a:hover>.x-arrow,a:hover .x-arrow{transform:translateX(4px)}
     <div class="stick"><span class="x-label">Quick questions</span><h2 class="x-h2">Before you reach out.</h2><p class="x-sub">Most answers are a WhatsApp message away.</p>
       <div class="x-cta" style="justify-content:flex-start;"><a href="faqs.html" class="x-btn x-btn--ghost">See all FAQs</a></div></div>
     <div class="t-faq">
-      <details open><summary>How soon will I hear back?<i></i></summary><div class="a">WhatsApp replies are fastest, usually within the hour during working hours. Email replies come within one working day.</div></details>
-      <details><summary>Can I visit the campus before enrolling?<i></i></summary><div class="a">Absolutely. Drop by 444-Q, DHA Phase II, Lahore during working hours, or book a free counselling session and we'll show you around.</div></details>
-      <details><summary>Do you offer online counselling?<i></i></summary><div class="a">Yes. Online students anywhere in Pakistan can book a video counselling call. Just mention it when you reach out.</div></details>
+      <details open><summary><h3>How soon will I hear back?</h3><i></i></summary><div class="a">WhatsApp replies are fastest, usually within the hour during working hours. Email replies come within one working day.</div></details>
+      <details><summary><h3>Can I visit the campus before enrolling?</h3><i></i></summary><div class="a">Absolutely. Drop by 444-Q, DHA Phase II, Lahore during working hours, or book a free counselling session and we'll show you around.</div></details>
+      <details><summary><h3>Do you offer online counselling?</h3><i></i></summary><div class="a">Yes. Online students anywhere in Pakistan can book a video counselling call. Just mention it when you reach out.</div></details>
     </div>
   </div>
 </section>
@@ -1051,7 +1055,7 @@ els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p
 .x-soc a:hover svg{fill:var(--ink)}
 .x-soc .x-ico{fill:none;stroke:#fff}
 .x-soc a:hover .x-ico{stroke:var(--ink)}
-.x-foot h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1rem;color:#fff;margin:4px 0 18px;letter-spacing:-.01em}
+.x-foot .x-foot-h{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1rem;line-height:1.3;color:#fff;margin:4px 0 18px;letter-spacing:-.01em}
 .x-foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:.94rem}
 .x-foot .visit li{display:flex;gap:10px;align-items:flex-start;line-height:1.5}
 .x-foot .visit .x-ico{width:18px;height:18px;color:var(--amber);flex:none;margin-top:2px}
@@ -1078,10 +1082,10 @@ els.forEach(function(el){var p=el.parentElement,k=Array.prototype.indexOf.call(p
           <a class="x-gps" href="https://www.google.com/preferences/source?q=bbt.edu.pk" target="_blank" rel="noopener" aria-label="Add Big Binary Tech as a preferred source on Google"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.91l-3.88-3c-1.07.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.27v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.27 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76l4-3.1z"/><path fill="#EA4335" d="M12 4.75c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.95 1.19 15.23 0 12 0A12 12 0 0 0 1.27 6.62l4 3.1C6.22 6.86 8.87 4.75 12 4.75z"/></svg>Preferred source on Google</a>
         </div>
       </div>
-      <div><h4>Programs</h4><ul><li><a href="tracks.html">Career tracks</a></li><li><a href="kids.html">BBT Kids</a></li><li><a href="navttc.html">NAVTTC courses</a></li><li><a href="corporate-training.html">Corporate training</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="franchise.html">Franchise</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Resources</h4><ul><li><a href="blog.html">Blog</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="contact.html">Career assessment</a></li><li><a href="enroll.html#apply">Apply now</a></li></ul></div>
-      <div class="visit"><h4>Visit us</h4><ul>
+      <div><p class="x-foot-h">Programs</p><ul><li><a href="tracks.html">Career tracks</a></li><li><a href="kids.html">BBT Kids</a></li><li><a href="navttc.html">NAVTTC courses</a></li><li><a href="corporate-training.html">Corporate training</a></li></ul></div>
+      <div><p class="x-foot-h">Company</p><ul><li><a href="about.html">About us</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="franchise.html">Franchise</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><p class="x-foot-h">Resources</p><ul><li><a href="blog.html">Blog</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="contact.html">Career assessment</a></li><li><a href="enroll.html#apply">Apply now</a></li></ul></div>
+      <div class="visit"><p class="x-foot-h">Visit us</p><ul>
         <li><svg class="x-ico"><use href="#i-map"/></svg><span>First Floor, 444 Sector Q,<br>Phase 2 DHA, Lahore</span></li>
         <li><svg class="x-ico" aria-hidden="true"><use href="#i-phone"/></svg><a href="https://wa.me/923260188811">0326-0188811</a></li>
         <li><svg class="x-ico"><use href="#i-mail"/></svg><a href="mailto:admissions@bbt.edu.pk">admissions@bbt.edu.pk</a></li>
